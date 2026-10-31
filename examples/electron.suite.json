@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "name": "Electron project form",
+  "target": {
+    "kind": "electron",
+    "executable": "/absolute/path/to/electron-app",
+    "args": []
+  },
+  "healing": "off",
+  "tests": [
+    {
+      "id": "electron-save",
+      "name": "Save project",
+      "tags": [
+        "electron"
+      ],
+      "steps": [
+        {
+          "name": "Enter name",
+          "action": "fill",
+          "locator": {
+            "label": "Project name"
+          },
+          "value": "Electron"
+        },
+        {
+          "name": "Save",
+          "action": "click",
+          "locator": {
+            "role": "button",
+            "name": "Save project"
+          }
+        },
+        {
+          "name": "Verify result",
+          "action": "assertText",
+          "locator": {
+            "testId": "status"
+          },
+          "value": "Saved Electron"
+        }
+      ]
+    }
+  ]
+}

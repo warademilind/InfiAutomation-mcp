@@ -1,0 +1,43 @@
+{
+  "claudeDesktopOrCursor": {
+    "mcpServers": {
+      "testweave": {
+        "command": "node",
+        "args": [
+          "/absolute/path/testweave-mcp/dist/cli.js"
+        ],
+        "env": {
+          "TESTWEAVE_WORKSPACE": "/absolute/path/your-test-project"
+        }
+      }
+    }
+  },
+  "vscode": {
+    "servers": {
+      "testweave": {
+        "type": "stdio",
+        "command": "node",
+        "args": [
+          "/absolute/path/testweave-mcp/dist/cli.js"
+        ],
+        "env": {
+          "TESTWEAVE_WORKSPACE": "/absolute/path/your-test-project"
+        }
+      }
+    }
+  },
+  "windows": {
+    "mcpServers": {
+      "testweave": {
+        "command": "node",
+        "args": [
+          "D:\\testweave-mcp\\dist\\cli.js"
+        ],
+        "env": {
+          "TESTWEAVE_WORKSPACE": "D:\\tests",
+          "TESTWEAVE_NATIVE_WORKER": "D:\\testweave-worker\\TestWeave.Native.dll"
+        }
+      }
+    }
+  }
+}

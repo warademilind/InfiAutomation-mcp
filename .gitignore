@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.testweave/
+.tools/
+.cache/
+*.tgz
+**/bin/
+**/obj/
+native/publish/
+integration/output/
+.env
+.env.*
+!.env.example
+*.user
+*.suo

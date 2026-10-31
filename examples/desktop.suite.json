@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "name": "Windows project form",
+  "target": {
+    "kind": "desktop",
+    "executable": "C:\\path\\to\\YourApp.exe",
+    "timeoutMs": 10000
+  },
+  "healing": "off",
+  "tests": [
+    {
+      "id": "desktop-save",
+      "name": "Save project",
+      "tags": [
+        "desktop"
+      ],
+      "steps": [
+        {
+          "name": "Enter name",
+          "action": "fill",
+          "locator": {
+            "automationId": "ProjectName"
+          },
+          "value": "Desktop"
+        },
+        {
+          "name": "Save",
+          "action": "click",
+          "locator": {
+            "automationId": "SaveProject"
+          }
+        },
+        {
+          "name": "Verify result",
+          "action": "assertText",
+          "locator": {
+            "automationId": "Status"
+          },
+          "value": "Saved Desktop"
+        }
+      ]
+    }
+  ]
+}

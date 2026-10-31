@@ -1,0 +1,36 @@
+import { chromium } from 'playwright';
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { pathToFileURL } from 'node:url';
+import { resolve } from 'node:path';
+import assert from 'node:assert/strict';
+import { renderReport } from '../dist/report.js';
+const directory=(await readFile('integration/output/web-report-path.txt','utf8')).trim();
+const run = JSON.parse(await readFile(resolve(directory,'results.json'),'utf8'));
+await writeFile(resolve(directory,'index.html'),renderReport(run));
+await writeFile(resolve(directory,'detailed.html'),renderReport(run,true));
+const browser=await chromium.launch({headless:true});
+try {
+ const page=await browser.newPage({viewport:{width:1512,height:1100}});
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto(pathToFileURL(resolve(directory,'index.html')).href);
+ await page.getByRole('heading',{name:'Web adapter verification'}).waitFor();
+ assert.equal(await page.locator('#rows tr').count(),3);
+ await page.getByRole('button',{name:'Save project with form controls',exact:true}).click();
+ await page.getByRole('dialog').waitFor();assert.equal(await page.locator('.step').count(),6);
+ await page.keyboard.press('Escape');assert.equal(await page.getByRole('dialog').isVisible(),false);
+ await page.getByRole('button',{name:'Healing audit',exact:true}).click();
+ assert.equal(await page.locator('#rows tr').count(),1);
+ await page.getByRole('button',{name:'Recover renamed CSS ID with exact accessible identity',exact:true}).click();
+ await page.getByText('Locator repair applied',{exact:false}).waitFor();
+ await page.keyboard.press('Escape');
+ await page.getByRole('button',{name:'Overview',exact:true}).click();
+ await page.getByRole('searchbox').fill('negative');assert.equal(await page.locator('#rows tr').count(),1);
+ await page.getByRole('searchbox').fill('');
+ await mkdir('integration/output',{recursive:true});
+ await page.screenshot({path:'integration/output/report-desktop.png',fullPage:true});
+ await page.setViewportSize({width:390,height:844});await page.screenshot({path:'integration/output/report-mobile.png',fullPage:true});
+ assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>window.innerWidth),false);
+ await page.goto(pathToFileURL(resolve(directory,'detailed.html')).href);assert.equal(await page.locator('#overview').isVisible(),false);
+ assert.deepEqual(errors,[]);
+ console.log('Report UI verified: rendering, filters, search, drilldown, healing audit, keyboard dismissal, mobile layout and detailed entry point');
+}finally{await browser.close()}

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "name": "Windows Calculator",
+  "target": {
+    "kind": "desktop",
+    "executable": "calc.exe",
+    "timeoutMs": 10000
+  },
+  "healing": "off",
+  "tests": [
+    {
+      "id": "calculator-addition",
+      "name": "Add two and three",
+      "tags": [
+        "calculator"
+      ],
+      "steps": [
+        {
+          "name": "Clear",
+          "action": "click",
+          "locator": {
+            "automationId": "clearButton"
+          }
+        },
+        {
+          "name": "Two",
+          "action": "click",
+          "locator": {
+            "automationId": "num2Button"
+          }
+        },
+        {
+          "name": "Add",
+          "action": "click",
+          "locator": {
+            "automationId": "plusButton"
+          }
+        },
+        {
+          "name": "Three",
+          "action": "click",
+          "locator": {
+            "automationId": "num3Button"
+          }
+        },
+        {
+          "name": "Equals",
+          "action": "click",
+          "locator": {
+            "automationId": "equalButton"
+          }
+        },
+        {
+          "name": "Verify result",
+          "action": "assertText",
+          "locator": {
+            "automationId": "CalculatorResults"
+          },
+          "value": "Display is 5"
+        }
+      ]
+    }
+  ]
+}

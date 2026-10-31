@@ -1,0 +1,11 @@
+.tools/
+.testweave/
+.cache/
+node_modules/
+integration/
+tests/
+native/**/bin/
+native/**/obj/
+native/publish/
+.github/
+*.tgz

@@ -1,0 +1,32 @@
+{
+  "name": "testweave-mcp",
+  "version": "0.1.0",
+  "description": "One MCP for evidence-based web, Electron and Windows desktop testing, with auditable healing and offline HTML reports.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Milind Warade",
+  "repository": { "type": "git", "url": "https://github.com/warademilind/testweave-mcp.git" },
+  "homepage": "https://github.com/warademilind/testweave-mcp#readme",
+  "bugs": { "url": "https://github.com/warademilind/testweave-mcp/issues" },
+  "keywords": ["mcp", "playwright", "flaui", "electron", "testing", "desktop", "self-healing"],
+  "engines": { "node": ">=24" },
+  "bin": { "testweave-mcp": "dist/cli.js" },
+  "exports": { ".": "./dist/index.js" },
+  "files": ["dist", "native/TestWeave.Native/Program.cs", "native/TestWeave.Native/TestWeave.Native.csproj", "native/TestWeave.Native/packages.lock.json", "native/licenses", "scripts/build-native.mjs", "examples", "docs", "README.md", "LICENSE", "THIRD_PARTY_NOTICES.md"],
+  "scripts": {
+    "build": "tsc",
+    "check": "tsc --noEmit",
+    "test": "node --import tsx --test --test-concurrency=1 tests/*.test.ts",
+    "test:integration": "node --import tsx --test --test-concurrency=1 integration/*.test.ts",
+    "build:native": "node scripts/build-native.mjs",
+    "start": "node dist/cli.js",
+    "dev": "npm run build && node dist/cli.js",
+    "prepack": "npm run build",
+    "prepare": "npm run build",
+    "test:integration:web": "node --import tsx --test --test-name-pattern=\"real Chromium\" integration/adapters.test.ts",
+    "test:integration:electron": "node --import tsx --test --test-name-pattern=\"real Electron\" integration/adapters.test.ts",
+    "test:integration:native": "node --import tsx --test --test-name-pattern=\"real Windows\" integration/adapters.test.ts"
+  },
+  "dependencies": { "@modelcontextprotocol/server": "2.4.0", "playwright": "1.64.1", "zod": "4.6.7" },
+  "devDependencies": { "@modelcontextprotocol/client": "2.4.0", "@types/node": "^22.0.0", "tsx": "^4.0.0", "typescript": "7.0.2" }
+}

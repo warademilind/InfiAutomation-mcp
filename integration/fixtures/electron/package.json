@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "name": "testweave-electron-fixture",
+  "version": "0.1.0",
+  "devDependencies": {
+    "electron": "45.2.1"
+  },
+  "dependencies": {
+    "testweave-mcp": "file:../../.."
+  }
+}

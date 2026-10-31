@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "name": "Project workspace · smoke checks",
+  "target": {
+    "kind": "web",
+    "url": "./examples/fixture.html",
+    "headless": true
+  },
+  "healing": "off",
+  "tests": [
+    {
+      "id": "save-project",
+      "name": "Create and save a project",
+      "tags": [
+        "smoke",
+        "forms"
+      ],
+      "requirements": [
+        "R01"
+      ],
+      "steps": [
+        {
+          "name": "Enter project name",
+          "action": "fill",
+          "locator": {
+            "label": "Project name"
+          },
+          "value": "Launch"
+        },
+        {
+          "name": "Enable notifications",
+          "action": "check",
+          "locator": {
+            "role": "checkbox",
+            "name": "Enable notifications"
+          }
+        },
+        {
+          "name": "Verify notifications",
+          "action": "assertChecked",
+          "locator": {
+            "role": "checkbox",
+            "name": "Enable notifications"
+          },
+          "value": true
+        },
+        {
+          "name": "Select priority",
+          "action": "select",
+          "locator": {
+            "label": "Priority"
+          },
+          "value": "high"
+        },
+        {
+          "name": "Save project",
+          "action": "click",
+          "locator": {
+            "role": "button",
+            "name": "Save project"
+          }
+        },
+        {
+          "name": "Verify saved project",
+          "action": "assertText",
+          "locator": {
+            "testId": "status"
+          },
+          "value": "Saved Launch"
+        }
+      ]
+    },
+    {
+      "id": "export-project",
+      "name": "Navigate File menu and export",
+      "tags": [
+        "menus"
+      ],
+      "requirements": [
+        "R02"
+      ],
+      "steps": [
+        {
+          "name": "Open File",
+          "action": "menu",
+          "menuPath": [
+            "File"
+          ]
+        },
+        {
+          "name": "Export",
+          "action": "menu",
+          "menuPath": [
+            "Export"
+          ]
+        },
+        {
+          "name": "Verify export",
+          "action": "assertText",
+          "locator": {
+            "testId": "status"
+          },
+          "value": "Export ready"
+        }
+      ]
+    }
+  ]
+}
