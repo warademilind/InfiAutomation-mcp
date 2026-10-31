@@ -1,4 +1,4 @@
-﻿# InfiAutomation MCP: start-to-finish user guide
+# InfiAutomation MCP: start-to-finish user guide
 
 This guide covers installation, Codex, VS Code/Copilot, requirement documents, plans, manual/executable cases, execution, healing and reports. Use v0.3.0 or newer for document import and requirement coverage.
 
@@ -22,7 +22,7 @@ On Windows, open PowerShell and run:
 ```powershell
 New-Item -ItemType Directory -Path D:/InfiTests -Force
 Set-Location D:/InfiTests
-$Mcp = 'https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.0/infiautomation-mcp-0.3.0.tgz'
+$Mcp = 'https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.1/infiautomation-mcp-0.3.1.tgz'
 npx.cmd --yes $Mcp setup --desktop
 npx.cmd --yes $Mcp doctor --workspace D:/InfiTests
 ```
@@ -34,12 +34,12 @@ On macOS/Linux, create a project directory, then use `npx`:
 ```sh
 mkdir -p ~/InfiTests
 cd ~/InfiTests
-npx --yes https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.0/infiautomation-mcp-0.3.0.tgz setup
+npx --yes https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.1/infiautomation-mcp-0.3.1.tgz setup
 ```
 
 On Linux, `setup --with-deps` additionally asks Playwright to install OS browser dependencies and may require package-manager privileges. For Windows desktop only, use `setup --desktop --skip-browser`.
 
-Check `doctor`: version should be 0.3.0; `runtimeSupported` should be true; browser tests need `chromiumInstalled`; native tests need `desktopAvailable`. The effective workspace must be your intended project folder. Repeat setup with the same launcher version after upgrading; native workers and browser revisions are version-specific.
+Check `doctor`: version should be 0.3.1; `runtimeSupported` should be true; browser tests need `chromiumInstalled`; native tests need `desktopAvailable`. The effective workspace must be your intended project folder. Repeat setup with the same launcher version after upgrading; native workers and browser revisions are version-specific.
 
 ## 3. Try the complete bundled demo before connecting an AI client
 
@@ -72,7 +72,7 @@ Append or update this server block in `~/.codex/config.toml` (Windows: `%USERPRO
 ```toml
 [mcp_servers.infiautomation]
 command = "npx"
-args = ["--yes", "https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.0/infiautomation-mcp-0.3.0.tgz", "--workspace", "D:/InfiTests"]
+args = ["--yes", "https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.1/infiautomation-mcp-0.3.1.tgz", "--workspace", "D:/InfiTests"]
 startup_timeout_sec = 120
 tool_timeout_sec = 180
 ```
@@ -90,13 +90,13 @@ For portable workspace-root `.mcp.json` configurations:
   "mcpServers": {
     "infiautomation": {
       "command": "npx",
-      "args": ["--yes", "https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.0/infiautomation-mcp-0.3.0.tgz", "--workspace", "D:/InfiTests"]
+      "args": ["--yes", "https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.1/infiautomation-mcp-0.3.1.tgz", "--workspace", "D:/InfiTests"]
     }
   }
 }
 ```
 
-If your VS Code version/harness uses `.vscode/mcp.json`, its wrapper is `servers` and each server also has `"type":"stdio"`. See [the VS Code example](../examples/vscode.npx.json); replace its pending npm package argument with the GitHub URL above. Do not mix the two wrappers. The guided setup selects a supported destination.
+If your VS Code version/harness uses `.vscode/mcp.json`, its wrapper is `servers` and each server also has `"type":"stdio"`. See [the GitHub launcher example](../examples/vscode.github.json) and replace its workspace placeholder. Do not mix the two wrappers. The guided setup selects a supported destination.
 
 Start a Copilot agent session, enable InfiAutomation tools in the tools/customizations UI, and request `doctor`. Verify an actual tool response, not just a chat answer. See [official VS Code instructions](https://code.visualstudio.com/docs/agent-customization/mcp-servers).
 

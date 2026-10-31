@@ -1,3 +1,4 @@
+import { spawn } from 'node:child_process';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createServer } from 'node:http';
@@ -55,6 +56,13 @@ test('real Windows UIA: form controls, assertions, ranges and nested menus',{ski
   const driver=createDriver(target);
   try {
     await driver.start();const snap=await driver.snapshot(12,1000);assert.ok(snap.nodes.some(n=>n.automationId==='ProjectName'));
+    const cover=spawn(target.executable!,['--cover'],{stdio:['ignore','pipe','pipe'],windowsHide:true});
+    try {
+      await new Promise<void>((done,reject)=>{const timer=setTimeout(()=>reject(new Error('Occlusion fixture did not become ready')),15000);cover.once('error',reject);cover.stdout!.on('data',chunk=>{if(String(chunk).includes('cover-ready')){clearTimeout(timer);done()}})});
+      await driver.act({name:'Name behind covering window',action:'fill',locator:{automationId:'ProjectName'},value:'Background',contains:false});
+      const clicked:any=await driver.act({name:'Save behind covering window',action:'click',locator:{automationId:'SaveProject'},contains:false});assert.equal(clicked.strategy,'uia-invoke');
+      await driver.act({name:'Verify background action',action:'assertText',locator:{automationId:'Status'},value:'Saved Background',contains:false});
+    }finally{cover.kill()}
     await driver.act({name:'Enter name',action:'fill',locator:{automationId:'ProjectName'},value:'Desktop',contains:false});
     await driver.act({name:'Enable',action:'check',locator:{automationId:'Notifications'},contains:false});
     await driver.act({name:'Verify checked',action:'assertChecked',locator:{automationId:'Notifications'},contains:false});
@@ -64,6 +72,8 @@ test('real Windows UIA: form controls, assertions, ranges and nested menus',{ski
     await driver.act({name:'Volume',action:'setRange',locator:{automationId:'Volume'},value:72,contains:false});
     await driver.act({name:'Verify volume',action:'assertValue',locator:{automationId:'Volume'},value:'72',contains:false});
     const menus=await driver.menus(10);assert.match(JSON.stringify(menus),/Export JSON/);
+    await driver.act({name:'Invoke actual nested menu',action:'menu',menuPath:['File','Export','Export JSON'],contains:false});
+    await driver.act({name:'Verify actual menu action',action:'assertText',locator:{automationId:'Status'},value:'Export ready',contains:false});
     await mkdir('integration/output',{recursive:true});await driver.screenshot(resolve('integration/output/native.png'));
   } finally {await driver.close().catch(()=>{})}
 });

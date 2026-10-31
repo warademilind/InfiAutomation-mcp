@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -13,6 +14,25 @@ namespace InfiAutomation.Native;
 
 internal static class Program
 {
+    [DllImport("user32.dll")] static extern IntPtr GetForegroundWindow();
+    static void PrepareForeground(AutomationElement root)
+    {
+        root.SetForeground(); root.Focus();
+        var handle = root.Properties.NativeWindowHandle.Value;
+        var wait = Stopwatch.StartNew();
+        while (GetForegroundWindow() != handle && wait.ElapsedMilliseconds < 1500) Thread.Sleep(50);
+        if (handle == IntPtr.Zero || GetForegroundWindow() != handle) throw new Exception("Target window is not foreground; bring it forward before physical input");
+    }
+    static Point PrepareMouse(AutomationElement root, AutomationElement element)
+    {
+        PrepareForeground(root);
+        var rect = element.BoundingRectangle;
+        if (element.IsOffscreen || !element.IsEnabled || rect.Width <= 0 || rect.Height <= 0) throw new Exception("Native control is not visible and enabled for mouse input");
+        var point = new Point((int)(rect.Left + rect.Width / 2), (int)(rect.Top + rect.Height / 2));
+        var hit = Uia.FromPoint(point);
+        if (hit.Properties.ProcessId.Value != element.Properties.ProcessId.Value) throw new Exception("Another application covers the target control; mouse input was not sent");
+        return point;
+    }
     static readonly JsonSerializerOptions JsonOptions = new() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
     static UIA3Automation Uia = null!;
     static readonly HashSet<int> Owned = new();
@@ -212,11 +232,15 @@ internal static class Program
                 // Search only the target process, including transient popup windows.
                 var menus = Windows(Int(r, "pid")).SelectMany(w => Elements(w)).Where(e => Type(e) == "MenuItem" && Name(e).Replace("&", "") == part.GetString()).ToArray();
                 if (menus.Length != 1) throw new MissingElement("Menu path item must match exactly one live item: " + part.GetString());
-                menus[0].Click(); Thread.Sleep(120);
+                var item = menus[0];
+                if (item.Patterns.ExpandCollapse.IsSupported && item.Patterns.ExpandCollapse.Pattern.ExpandCollapseState.Value != ExpandCollapseState.LeafNode) item.Patterns.ExpandCollapse.Pattern.Expand();
+                else if (item.Patterns.Invoke.IsSupported) item.Patterns.Invoke.Pattern.Invoke();
+                else { Mouse.Click(PrepareMouse(root, item), MouseButton.Left); }
+                Thread.Sleep(120);
             }
             return new { selected = true };
         }
-        if (action == "press" && !step.TryGetProperty("locator", out _)) { root.Focus(); Press(value); return new { pressed = true }; }
+        if (action == "press" && !step.TryGetProperty("locator", out _)) { PrepareForeground(root); Press(value); return new { pressed = true }; }
         var loc = step.GetProperty("locator");
         if (action == "assertCount") { var count = Elements(root).Count(e => Matches(e, loc)); Assert(count.ToString(), value, false); return new { actual = count }; }
         if (action == "assertVisible" && value == "False") {
@@ -244,14 +268,17 @@ internal static class Program
         }
         switch (action)
         {
-            case "click": element.Click(); break;
-            case "doubleClick": element.DoubleClick(); break;
-            case "hover": Mouse.MoveTo(new Point((int)(element.BoundingRectangle.Left + element.BoundingRectangle.Width / 2), (int)(element.BoundingRectangle.Top + element.BoundingRectangle.Height / 2))); break;
+            case "click":
+                if (!element.IsEnabled || element.IsOffscreen) throw new Exception("Native control is not visible and enabled");
+                if (element.Patterns.Invoke.IsSupported) { element.Patterns.Invoke.Pattern.Invoke(); return new { completed = true, strategy = "uia-invoke" }; }
+                Mouse.Click(PrepareMouse(root, element), MouseButton.Left); return new { completed = true, strategy = "mouse" };
+            case "doubleClick": Mouse.DoubleClick(PrepareMouse(root, element), MouseButton.Left); break;
+            case "hover": Mouse.MoveTo(PrepareMouse(root, element)); break;
             case "fill":
                 if (element.Patterns.Value.IsSupported) element.Patterns.Value.Pattern.SetValue(value);
-                else { element.Focus(); Keyboard.TypeSimultaneously(VirtualKeyShort.CONTROL, VirtualKeyShort.KEY_A); Keyboard.Type(value); }
+                else { PrepareForeground(root); element.Focus(); Keyboard.TypeSimultaneously(VirtualKeyShort.CONTROL, VirtualKeyShort.KEY_A); Keyboard.Type(value); }
                 break;
-            case "press": element.Focus(); Press(value); break;
+            case "press": PrepareForeground(root); element.Focus(); Press(value); break;
             case "select": element.AsComboBox().Select(value); break;
             case "setRange": element.AsSlider().Value = double.Parse(value, System.Globalization.CultureInfo.InvariantCulture); break;
             case "check": case "uncheck":

@@ -58,7 +58,7 @@ npx --yes @infiautomation/mcp@latest setup --desktop
 **Available from GitHub without npm publication:**
 
 ```sh
-npx --yes https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.0/infiautomation-mcp-0.3.0.tgz setup
+npx --yes https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.1/infiautomation-mcp-0.3.1.tgz setup
 # On Windows, add --desktop to install the native worker too.
 ```
 
