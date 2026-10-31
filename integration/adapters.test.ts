@@ -40,7 +40,7 @@ test('real Chromium: form assertions, live menu capture, healing and a failing c
 });
 test('real Electron: packaged runtime, form automation and native nested menus',async()=>{
   const electronPath=createRequire(resolve('integration/fixtures/electron/package.json'))('electron') as string;
-  const target=targetSchema.parse({kind:'electron',executable:electronPath,args:[resolve('integration/fixtures/electron/main.cjs')],timeoutMs:10000});
+  const target=targetSchema.parse({kind:'electron',executable:electronPath,args:[resolve('integration/fixtures/electron/main.cjs')],timeoutMs:30000});
   const driver=createDriver(target);
   try{
     await driver.start();

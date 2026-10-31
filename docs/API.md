@@ -74,7 +74,7 @@ Suite validation requires at least one explicit assertion per case to verify app
 
 Cases run in order, each with a fresh session. Attached PID/CDP targets share application state; use explicit setup steps or launch mode for isolation. A failed step skips later steps in that case; later cases still execute. Setup, evidence-capture, trace-finalization and teardown failures fail the case. Clean passes and healed passes are counted separately.
 
-This is a semantic runner, not a drop-in executor for arbitrary existing .spec.ts files. Generated .test.mjs files call the same exported runner. Existing Playwright code can be migrated to JSON steps or run alongside InfiAutomation with Playwright's own test runner.
+This is a semantic runner, not a drop-in executor for arbitrary existing .spec.ts files. Generated .test.mjs files call the same exported runner. To run those JavaScript files directly, install `@infiautomation/mcp` in that project. With an npx-only installation, run the saved JSON suite using the launcher with `run <suite.json>` instead. Existing Playwright code can be migrated to JSON steps or run alongside InfiAutomation with Playwright's own test runner.
 
 ## Runtime configuration
 
