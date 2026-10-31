@@ -21,7 +21,7 @@ export async function generateSuite(input: unknown, path: string, workspace: Wor
   if (!path.endsWith('.json')) throw new Error('Suite path must end in .json');
   const source = path.slice(0,-5)+'.test.mjs';
   await workspace.write(path, JSON.stringify(suite,null,2));
-  const code = 'import { runSuite, Workspace } from "testweave-mcp";\nconst suite = '+JSON.stringify(suite,null,2)+';\nconst { result, directory } = await runSuite(suite, new Workspace());\nconsole.log(directory);\nprocess.exitCode = result.status === "failed" ? 1 : 0;\n';
+  const code = 'import { runSuite, Workspace } from "@infiautomation/mcp";\nconst suite = '+JSON.stringify(suite,null,2)+';\nconst { result, directory } = await runSuite(suite, new Workspace());\nconsole.log(directory);\nprocess.exitCode = result.status === "failed" ? 1 : 0;\n';
   await workspace.write(source,code);
   return { path: workspace.path(path), source: workspace.path(source), tests: suite.tests.length, requirements: [...new Set(suite.tests.flatMap(t=>t.requirements))] };
 }

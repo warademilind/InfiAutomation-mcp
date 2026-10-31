@@ -21,7 +21,8 @@ jobs:
       - run: npm run check
       - run: npm test
       - run: npm pack
-      - run: node scripts/verify-package.mjs
+      - run: npx playwright install --with-deps chromium
+      - run: node scripts/verify-package.mjs --web
   web-electron:
     runs-on: ubuntu-latest
     steps:
@@ -40,9 +41,14 @@ jobs:
         if: always()
         with:
           name: fixture-reports
-          path: .testweave/runs/
+          path: .infiautomation/runs/
           include-hidden-files: true
   native-build:
+    strategy:
+      matrix:
+        rid: [win-x64, win-arm64]
+    env:
+      INFIAUTOMATION_NATIVE_RID: ${{ matrix.rid }}
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v7.0.1

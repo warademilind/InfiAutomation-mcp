@@ -26,8 +26,8 @@ export class DesktopDriver implements Driver {
   async start() {
     if (process.platform !== 'win32') throw new Error('Native desktop automation requires Windows and an unlocked interactive desktop. Web/Electron work on supported Playwright platforms.');
     const worker = nativeWorkerPath();
-    try { await access(worker); } catch { throw new Error('Desktop worker missing. Run the same TestWeave launcher with: setup --desktop --skip-browser. Install .NET 8 Windows Desktop Runtime, or build from source with npm run build:native.'); }
-    const command = isDll(worker) ? (process.env.TESTWEAVE_DOTNET || 'dotnet') : worker;
+    try { await access(worker); } catch { throw new Error('Desktop worker missing. Run the same InfiAutomation launcher with: setup --desktop --skip-browser. Install .NET 8 Windows Desktop Runtime, or build from source with npm run build:native.'); }
+    const command = isDll(worker) ? (process.env.INFIAUTOMATION_DOTNET || 'dotnet') : worker;
     this.child = spawn(command, isDll(worker) ? [worker] : [], { stdio: ['pipe', 'pipe', 'pipe'], windowsHide: true });
     let errors = '';
     this.child.stderr.on('data', chunk => { errors = (errors + chunk.toString()).slice(-4000); this.diagnostics = errors; });

@@ -1,10 +1,10 @@
 # Security policy
 
-TestWeave is a local automation tool. A connected MCP client can navigate websites, launch user-supplied applications, and act on their interfaces with the current user's privileges. Treat that connection like a local scripting session.
+InfiAutomation is a local automation tool. A connected MCP client can navigate websites, launch user-supplied applications, and act on their interfaces with the current user's privileges. Treat that connection like a local scripting session.
 
-- Only connect trusted MCP clients. v0.1 has stdio transport, no remotely exposed HTTP automation endpoint.
+- Only connect trusted MCP clients. v0.2 has stdio transport, no remotely exposed HTTP automation endpoint.
 - Use disposable test accounts and test environments. Executable launch and application actions are intentionally powerful; this is not a sandbox for untrusted test files.
-- Paths used for plans, suites, screenshots, reports and patches are confined to TESTWEAVE_WORKSPACE, with symlink/junction checks. Avoid running a hostile concurrent process that changes those links during a write.
+- Paths used for plans, suites, screenshots, reports and patches are confined to INFIAUTOMATION_WORKSPACE, with symlink/junction checks. Avoid running a hostile concurrent process that changes those links during a write.
 - UI text and expected values are rendered as escaped report data. Reports use no external scripts, fonts or telemetry.
 - Screenshots, traces and snapshots can contain private information. They stay local and ignored by Git; review before sharing.
 - Healing never disables assertions or auto-applies a fuzzy identity match.
@@ -14,4 +14,4 @@ TestWeave is a local automation tool. A connected MCP client can navigate websit
 - Native automation cannot cross the Windows secure desktop or bypass process elevation.
 - Self-hosted native CI must not execute untrusted fork PRs.
 
-Report vulnerabilities through GitHub's private vulnerability reporting if enabled, or contact the repository owner through GitHub. Do not post secrets in public issues. Only the latest 0.1.x release line is currently supported.
+Report vulnerabilities through GitHub's private vulnerability reporting if enabled, or contact the repository owner through GitHub. Do not post secrets in public issues. Only the latest 0.2.x release line is currently supported.

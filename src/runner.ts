@@ -11,7 +11,7 @@ const require = createRequire(import.meta.url);
 export async function runSuite(input: unknown, workspace = new Workspace(), factory: (target: Suite['target']) => Driver = createDriver): Promise<{ result: RunResult; directory: string }> {
   const suite = suiteSchema.parse(input), start = Date.now();
   const id = new Date().toISOString().replace(/[:.]/g, '-') + '-' + randomUUID().slice(0, 8);
-  const directory = '.testweave/runs/' + id;
+  const directory = '.infiautomation/runs/' + id;
   await mkdir(await workspace.safe(directory), { recursive: true });
   const result: RunResult = { schemaVersion: 1, id, name: suite.name, target: suite.target.kind, startedAt: new Date().toISOString(), durationMs: 0, status: 'passed', summary: { total: suite.tests.length, passed: 0, failed: 0, healed: 0, skipped: 0 }, tests: [], environment: { platform: process.platform + '-' + process.arch, node: process.version, playwright: require('playwright/package.json').version } };
   for (const test of suite.tests) {
@@ -74,6 +74,6 @@ export async function runSuite(input: unknown, workspace = new Workspace(), fact
   await workspace.write(directory + '/results.json', JSON.stringify(result, null, 2));
   await workspace.write(directory + '/index.html', renderReport(result));
   await workspace.write(directory + '/detailed.html', renderReport(result, true));
-  await workspace.write('.testweave/latest.json', JSON.stringify({ id, directory, summary: result.summary, status: result.status }, null, 2));
+  await workspace.write('.infiautomation/latest.json', JSON.stringify({ id, directory, summary: result.summary, status: result.status }, null, 2));
   return { result, directory: workspace.path(directory) };
 }

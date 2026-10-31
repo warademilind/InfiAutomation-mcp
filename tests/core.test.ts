@@ -10,7 +10,7 @@ import { runSuite } from '../src/runner.js';
 import type { Driver } from '../src/drivers/types.js';
 import type { RunResult } from '../src/schema.js';
 const suite = { schemaVersion:1, name:'Unit suite', target:{kind:'web'},tests:[{id:'case-1',name:'Case',steps:[{name:'Verify',action:'assertTitle',value:'Fixture'}]}] };
-async function workspace() { await mkdir('.testweave/unit',{recursive:true}); return new Workspace(await mkdtemp(resolve('.testweave/unit/run-'))); }
+async function workspace() { await mkdir('.infiautomation/unit',{recursive:true}); return new Workspace(await mkdtemp(resolve('.infiautomation/unit/run-'))); }
 test('schemas reject missing fields, unknown actions, duplicate IDs and malformed target', () => {
   assert.throws(()=>stepSchema.parse({name:'Click',action:'click'}));
   assert.throws(()=>stepSchema.parse({name:'Oops',action:'eval',value:'process.exit()'}));
@@ -40,7 +40,7 @@ test('runner records assertion failures and skips remaining steps', async () => 
   const ws=await workspace();
   const out=await runSuite({...suite,tests:[{...suite.tests[0],steps:[{name:'Broken',action:'assertTitle',value:'Wrong'},{name:'Must skip',action:'assertTitle',value:'Fixture'}]}]},ws,()=>fake({act:async()=>{throw new Error('Assertion failed')}}));
   assert.equal(out.result.summary.failed,1);assert.equal(out.result.tests[0].steps[1].status,'skipped');
-  assert.match(await ws.read(out.directory+'/index.html'),/TestWeave/);
+  assert.match(await ws.read(out.directory+'/index.html'),/InfiAutomation/);
 });
 test('runner reports setup and teardown failures', async () => {
   const setup=await runSuite(suite,await workspace(),()=>fake({start:async()=>{throw new Error('Missing binary')}}));

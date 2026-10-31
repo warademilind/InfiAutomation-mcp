@@ -1,9 +1,9 @@
 using System.Windows.Forms;
-namespace TestWeaveFixture;
+namespace InfiAutomationFixture;
 static class Program {
   [STAThread] static void Main() {
     ApplicationConfiguration.Initialize();
-    var form=new Form {Text="TestWeave Native Lab",Width=740,Height=540,StartPosition=FormStartPosition.CenterScreen};
+    var form=new Form {Text="InfiAutomation Native Lab",Width=740,Height=540,StartPosition=FormStartPosition.CenterScreen};
     var menu=new MenuStrip {Name="MainMenu",AccessibleName="Main menu"};
     var file=new ToolStripMenuItem("File");var export=new ToolStripMenuItem("Export");
     export.DropDownItems.Add(new ToolStripMenuItem("Export JSON"));file.DropDownItems.Add(export);file.DropDownItems.Add("Open");menu.Items.Add(file);form.MainMenuStrip=menu;form.Controls.Add(menu);

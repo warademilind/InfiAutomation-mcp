@@ -5,8 +5,8 @@ permissions:
   contents: read
 jobs:
   desktop:
-    if: github.ref == 'refs/heads/main' && github.repository == 'warademilind/testweave-mcp'
-    runs-on: [self-hosted, Windows, testweave-interactive]
+    if: github.ref == 'refs/heads/main' && github.repository == 'warademilind/InfiAutomation-mcp' && github.actor == 'warademilind'
+    runs-on: [self-hosted, Windows, infiautomation-interactive]
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v7.0.1

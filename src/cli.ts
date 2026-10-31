@@ -12,24 +12,24 @@ import { VERSION, parseCli, systemWorkingDirectory } from './runtime.js';
 import { setup } from './setup.js';
 
 async function launchWorkspace(create: boolean, requestedWorkspace?: string): Promise<Workspace> {
-  let root = requestedWorkspace || process.env.TESTWEAVE_WORKSPACE || process.cwd();
-  const explicit = Boolean(requestedWorkspace || process.env.TESTWEAVE_WORKSPACE);
+  let root = requestedWorkspace || process.env.INFIAUTOMATION_WORKSPACE || process.cwd();
+  const explicit = Boolean(requestedWorkspace || process.env.INFIAUTOMATION_WORKSPACE);
   if (!explicit) {
     try {
       if (systemWorkingDirectory(root)) throw new Error('System working directory');
       await access(root, constants.W_OK);
-    } catch { root = resolve(homedir(), 'TestWeave'); }
+    } catch { root = resolve(homedir(), 'InfiAutomation'); }
   }
   root = resolve(root);
   if (create) { await mkdir(root, { recursive: true }); await access(root, constants.W_OK); }
-  process.env.TESTWEAVE_WORKSPACE = root;
+  process.env.INFIAUTOMATION_WORKSPACE = root;
   return new Workspace(root);
 }
 async function main() {
   const { command, args, workspace: requestedWorkspace } = parseCli(process.argv.slice(2));
-  if (Number(process.versions.node.split('.')[0]) < 24) throw new Error('TestWeave requires Node.js 24 or newer. Upgrade Node.js so npx and your MCP client use the supported runtime.');
+  if (Number(process.versions.node.split('.')[0]) < 24) throw new Error('InfiAutomation requires Node.js 24 or newer. Upgrade Node.js so npx and your MCP client use the supported runtime.');
   if (command === '--help' || command === 'help') {
-    console.log('TestWeave MCP '+VERSION+'\n\n  testweave-mcp                              Start stdio MCP server\n  testweave-mcp --workspace <directory>       Choose test workspace\n  testweave-mcp setup                        Install matching Chromium\n  testweave-mcp setup --desktop              Also cache verified Windows x64 worker\n  testweave-mcp setup --desktop --skip-browser\n  testweave-mcp run <suite.json>              Run suite and generate offline HTML\n  testweave-mcp doctor                       Check prerequisites\n  testweave-mcp --version\n\nDesktop runtime: .NET 8 Windows Desktop Runtime + unlocked Windows desktop.\nMCP startup never installs software or writes diagnostics to stdout.');
+    console.log('InfiAutomation MCP '+VERSION+'\n\n  infiautomation-mcp                              Start stdio MCP server\n  infiautomation-mcp --workspace <directory>       Choose test workspace\n  infiautomation-mcp setup                        Install matching Chromium\n  infiautomation-mcp setup --desktop              Also cache verified Windows x64/ARM64 worker\n  infiautomation-mcp setup --with-deps          Install Chromium with Linux OS dependencies\n  infiautomation-mcp setup --desktop --skip-browser\n  infiautomation-mcp run <suite.json>              Run suite and generate offline HTML\n  infiautomation-mcp doctor                       Check prerequisites\n  infiautomation-mcp --version\n\nDesktop runtime: .NET 8 Windows Desktop Runtime + unlocked Windows desktop.\nMCP startup never installs software or writes diagnostics to stdout.');
     return;
   }
   if (command === '--version') { console.log(VERSION); return; }
@@ -37,7 +37,7 @@ async function main() {
   if (command && !['serve','run','doctor'].includes(command)) throw new Error('Unknown command: ' + command);
   const workspace = await launchWorkspace(command !== 'doctor', requestedWorkspace);
   if (command === 'run') {
-    if (!args[0]) throw new Error('Usage: testweave-mcp run <suite.json>');
+    if (!args[0]) throw new Error('Usage: infiautomation-mcp run <suite.json>');
     const suite = JSON.parse(await workspace.read(args[0]));
     const { result, directory } = await runSuite(suite,workspace);
     console.log(JSON.stringify({ status: result.status, summary: result.summary, directory },null,2));

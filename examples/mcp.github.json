@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "infiautomation": {
+      "command": "npx",
+      "args": [
+        "--yes",
+        "https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.2.0/infiautomation-mcp-0.2.0.tgz"
+      ]
+    }
+  }
+}

@@ -1,0 +1,26 @@
+﻿name: Publish npm
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  publish:
+    if: github.repository == 'warademilind/InfiAutomation-mcp' && github.ref == 'refs/heads/main' && github.actor == 'warademilind'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - run: npm test
+      - run: npm pack
+      - run: node scripts/verify-package.mjs
+      - name: Publish public package using npm trusted publishing
+        run: npm publish --provenance --access public

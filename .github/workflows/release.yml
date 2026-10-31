@@ -22,8 +22,13 @@ jobs:
       - uses: actions/upload-artifact@v7.0.2
         with:
           name: node-package
-          path: testweave-mcp-*.tgz
+          path: infiautomation-mcp-*.tgz
   windows-worker:
+    strategy:
+      matrix:
+        arch: [x64, arm64]
+    env:
+      INFIAUTOMATION_NATIVE_RID: win-${{ matrix.arch }}
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v7.0.1
@@ -36,11 +41,11 @@ jobs:
           dotnet-version: 8.0.x
       - run: npm ci
       - run: npm run build:native
-      - run: Compress-Archive -Path native/publish/* -DestinationPath testweave-native-win-x64.zip
+      - run: Compress-Archive -Path native/publish/* -DestinationPath infiautomation-native-win-${{ matrix.arch }}.zip
       - uses: actions/upload-artifact@v7.0.2
         with:
-          name: windows-worker
-          path: testweave-native-win-x64.zip
+          name: windows-worker-${{ matrix.arch }}
+          path: infiautomation-native-win-${{ matrix.arch }}.zip
   publish:
     needs: [package, windows-worker]
     runs-on: ubuntu-latest
@@ -53,7 +58,8 @@ jobs:
           path: release
       - uses: actions/download-artifact@v8.0.2
         with:
-          name: windows-worker
+          pattern: windows-worker-*
+          merge-multiple: true
           path: release
       - run: cd release && sha256sum *.tgz *.zip > SHA256SUMS.txt
       - env:

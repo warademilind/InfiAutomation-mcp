@@ -19,3 +19,9 @@ Add meaningful tests for changes to selector resolution, assertions, healing, li
 Adapter interface: src/drivers/types.ts. Add a platform adapter with explicit capabilities and validation; update the support matrix and CI. Existing drivers must reject unsupported actions with actionable errors.
 
 This repository uses MIT for its own code. Do not copy upstream code without preserving the applicable license and notices. Prefer public dependency APIs.
+
+## Contribution and review policy
+
+Everyone may fork this public repository and open a pull request against `main`. Only `@warademilind` is the code owner and has write/admin access. Contributor changes require passing CI, resolved review conversations, and a fresh code-owner approval. New commits dismiss prior approvals. Force-pushes and branch deletion are blocked. Public users may comment or submit advisory reviews; those reviews do not replace the required owner approval.
+
+The repository owner retains administrator bypass for maintainer changes and recovery. GitHub prevents authors from approving their own pull requests, so requiring the sole owner to approve their own PR would lock the project. No other collaborators receive write/admin access by default.

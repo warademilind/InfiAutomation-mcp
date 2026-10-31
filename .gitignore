@@ -1,6 +1,6 @@
 node_modules/
 dist/
-.testweave/
+.infiautomation/
 .tools/
 .cache/
 *.tgz
@@ -13,3 +13,6 @@ integration/output/
 !.env.example
 *.user
 *.suo
+
+# Artifacts retained from the previous project name
+.testweave/

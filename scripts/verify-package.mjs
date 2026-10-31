@@ -7,17 +7,17 @@ import { StdioClientTransport } from '@modelcontextprotocol/client/stdio';
 // Exercise the public npx contract from a folder with no package.json or source checkout.
 const root = resolve(import.meta.dirname, '..');
 const version = JSON.parse(await readFile(join(root, 'package.json'), 'utf8')).version;
-const specArg = process.argv[2] || join(root, 'testweave-mcp-' + version + '.tgz');
+const specArg = process.argv.slice(2).find(arg => !arg.startsWith('--')) || join(root, 'infiautomation-mcp-' + version + '.tgz');
 const spec = /^https?:\/\//.test(specArg) ? specArg : 'file:' + resolve(specArg);
-await mkdir(join(root, '.testweave'), { recursive: true });
-const consumer = await mkdtemp(join(root, '.testweave', 'npx-consumer-'));
+await mkdir(join(root, '.infiautomation'), { recursive: true });
+const consumer = await mkdtemp(join(root, '.infiautomation', 'npx-consumer-'));
 const env = Object.fromEntries(Object.entries(process.env).filter(([, value]) => typeof value === 'string'));
-delete env.TESTWEAVE_WORKSPACE;
-delete env.TESTWEAVE_NATIVE_WORKER;
+delete env.INFIAUTOMATION_WORKSPACE;
+delete env.INFIAUTOMATION_NATIVE_WORKER;
 const transport = new StdioClientTransport({ command: 'npx', args: ['--yes', spec], cwd: consumer, env, stderr: 'pipe' });
 let stderr = '';
 transport.stderr?.on('data', chunk => { stderr = (stderr + chunk).slice(-6000); });
-const client = new Client({ name: 'testweave-npx-verifier', version: '1.0.0' });
+const client = new Client({ name: 'infiautomation-npx-verifier', version: '1.0.0' });
 const checked = [];
 const protocolErrors = [];
 client.onerror = error => protocolErrors.push(String(error));
@@ -29,6 +29,7 @@ async function call(name, args = {}) {
 try {
   await client.connect(transport, { timeout: 180000 });
   assert.equal(client.getServerVersion().version, version);
+  assert.equal(client.getServerVersion().name, 'infiautomation-mcp');
   const tools = await client.listTools();
   assert.ok(tools.tools.some(t => t.name === 'test_run'));
   const doctor = await call('doctor');

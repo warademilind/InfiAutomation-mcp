@@ -1,5 +1,5 @@
 .tools/
-.testweave/
+.infiautomation/
 .cache/
 node_modules/
 integration/
@@ -9,3 +9,5 @@ native/**/obj/
 native/publish/
 .github/
 *.tgz
+
+.testweave/

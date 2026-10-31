@@ -9,7 +9,7 @@ using FlaUI.Core.Input;
 using FlaUI.Core.WindowsAPI;
 using FlaUI.UIA3;
 
-namespace TestWeave.Native;
+namespace InfiAutomation.Native;
 
 internal static class Program
 {
@@ -20,13 +20,13 @@ internal static class Program
     [STAThread]
     static void Main()
     {
-        using var desktopLease = new Mutex(false, "Local\\TestWeave.DesktopAutomation.v1");
-        try { if (!desktopLease.WaitOne(0)) { Console.Error.WriteLine("Another TestWeave native session owns this desktop. Close it before opening a new session."); return; } } catch (AbandonedMutexException) { }
+        using var desktopLease = new Mutex(false, "Local\\InfiAutomation.DesktopAutomation.v1");
+        try { if (!desktopLease.WaitOne(0)) { Console.Error.WriteLine("Another InfiAutomation native session owns this desktop. Close it before opening a new session."); return; } } catch (AbandonedMutexException) { }
         Console.InputEncoding = System.Text.Encoding.UTF8;
         Console.OutputEncoding = new System.Text.UTF8Encoding(false);
-        if (Environment.GetEnvironmentVariable("TESTWEAVE_DEBUG_NATIVE") == "1") Console.Error.WriteLine("Initializing UIA3");
+        if (Environment.GetEnvironmentVariable("INFIAUTOMATION_DEBUG_NATIVE") == "1") Console.Error.WriteLine("Initializing UIA3");
         using var uia = new UIA3Automation(); Uia = uia;
-        if (Environment.GetEnvironmentVariable("TESTWEAVE_DEBUG_NATIVE") == "1") Console.Error.WriteLine("Worker ready");
+        if (Environment.GetEnvironmentVariable("INFIAUTOMATION_DEBUG_NATIVE") == "1") Console.Error.WriteLine("Worker ready");
         string? line;
         while ((line = Console.ReadLine()) != null)
         {
@@ -34,7 +34,7 @@ internal static class Program
             try
             {
                 using var document = JsonDocument.Parse(line);
-                var request = document.RootElement; id = Int(request, "id"); if (Environment.GetEnvironmentVariable("TESTWEAVE_DEBUG_NATIVE") == "1") Console.Error.WriteLine("Request " + id + ": " + Str(request,"command"));
+                var request = document.RootElement; id = Int(request, "id"); if (Environment.GetEnvironmentVariable("INFIAUTOMATION_DEBUG_NATIVE") == "1") Console.Error.WriteLine("Request " + id + ": " + Str(request,"command"));
                 object? data = Handle(request);
                 Console.WriteLine(JsonSerializer.Serialize(new { id, ok = true, data }, JsonOptions));
             }

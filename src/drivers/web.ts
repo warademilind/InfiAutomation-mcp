@@ -30,7 +30,7 @@ export class WebDriver implements Driver {
     this.page.setDefaultTimeout(this.target.timeoutMs);
     if (this.target.url) await this.page.goto(this.url(this.target.url), { waitUntil: 'domcontentloaded', timeout: this.target.timeoutMs });
   }
-  private url(value: string) { return /^[a-z][a-z0-9+.-]*:/i.test(value) ? value : pathToFileURL(resolve(this.target.cwd || process.env.TESTWEAVE_WORKSPACE || process.cwd(), value)).href; }
+  private url(value: string) { return /^[a-z][a-z0-9+.-]*:/i.test(value) ? value : pathToFileURL(resolve(this.target.cwd || process.env.INFIAUTOMATION_WORKSPACE || process.cwd(), value)).href; }
   locator(s: Selector): Locator {
     const root = s.frame ? this.page.frameLocator(s.frame) : this.page;
     if (s.css) return root.locator(s.css);

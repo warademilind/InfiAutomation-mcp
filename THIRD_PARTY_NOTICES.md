@@ -1,6 +1,6 @@
 # Third-party notices
 
-TestWeave's own source is MIT licensed. It integrates these upstream projects through package dependencies rather than vendoring their implementation.
+InfiAutomation's own source is MIT licensed. It integrates these upstream projects through package dependencies rather than vendoring their implementation.
 
 | Dependency | License | Project |
 | --- | --- | --- |

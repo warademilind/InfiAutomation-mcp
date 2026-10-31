@@ -5,7 +5,7 @@ import { chromium } from 'playwright';
 import { Workspace } from './workspace.js';
 export function diagnose(workspace = new Workspace()) {
   const nativePath = nativeWorkerPath();
-  const dotnet = spawnSync(process.env.TESTWEAVE_DOTNET || 'dotnet', ['--list-runtimes'], { encoding: 'utf8', timeout: 5000, windowsHide: true });
+  const dotnet = spawnSync(process.env.INFIAUTOMATION_DOTNET || 'dotnet', ['--list-runtimes'], { encoding: 'utf8', timeout: 5000, windowsHide: true });
   const runtimes = dotnet.stdout || '';
   const desktopRuntime = /Microsoft.WindowsDesktop.App 8\./.test(runtimes);
   const nativeWorkerInstalled = existsSync(nativePath);

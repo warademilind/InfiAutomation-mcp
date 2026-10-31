@@ -6,16 +6,16 @@ import { fileURLToPath } from 'node:url';
 export const PACKAGE_ROOT = fileURLToPath(new URL('../', import.meta.url));
 export const VERSION: string = JSON.parse(readFileSync(join(PACKAGE_ROOT, 'package.json'), 'utf8')).version;
 export function cacheDirectory(env: NodeJS.ProcessEnv = process.env): string {
-  if (env.TESTWEAVE_CACHE_DIR) return resolve(env.TESTWEAVE_CACHE_DIR);
+  if (env.INFIAUTOMATION_CACHE_DIR) return resolve(env.INFIAUTOMATION_CACHE_DIR);
   const base = process.platform === 'win32' ? env.LOCALAPPDATA || join(homedir(), 'AppData', 'Local') : env.XDG_CACHE_HOME || join(homedir(), '.cache');
-  return join(base, 'testweave-mcp');
+  return join(base, 'infiautomation-mcp');
 }
 export function cachedNativeWorker(env: NodeJS.ProcessEnv = process.env): string {
-  return join(cacheDirectory(env), VERSION, 'native', 'TestWeave.Native.dll');
+  return join(cacheDirectory(env), VERSION, 'native-' + process.arch, 'InfiAutomation.Native.dll');
 }
 export function nativeWorkerPath(env: NodeJS.ProcessEnv = process.env): string {
-  if (env.TESTWEAVE_NATIVE_WORKER) return resolve(env.TESTWEAVE_NATIVE_WORKER);
-  const built = join(PACKAGE_ROOT, 'native', 'publish', 'TestWeave.Native.dll');
+  if (env.INFIAUTOMATION_NATIVE_WORKER) return resolve(env.INFIAUTOMATION_NATIVE_WORKER);
+  const built = join(PACKAGE_ROOT, 'native', 'publish', 'InfiAutomation.Native.dll');
   return existsSync(built) ? built : cachedNativeWorker(env);
 }
 export function isDll(path: string) { return path.toLowerCase().endsWith('.dll'); }
@@ -43,4 +43,9 @@ export function systemWorkingDirectory(cwd: string, env: NodeJS.ProcessEnv = pro
     const path = resolve(base).toLowerCase();
     return current === path || current.startsWith(path + (process.platform === 'win32' ? '\\' : '/'));
   });
+}
+
+export function nativeReleaseAsset(platform: string = process.platform, arch: string = process.arch): string {
+  if (platform !== 'win32' || !['x64', 'arm64'].includes(arch)) throw new Error('Prebuilt native desktop setup requires Windows x64 or ARM64. Web and Electron use Playwright-supported platforms.');
+  return 'infiautomation-native-win-' + arch + '.zip';
 }

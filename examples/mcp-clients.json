@@ -1,41 +1,41 @@
 {
   "claudeDesktopOrCursor": {
     "mcpServers": {
-      "testweave": {
+      "infiautomation": {
         "command": "node",
         "args": [
-          "/absolute/path/testweave-mcp/dist/cli.js"
+          "/absolute/path/infiautomation-mcp/dist/cli.js"
         ],
         "env": {
-          "TESTWEAVE_WORKSPACE": "/absolute/path/your-test-project"
+          "INFIAUTOMATION_WORKSPACE": "/absolute/path/your-test-project"
         }
       }
     }
   },
   "vscode": {
     "servers": {
-      "testweave": {
+      "infiautomation": {
         "type": "stdio",
         "command": "node",
         "args": [
-          "/absolute/path/testweave-mcp/dist/cli.js"
+          "/absolute/path/infiautomation-mcp/dist/cli.js"
         ],
         "env": {
-          "TESTWEAVE_WORKSPACE": "/absolute/path/your-test-project"
+          "INFIAUTOMATION_WORKSPACE": "/absolute/path/your-test-project"
         }
       }
     }
   },
   "windows": {
     "mcpServers": {
-      "testweave": {
+      "infiautomation": {
         "command": "node",
         "args": [
-          "D:\\testweave-mcp\\dist\\cli.js"
+          "D:\\infiautomation-mcp\\dist\\cli.js"
         ],
         "env": {
-          "TESTWEAVE_WORKSPACE": "D:\\tests",
-          "TESTWEAVE_NATIVE_WORKER": "D:\\testweave-worker\\TestWeave.Native.dll"
+          "INFIAUTOMATION_WORKSPACE": "D:\\tests",
+          "INFIAUTOMATION_NATIVE_WORKER": "D:\\infiautomation-worker\\InfiAutomation.Native.dll"
         }
       }
     }

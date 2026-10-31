@@ -13,26 +13,26 @@ The native workflow is manual and restricted to the repository's own default bra
 Use the GitHub release directly with npx (no clone required), clone and build, or install a downloaded tarball:
 
 ```sh
-npx --yes https://github.com/warademilind/testweave-mcp/releases/download/v0.1.1/testweave-mcp-0.1.1.tgz setup
-npx --yes https://github.com/warademilind/testweave-mcp/releases/download/v0.1.1/testweave-mcp-0.1.1.tgz doctor
+npx --yes https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.2.0/infiautomation-mcp-0.2.0.tgz setup
+npx --yes https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.2.0/infiautomation-mcp-0.2.0.tgz doctor
 ```
 
-The tarball includes compiled JavaScript and native **source**, not the SDK or a large prebuilt native worker. A separate release asset supplies the worker. Run the same npx launcher with `setup --desktop` to download and verify it, or point `TESTWEAVE_NATIVE_WORKER` to a manually extracted TestWeave.Native.dll. Install the .NET 8 Windows Desktop Runtime on the target Windows machine.
+The tarball includes compiled JavaScript and native **source**, not the SDK or a large prebuilt native worker. A separate release asset supplies the worker. Run the same npx launcher with `setup --desktop` to download and verify it, or point `INFIAUTOMATION_NATIVE_WORKER` to a manually extracted InfiAutomation.Native.dll. Install the .NET 8 Windows Desktop Runtime on the target Windows machine.
 
-For npm registry publication, the owner must choose an available package name and run `npm publish --access public` using an npm account. No npm credentials are stored or configured here. A GitHub release is usable without npm publication.
+The public npm package is `@infiautomation/mcp`. It requires an authenticated npm publisher with scope access; follow [PUBLISHING.md](PUBLISHING.md) for first publication and the prepared OIDC workflow. A GitHub release is usable without npm publication. Core CI runs a real npx MCP/browser check on Windows, macOS and Linux.
 
 ## Cut a release
 
 After tests pass:
 
 ```sh
-git tag v0.1.1
-git push origin v0.1.1
+git tag v0.2.0
+git push origin v0.2.0
 ```
 
-The release workflow builds the Node tarball and Windows x64 worker, computes SHA-256 checksums, then creates the matching GitHub release. The worker is a framework-dependent DLL with supporting libraries. Native source can also build for Windows ARM64; the initial prebuilt release target is x64.
+The release workflow builds the Node tarball and Windows x64/ARM64 workers, computes SHA-256 checksums, then creates the matching GitHub release. The worker is a framework-dependent DLL with supporting libraries. ARM64 workers are cross-built; runtime validation on ARM64 hardware is still required.
 
-Source commits and artifacts are versioned. Downloaded executables are not checked into Git. GitHub Release binaries are unsigned in v0.1; organizational signing is a later deployment choice.
+Source commits and artifacts are versioned. Downloaded executables are not checked into Git. GitHub Release binaries are unsigned in v0.2; organizational signing is a later deployment choice.
 
 ## Reports
 

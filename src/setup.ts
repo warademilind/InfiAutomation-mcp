@@ -3,7 +3,7 @@ import { spawn } from 'node:child_process';
 import { writeFile, mkdir, mkdtemp, rename, access } from 'node:fs/promises';
 import { join, dirname } from 'node:path';
 import { createRequire } from 'node:module';
-import { VERSION, cacheDirectory, cachedNativeWorker } from './runtime.js';
+import { VERSION, cacheDirectory, cachedNativeWorker, nativeReleaseAsset } from './runtime.js';
 
 export function checksumFromManifest(manifest: string, name: string): string {
   const matches = manifest.split(/\r?\n/).map(line => /^([a-fA-F0-9]{64})\s+\*?(.+)$/.exec(line.trim())).filter((m): m is RegExpExecArray => Boolean(m && m[2] === name));
@@ -34,13 +34,12 @@ export async function runSetupProcess(command: string, args: string[], env = pro
   });
 }
 export async function installNativeWorker(): Promise<string> {
-  if (process.platform !== 'win32' || process.arch !== 'x64') throw new Error('Prebuilt desktop setup currently supports Windows x64. Other Windows architectures can build the worker from source.');
+  const asset = nativeReleaseAsset();
   const worker = cachedNativeWorker();
   const destination = dirname(worker);
-  try { await access(worker); await access(join(destination, 'TestWeave.Native.runtimeconfig.json')); return worker; } catch {}
-  const asset = 'testweave-native-win-x64.zip';
-  const base = 'https://github.com/warademilind/testweave-mcp/releases/download/v' + VERSION + '/';
-  console.error('Downloading TestWeave Windows worker v' + VERSION + '...');
+  try { await access(worker); await access(join(destination, 'InfiAutomation.Native.runtimeconfig.json')); return worker; } catch {}
+  const base = 'https://github.com/warademilind/InfiAutomation-mcp/releases/download/v' + VERSION + '/';
+  console.error('Downloading InfiAutomation Windows worker v' + VERSION + '...');
   const manifest = (await download(base + 'SHA256SUMS.txt', 64 * 1024)).toString('utf8');
   const bytes = await download(base + asset, 32 * 1024 * 1024);
   verifyChecksum(bytes, checksumFromManifest(manifest, asset));
@@ -49,27 +48,28 @@ export async function installNativeWorker(): Promise<string> {
   const archive = join(staging, asset), extracted = join(staging, 'content');
   await writeFile(archive, bytes);
   await mkdir(extracted);
-  const script = 'Expand-Archive -LiteralPath $env:TESTWEAVE_SETUP_ARCHIVE -DestinationPath $env:TESTWEAVE_SETUP_DESTINATION -Force';
-  await runSetupProcess('powershell.exe', ['-NoLogo','-NoProfile','-NonInteractive','-Command',script], { ...process.env, TESTWEAVE_SETUP_ARCHIVE: archive, TESTWEAVE_SETUP_DESTINATION: extracted });
-  await access(join(extracted, 'TestWeave.Native.dll'));
-  await access(join(extracted, 'TestWeave.Native.runtimeconfig.json'));
+  const script = 'Expand-Archive -LiteralPath $env:INFIAUTOMATION_SETUP_ARCHIVE -DestinationPath $env:INFIAUTOMATION_SETUP_DESTINATION -Force';
+  await runSetupProcess('powershell.exe', ['-NoLogo','-NoProfile','-NonInteractive','-Command',script], { ...process.env, INFIAUTOMATION_SETUP_ARCHIVE: archive, INFIAUTOMATION_SETUP_DESTINATION: extracted });
+  await access(join(extracted, 'InfiAutomation.Native.dll'));
+  await access(join(extracted, 'InfiAutomation.Native.runtimeconfig.json'));
   try { await rename(extracted, destination); }
   catch (error) {
     // Concurrent setup may already have installed this exact version.
-    try { await access(worker); await access(join(destination, 'TestWeave.Native.runtimeconfig.json')); }
+    try { await access(worker); await access(join(destination, 'InfiAutomation.Native.runtimeconfig.json')); }
     catch { throw error; }
   }
   await writeFile(join(destination, 'installation.json'), JSON.stringify({ version: VERSION, sha256: checksumFromManifest(manifest, asset), source: base + asset }, null, 2));
   return worker;
 }
 export async function setup(args: string[]): Promise<void> {
-  const allowed = new Set(['--desktop','--skip-browser']);
+  const allowed = new Set(['--desktop','--skip-browser','--with-deps']);
   for (const arg of args) if (!allowed.has(arg)) throw new Error('Unknown setup option: ' + arg);
-  if (args.includes('--desktop') && (process.platform !== 'win32' || process.arch !== 'x64')) throw new Error('--desktop setup requires Windows x64');
+  if (args.includes('--desktop')) nativeReleaseAsset();
+  if (args.includes('--skip-browser') && args.includes('--with-deps')) throw new Error('--with-deps cannot be combined with --skip-browser');
   if (!args.includes('--skip-browser')) {
     const require = createRequire(import.meta.url);
     const cli = join(dirname(require.resolve('playwright/package.json')), 'cli.js');
-    await runSetupProcess(process.execPath, [cli, 'install', 'chromium']);
+    await runSetupProcess(process.execPath, [cli, 'install', ...(args.includes('--with-deps') ? ['--with-deps'] : []), 'chromium']);
   }
   let nativeWorker: string | undefined;
   if (args.includes('--desktop')) nativeWorker = await installNativeWorker();
