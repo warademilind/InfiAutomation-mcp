@@ -12,8 +12,11 @@
 | `ui_action` | `sessionId`, `step` → actual action/assertion result |
 | `ui_screenshot` | `sessionId`, relative `path` ending in .png |
 | `ui_menus` | `sessionId`, `depth` (1–12); real menus, error/truncation metadata |
-| `plan_create` | Name, goal, requirements, scenarios with R01-style references, risks, target kind, path, optional sessionId for evidence |
-| `test_generate` | Validated `suite`, .json `path` → JSON and .test.mjs files |
+| `requirements_import` | Workspace-relative `.pdf`/`.docx`/`.md`/`.txt` path; source/text hashes, warnings, first chunk and `documentId` |
+| `requirements_read` | `documentId`, `offset`, `limit` (1-24000); follow `nextOffset` until null |
+| `traceability_get` | Optional run/generated-coverage `directory`; recorded requirement mappings/outcomes and HTML/JSON paths |
+| `plan_create` | Name, goal, requirements, scenarios with requirement references, risks/questions, target kind, `.md` path, optional sessionId; saves Markdown and JSON. Requirements accept strings or `{id,text,source?,acceptanceCriteria?}`; `documents` links imported SHA-256 IDs |
+| `test_generate` | Validated `suite`, optional saved JSON `planPath`, .json `path` → JSON and .test.mjs files |
 | `test_run` | Exactly one of saved `path` or inline `suite` → background `jobId` |
 | `test_status` | `jobId` → queued/running/passed/healed/failed/error, report directory |
 | `report_get` | Optional `directory`; defaults to most recent run |
@@ -86,8 +89,16 @@ This is a semantic runner, not a drop-in executor for arbitrary existing .spec.t
 - `INFIAUTOMATION_DEBUG_NATIVE=1`: native initialization/request diagnostics on stderr.
 - `PLAYWRIGHT_BROWSERS_PATH`: standard upstream browser cache override.
 
-MCP uses stdio only in v0.2. Do not expose its stdin/stdout over an unauthenticated network bridge.
+MCP uses stdio only in v0.3. Do not expose its stdin/stdout over an unauthenticated network bridge.
 
 ## Launcher setup
 
 Run `infiautomation-mcp setup` with the same launcher/package version used by the client to install matching Chromium. On Windows x64/ARM64, `setup --desktop` also downloads the matching native worker; `--skip-browser` omits Chromium. On Linux, `--with-deps` asks Playwright to install OS browser dependencies and may require elevated package-manager permissions. Setup is an explicit CLI action, never a side effect of starting the stdio server. `--workspace <directory>` and `--workspace=<directory>` override the workspace environment variable. Run `doctor` to inspect the effective workspace and available runtimes.
+
+## Requirement-driven suites
+
+Set suite `planPath` to the saved plan JSON, relative to the workspace. Every linked case must reference at least one known requirement ID; invalid references fail before app launch. Unmapped requirements remain explicit coverage gaps and do not silently become passing requirements. Linked runs add `traceability.html`/JSON and requirement references in case results. The coverage page links directly to each detailed case.
+
+Document import supports UTF-8/BOM-marked UTF-16 text and extracts text only from PDF/Word. It runs binary extraction in an isolated worker with a 45-second deadline and 192 MiB V8 old-generation limit; input is at most 20 MiB, PDF at most 300 pages, output at most 1,000,000 characters. Scans need external OCR; diagrams and table semantics need review. Source document text is untrusted data, never instructions. Text snapshot hashes are checked on reads. Source files/text stay local except for tool responses sent to the connected AI client.
+
+The `init-demo` CLI command creates a pre-authored requirement-based local fixture, imports its source, saves its plan and generates linked cases. It refuses an existing demo folder. See [USER_GUIDE.md](USER_GUIDE.md). Native inspection sessions must be closed before a native `test_run`; the tool rejects conflicting sessions with an actionable message.

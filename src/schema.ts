@@ -39,7 +39,7 @@ export const caseSchema = z.object({
 }).strict();
 export const suiteSchema = z.object({
   schemaVersion: z.literal(1), name: z.string().min(1), target: targetSchema,
-  tests: z.array(caseSchema).min(1).max(500), healing: z.enum(['off', 'semantic']).default('off')
+  planPath: z.string().min(1).optional(), tests: z.array(caseSchema).min(1).max(500), healing: z.enum(['off', 'semantic']).default('off')
 }).strict().superRefine((v,ctx) => {
   if (new Set(v.tests.map(t => t.id)).size !== v.tests.length) ctx.addIssue({code:'custom',message:'Test IDs must be unique'});
   for (const test of v.tests) if (!test.steps.some(step => step.action.startsWith('assert'))) ctx.addIssue({code:'custom',message:'Test ' + test.id + ' needs at least one explicit assertion'});
@@ -49,5 +49,5 @@ export interface UiNode { name: string; role?: string; testId?: string; automati
 export interface Snapshot { title: string; url?: string; nodes: UiNode[]; accessibility?: string; truncated: boolean; windows?: unknown[]; }
 export interface Healing { original: Selector; proposed: Selector; confidence: number; reason: string; applied: boolean; }
 export interface StepResult { name: string; action: string; status: 'passed' | 'failed' | 'healed' | 'skipped'; durationMs: number; error?: string; actual?: unknown; screenshot?: string; healing?: Healing; }
-export interface CaseResult { id: string; name: string; tags: string[]; status: 'passed' | 'failed' | 'healed' | 'skipped'; durationMs: number; steps: StepResult[]; error?: string; trace?: string; }
-export interface RunResult { schemaVersion: 1; id: string; name: string; target: string; startedAt: string; durationMs: number; status: 'passed' | 'failed' | 'healed'; summary: { total: number; passed: number; failed: number; healed: number; skipped: number }; tests: CaseResult[]; environment: { platform: string; node: string; playwright: string }; }
+export interface CaseResult { requirements?: string[]; id: string; name: string; tags: string[]; status: 'passed' | 'failed' | 'healed' | 'skipped'; durationMs: number; steps: StepResult[]; error?: string; trace?: string; }
+export interface RunResult { traceability?: {planPath:string;total:number;unmapped:number}; schemaVersion: 1; id: string; name: string; target: string; startedAt: string; durationMs: number; status: 'passed' | 'failed' | 'healed'; summary: { total: number; passed: number; failed: number; healed: number; skipped: number }; tests: CaseResult[]; environment: { platform: string; node: string; playwright: string }; }

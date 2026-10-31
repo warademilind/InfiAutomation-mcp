@@ -8,6 +8,8 @@ InfiAutomation's own source is MIT licensed. It integrates these upstream projec
 | MCP TypeScript SDK 2.4.0 | Apache-2.0 | https://github.com/modelcontextprotocol/typescript-sdk |
 | FlaUI 5.0.0 (UIA3/Core) | MIT | https://github.com/FlaUI/FlaUI |
 | Zod 4.6.7 | MIT | https://github.com/colinhacks/zod |
+| Mammoth 1.13.0 | BSD-2-Clause | https://github.com/mwilliamson/mammoth.js |
+| unpdf 2.1.0 | MIT; bundled PDF.js Apache-2.0 | https://github.com/unjs/unpdf |
 | Electron fixture runtime | MIT, plus Chromium/Node notices | https://github.com/electron/electron |
 | TypeScript, tsx, Node type definitions | Their distributed package licenses | See package-lock.json |
 

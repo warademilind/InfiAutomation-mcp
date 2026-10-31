@@ -42,11 +42,16 @@ try {
   checked.push('suite generation');
   if (process.argv.includes('--web')) {
     await writeFile(join(consumer, 'fixture.html'), '<!doctype html><title>Portable fixture</title><button onclick="this.textContent=\'Saved\'">Save project</button>');
-    const suite = { ...generated, target: { kind: 'web', url: './fixture.html' }, tests: [{ id: 'save', name: 'Save project', steps: [
+    await writeFile(join(consumer,'requirements.md'),'REQ-SAVE: Save must change button text to Saved.\nREQ-LATER: A future feature needs a separate test.');
+    const imported=await call('requirements_import',{path:'requirements.md'});
+    await call('requirements_read',{documentId:imported.documentId});
+    await call('plan_create',{name:'Portable requirement plan',goal:'Verify save feedback',documents:[imported.documentId],target:{kind:'web'},requirements:[{id:'REQ-SAVE',text:'Save changes the button text to Saved'},{id:'REQ-LATER',text:'Future feature'}],questions:['What is the acceptance rule for the future feature?'],scenarios:[{name:'Save',requirementIds:['REQ-SAVE'],steps:['Save'],expected:'Saved'}],path:'plans/portable.md'});
+    const suite = { ...generated, target: { kind: 'web', url: './fixture.html' }, tests: [{ id: 'save', name: 'Save project', requirements:['REQ-SAVE'], steps: [
       { name: 'Save', action: 'click', locator: { role: 'button', name: 'Save project' } },
       { name: 'Verify', action: 'assertText', locator: { role: 'button', name: 'Saved' }, value: 'Saved' }
     ] }] };
-    const { jobId } = await call('test_run', { suite });
+    await call('test_generate',{suite,path:'tests/requirement.suite.json',planPath:'plans/portable.json'});
+    const { jobId } = await call('test_run', { path:'tests/requirement.suite.json' });
     let job;
     const deadline = Date.now() + 60000;
     do {
@@ -58,6 +63,9 @@ try {
     const report = await call('report_get');
     assert.ok((await readFile(report.summaryHtml, 'utf8')).includes('Portable package'));
     assert.ok((await readFile(report.detailedHtml, 'utf8')).includes('Test explorer'));
+    const coverage=await call('traceability_get');assert.equal(coverage.summary.unmapped,1);assert.equal(coverage.requirements[0].status,'passed');assert.equal(coverage.requirements[1].status,'unmapped');
+    assert.ok((await readFile(report.traceabilityHtml,'utf8')).includes('Requirement traceability'));
+    checked.push('requirement import and plan', 'requirement-linked generation and execution', 'truthful coverage gaps');
     checked.push('real Chromium actions/assertions', 'background execution', 'summary and detailed HTML');
   }
   if (process.argv.includes('--desktop')) {

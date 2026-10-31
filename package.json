@@ -1,6 +1,6 @@
 {
   "name": "@infiautomation/mcp",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "One MCP for evidence-based web, Electron and Windows desktop testing, with auditable healing and offline HTML reports.",
   "type": "module",
   "license": "MIT",
@@ -60,7 +60,9 @@
   },
   "dependencies": {
     "@modelcontextprotocol/server": "2.4.0",
+    "mammoth": "1.13.0",
     "playwright": "1.64.1",
+    "unpdf": "2.1.0",
     "zod": "4.6.7"
   },
   "devDependencies": {

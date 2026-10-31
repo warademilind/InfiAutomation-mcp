@@ -1,0 +1,17 @@
+﻿{
+  "name": "Project form requirement-based plan",
+  "goal": "Verify only the explicit behaviors in the bundled requirement document.",
+  "target": {"kind":"web"},
+  "requirements": [
+    {"id":"REQ-SAVE-001","text":"Saving Launch shows Saved Launch.","source":"requirements.md: REQ-SAVE-001","acceptanceCriteria":["Status equals Saved Launch on the current page."]},
+    {"id":"REQ-EXPORT-002","text":"File > Export shows Export ready.","source":"requirements.md: REQ-EXPORT-002","acceptanceCriteria":["Use the live File/Export menu and verify the status."]},
+    {"id":"REQ-NOTIFY-003","text":"Enabling notifications checks the checkbox.","source":"requirements.md: REQ-NOTIFY-003","acceptanceCriteria":["The checkbox reports checked."]}
+  ],
+  "questions": ["Should state persist after reloading? The requirement does not specify it.","What should happen for a blank project name? No validation rule is supplied."],
+  "risks": ["The fixture has no server persistence; do not infer it from the word save."],
+  "scenarios": [
+    {"name":"Save a named project","requirementIds":["REQ-SAVE-001"],"steps":["Enter Launch","Save project"],"expected":"Saved Launch","priority":"high"},
+    {"name":"Export from the File menu","requirementIds":["REQ-EXPORT-002"],"steps":["Open File","Choose Export"],"expected":"Export ready"},
+    {"name":"Enable notifications","requirementIds":["REQ-NOTIFY-003"],"steps":["Check Enable notifications"],"expected":"Checkbox is checked"}
+  ]
+}

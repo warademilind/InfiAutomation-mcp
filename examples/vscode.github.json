@@ -1,0 +1,14 @@
+{
+  "servers": {
+    "infiautomation": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "--yes",
+        "https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.0/infiautomation-mcp-0.3.0.tgz",
+        "--workspace",
+        "/absolute/path/your-test-project"
+      ]
+    }
+  }
+}

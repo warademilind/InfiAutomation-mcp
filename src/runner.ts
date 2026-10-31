@@ -1,3 +1,5 @@
+import { loadPlan } from './planning.js';
+import { validateTraceability, writeTraceability } from './traceability.js';
 import { randomUUID } from 'node:crypto';
 import { mkdir } from 'node:fs/promises';
 import { createRequire } from 'node:module';
@@ -10,13 +12,15 @@ import { renderReport } from './report.js';
 const require = createRequire(import.meta.url);
 export async function runSuite(input: unknown, workspace = new Workspace(), factory: (target: Suite['target']) => Driver = createDriver): Promise<{ result: RunResult; directory: string }> {
   const suite = suiteSchema.parse(input), start = Date.now();
+  const plan=suite.planPath?await loadPlan(suite.planPath,workspace):undefined;
+  if(plan)validateTraceability(plan,suite);
   const id = new Date().toISOString().replace(/[:.]/g, '-') + '-' + randomUUID().slice(0, 8);
   const directory = '.infiautomation/runs/' + id;
   await mkdir(await workspace.safe(directory), { recursive: true });
   const result: RunResult = { schemaVersion: 1, id, name: suite.name, target: suite.target.kind, startedAt: new Date().toISOString(), durationMs: 0, status: 'passed', summary: { total: suite.tests.length, passed: 0, failed: 0, healed: 0, skipped: 0 }, tests: [], environment: { platform: process.platform + '-' + process.arch, node: process.version, playwright: require('playwright/package.json').version } };
   for (const test of suite.tests) {
-    const begun = Date.now(), driver = factory(suite.target);
-    const record: CaseResult = { id: test.id, name: test.name, tags: test.tags, status: 'passed', durationMs: 0, steps: [] };
+    const begun = Date.now(), driver = factory(suite.target.kind==='web'&&!suite.target.cwd?{...suite.target,cwd:workspace.root}:suite.target);
+    const record: CaseResult = { requirements: test.requirements, id: test.id, name: test.name, tags: test.tags, status: 'passed', durationMs: 0, steps: [] };
     result.tests.push(record);
     let trace = false;
     try {
@@ -71,6 +75,7 @@ export async function runSuite(input: unknown, workspace = new Workspace(), fact
   }
   result.durationMs = Date.now() - start;
   result.status = result.summary.failed ? 'failed' : result.summary.healed ? 'healed' : 'passed';
+  if(plan){const coverage=await writeTraceability(plan,suite,workspace,directory,result);result.traceability={planPath:suite.planPath!,total:coverage.summary.total,unmapped:coverage.summary.unmapped};}
   await workspace.write(directory + '/results.json', JSON.stringify(result, null, 2));
   await workspace.write(directory + '/index.html', renderReport(result));
   await workspace.write(directory + '/detailed.html', renderReport(result, true));

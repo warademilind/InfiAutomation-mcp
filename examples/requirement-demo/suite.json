@@ -1,0 +1,23 @@
+﻿{
+  "schemaVersion": 1,
+  "name": "Project requirements demonstration",
+  "planPath": "infi-demo/plan.json",
+  "target": {"kind":"web","url":"infi-demo/fixture.html","timeoutMs":5000},
+  "healing":"off",
+  "tests": [
+    {"id":"save-project","name":"Save a named project","requirements":["REQ-SAVE-001"],"tags":["smoke"],"steps":[
+      {"name":"Enter name","action":"fill","locator":{"label":"Project name"},"value":"Launch"},
+      {"name":"Save","action":"click","locator":{"role":"button","name":"Save project"}},
+      {"name":"Verify saved status","action":"assertText","locator":{"testId":"status"},"value":"Saved Launch"}
+    ]},
+    {"id":"export-project","name":"Export from File menu","requirements":["REQ-EXPORT-002"],"steps":[
+      {"name":"Open File","action":"menu","menuPath":["File"]},
+      {"name":"Export","action":"menu","menuPath":["Export"]},
+      {"name":"Verify export","action":"assertText","locator":{"testId":"status"},"value":"Export ready"}
+    ]},
+    {"id":"enable-notifications","name":"Enable notifications","requirements":["REQ-NOTIFY-003"],"steps":[
+      {"name":"Enable","action":"check","locator":{"role":"checkbox","name":"Enable notifications"}},
+      {"name":"Verify checked","action":"assertChecked","locator":{"role":"checkbox","name":"Enable notifications"}}
+    ]}
+  ]
+}

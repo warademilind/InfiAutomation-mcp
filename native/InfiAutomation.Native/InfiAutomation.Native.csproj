@@ -3,7 +3,7 @@
     <OutputType>Exe</OutputType><TargetFramework>net8.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms><EnableWindowsTargeting>true</EnableWindowsTargeting>
     <ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable>
-    <AssemblyName>InfiAutomation.Native</AssemblyName><Version>0.2.0</Version>
+    <AssemblyName>InfiAutomation.Native</AssemblyName><Version>0.3.0</Version>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
   <ItemGroup><PackageReference Include="FlaUI.UIA3" Version="5.0.0" /></ItemGroup>

@@ -5,16 +5,24 @@
 InfiAutomation connects an MCP-compatible AI client to real application controls, then turns a test plan into reusable tests and evidence-rich, offline HTML reports. It also runs saved suites directly from the command line.
 
 - **Inspect:** browser accessibility snapshots, Windows UI Automation trees, multiple windows, native Electron menus, and bounded nested-menu discovery.
+- **Requirement documents:** extract PDF/Word/Markdown/text locally with source hashes and bounded chunks; preserve requirement IDs and acceptance criteria; keep ambiguities as open questions.
+- **Traceability:** link a suite to its saved plan, reject unknown/untraced case references, and inspect requirement coverage with direct case drill-down.
 - **Plan and generate:** requirement-traced plans, validated JSON suites, portable JavaScript test runners, and planner/generator/healer MCP prompts.
 - **Execute:** sequential cases with fresh sessions, explicit assertions, screenshots, and Playwright traces.
 - **Heal with evidence:** opt-in, exact-identity selector recovery; locator-only patches with backups; no weakened assertions.
 - **Report:** summary dashboard, searchable/filterable case explorer, step drill-down, evidence images, healing audit, environment details, JSON export, dark/light themes, and print layout. No CDN or report server required.
 
-> **Scope:** Web and Electron use Playwright on its supported operating systems. Native desktop automation currently uses FlaUI on **Windows**. No framework can guarantee every app: inaccessible canvas controls, protected windows, disabled Electron inspect fuses, elevated apps, and locked desktops need app-specific setup or another adapter. Native macOS/Linux desktop apps are not supported in v0.2.
+> **Scope:** Web and Electron use Playwright on its supported operating systems. Native desktop automation currently uses FlaUI on **Windows**. No framework can guarantee every app: inaccessible canvas controls, protected windows, disabled Electron inspect fuses, elevated apps, and locked desktops need app-specific setup or another adapter. Native macOS/Linux desktop apps are not supported in v0.3.
 
 ![InfiAutomation report showing clean passes, explicit failures, and an auditable healed case](docs/images/report-overview.png)
 
 The verification fixture above deliberately includes one failing assertion and one healed selector to demonstrate truthful reporting.
+
+## Start-to-finish guide
+
+Follow [USER_GUIDE.md](docs/USER_GUIDE.md) for installation, Codex/Copilot configuration, requirement-document import, plans, case generation, execution, healing and reports.
+
+Try the full local demonstration after setup, using the same launcher with `init-demo`, then `run infi-demo/suite.json`. No external application or requirements document is needed for that demonstration.
 
 ## Install and connect
 
@@ -50,7 +58,7 @@ npx --yes @infiautomation/mcp@latest setup --desktop
 **Available from GitHub without npm publication:**
 
 ```sh
-npx --yes https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.2.0/infiautomation-mcp-0.2.0.tgz setup
+npx --yes https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.0/infiautomation-mcp-0.3.0.tgz setup
 # On Windows, add --desktop to install the native worker too.
 ```
 
@@ -135,6 +143,12 @@ Long suites run as background jobs inside the MCP process; `test_run` returns a 
 For Electron, set `kind: "electron"` and `executable` plus optional `args`, or supply an existing Chromium `cdpUrl`. Native Electron menu reading requires launch mode; CDP-only connections expose renderer menus. Playwright's Electron API remains experimental.
 
 For Windows native apps use `kind: "desktop"` and `executable`, `pid`, or `windowTitle`. Locators use `automationId`, `controlType`, `name`, and optional `windowTitle`. See [examples](examples/) and [tool/action reference](docs/API.md).
+
+## Requirements and case coverage
+
+`requirements_import` and `requirements_read` provide source text to the connected model. `plan_create` saves both Markdown and JSON, preserving original IDs, acceptance criteria, source clauses and open questions. `test_generate` accepts `planPath` (or `suite.planPath`) to validate requirement references and produce a pre-run coverage report. Linked runs add `traceability.html`/JSON; `traceability_get` returns recorded mappings and outcomes. A mapped or passed case does not prove every acceptance criterion is covered. Scanned PDFs need OCR outside this MCP; extraction is not semantic test generation.
+
+![Requirement coverage with case links and explicit open questions](docs/images/requirements-coverage.png)
 
 ## Honest healing and honest results
 

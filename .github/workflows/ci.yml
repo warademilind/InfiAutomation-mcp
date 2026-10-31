@@ -39,12 +39,15 @@ jobs:
       - run: npm ci --prefix integration/fixtures/electron
       - run: npm run test:integration:web
       - run: node scripts/verify-report.mjs
+      - run: node scripts/verify-requirements-demo.mjs
       - run: xvfb-run -a npm run test:integration:electron
       - uses: actions/upload-artifact@v7.0.2
         if: always()
         with:
           name: fixture-reports
-          path: .infiautomation/runs/
+          path: |
+            .infiautomation/runs/
+            .infiautomation/demo-ui-*/.infiautomation/runs/
           include-hidden-files: true
   native-build:
     strategy:
