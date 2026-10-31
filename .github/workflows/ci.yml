@@ -20,7 +20,8 @@ jobs:
       - run: npm ci
       - run: npm run check
       - run: npm test
-      - run: npm pack --dry-run
+      - run: npm pack
+      - run: node scripts/verify-package.mjs
   web-electron:
     runs-on: ubuntu-latest
     steps:

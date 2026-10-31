@@ -79,10 +79,15 @@ This is a semantic runner, not a drop-in executor for arbitrary existing .spec.t
 ## Runtime configuration
 
 - `TESTWEAVE_WORKSPACE`: directory containing plans, suites and reports. All file writes are confined to it, including junction/symlink checks.
-- `TESTWEAVE_NATIVE_WORKER`: absolute worker .exe or framework-dependent .dll.
+- `TESTWEAVE_NATIVE_WORKER`: explicit worker .exe or framework-dependent .dll. Otherwise, a source build is preferred, then the version-matched worker installed by `setup --desktop`.
+- `TESTWEAVE_CACHE_DIR`: optional setup cache root. Defaults to LocalAppData/testweave-mcp on Windows and XDG_CACHE_HOME/testweave-mcp (or ~/.cache/testweave-mcp) elsewhere. Native workers are isolated by package version.
 - `TESTWEAVE_DOTNET`: dotnet executable for native builds or DLL launch.
 - `TESTWEAVE_NATIVE_RID`: win-x64 (default) or win-arm64 for source builds.
 - `TESTWEAVE_DEBUG_NATIVE=1`: native initialization/request diagnostics on stderr.
 - `PLAYWRIGHT_BROWSERS_PATH`: standard upstream browser cache override.
 
 MCP uses stdio only in v0.1. Do not expose its stdin/stdout over an unauthenticated network bridge.
+
+## Launcher setup
+
+Run `testweave-mcp setup` with the same launcher/package version used by the client to install matching Chromium. On Windows x64, `setup --desktop` also downloads the matching native worker; `--skip-browser` omits Chromium. Setup is an explicit CLI action, never a side effect of starting the stdio server. `--workspace <directory>` and `--workspace=<directory>` override the workspace environment variable. Run `doctor` to inspect the effective workspace and available runtimes.

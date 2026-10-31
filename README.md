@@ -16,61 +16,68 @@ TestWeave connects an MCP-compatible AI client to real application controls, the
 
 The verification fixture above deliberately includes one failing assertion and one healed selector to demonstrate truthful reporting.
 
-## Start from GitHub
+## Quick start: npx from GitHub
 
-Install **Node.js 24 LTS** and Git, then:
+Install **Node.js 24 LTS or newer**, then run this once in a terminal:
+
+```sh
+npx --yes https://github.com/warademilind/testweave-mcp/releases/download/v0.1.1/testweave-mcp-0.1.1.tgz setup
+```
+
+On **Windows x64**, add native desktop support with:
+
+```sh
+npx --yes https://github.com/warademilind/testweave-mcp/releases/download/v0.1.1/testweave-mcp-0.1.1.tgz setup --desktop
+```
+
+Desktop testing also needs the **.NET 8 Windows Desktop Runtime** and a signed-in, unlocked desktop. The setup command installs matching Chromium and caches the matching native worker from this repository's release, verifying its SHA-256 checksum before extraction. It does not install .NET or require a .NET SDK. Use `setup --desktop --skip-browser` for desktop-only testing.
+
+### Connect an MCP client
+
+Paste this into a client that accepts an `mcpServers` configuration:
+
+```json
+{
+  "mcpServers": {
+    "testweave": {
+      "command": "npx",
+      "args": [
+        "--yes",
+        "https://github.com/warademilind/testweave-mcp/releases/download/v0.1.1/testweave-mcp-0.1.1.tgz"
+      ]
+    }
+  }
+}
+```
+
+Restart or reload the client, enable TestWeave's tools, and ask it to call `doctor`. This launcher downloads a compiled release package: **no clone, Git installation, build command, or local executable path is required**. The first launch needs internet access to download the package and dependencies. MCP startup itself never installs browsers or desktop workers. This is GitHub distribution; `testweave-mcp@latest` is not published to the npm registry yet.
+
+The same stdio server works across compatible clients; configuration file names and wrappers differ. See the ready-to-copy [general JSON](examples/mcp.npx.json), [Codex TOML](examples/codex.npx.toml), and [VS Code servers-style JSON](examples/vscode.npx.json). Newer VS Code versions that accept `.mcp.json` can use the general JSON. Source-checkout configurations remain in [mcp-clients.json](examples/mcp-clients.json).
+
+By default, plans, suites and reports go into the client's current working directory. If it is a system folder, drive root, or unwritable, the launcher uses `~/TestWeave`. To choose a project explicitly, append `"--workspace", "/absolute/path/your-test-project"` to `args`, or set `TESTWEAVE_WORKSPACE`. On Windows JSON paths use doubled backslashes, for example `D:\\tests`. Existing suites and executable paths remain local to the machine running the MCP.
+
+Check prerequisites at any time:
+
+```sh
+npx --yes https://github.com/warademilind/testweave-mcp/releases/download/v0.1.1/testweave-mcp-0.1.1.tgz doctor
+```
+
+### Develop from source
+
+Install Node.js 24 and Git, then:
 
 ```sh
 git clone https://github.com/warademilind/testweave-mcp.git
 cd testweave-mcp
 npm ci
 npm run build
-npx playwright install chromium
-node dist/cli.js doctor
+node dist/cli.js setup
 node dist/cli.js run examples/web.suite.json
 ```
 
-The example uses a self-contained local HTML fixture: no external service or account is needed. Open the reported `index.html` for the summary and `detailed.html` for the test explorer.
+The source example uses a self-contained HTML fixture. Open the reported `index.html` for the summary and `detailed.html` for the test explorer. From a checkout, native source builds additionally need the **.NET 8 SDK**: run `npm run build:native`. The worker uses FlaUI 5.0.0 with pinned NuGet dependencies. For custom worker locations set `TESTWEAVE_NATIVE_WORKER` to the DLL's absolute path.
 
-### Connect an MCP client
-
-Use the absolute path to your clone:
-
-```json
-{
-  "mcpServers": {
-    "testweave": {
-      "command": "node",
-      "args": ["/absolute/path/testweave-mcp/dist/cli.js"],
-      "env": { "TESTWEAVE_WORKSPACE": "/absolute/path/your-test-project" }
-    }
-  }
-}
-```
-
-On Windows use paths such as `D:\\testweave-mcp\\dist\\cli.js`. VS Code uses a `servers` object and `"type": "stdio"`; see [client examples](examples/mcp-clients.json).
-
-You can also install directly from a Git revision (Node 24; Git required):
-
-```sh
-npm exec --yes --package=git+https://github.com/warademilind/testweave-mcp.git -- testweave-mcp
-```
-
-For reproducibility, append `#<commit-or-tag>` to the Git package URL. The repository has a build preparation script for Git installs. There is **no npm-registry publication implied** by this command: it installs from GitHub. Release tarballs provide another installation option.
-
-### Windows native desktop support
-
-From a source checkout, install the **.NET 8 or newer SDK**, then:
-
-```sh
-npm run build:native
-```
-
-This builds FlaUI 5.0.0 from pinned NuGet dependencies into `native/publish/TestWeave.Native.dll` with its supporting libraries. You can instead use a prebuilt worker downloaded from this repository's Releases and set `TESTWEAVE_NATIVE_WORKER` to the DLL’s absolute path. Verify the release checksum before use. End users need the .NET 8 Windows Desktop Runtime; building from source additionally needs the SDK.
-
-**GitHub hosts source and downloadable builds; automation runs locally beside the app under test.** The standard Windows worker is a DLL launched by .NET, with no opaque executable checked into Git. It cannot automate a user's Windows desktop inside a remote, headless GitHub job.
-
-Native tests require a signed-in, unlocked, interactive Windows desktop. Use the same privilege level as the target app. Attach to an existing app with `pid` or a unique `windowTitle`, or launch an `executable`. Attached native applications are left open. One native session per Windows desktop is supported.
+**GitHub hosts source and downloadable builds; automation runs locally beside the app under test.** Native desktop automation needs the same privilege level as its target. Attach with `pid` or a unique `windowTitle`, or launch an `executable`. Attached native applications are left open. One native session per Windows desktop is supported.
 
 ## Use it with an AI client
 

@@ -4,6 +4,7 @@ import { randomUUID } from 'node:crypto';
 import { targetSchema, stepSchema, locatorSchema, suiteSchema } from './schema.js';
 import { Workspace } from './workspace.js';
 import { diagnose } from './doctor.js';
+import { VERSION } from './runtime.js';
 import { createDriver } from './drivers/index.js';
 import type { Driver } from './drivers/types.js';
 import { runSuite } from './runner.js';
@@ -12,7 +13,7 @@ import { createPlan, generateSuite, planInputSchema } from './workflows.js';
 
 const guide = 'TestWeave workflow: session_start -> ui_snapshot/ui_menus -> plan_create -> test_generate -> test_run -> test_status -> report_get. Use observed selectors and explicit expected outcomes. plan_create stores the MCP host/model-authored plan; it does not call a separate model API. Never invent app behavior. Healing defaults off; semantic mode only retries a missing locator with a unique exact accessible identity, records the change and preserves assertions. Desktop requires Windows plus a built worker; GitHub-hosted headless runners cannot control an interactive Windows desktop.';
 export function createMcpServer(workspace = new Workspace()) {
-  const server = new McpServer({ name: 'testweave-mcp', version: '0.1.0' });
+  const server = new McpServer({ name: 'testweave-mcp', version: VERSION });
   const sessions = new Map<string, Driver>();
   const jobs = new Map<string, { status: string; directory?: string; summary?: unknown; error?: string }>();
   let tail: Promise<unknown> = Promise.resolve();

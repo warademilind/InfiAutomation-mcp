@@ -1,0 +1,3 @@
+[mcp_servers.testweave]
+command = "npx"
+args = ["--yes", "https://github.com/warademilind/testweave-mcp/releases/download/v0.1.1/testweave-mcp-0.1.1.tgz"]

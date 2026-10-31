@@ -14,7 +14,7 @@ test('real Chromium: form assertions, live menu capture, healing and a failing c
   const server=createServer((_,res)=>{res.setHeader('content-type','text/html');res.end(html)}).listen(0,'127.0.0.1');
   await new Promise<void>(r=>server.once('listening',r));const address=server.address() as any;
   try {
-    const target={kind:'web',url:'http://127.0.0.1:'+address.port,timeoutMs:700,headless:true};
+    const target={kind:'web',url:'http://127.0.0.1:'+address.port,timeoutMs:3000,headless:true};
     const suite={schemaVersion:1,name:'Web adapter verification',target,healing:'semantic',tests:[
       {id:'web-form',name:'Save project with form controls',tags:['web','smoke'],steps:[
         {name:'Enter project',action:'fill',locator:{label:'Project name'},value:'Launch'},

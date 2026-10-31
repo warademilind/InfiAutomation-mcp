@@ -1,8 +1,7 @@
 import { spawn, type ChildProcessWithoutNullStreams } from 'node:child_process';
 import { createInterface } from 'node:readline';
 import { access } from 'node:fs/promises';
-import { fileURLToPath } from 'node:url';
-import { resolve } from 'node:path';
+import { nativeWorkerPath, isDll } from '../runtime.js';
 import type { Snapshot, Step, Target } from '../schema.js';
 import type { Driver } from './types.js';
 export class DesktopDriver implements Driver {
@@ -26,11 +25,10 @@ export class DesktopDriver implements Driver {
   }
   async start() {
     if (process.platform !== 'win32') throw new Error('Native desktop automation requires Windows and an unlocked interactive desktop. Web/Electron work on supported Playwright platforms.');
-    const root = fileURLToPath(new URL('../../', import.meta.url));
-    const worker = process.env.TESTWEAVE_NATIVE_WORKER || resolve(root, 'native/publish/TestWeave.Native.dll');
-    try { await access(worker); } catch { throw new Error('Desktop worker missing. Run: npm run build:native (requires .NET 8+ SDK), or set TESTWEAVE_NATIVE_WORKER to a built worker.'); }
-    const command = worker.endsWith('.dll') ? (process.env.TESTWEAVE_DOTNET || 'dotnet') : worker;
-    this.child = spawn(command, worker.endsWith('.dll') ? [worker] : [], { stdio: ['pipe', 'pipe', 'pipe'], windowsHide: true });
+    const worker = nativeWorkerPath();
+    try { await access(worker); } catch { throw new Error('Desktop worker missing. Run the same TestWeave launcher with: setup --desktop --skip-browser. Install .NET 8 Windows Desktop Runtime, or build from source with npm run build:native.'); }
+    const command = isDll(worker) ? (process.env.TESTWEAVE_DOTNET || 'dotnet') : worker;
+    this.child = spawn(command, isDll(worker) ? [worker] : [], { stdio: ['pipe', 'pipe', 'pipe'], windowsHide: true });
     let errors = '';
     this.child.stderr.on('data', chunk => { errors = (errors + chunk.toString()).slice(-4000); this.diagnostics = errors; });
     createInterface({ input: this.child.stdout }).on('line', line => {

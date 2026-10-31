@@ -10,14 +10,14 @@ The native workflow is manual and restricted to the repository's own default bra
 
 ## Source and package use
 
-Clone and build, install from the Git URL, or download a release npm tarball:
+Use the GitHub release directly with npx (no clone required), clone and build, or install a downloaded tarball:
 
 ```sh
-npm install ./testweave-mcp-0.1.0.tgz
-npx testweave-mcp doctor
+npx --yes https://github.com/warademilind/testweave-mcp/releases/download/v0.1.1/testweave-mcp-0.1.1.tgz setup
+npx --yes https://github.com/warademilind/testweave-mcp/releases/download/v0.1.1/testweave-mcp-0.1.1.tgz doctor
 ```
 
-The tarball includes compiled JavaScript and native **source**, not the SDK or a large prebuilt native worker. A separate release asset supplies the worker. Point `TESTWEAVE_NATIVE_WORKER` to its extracted TestWeave.Native.dll. Install the .NET 8 Windows Desktop Runtime on the target Windows machine.
+The tarball includes compiled JavaScript and native **source**, not the SDK or a large prebuilt native worker. A separate release asset supplies the worker. Run the same npx launcher with `setup --desktop` to download and verify it, or point `TESTWEAVE_NATIVE_WORKER` to a manually extracted TestWeave.Native.dll. Install the .NET 8 Windows Desktop Runtime on the target Windows machine.
 
 For npm registry publication, the owner must choose an available package name and run `npm publish --access public` using an npm account. No npm credentials are stored or configured here. A GitHub release is usable without npm publication.
 
@@ -26,8 +26,8 @@ For npm registry publication, the owner must choose an available package name an
 After tests pass:
 
 ```sh
-git tag v0.1.0
-git push origin v0.1.0
+git tag v0.1.1
+git push origin v0.1.1
 ```
 
 The release workflow builds the Node tarball and Windows x64 worker, computes SHA-256 checksums, then creates the matching GitHub release. The worker is a framework-dependent DLL with supporting libraries. Native source can also build for Windows ARM64; the initial prebuilt release target is x64.
