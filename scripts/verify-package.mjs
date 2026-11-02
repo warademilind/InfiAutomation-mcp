@@ -2,6 +2,8 @@
 import { mkdtemp, mkdir, readFile, writeFile } from 'node:fs/promises';
 import { resolve, join } from 'node:path';
 import { Client } from '@modelcontextprotocol/client';
+import { createServer } from 'node:http';
+import { DatabaseSync } from 'node:sqlite';
 import { StdioClientTransport } from '@modelcontextprotocol/client/stdio';
 
 // Exercise the public npx contract from a folder with no package.json or source checkout.
@@ -40,6 +42,19 @@ try {
   await call('test_generate', { suite: generated, path: 'tests/portable.suite.json' });
   assert.equal(JSON.parse(await readFile(join(consumer, 'tests/portable.suite.json'), 'utf8')).name, generated.name);
   checked.push('suite generation');
+  // Exercise the new cross-layer worker from the installed tarball, outside the checkout.
+  const db=new DatabaseSync(join(consumer,'portable.sqlite'));
+  db.exec('CREATE TABLE records (id INTEGER, status TEXT); INSERT INTO records VALUES (7,\'ready\')');db.close();
+  const api=createServer((_,response)=>{response.setHeader('content-type','application/json');response.end('{"id":7,"status":"ready"}');});
+  await new Promise((done,reject)=>{api.once('error',reject);api.listen(0,'127.0.0.1',done);});
+  try{
+    const suite={schemaVersion:2,name:'Portable API and database',targets:{service:{kind:'api',baseUrl:'http://127.0.0.1:'+api.address().port},records:{kind:'database',driver:'sqlite',file:'portable.sqlite'}},tests:[{id:'chain',name:'API to SQLite',steps:[{kind:'api',target:'service',name:'Read API',path:'/',expect:{status:200,checks:[{path:'body.status',equals:'ready'}]},capture:{recordId:'body.id'}},{kind:'database',target:'records',name:'Read captured ID',sql:'SELECT status FROM records WHERE id = ?',params:['${vars.recordId}'],expect:{rowCount:1,checks:[{path:'rows.0.status',equals:'ready'}]}}]}]};
+    await call('test_generate',{suite,path:'tests/portable-v2.json'});
+    const {jobId}=await call('test_run',{path:'tests/portable-v2.json'});let job;const deadline=Date.now()+30000;
+    do{job=await call('test_status',{jobId});if(!['queued','running'].includes(job.status))break;await new Promise(done=>setTimeout(done,100));}while(Date.now()<deadline);
+    assert.equal(job.status,'passed',JSON.stringify(job));const report=await call('report_get');const result=JSON.parse(await readFile(report.resultsJson,'utf8'));assert.equal(result.layers.length,2);assert.ok(result.tests[0].steps[1].timings.queryMs>=0);
+    checked.push('packed version 2 API/SQLite worker','typed captures and measured query evidence');
+  }finally{await new Promise((done,reject)=>api.close(error=>error?reject(error):done()));}
   if (process.argv.includes('--web')) {
     await writeFile(join(consumer, 'fixture.html'), '<!doctype html><title>Portable fixture</title><button onclick="this.textContent=\'Saved\'">Save project</button>');
     await writeFile(join(consumer,'requirements.md'),'REQ-SAVE: Save must change button text to Saved.\nREQ-LATER: A future feature needs a separate test.');
