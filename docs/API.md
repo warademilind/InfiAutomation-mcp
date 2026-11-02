@@ -106,3 +106,20 @@ The `init-demo` CLI command creates a pre-authored requirement-based local fixtu
 Native click uses UIA Invoke when supported and reports its strategy. Mouse fallback, double-click and hover first foreground the target and reject hit points covered by another process. Assertions still determine whether the intended behavior occurred. Native screenshots still require an unobscured window.
 
 Installation and client configuration: [USER_GUIDE.md](USER_GUIDE.md), [CLIENT_SETUP.md](CLIENT_SETUP.md), and [TROUBLESHOOTING.md](TROUBLESHOOTING.md). The stable local launcher avoids npm package resolution on each start. Windows native runtime hosts can be set explicitly with `INFIAUTOMATION_DOTNET`.
+
+## Version 2 additions (0.4.0)
+
+| Tool | Input / result |
+| --- | --- |
+| `api_document_import` | `{path}` inside workspace; OpenAPI/Swagger JSON/YAML, Postman v2 or WSDL; catalog ID and first operation page; no requests |
+| `api_document_read` | `{documentId, offset?, limit?}`; follow nextOffset until null; external references remain explicit |
+| `api_request` | `{target, step, policy?}`; API target/step shapes below; explicit HTTP/status/body/schema/timing assertions; redacted evidence path |
+| `database_capabilities` | `{}`; implemented adapters, optional driver availability and prerequisites |
+| `database_query` | `{target, step}`; read-only database target/step; explicit row/value assertions, connection/query timing and evidence |
+| `ui_ux_check` | `{sessionId, step}`; UX step for an existing UI session; browser accessibility/layout/performance or approved visual PNG comparison (including native desktop visual checks) |
+
+Version 2 suites use `schemaVersion: 2`, `name`, `targets` keyed by target name, optional `planPath`/`policy`/`healing`, and `tests`. Each step has `kind`, `target`, `name`. UI steps wrap an existing typed UI action in `step`; API/database/UX fields are top-level. `test_generate`, `test_run`, reports and traceability accept both suite versions. Version 1 behavior is preserved. `heal_apply` can patch only the wrapped UI locator in version 2, never API/DB/UX assertions or expected values.
+
+Plans accept `target.kind: "mixed"`, `api`, `database`, or an existing UI kind, per-scenario `layers`, imported `apiDocuments` IDs and optional `policy`. Link the saved JSON plan, not Markdown.
+
+Full copyable examples, exact fields, capture/secret syntax, policy interpretation and timing semantics: [unified E2E](UNIFIED_E2E.md). Driver placeholders, optional installs, limits and compatibility: [databases](DATABASES.md). The exported Zod schemas remain the authoritative machine validation contract.

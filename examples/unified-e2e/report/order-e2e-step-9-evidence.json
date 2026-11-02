@@ -1,0 +1,39 @@
+{
+  "name": "Measure browser navigation and paint",
+  "action": "performance",
+  "layer": "ux",
+  "target": "portal",
+  "status": "passed",
+  "durationMs": 44.69619999999986,
+  "screenshot": "order-e2e-step-9.png",
+  "actual": {
+    "navigation": {
+      "timeToFirstByteMs": 0.7999999821186066,
+      "domContentLoadedMs": 60.29999998211861,
+      "loadMs": 60.69999998807907,
+      "domInteractiveMs": 60.099999994039536
+    },
+    "paint": [
+      {
+        "name": "first-paint",
+        "startTimeMs": 80
+      },
+      {
+        "name": "first-contentful-paint",
+        "startTimeMs": 80
+      }
+    ],
+    "webVitals": {
+      "largestContentfulPaintMs": 80,
+      "cumulativeLayoutShift": 0
+    },
+    "note": "Navigation and paint are browser timings; readyWaitMs measures only this step's wait for visibility. LCP and CLS are observed up to this checkpoint, not final field Core Web Vitals. This is not backend latency or subjective usability.",
+    "readyWaitMs": 9.830500000000029
+  },
+  "timings": {
+    "uxCheckMs": 14.536099999999806,
+    "readyWaitMs": 9.830500000000029
+  },
+  "attachments": [],
+  "evidence": "order-e2e-step-9-evidence.json"
+}

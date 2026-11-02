@@ -1,0 +1,16 @@
+{
+  "name": "Open the matching order",
+  "action": "navigate",
+  "layer": "web",
+  "target": "portal",
+  "status": "passed",
+  "durationMs": 798.6884,
+  "screenshot": "order-e2e-step-3.png",
+  "actual": {
+    "url": "http://127.0.0.1:57524/orders/fa0af316-8c0b-4f33-85b8-fd9c056f6089"
+  },
+  "timings": {
+    "actionMs": 69.44380000000001
+  },
+  "evidence": "order-e2e-step-3-evidence.json"
+}

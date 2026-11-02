@@ -1,0 +1,23 @@
+{
+  "name": "Check automated accessibility",
+  "action": "accessibility",
+  "layer": "ux",
+  "target": "portal",
+  "status": "passed",
+  "durationMs": 919.3324000000002,
+  "screenshot": "order-e2e-step-8.png",
+  "actual": {
+    "engine": "axe-core",
+    "scope": "document",
+    "violationCount": 0,
+    "incompleteCount": 0,
+    "violations": [],
+    "note": "Automated checks cover a subset of accessibility requirements; manual keyboard, screen-reader and usability review remains necessary."
+  },
+  "timings": {
+    "uxCheckMs": 883.1565,
+    "readyWaitMs": 0.0012000000001535227
+  },
+  "attachments": [],
+  "evidence": "order-e2e-step-8-evidence.json"
+}

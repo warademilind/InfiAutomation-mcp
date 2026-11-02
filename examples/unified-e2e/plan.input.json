@@ -1,0 +1,21 @@
+{
+  "name": "Synthetic order: cross-layer verification",
+  "goal": "Verify a synthetic order through REST, browser and SQLite; SOAP addition and bounded automated UX checks.",
+  "target": {"kind": "mixed"}, "path": "e2e-demo/plan.md",
+  "requirements": [
+    {"id": "ORDER-01", "text": "Create an order through REST", "acceptanceCriteria": ["HTTP 201", "Unique ID", "Status is created"]},
+    {"id": "ORDER-02", "text": "Order ID, product and status match across API, browser and SQLite; unknown orders return documented 404"},
+    {"id": "SOAP-01", "text": "SOAP Add returns 5 for 2 and 3 without a fault"},
+    {"id": "UX-01", "text": "No detected violations under the selected axe WCAG A/AA rules"},
+    {"id": "UX-02", "text": "No horizontal overflow at 390 by 844 CSS pixels"},
+    {"id": "PERF-01", "text": "API and query checks meet the illustrative local timing thresholds"}
+  ],
+  "policy": {"allowedOrigins": ["http://127.0.0.1:47831"], "allowedMethods": ["GET", "POST"], "dos": ["Use synthetic data", "Verify explicit expected outcomes"], "donts": ["Do not access production", "Do not execute database writes"]},
+  "risks": ["Recorded times are single local observations, not load-test percentiles", "Screenshots can contain application data"],
+  "questions": ["Production business rules and performance budgets are outside this synthetic example", "Manual accessibility and usability review remains necessary"],
+  "scenarios": [
+    {"name": "Create and verify an order across layers", "requirementIds": ["ORDER-01", "ORDER-02", "UX-01", "UX-02", "PERF-01"], "layers": ["api", "web", "database", "ux"], "steps": ["POST synthetic order and capture ID", "GET captured ID", "Assert same ID and status in browser", "SELECT same ID with a bound parameter", "Check mobile layout, accessibility and browser performance"], "expected": "Matching values, zero selected-rule axe violations, no overflow and timing limits satisfied", "priority": "critical"},
+    {"name": "SOAP addition", "requirementIds": ["SOAP-01"], "layers": ["api"], "steps": ["POST SOAP 1.1 Add with 2 and 3", "Assert status and AddResult"], "expected": "HTTP 200, result 5, no SOAP Fault"},
+    {"name": "Unknown order", "requirementIds": ["ORDER-02"], "layers": ["api"], "steps": ["GET missing synthetic ID"], "expected": "HTTP 404 with Order not found"}
+  ]
+}

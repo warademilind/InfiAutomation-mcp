@@ -3,6 +3,7 @@ import { relative, sep } from 'node:path';
 import { Workspace } from './workspace.js';
 import { loadPlan } from './planning.js';
 import { validateTraceability, writeTraceability } from './traceability.js';
+import { effectivePolicy } from './execution-values.js';
 export { createPlan, planInputSchema } from './planning.js';
 export async function generateSuite(input: unknown, path: string, workspace: Workspace, planPath?: string) {
   const suite = suiteSchema.parse(input);
@@ -10,6 +11,8 @@ export async function generateSuite(input: unknown, path: string, workspace: Wor
   if(planPath&&suite.planPath&&portable(planPath)!==portable(suite.planPath))throw new Error('Conflicting planPath values; link the suite to one saved plan');
   if(planPath||suite.planPath)suite.planPath=portable(planPath||suite.planPath!);
   const plan=suite.planPath?await loadPlan(suite.planPath,workspace):undefined;
+  if(plan?.policy&&suite.schemaVersion===1)throw new Error('A structured plan policy requires schemaVersion 2');
+  if(suite.schemaVersion===2)effectivePolicy(plan?.policy,suite.policy);
   if(plan)validateTraceability(plan,suite);
   if (!path.endsWith('.json')) throw new Error('Suite path must end in .json');
   const source = path.slice(0,-5)+'.test.mjs';

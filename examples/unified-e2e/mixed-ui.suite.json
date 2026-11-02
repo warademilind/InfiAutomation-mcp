@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 2,
+  "name": "One case: web and Windows Calculator",
+  "targets": {"portal": {"kind": "web", "url": "http://127.0.0.1:47831"}, "calculator": {"kind": "desktop", "windowTitle": "Calculator"}},
+  "healing": "off",
+  "policy": {"allowedOrigins": ["http://127.0.0.1:47831"], "allowedMethods": ["GET"], "dos": ["Open one English Windows Calculator in Standard mode before execution"], "donts": ["Do not reuse a stale PID", "Do not run another native inspection session concurrently"]},
+  "tests": [{"id": "shared-sum", "name": "Verify 2 + 3 equals 5 in both UIs", "tags": ["web", "desktop"], "requirements": ["DEMO-SUM-01"], "steps": [
+    {"kind": "ui", "target": "portal", "name": "Calculate in browser", "step": {"name": "Add", "action": "click", "locator": {"role": "button", "name": "Calculate 2 + 3"}}},
+    {"kind": "ui", "target": "portal", "name": "Verify browser result", "step": {"name": "Result", "action": "assertText", "locator": {"testId": "sum"}, "value": "5"}},
+    {"kind": "ui", "target": "calculator", "name": "Clear native calculator", "step": {"name": "Clear", "action": "click", "locator": {"automationId": "clearButton"}}},
+    {"kind": "ui", "target": "calculator", "name": "Enter two", "step": {"name": "Two", "action": "click", "locator": {"automationId": "num2Button"}}},
+    {"kind": "ui", "target": "calculator", "name": "Add", "step": {"name": "Plus", "action": "click", "locator": {"automationId": "plusButton"}}},
+    {"kind": "ui", "target": "calculator", "name": "Enter three", "step": {"name": "Three", "action": "click", "locator": {"automationId": "num3Button"}}},
+    {"kind": "ui", "target": "calculator", "name": "Equals", "step": {"name": "Equals", "action": "click", "locator": {"automationId": "equalButton"}}},
+    {"kind": "ui", "target": "calculator", "name": "Verify native result", "step": {"name": "Result", "action": "assertText", "locator": {"automationId": "CalculatorResults"}, "value": "Display is 5"}}
+  ]}]
+}

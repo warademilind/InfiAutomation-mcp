@@ -1,0 +1,28 @@
+{
+  "name": "Verify the same persisted order",
+  "action": "query",
+  "layer": "database",
+  "target": "records",
+  "status": "passed",
+  "durationMs": 281.0412000000001,
+  "actual": {
+    "driver": "sqlite",
+    "rows": [
+      {
+        "id": "fa0af316-8c0b-4f33-85b8-fd9c056f6089",
+        "product": "Demonstration keyboard",
+        "status": "created"
+      }
+    ],
+    "rowCount": 1,
+    "connectMs": 0.48320000000001073,
+    "queryMs": 0.4895999999999958,
+    "totalMs": 277.8145999999997
+  },
+  "timings": {
+    "connectMs": 0.48320000000001073,
+    "queryMs": 0.4895999999999958,
+    "totalMs": 277.8145999999997
+  },
+  "evidence": "order-e2e-step-6-evidence.json"
+}

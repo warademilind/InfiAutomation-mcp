@@ -1,0 +1,17 @@
+{
+  "name": "Verify the shared order ID",
+  "action": "assertText",
+  "layer": "web",
+  "target": "portal",
+  "status": "passed",
+  "durationMs": 110.89449999999988,
+  "screenshot": "order-e2e-step-4.png",
+  "actual": {
+    "actual": "fa0af316-8c0b-4f33-85b8-fd9c056f6089",
+    "expected": "fa0af316-8c0b-4f33-85b8-fd9c056f6089"
+  },
+  "timings": {
+    "actionMs": 51.936899999999696
+  },
+  "evidence": "order-e2e-step-4-evidence.json"
+}

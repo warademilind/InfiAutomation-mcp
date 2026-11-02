@@ -1,0 +1,33 @@
+openapi: 3.1.0
+info:
+  title: Synthetic order service
+  version: 1.0.0
+servers:
+  - url: http://127.0.0.1:47831
+paths:
+  /api/orders:
+    post:
+      operationId: createOrder
+      summary: Create synthetic demonstration data
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [product]
+              properties:
+                product: {type: string, minLength: 1}
+      responses:
+        '201':
+          description: Created order with unique id, product and status created
+        '400':
+          description: Invalid product
+  /api/orders/{id}:
+    get:
+      operationId: readOrder
+      parameters:
+        - {name: id, in: path, required: true, schema: {type: string}}
+      responses:
+        '200': {description: Persisted order}
+        '404': {description: Order not found}

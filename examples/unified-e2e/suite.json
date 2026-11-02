@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 2,
+  "name": "Order journey: REST, SOAP, browser, SQLite and UX",
+  "targets": {
+    "service": {"kind": "api", "baseUrl": "http://127.0.0.1:47831"},
+    "portal": {"kind": "web", "url": "http://127.0.0.1:47831", "headless": true},
+    "records": {"kind": "database", "driver": "sqlite", "file": "orders.sqlite"}
+  },
+  "policy": {
+    "allowedOrigins": ["http://127.0.0.1:47831"],
+    "allowedMethods": ["GET", "POST"],
+    "dos": ["Use synthetic demonstration orders", "Verify all layers with explicit assertions"],
+    "donts": ["Do not access production", "Do not write through database adapters", "Do not approve visual baselines automatically"]
+  },
+  "healing": "off",
+  "tests": [
+    {
+      "id": "order-e2e",
+      "name": "Create an order, verify browser and database, then inspect UX",
+      "requirements": ["ORDER-01", "ORDER-02", "UX-01", "UX-02", "PERF-01"],
+      "tags": ["e2e", "rest", "web", "database", "ux"],
+      "steps": [
+        {"kind": "api", "target": "service", "name": "Create synthetic order", "method": "POST", "path": "/api/orders", "body": {"product": "Demonstration keyboard"}, "expect": {"status": 201, "checks": [{"path": "body.status", "equals": "created"}], "jsonSchema": {"type": "object", "required": ["id", "product", "status"], "properties": {"id": {"type": "string", "format": "uuid"}, "status": {"const": "created"}}}, "maxDurationMs": 2000}, "capture": {"orderId": "body.id"}},
+        {"kind": "api", "target": "service", "name": "Read the captured order ID", "path": "/api/orders/${vars.orderId}", "expect": {"status": 200, "checks": [{"path": "body.product", "equals": "Demonstration keyboard"}], "maxDurationMs": 2000}},
+        {"kind": "ui", "target": "portal", "name": "Open the matching order", "step": {"name": "Navigate", "action": "navigate", "value": "http://127.0.0.1:47831/orders/${vars.orderId}"}},
+        {"kind": "ui", "target": "portal", "name": "Verify the shared order ID", "step": {"name": "Order ID", "action": "assertText", "locator": {"testId": "order-id"}, "value": "${vars.orderId}"}},
+        {"kind": "ui", "target": "portal", "name": "Verify visible order status", "step": {"name": "Status", "action": "assertText", "locator": {"testId": "status"}, "value": "created"}},
+        {"kind": "database", "target": "records", "name": "Verify the same persisted order", "sql": "SELECT id, product, status FROM orders WHERE id = ?", "params": ["${vars.orderId}"], "expect": {"rowCount": 1, "checks": [{"path": "rows.0.product", "equals": "Demonstration keyboard"}, {"path": "rows.0.status", "equals": "created"}], "maxDurationMs": 2000}},
+        {"kind": "ux", "target": "portal", "name": "Check mobile layout", "check": "layout", "viewport": {"width": 390, "height": 844}, "maxOverflowPx": 1, "minTapTargetPx": 44},
+        {"kind": "ux", "target": "portal", "name": "Check automated accessibility", "check": "accessibility", "maxViolations": 0},
+        {"kind": "ux", "target": "portal", "name": "Measure browser navigation and paint", "check": "performance", "selector": "[data-testid=status]", "maxDurationMs": 3000}
+      ]
+    },
+    {
+      "id": "soap-add",
+      "name": "SOAP addition uses an explicit XML result assertion",
+      "requirements": ["SOAP-01"],
+      "tags": ["soap"],
+      "steps": [
+        {"kind": "api", "target": "service", "name": "Add two and three via SOAP 1.1", "method": "POST", "path": "/soap", "soapVersion": "1.1", "soapAction": "urn:infi:math#Add", "body": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"><soap:Body><Add xmlns=\"urn:infi:math\"><a>2</a><b>3</b></Add></soap:Body></soap:Envelope>", "expect": {"status": 200, "checks": [{"path": "body.Envelope.Body.AddResponse.AddResult", "equals": "5"}], "maxDurationMs": 2000}}
+      ]
+    },
+    {
+      "id": "order-not-found",
+      "name": "Unknown order returns the documented negative response",
+      "requirements": ["ORDER-02"],
+      "tags": ["rest", "negative"],
+      "steps": [{"kind": "api", "target": "service", "name": "Read a missing order", "path": "/api/orders/missing-demo-id", "expect": {"status": 404, "checks": [{"path": "body.error", "equals": "Order not found"}]}}]
+    }
+  ]
+}

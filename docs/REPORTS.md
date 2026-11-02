@@ -35,3 +35,13 @@ Generated HTML is a saved artifact. Installing a newer MCP version changes repor
 Report renderer version and recorded runtime versions have different meanings. A refreshed interface does not imply the application tests were rerun.
 
 Clean passes, healed outcomes, failures and skipped cases remain distinct. Requirement mapping is evidence of linked cases, not proof of complete business acceptance.
+
+## Version 2: layers, API/database evidence, UX and timing
+
+Version 0.4.0 retains the stable navigation and adds **Layers & timings** and **Execution policy** for new version 2 runs. The explorer can filter cases by layer; a multi-layer case can appear under several layer filters. Case outcomes still refer to the whole case. Layer counts refer to individual steps, so they are not case totals.
+
+Each step identifies its layer and named target. **Open JSON evidence** links recorded, redacted API/database/UX data. API checks expose status, parsed body, request duration and explicit assertion failures. Database checks expose bounded rows, connection/query/total time. UX findings expose accessibility/layout/performance results; visual checks also link the supplied baseline, current screenshot and pixel diff. Failed assertions keep actual values and timing when available. Missing drivers or failed connections do not manufacture successful request/query timings.
+
+Timing labels distinguish requestMs, connectMs, queryMs, actionMs, readyWaitMs and uxCheckMs. Whole step duration includes setup/evidence overhead and must not be mistaken for server-only latency. Browser navigation/paint/checkpoint LCP/CLS appear in the performance step's actual JSON. These are measurements from an individual functional run, not a load-test percentile or subjective usability score.
+
+The effective policy appears as saved JSON with user notes and structured restrictions. Natural-language notes require matching assertions or review; they are not automatically executable. JSON redaction does not censor screenshot pixels. See [the complete workflow](UNIFIED_E2E.md).

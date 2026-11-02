@@ -1,0 +1,17 @@
+{
+  "name": "Verify visible order status",
+  "action": "assertText",
+  "layer": "web",
+  "target": "portal",
+  "status": "passed",
+  "durationMs": 80.9368000000004,
+  "screenshot": "order-e2e-step-5.png",
+  "actual": {
+    "actual": "created",
+    "expected": "created"
+  },
+  "timings": {
+    "actionMs": 12.773999999999887
+  },
+  "evidence": "order-e2e-step-5-evidence.json"
+}

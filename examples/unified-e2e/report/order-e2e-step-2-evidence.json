@@ -1,0 +1,33 @@
+{
+  "name": "Read the captured order ID",
+  "action": "GET",
+  "layer": "api",
+  "target": "service",
+  "status": "passed",
+  "durationMs": 6.170799999999872,
+  "actual": {
+    "request": {
+      "method": "GET",
+      "url": "http://127.0.0.1:57524/api/orders/fa0af316-8c0b-4f33-85b8-fd9c056f6089",
+      "headers": {}
+    },
+    "status": 200,
+    "headers": {
+      "content-type": "application/json",
+      "date": "Mon, 02 Nov 2026 19:26:21 GMT",
+      "connection": "keep-alive",
+      "keep-alive": "timeout=5",
+      "transfer-encoding": "chunked"
+    },
+    "body": {
+      "id": "fa0af316-8c0b-4f33-85b8-fd9c056f6089",
+      "product": "Demonstration keyboard",
+      "status": "created"
+    },
+    "durationMs": 5.3496000000000095
+  },
+  "timings": {
+    "requestMs": 5.3496000000000095
+  },
+  "evidence": "order-e2e-step-2-evidence.json"
+}

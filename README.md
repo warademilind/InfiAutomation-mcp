@@ -1,6 +1,6 @@
 # InfiAutomation MCP
 
-**One testing workflow for web, Electron, and Windows desktop applications.**
+**One testing workflow for web, Electron, Windows desktop, REST/SOAP APIs, database verification and automated UI/UX checks.**
 
 InfiAutomation connects an MCP-compatible AI client to real application controls, then turns a test plan into reusable tests and evidence-rich, offline HTML reports. It also runs saved suites directly from the command line.
 
@@ -9,10 +9,14 @@ InfiAutomation connects an MCP-compatible AI client to real application controls
 - **Traceability:** link a suite to its saved plan, reject unknown/untraced case references, and inspect requirement coverage with direct case drill-down.
 - **Plan and generate:** requirement-traced plans, validated JSON suites, portable JavaScript test runners, and planner/generator/healer MCP prompts.
 - **Execute:** sequential cases with fresh sessions, explicit assertions, screenshots, and Playwright traces.
+- **Cross-layer E2E:** version 2 named targets share captures across browser/desktop, REST/SOAP and read-only database steps in one case. Existing version 1 suites keep working.
+- **API documents:** import OpenAPI/Swagger, Postman v2 or WSDL as planning data; author explicit status/body/schema/negative cases from documented expectations.
+- **UI/UX and timing:** axe accessibility, mobile overflow/tap targets, approved visual baselines, browser navigation/paint metrics, API elapsed time and DB connection/query time.
+- **Execution policy:** preserve user do/don't notes and enforce supported method/origin/target/action restrictions, read checks, screenshot permission and redacted evidence.
 - **Heal with evidence:** opt-in, exact-identity selector recovery; locator-only patches with backups; no weakened assertions.
 - **Report:** summary dashboard, searchable/filterable case explorer, step drill-down, evidence images, healing audit, environment details, JSON export, dark/light themes, and print layout. No CDN or report server required.
 
-> **Scope:** Web and Electron use Playwright on its supported operating systems. Native desktop automation currently uses FlaUI on **Windows**. No framework can guarantee every app: inaccessible canvas controls, protected windows, disabled Electron inspect fuses, elevated apps, and locked desktops need app-specific setup or another adapter. Native macOS/Linux desktop apps are not supported in v0.3.
+> **Scope:** Web and Electron use Playwright on its supported operating systems. Native desktop automation currently uses FlaUI on **Windows**. No framework can guarantee every app: inaccessible canvas controls, protected windows, disabled Electron inspect fuses, elevated apps, and locked desktops need app-specific setup or another adapter. Native macOS/Linux desktop apps are not supported. Database compatibility is documented per adapter; arbitrary applications or databases are not universally guaranteed.
 
 ![InfiAutomation report showing clean passes, explicit failures, and an auditable healed case](docs/images/report-overview.png)
 
@@ -29,11 +33,14 @@ Follow the guides in order. All Windows examples use the generic workspace **C:/
 | [Troubleshooting](docs/TROUBLESHOOTING.md) | Resolve certificate errors, connection resets, .NET detection, pasted commands and cached-launcher recovery |
 | [Tool reference](docs/API.md) | Look up exact tool inputs, actions and locators |
 | [Use the HTML reports](docs/REPORTS.md) | Navigate stable panels, search and page cases, review repairs, and expand screenshots and actual results |
+| [Mixed UI/API/database/UX guide](docs/UNIFIED_E2E.md) | Run a complete synthetic example, import API documents, chain values and interpret timing evidence |
+| [Database adapters](docs/DATABASES.md) | SQLite, PostgreSQL, MySQL/MariaDB, SQL Server, Oracle, MongoDB, Redis and ODBC extension path |
+| [Version history and rollback](docs/VERSIONS.md) | Keep earlier releases, use both suite formats and install versions side by side |
 | [Calculator: requirements to reports](examples/calculator/README.md) | Explore the original plan, nine executable cases, 53 actual screenshots, and linked summary, detailed and coverage HTML reports |
 
 **[Open the live Calculator walkthrough](https://warademilind.github.io/InfiAutomation-mcp/examples/calculator/)** to follow requirements → plan → cases → recorded execution → screenshots and coverage. The example uses provisional UI-derived expectations, with its original plan and suite included. You can also download the repository and open `examples/calculator/index.html` offline.
 
-**Available release: v0.3.2 from GitHub.** The npm registry package `@infiautomation/mcp` is pending first publication; `npx @infiautomation/mcp@latest` currently returns `E404`. The public GitHub package needs no Git installation, npm login, GitHub login or source build.
+**Available release: v0.4.0 from GitHub.** The npm registry package `@infiautomation/mcp` is pending first publication; `npx @infiautomation/mcp@latest` currently returns `E404`. The public GitHub package needs no Git installation, npm login, GitHub login or source build.
 
 ## Quick start on Windows
 
@@ -44,7 +51,7 @@ Run each line separately in PowerShell. The install below uses a permanent local
 ```powershell
 node --version
 New-Item -ItemType Directory -Path C:/InfiTests -Force
-npm.cmd install --prefix C:/InfiTests/tools/infiautomation --save-exact --no-audit --no-fund https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.2/infiautomation-mcp-0.3.2.tgz
+npm.cmd install --prefix C:/InfiTests/tools/infiautomation --save-exact --no-audit --no-fund https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.4.0/infiautomation-mcp-0.4.0.tgz
 node C:/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js --version
 node C:/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js setup
 node C:/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js doctor --workspace C:/InfiTests
@@ -52,7 +59,7 @@ node C:/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli
 node C:/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js run infi-demo/suite.json --workspace C:/InfiTests
 ```
 
-Expected: version `0.3.2`, successful setup, `chromiumInstalled: true`, then **3 passed demo cases**. Stop at a failed stage and follow [troubleshooting](docs/TROUBLESHOOTING.md). For another demo run, repeat only the final `run` command.
+Expected: version `0.4.0`, successful setup, `chromiumInstalled: true`, then **3 passed demo cases**. Stop at a failed stage and follow [troubleshooting](docs/TROUBLESHOOTING.md). For another demo run, repeat only the final `run` command.
 
 For Windows native support, use `setup --desktop` after installing .NET and verify all native fields in doctor. The demo above is a web fixture; test your actual native/Electron app separately.
 
@@ -61,6 +68,8 @@ Open the run directory printed by the runner: `index.html` is the summary, `deta
 Copy-ready stable local configurations: [Codex](examples/codex.local.toml), [VS Code/Copilot](examples/vscode.local.json), [portable JSON](examples/mcp.local.json). The [GitHub npx alternative](docs/CLIENT_SETUP.md#4-github-npx-alternative) remains available for clients that prefer it; npm can contact the release server on a later invocation.
 
 For macOS/Linux, follow the [platform-specific commands](docs/USER_GUIDE.md#13-macos-and-linux). Startup does not automatically download browser/native software.
+**[Run the new REST/SOAP + browser + SQLite + UX example](examples/unified-e2e/README.md)**, or [open its recorded linked report](https://warademilind.github.io/InfiAutomation-mcp/examples/unified-e2e/report/).
+
 ### Platform support and prerequisites
 
 | Capability | Windows | macOS | Linux |
@@ -68,6 +77,8 @@ For macOS/Linux, follow the [platform-specific commands](docs/USER_GUIDE.md#13-m
 | Web testing with Playwright | Yes | Yes | Yes |
 | Electron renderer testing | Yes, supported Electron apps | Yes, supported Electron apps | Yes, supported Electron apps |
 | Native desktop via FlaUI/UIA3 | Yes; interactive desktop | No native adapter yet | No native adapter yet |
+| REST/SOAP, API catalogs, read-only database adapters | Yes; optional driver prerequisites apply | Yes; optional driver prerequisites apply | Yes; optional driver prerequisites apply |
+| Browser accessibility/layout/performance/visual checks | Yes | Yes | Yes |
 | Plans, suite generation, healing, HTML reports | Yes | Yes | Yes |
 
 Use Playwright-supported operating systems and an app exposing usable controls. Native desktop testing requires the **.NET 8 Windows Desktop Runtime**, the same privilege level as the target, and a signed-in, unlocked Windows desktop. Prebuilt x64 and ARM64 workers are provided; ARM64 is cross-built and requires validation on ARM64 hardware. Setup verifies the release SHA-256 checksum before caching the worker. It does not install .NET. Building from source additionally requires the .NET 8 SDK.

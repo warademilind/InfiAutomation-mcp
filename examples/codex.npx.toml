@@ -1,5 +1,5 @@
 [mcp_servers.infiautomation]
 command = "npx"
-args = ["--yes","https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.2/infiautomation-mcp-0.3.2.tgz","--workspace","C:/InfiTests"]
+args = ["--yes","https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.4.0/infiautomation-mcp-0.4.0.tgz","--workspace","C:/InfiTests"]
 startup_timeout_sec = 120
 tool_timeout_sec = 180

@@ -9,6 +9,7 @@ export class WebDriver implements Driver {
   readonly kind: Target['kind'];
   browser?: Browser; context!: BrowserContext; page!: Page; electron?: ElectronApplication;
   private tracing = false;
+  executionPolicy?: {allowedOrigins:string[];allowedMethods:string[]};
   constructor(readonly target: Target) { this.kind = target.kind; }
   async start(): Promise<void> {
     if (this.target.cdpUrl) {
@@ -24,9 +25,15 @@ export class WebDriver implements Driver {
     } else {
       const engine = { chromium, firefox, webkit }[this.target.browser];
       this.browser = await engine.launch({ headless: this.target.headless, ...(this.target.channel ? { channel: this.target.channel } : {}) });
-      this.context = await this.browser.newContext({ viewport: { width: 1440, height: 1000 } });
+      this.context = await this.browser.newContext({ viewport: { width: 1440, height: 1000 }, ...(this.executionPolicy?{serviceWorkers:'block' as const}:{}) });
       this.page = await this.context.newPage();
     }
+    if(this.executionPolicy?.allowedOrigins.length){
+      const policy=this.executionPolicy,origins=policy.allowedOrigins.map(value=>new URL(value).origin);
+      if(this.target.cdpUrl)throw new Error('Origin-restricted suites cannot use attached CDP sessions; use an isolated browser');
+      await this.context.route('**/*',async route=>{const request=route.request(),url=new URL(request.url());if(['http:','https:'].includes(url.protocol)&&(!origins.includes(url.origin)||!policy.allowedMethods.includes(request.method())))await route.abort('blockedbyclient');else await route.continue();});
+    }
+    if(this.executionPolicy)await this.context.addInitScript(()=>{const metrics={largestContentfulPaintMs:0,cumulativeLayoutShift:0};(window as any).__infiMetrics=metrics;try{new PerformanceObserver(list=>{for(const entry of list.getEntries())metrics.largestContentfulPaintMs=entry.startTime;}).observe({type:'largest-contentful-paint',buffered:true});new PerformanceObserver(list=>{for(const entry of list.getEntries())if(!(entry as any).hadRecentInput)metrics.cumulativeLayoutShift+=(entry as any).value;}).observe({type:'layout-shift',buffered:true});}catch{}});
     this.page.setDefaultTimeout(this.target.timeoutMs);
     if (this.target.url) await this.page.goto(this.url(this.target.url), { waitUntil: 'domcontentloaded', timeout: this.target.timeoutMs });
   }
