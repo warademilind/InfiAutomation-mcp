@@ -20,6 +20,7 @@ test('version 2 rejects incompatible/missing targets, missing assertions and inv
   assert.throws(()=>suiteSchema.parse({...suite,targets:{service:{kind:'web'}}}));
   assert.throws(()=>suiteSchema.parse({...suite,tests:[{id:'a',name:'No oracle',steps:[{kind:'database',name:'Read',target:'service',expect:{}}]}]}));
   assert.throws(()=>suiteSchema.parse({...suite,targets:{service:{kind:'web'}},tests:[{id:'a',name:'Visual',steps:[{kind:'ux',target:'service',name:'Diff',check:'visual'}]}]}));
+  assert.throws(()=>suiteSchema.parse({...suite,targets:{service:{kind:'web'}},tests:[{id:'a',name:'No performance oracle',steps:[{kind:'ux',target:'service',name:'Metrics only',check:'performance'}]}]}),/explicit assertion/);
 });
 test('execution values use typed captures and environment secrets, reject inherited paths, and redact nested evidence',()=>{
   process.env.INFI_UNIT_SECRET='unit-only-credential-48213';

@@ -69,7 +69,7 @@ export const unifiedSuiteSchema = z.object({schemaVersion:z.literal(2),name:z.st
   if(!Object.keys(v.targets).length)ctx.addIssue({code:'custom',message:'At least one named target is required'});
   if(new Set(v.tests.map(t=>t.id)).size!==v.tests.length)ctx.addIssue({code:'custom',message:'Test IDs must be unique'});
   for(const test of v.tests){
-    if(!test.steps.some(s=>s.kind!=='ui'||s.step.action.startsWith('assert')))ctx.addIssue({code:'custom',message:'Test '+test.id+' needs an explicit assertion'});
+    if(!test.steps.some(s=>s.kind==='ui'?s.step.action.startsWith('assert'):s.kind==='ux'&&s.check==='performance'?s.maxDurationMs!==undefined:true))ctx.addIssue({code:'custom',message:'Test '+test.id+' needs an explicit assertion; performance collection without a threshold is measurement only'});
     for(const step of test.steps){const target=v.targets[step.target];const compatible=target&&(step.kind==='ui'?['web','electron','desktop'].includes(target.kind):step.kind==='ux'?(step.check==='visual'?['web','electron','desktop']:['web','electron']).includes(target.kind):target.kind===step.kind);if(!compatible)ctx.addIssue({code:'custom',message:'Unknown or incompatible target '+step.target+' for '+step.kind});}
   }
 });
