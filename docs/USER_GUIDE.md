@@ -228,6 +228,12 @@ Import the revised document, update the plan with the correct source ID/version,
 
 ## Troubleshooting
 
+### npm E404 on another Windows machine
+
+A log showing `npm exec @infiautomation/mcp@latest` and HTTP 404 means the client is still requesting the unpublished npm package. Replace that package argument in the saved MCP configuration with the public GitHub tarball URL from section 4 or 5, then stop/start the server. Consumers do not need an npm login for the public GitHub launcher.
+
+A log showing `node@v22` also needs a runtime upgrade: install Node 24 or newer, reopen the terminal and fully restart the client, then check `node --version`. Both changes are required. Retry setup and doctor using the same GitHub release. The README and default npx examples now use that available release.
+
 | Symptom | Next action |
 | --- | --- |
 | `@infiautomation/mcp@latest` gives 404 | Use the GitHub tarball URL until npm publication |

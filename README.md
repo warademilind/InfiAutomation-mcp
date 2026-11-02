@@ -26,11 +26,23 @@ Try the full local demonstration after setup, using the same launcher with `init
 
 ## Install and connect
 
-InfiAutomation MCP is packaged as **`@infiautomation/mcp`**. npm requires lowercase package names; the product/repository name remains InfiAutomation MCP.
+**Use the public GitHub release launcher below.** The npm package `@infiautomation/mcp` has not been published. Using `@infiautomation/mcp@latest` currently returns npm `E404` before the MCP starts. GitHub releases and the npm registry are separate distribution services.
 
-> **npm publication pending:** the short registry command below becomes available after the maintainer's first npm publish. Until then, use the working [GitHub release configuration](examples/mcp.github.json) and setup command below. No npm account is needed to consume the GitHub release.
+Install **Node.js 24 or newer** on the machine running the MCP. Check `node --version`, then restart your terminal and MCP client after upgrading. Node 22 does not meet v0.3.1's runtime requirement. Windows native testing also requires the **.NET 8 Windows Desktop Runtime**.
 
-After npm publication, clients accepting `mcpServers` can use:
+Run one-time setup in PowerShell:
+
+```powershell
+New-Item -ItemType Directory -Path D:/InfiTests -Force
+Set-Location D:/InfiTests
+$Mcp = 'https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.1/infiautomation-mcp-0.3.1.tgz'
+npx.cmd --yes $Mcp setup --desktop
+npx.cmd --yes $Mcp doctor --workspace D:/InfiTests
+```
+
+For web-only testing omit `--desktop`. On macOS/Linux use `npx`, your project path, and `setup` without `--desktop`. No Git clone, Git installation, npm login, source build, or local executable path is required for this launcher. The initial download needs internet access to GitHub and the npm registry for dependencies.
+
+For clients accepting `mcpServers`, use this configuration and set the workspace to your test project:
 
 ```json
 {
@@ -39,32 +51,22 @@ After npm publication, clients accepting `mcpServers` can use:
       "command": "npx",
       "args": [
         "--yes",
-        "@infiautomation/mcp@latest"
+        "https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.1/infiautomation-mcp-0.3.1.tgz",
+        "--workspace",
+        "D:/InfiTests"
       ]
     }
   }
 }
 ```
 
-Install **Node.js 24 LTS or newer** on the same machine as the app, then run one-time setup with the same launcher:
+Copy-ready client configurations: [general JSON](examples/mcp.npx.json), [Codex TOML](examples/codex.npx.toml), and [VS Code servers-style JSON](examples/vscode.npx.json). These defaults use the available GitHub release. Replace workspace placeholders with your own path. The explicitly named [GitHub examples](examples/mcp.github.json) use the same release. Local checkout configurations are available in [mcp-clients.json](examples/mcp-clients.json).
 
-```sh
-# After npm publication:
-npx --yes @infiautomation/mcp@latest setup
-# Add Windows native support:
-npx --yes @infiautomation/mcp@latest setup --desktop
-```
+Restart/reload the client, enable InfiAutomation tools, then ask it to call `doctor`. Its reported version should be `0.3.1`. On Windows, if a client cannot resolve `npx`, try `npx.cmd`. Use the same release for setup and the MCP launcher; startup never silently installs browsers or native workers.
 
-**Available from GitHub without npm publication:**
+If your log contains `npm exec @infiautomation/mcp@latest` and `E404`, replace that argument in the client's saved configuration with the GitHub URL above. Then stop/start the server so the new configuration takes effect. Check Node 24+ independently: changing the launcher fixes the package lookup; upgrading Node meets the runtime requirement. See the [complete guide and troubleshooting](docs/USER_GUIDE.md).
 
-```sh
-npx --yes https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.1/infiautomation-mcp-0.3.1.tgz setup
-# On Windows, add --desktop to install the native worker too.
-```
-
-Use [examples/mcp.github.json](examples/mcp.github.json) to connect through that release. It uses `npx` and a public package URL, without cloning, Git, a source build, or an executable path. The first installation needs internet; startup never silently installs browsers or native workers. Use the same version for setup and the MCP launcher. For reproducibility, replace `@latest` with a released package version after npm publication.
-
-Restart/reload the MCP client, enable InfiAutomation tools, then ask it to call `doctor`. Configuration wrappers differ by client: [general npm JSON](examples/mcp.npx.json), [Codex TOML](examples/codex.npx.toml), and [VS Code servers-style JSON](examples/vscode.npx.json). In those files, replace the npm package argument with the GitHub tarball URL until npm publication. Newer VS Code versions accepting `.mcp.json` can use the general JSON. Local checkout configurations are also available in [mcp-clients.json](examples/mcp-clients.json).
+The intended short npm command is reserved for after the first successful npm publication. Maintainer instructions are in [PUBLISHING.md](docs/PUBLISHING.md).
 
 ### Platform support and prerequisites
 
