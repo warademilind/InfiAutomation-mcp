@@ -42,7 +42,7 @@ export function reportClient(detailed: boolean): string {
 
   if(run.layers){
     const select=document.createElement('select');select.id='layer-filter';select.setAttribute('aria-label','Filter by layer');select.innerHTML='<option value="all">All layers</option>'+run.layers.map(l=>'<option value="'+esc(l.layer)+'">'+esc(l.layer)+'</option>').join('');$('sort').before(select);select.onchange=()=>{page=0;renderTests()};
-    $('layer-rows').innerHTML=run.layers.map(l=>'<tr><td><strong>'+esc(l.layer)+'</strong></td><td>'+l.steps+'</td><td>'+l.passed+'</td><td>'+l.failed+' / '+l.skipped+'</td><td>'+duration(l.durationMs)+'</td></tr>').join('');
+    $('layer-rows').innerHTML=run.layers.map(l=>'<tr><td><strong>'+esc(l.layer)+'</strong></td><td>'+l.steps+'</td><td>'+l.passed+' / '+(l.healed||0)+'</td><td>'+l.failed+' / '+l.skipped+'</td><td>'+duration(l.durationMs)+'</td></tr>').join('');
     $('timing-rows').innerHTML=run.tests.flatMap(t=>t.steps.flatMap(step=>Object.entries(step.timings||{}).map(([name,value])=>'<tr><td><button class="case-title" data-case="'+esc(t.id)+'">'+esc(t.id)+'</button><div class="subtle">'+esc(step.name)+'</div></td><td>'+esc(step.layer)+' / '+esc(step.target)+'</td><td>'+esc(name)+'</td><td>'+duration(value)+'</td><td>'+(artifact(step.evidence)?'<a href="'+artifact(step.evidence)+'" target="_blank" rel="noopener">JSON evidence</a>':'—')+'</td></tr>'))).join('')||'<tr><td colspan="5">No timing measurements recorded.</td></tr>';
   }
   if(run.policy)$('policy-json').textContent=JSON.stringify(run.policy,null,2);

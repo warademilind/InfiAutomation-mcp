@@ -1,10 +1,10 @@
 {
   "schemaVersion": 2,
-  "id": "2026-11-02T19-26-21-432Z-bdd827d5",
+  "id": "2026-11-02T19-37-15-640Z-517af518",
   "name": "Order journey: REST, SOAP, browser, SQLite and UX",
   "target": "api + web + database",
-  "startedAt": "2026-11-02T19:26:21.435Z",
-  "durationMs": 2700,
+  "startedAt": "2026-11-02T19:37:15.643Z",
+  "durationMs": 1970,
   "status": "passed",
   "summary": {
     "total": 3,
@@ -32,7 +32,7 @@
         "PERF-01"
       ],
       "status": "passed",
-      "durationMs": 2654,
+      "durationMs": 1927,
       "steps": [
         {
           "name": "Create synthetic order",
@@ -40,11 +40,11 @@
           "layer": "api",
           "target": "service",
           "status": "passed",
-          "durationMs": 111.0284999999999,
+          "durationMs": 82.30319999999983,
           "actual": {
             "request": {
               "method": "POST",
-              "url": "http://127.0.0.1:57524/api/orders",
+              "url": "http://127.0.0.1:64697/api/orders",
               "headers": {},
               "body": {
                 "product": "Demonstration keyboard"
@@ -53,20 +53,20 @@
             "status": 201,
             "headers": {
               "content-type": "application/json",
-              "date": "Mon, 02 Nov 2026 19:26:21 GMT",
+              "date": "Mon, 02 Nov 2026 19:37:15 GMT",
               "connection": "keep-alive",
               "keep-alive": "timeout=5",
               "transfer-encoding": "chunked"
             },
             "body": {
-              "id": "fa0af316-8c0b-4f33-85b8-fd9c056f6089",
+              "id": "7b07bd2e-ef3b-4532-89be-b0b3bf829296",
               "product": "Demonstration keyboard",
               "status": "created"
             },
-            "durationMs": 40.317200000000184
+            "durationMs": 30.247700000000123
           },
           "timings": {
-            "requestMs": 40.317200000000184
+            "requestMs": 30.247700000000123
           },
           "evidence": "order-e2e-step-1-evidence.json"
         },
@@ -76,30 +76,30 @@
           "layer": "api",
           "target": "service",
           "status": "passed",
-          "durationMs": 6.170799999999872,
+          "durationMs": 7.071799999999939,
           "actual": {
             "request": {
               "method": "GET",
-              "url": "http://127.0.0.1:57524/api/orders/fa0af316-8c0b-4f33-85b8-fd9c056f6089",
+              "url": "http://127.0.0.1:64697/api/orders/7b07bd2e-ef3b-4532-89be-b0b3bf829296",
               "headers": {}
             },
             "status": 200,
             "headers": {
               "content-type": "application/json",
-              "date": "Mon, 02 Nov 2026 19:26:21 GMT",
+              "date": "Mon, 02 Nov 2026 19:37:15 GMT",
               "connection": "keep-alive",
               "keep-alive": "timeout=5",
               "transfer-encoding": "chunked"
             },
             "body": {
-              "id": "fa0af316-8c0b-4f33-85b8-fd9c056f6089",
+              "id": "7b07bd2e-ef3b-4532-89be-b0b3bf829296",
               "product": "Demonstration keyboard",
               "status": "created"
             },
-            "durationMs": 5.3496000000000095
+            "durationMs": 5.968299999999999
           },
           "timings": {
-            "requestMs": 5.3496000000000095
+            "requestMs": 5.968299999999999
           },
           "evidence": "order-e2e-step-2-evidence.json"
         },
@@ -109,13 +109,13 @@
           "layer": "web",
           "target": "portal",
           "status": "passed",
-          "durationMs": 798.6884,
+          "durationMs": 701.1747,
           "screenshot": "order-e2e-step-3.png",
           "actual": {
-            "url": "http://127.0.0.1:57524/orders/fa0af316-8c0b-4f33-85b8-fd9c056f6089"
+            "url": "http://127.0.0.1:64697/orders/7b07bd2e-ef3b-4532-89be-b0b3bf829296"
           },
           "timings": {
-            "actionMs": 69.44380000000001
+            "actionMs": 45.33969999999999
           },
           "evidence": "order-e2e-step-3-evidence.json"
         },
@@ -125,14 +125,14 @@
           "layer": "web",
           "target": "portal",
           "status": "passed",
-          "durationMs": 110.89449999999988,
+          "durationMs": 97.45460000000003,
           "screenshot": "order-e2e-step-4.png",
           "actual": {
-            "actual": "fa0af316-8c0b-4f33-85b8-fd9c056f6089",
-            "expected": "fa0af316-8c0b-4f33-85b8-fd9c056f6089"
+            "actual": "7b07bd2e-ef3b-4532-89be-b0b3bf829296",
+            "expected": "7b07bd2e-ef3b-4532-89be-b0b3bf829296"
           },
           "timings": {
-            "actionMs": 51.936899999999696
+            "actionMs": 37.87220000000002
           },
           "evidence": "order-e2e-step-4-evidence.json"
         },
@@ -142,14 +142,14 @@
           "layer": "web",
           "target": "portal",
           "status": "passed",
-          "durationMs": 80.9368000000004,
+          "durationMs": 66.49549999999999,
           "screenshot": "order-e2e-step-5.png",
           "actual": {
             "actual": "created",
             "expected": "created"
           },
           "timings": {
-            "actionMs": 12.773999999999887
+            "actionMs": 15.066899999999805
           },
           "evidence": "order-e2e-step-5-evidence.json"
         },
@@ -159,25 +159,25 @@
           "layer": "database",
           "target": "records",
           "status": "passed",
-          "durationMs": 281.0412000000001,
+          "durationMs": 190.37670000000026,
           "actual": {
             "driver": "sqlite",
             "rows": [
               {
-                "id": "fa0af316-8c0b-4f33-85b8-fd9c056f6089",
+                "id": "7b07bd2e-ef3b-4532-89be-b0b3bf829296",
                 "product": "Demonstration keyboard",
                 "status": "created"
               }
             ],
             "rowCount": 1,
-            "connectMs": 0.48320000000001073,
-            "queryMs": 0.4895999999999958,
-            "totalMs": 277.8145999999997
+            "connectMs": 0.39230000000000587,
+            "queryMs": 0.40739999999999554,
+            "totalMs": 188.19739999999956
           },
           "timings": {
-            "connectMs": 0.48320000000001073,
-            "queryMs": 0.4895999999999958,
-            "totalMs": 277.8145999999997
+            "connectMs": 0.39230000000000587,
+            "queryMs": 0.40739999999999554,
+            "totalMs": 188.19739999999956
           },
           "evidence": "order-e2e-step-6-evidence.json"
         },
@@ -187,7 +187,7 @@
           "layer": "ux",
           "target": "portal",
           "status": "passed",
-          "durationMs": 47.39059999999972,
+          "durationMs": 38.73419999999987,
           "screenshot": "order-e2e-step-7.png",
           "actual": {
             "viewport": {
@@ -198,8 +198,8 @@
             "smallTargets": []
           },
           "timings": {
-            "uxCheckMs": 6.615400000000136,
-            "readyWaitMs": 0.002399999999852298
+            "uxCheckMs": 4.701799999999821,
+            "readyWaitMs": 0.002100000000154978
           },
           "attachments": [],
           "evidence": "order-e2e-step-7-evidence.json"
@@ -210,7 +210,7 @@
           "layer": "ux",
           "target": "portal",
           "status": "passed",
-          "durationMs": 919.3324000000002,
+          "durationMs": 617.1446000000001,
           "screenshot": "order-e2e-step-8.png",
           "actual": {
             "engine": "axe-core",
@@ -221,8 +221,8 @@
             "note": "Automated checks cover a subset of accessibility requirements; manual keyboard, screen-reader and usability review remains necessary."
           },
           "timings": {
-            "uxCheckMs": 883.1565,
-            "readyWaitMs": 0.0012000000001535227
+            "uxCheckMs": 596.9560000000001,
+            "readyWaitMs": 0.0008000000002539309
           },
           "attachments": [],
           "evidence": "order-e2e-step-8-evidence.json"
@@ -233,35 +233,35 @@
           "layer": "ux",
           "target": "portal",
           "status": "passed",
-          "durationMs": 44.69619999999986,
+          "durationMs": 46.88570000000027,
           "screenshot": "order-e2e-step-9.png",
           "actual": {
             "navigation": {
-              "timeToFirstByteMs": 0.7999999821186066,
-              "domContentLoadedMs": 60.29999998211861,
-              "loadMs": 60.69999998807907,
-              "domInteractiveMs": 60.099999994039536
+              "timeToFirstByteMs": 0.9000000059604645,
+              "domContentLoadedMs": 40.19999998807907,
+              "loadMs": 40.79999998211861,
+              "domInteractiveMs": 40.099999994039536
             },
             "paint": [
               {
                 "name": "first-paint",
-                "startTimeMs": 80
+                "startTimeMs": 60
               },
               {
                 "name": "first-contentful-paint",
-                "startTimeMs": 80
+                "startTimeMs": 60
               }
             ],
             "webVitals": {
-              "largestContentfulPaintMs": 80,
+              "largestContentfulPaintMs": 60,
               "cumulativeLayoutShift": 0
             },
             "note": "Navigation and paint are browser timings; readyWaitMs measures only this step's wait for visibility. LCP and CLS are observed up to this checkpoint, not final field Core Web Vitals. This is not backend latency or subjective usability.",
-            "readyWaitMs": 9.830500000000029
+            "readyWaitMs": 8.64930000000004
           },
           "timings": {
-            "uxCheckMs": 14.536099999999806,
-            "readyWaitMs": 9.830500000000029
+            "uxCheckMs": 11.160600000000159,
+            "readyWaitMs": 8.64930000000004
           },
           "attachments": [],
           "evidence": "order-e2e-step-9-evidence.json"
@@ -278,7 +278,7 @@
         "SOAP-01"
       ],
       "status": "passed",
-      "durationMs": 20,
+      "durationMs": 19,
       "steps": [
         {
           "name": "Add two and three via SOAP 1.1",
@@ -286,21 +286,21 @@
           "layer": "api",
           "target": "service",
           "status": "passed",
-          "durationMs": 16.54910000000018,
+          "durationMs": 16.114500000000135,
           "actual": {
             "request": {
               "method": "POST",
-              "url": "http://127.0.0.1:57524/soap",
+              "url": "http://127.0.0.1:64697/soap",
               "headers": {
                 "Content-Type": "text/xml; charset=utf-8",
-                "SOAPAction": "urn:infi:math#Add"
+                "SOAPAction": "\"urn:infi:math#Add\""
               },
               "body": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"><soap:Body><Add xmlns=\"urn:infi:math\"><a>2</a><b>3</b></Add></soap:Body></soap:Envelope>"
             },
             "status": 200,
             "headers": {
               "content-type": "text/xml; charset=utf-8",
-              "date": "Mon, 02 Nov 2026 19:26:24 GMT",
+              "date": "Mon, 02 Nov 2026 19:37:17 GMT",
               "connection": "keep-alive",
               "keep-alive": "timeout=5",
               "transfer-encoding": "chunked"
@@ -314,10 +314,10 @@
                 }
               }
             },
-            "durationMs": 5.694899999999961
+            "durationMs": 5.408800000000156
           },
           "timings": {
-            "requestMs": 5.694899999999961
+            "requestMs": 5.408800000000156
           },
           "evidence": "soap-add-step-1-evidence.json"
         }
@@ -334,7 +334,7 @@
         "ORDER-02"
       ],
       "status": "passed",
-      "durationMs": 12,
+      "durationMs": 9,
       "steps": [
         {
           "name": "Read a missing order",
@@ -342,17 +342,17 @@
           "layer": "api",
           "target": "service",
           "status": "passed",
-          "durationMs": 7.125,
+          "durationMs": 6.445300000000316,
           "actual": {
             "request": {
               "method": "GET",
-              "url": "http://127.0.0.1:57524/api/orders/missing-demo-id",
+              "url": "http://127.0.0.1:64697/api/orders/missing-demo-id",
               "headers": {}
             },
             "status": 404,
             "headers": {
               "content-type": "application/json",
-              "date": "Mon, 02 Nov 2026 19:26:24 GMT",
+              "date": "Mon, 02 Nov 2026 19:37:17 GMT",
               "connection": "keep-alive",
               "keep-alive": "timeout=5",
               "transfer-encoding": "chunked"
@@ -360,10 +360,10 @@
             "body": {
               "error": "Order not found"
             },
-            "durationMs": 5.5591999999996915
+            "durationMs": 4.895600000000286
           },
           "timings": {
-            "requestMs": 5.5591999999996915
+            "requestMs": 4.895600000000286
           },
           "evidence": "order-not-found-step-1-evidence.json"
         }
@@ -389,7 +389,7 @@
       "Do not approve visual baselines automatically"
     ],
     "allowedOrigins": [
-      "http://127.0.0.1:57524"
+      "http://127.0.0.1:64697"
     ],
     "allowedMethods": [
       "GET",
@@ -405,33 +405,37 @@
       "layer": "api",
       "steps": 4,
       "passed": 4,
+      "healed": 0,
       "failed": 0,
       "skipped": 0,
-      "durationMs": 140.87339999999995
+      "durationMs": 111.93480000000022
     },
     {
       "layer": "web",
       "steps": 3,
       "passed": 3,
+      "healed": 0,
       "failed": 0,
       "skipped": 0,
-      "durationMs": 990.5197000000003
+      "durationMs": 865.1248
     },
     {
       "layer": "database",
       "steps": 1,
       "passed": 1,
+      "healed": 0,
       "failed": 0,
       "skipped": 0,
-      "durationMs": 281.0412000000001
+      "durationMs": 190.37670000000026
     },
     {
       "layer": "ux",
       "steps": 3,
       "passed": 3,
+      "healed": 0,
       "failed": 0,
       "skipped": 0,
-      "durationMs": 1011.4191999999998
+      "durationMs": 702.7645000000002
     }
   ],
   "traceability": {

@@ -4,14 +4,14 @@
   "layer": "web",
   "target": "portal",
   "status": "passed",
-  "durationMs": 80.9368000000004,
+  "durationMs": 66.49549999999999,
   "screenshot": "order-e2e-step-5.png",
   "actual": {
     "actual": "created",
     "expected": "created"
   },
   "timings": {
-    "actionMs": 12.773999999999887
+    "actionMs": 15.066899999999805
   },
   "evidence": "order-e2e-step-5-evidence.json"
 }

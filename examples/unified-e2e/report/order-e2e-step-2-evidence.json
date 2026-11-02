@@ -4,30 +4,30 @@
   "layer": "api",
   "target": "service",
   "status": "passed",
-  "durationMs": 6.170799999999872,
+  "durationMs": 7.071799999999939,
   "actual": {
     "request": {
       "method": "GET",
-      "url": "http://127.0.0.1:57524/api/orders/fa0af316-8c0b-4f33-85b8-fd9c056f6089",
+      "url": "http://127.0.0.1:64697/api/orders/7b07bd2e-ef3b-4532-89be-b0b3bf829296",
       "headers": {}
     },
     "status": 200,
     "headers": {
       "content-type": "application/json",
-      "date": "Mon, 02 Nov 2026 19:26:21 GMT",
+      "date": "Mon, 02 Nov 2026 19:37:15 GMT",
       "connection": "keep-alive",
       "keep-alive": "timeout=5",
       "transfer-encoding": "chunked"
     },
     "body": {
-      "id": "fa0af316-8c0b-4f33-85b8-fd9c056f6089",
+      "id": "7b07bd2e-ef3b-4532-89be-b0b3bf829296",
       "product": "Demonstration keyboard",
       "status": "created"
     },
-    "durationMs": 5.3496000000000095
+    "durationMs": 5.968299999999999
   },
   "timings": {
-    "requestMs": 5.3496000000000095
+    "requestMs": 5.968299999999999
   },
   "evidence": "order-e2e-step-2-evidence.json"
 }

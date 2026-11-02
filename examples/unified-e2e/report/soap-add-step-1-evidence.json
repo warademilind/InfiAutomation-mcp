@@ -4,21 +4,21 @@
   "layer": "api",
   "target": "service",
   "status": "passed",
-  "durationMs": 16.54910000000018,
+  "durationMs": 16.114500000000135,
   "actual": {
     "request": {
       "method": "POST",
-      "url": "http://127.0.0.1:57524/soap",
+      "url": "http://127.0.0.1:64697/soap",
       "headers": {
         "Content-Type": "text/xml; charset=utf-8",
-        "SOAPAction": "urn:infi:math#Add"
+        "SOAPAction": "\"urn:infi:math#Add\""
       },
       "body": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"><soap:Body><Add xmlns=\"urn:infi:math\"><a>2</a><b>3</b></Add></soap:Body></soap:Envelope>"
     },
     "status": 200,
     "headers": {
       "content-type": "text/xml; charset=utf-8",
-      "date": "Mon, 02 Nov 2026 19:26:24 GMT",
+      "date": "Mon, 02 Nov 2026 19:37:17 GMT",
       "connection": "keep-alive",
       "keep-alive": "timeout=5",
       "transfer-encoding": "chunked"
@@ -32,10 +32,10 @@
         }
       }
     },
-    "durationMs": 5.694899999999961
+    "durationMs": 5.408800000000156
   },
   "timings": {
-    "requestMs": 5.694899999999961
+    "requestMs": 5.408800000000156
   },
   "evidence": "soap-add-step-1-evidence.json"
 }

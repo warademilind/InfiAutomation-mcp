@@ -4,7 +4,7 @@
   "layer": "ux",
   "target": "portal",
   "status": "passed",
-  "durationMs": 47.39059999999972,
+  "durationMs": 38.73419999999987,
   "screenshot": "order-e2e-step-7.png",
   "actual": {
     "viewport": {
@@ -15,8 +15,8 @@
     "smallTargets": []
   },
   "timings": {
-    "uxCheckMs": 6.615400000000136,
-    "readyWaitMs": 0.002399999999852298
+    "uxCheckMs": 4.701799999999821,
+    "readyWaitMs": 0.002100000000154978
   },
   "attachments": [],
   "evidence": "order-e2e-step-7-evidence.json"

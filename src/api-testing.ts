@@ -20,7 +20,7 @@ export class ApiTester {
     assertHttpPolicy(url,step.method,this.policy,this.target.baseUrl);
     if(!this.context)this.context=await request.newContext({timeout:this.target.timeoutMs,ignoreHTTPSErrors:false});
     const headers={...this.target.headers,...step.headers};
-    if(step.soapVersion==='1.1'||step.soapAction){headers['Content-Type']??='text/xml; charset=utf-8';if(step.soapAction)headers.SOAPAction=step.soapAction;}
+    if(step.soapVersion!=='1.2'&&(step.soapVersion==='1.1'||step.soapAction!==undefined)){headers['Content-Type']??='text/xml; charset=utf-8';if(step.soapAction!==undefined)headers.SOAPAction='"'+step.soapAction.replace(/^["]|["]$/g,'').replace(/["\r\n]/g,'')+'"';}
     if(step.soapVersion==='1.2')headers['Content-Type']='application/soap+xml; charset=utf-8'+(step.soapAction?'; action="'+step.soapAction.replace(/["\r\n]/g,'')+'"':'');
     const start=performance.now();
     const response=await this.context.fetch(url,{method:step.method,headers,data:step.body,failOnStatusCode:false,maxRedirects:0,timeout:this.target.timeoutMs});

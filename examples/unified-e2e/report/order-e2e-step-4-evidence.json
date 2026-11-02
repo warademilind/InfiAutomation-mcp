@@ -4,14 +4,14 @@
   "layer": "web",
   "target": "portal",
   "status": "passed",
-  "durationMs": 110.89449999999988,
+  "durationMs": 97.45460000000003,
   "screenshot": "order-e2e-step-4.png",
   "actual": {
-    "actual": "fa0af316-8c0b-4f33-85b8-fd9c056f6089",
-    "expected": "fa0af316-8c0b-4f33-85b8-fd9c056f6089"
+    "actual": "7b07bd2e-ef3b-4532-89be-b0b3bf829296",
+    "expected": "7b07bd2e-ef3b-4532-89be-b0b3bf829296"
   },
   "timings": {
-    "actionMs": 51.936899999999696
+    "actionMs": 37.87220000000002
   },
   "evidence": "order-e2e-step-4-evidence.json"
 }

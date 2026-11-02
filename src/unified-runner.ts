@@ -95,7 +95,7 @@ export async function runUnifiedSuite(suite:UnifiedSuite,workspace:Workspace,fac
     await workspace.write(directory+'/results.partial.json',JSON.stringify(values.redact(result),null,2));
   }
   result.durationMs=Date.now()-started;result.status=result.summary.failed?'failed':result.summary.healed?'healed':'passed';
-  result.layers=[...new Set(result.tests.flatMap(t=>t.steps.map(s=>s.layer!)))].map(layer=>{const steps=result.tests.flatMap(t=>t.steps).filter(s=>s.layer===layer);return {layer,steps:steps.length,passed:steps.filter(s=>s.status==='passed'||s.status==='healed').length,failed:steps.filter(s=>s.status==='failed').length,skipped:steps.filter(s=>s.status==='skipped').length,durationMs:steps.reduce((sum,s)=>sum+s.durationMs,0)};});
+  result.layers=[...new Set(result.tests.flatMap(t=>t.steps.map(s=>s.layer!)))].map(layer=>{const steps=result.tests.flatMap(t=>t.steps).filter(s=>s.layer===layer);return {layer,steps:steps.length,passed:steps.filter(s=>s.status==='passed').length,healed:steps.filter(s=>s.status==='healed').length,failed:steps.filter(s=>s.status==='failed').length,skipped:steps.filter(s=>s.status==='skipped').length,durationMs:steps.reduce((sum,s)=>sum+s.durationMs,0)};});
   if(plan){const coverage=await writeTraceability(plan,suite,workspace,directory,result);result.traceability={planPath:suite.planPath!,total:coverage.summary.total,unmapped:coverage.summary.unmapped};}
   const safeResult=values.redact(result) as RunResult;
   await workspace.write(directory+'/results.json',JSON.stringify(safeResult,null,2));

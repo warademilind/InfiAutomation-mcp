@@ -52,6 +52,17 @@ test('policy rejects writes before requests, external redirects are not followed
     const restricted=await runSuite({...suite,policy:{allowedOrigins:['https://example.invalid']}},ws);assert.equal(restricted.result.status,'failed');assert.equal(hits,1);
   }finally{await new Promise<void>((r,j)=>server.close(e=>e?j(e):r()));}
 });
+test('SOAP 1.1/1.2 use their wire headers and unexpected faults cannot pass as HTTP 200',async()=>{
+  const server=createServer((req,res)=>{
+    const ok=req.url==='/v12'?String(req.headers['content-type']).startsWith('application/soap+xml')&&String(req.headers['content-type']).includes('action="urn:Ping"')&&req.headers.soapaction===undefined:req.headers.soapaction==='"urn:Ping"';
+    res.writeHead(ok?200:400,{'Content-Type':'application/soap+xml'});res.end('<Envelope><Body>'+(req.url==='/fault'?'<Fault><Reason>Expected demo fault</Reason></Fault>':'<PingResult>ok</PingResult>')+'</Body></Envelope>');
+  });await new Promise<void>(r=>server.listen(0,'127.0.0.1',r));
+  try{const ws=await workspace(),baseUrl='http://127.0.0.1:'+(server.address() as any).port;
+    const step={kind:'api',target:'service',name:'SOAP',method:'POST',path:'/v11',soapVersion:'1.1',soapAction:'urn:Ping',body:'<Envelope><Body><Ping/></Body></Envelope>',expect:{status:200,checks:[{path:'body.Envelope.Body.PingResult',equals:'ok'}]}};
+    const out=await runSuite({schemaVersion:2,name:'SOAP semantics',targets:{service:{kind:'api',baseUrl}},policy:{allowedMethods:['POST']},tests:[{id:'soap11',name:'SOAP 1.1',steps:[step]},{id:'soap12',name:'SOAP 1.2',steps:[{...step,path:'/v12',soapVersion:'1.2'}]},{id:'unexpected-fault',name:'Fault is not a pass',steps:[{...step,path:'/fault',expect:{status:200}}]},{id:'expected-fault',name:'Explicit fault case',steps:[{...step,path:'/fault',expect:{status:200,allowSoapFault:true,checks:[{path:'body.Envelope.Body.Fault.Reason',equals:'Expected demo fault'}]}}]}]},ws);
+    assert.deepEqual(out.result.summary,{total:4,passed:3,failed:1,healed:0,skipped:0});assert.match(out.result.tests[2].steps[0].error!,/Unexpected SOAP Fault/);
+  }finally{await new Promise<void>((r,j)=>server.close(e=>e?j(e):r()));}
+});
 test('mixed web and desktop targets share one case, are started lazily and closed even on failure',async()=>{
   const events:string[]=[];const ws=await workspace();
   const out=await runSuite({schemaVersion:2,name:'Mixed UI',targets:{portal:{kind:'web'},calculator:{kind:'desktop',windowTitle:'Calculator'}},policy:{captureScreenshots:false},tests:[{id:'mixed',name:'Cross UI',steps:[{kind:'ui',target:'portal',name:'Web title',step:{name:'Title',action:'assertTitle',value:'Web'}},{kind:'ui',target:'calculator',name:'Native result',step:{name:'Result',action:'assertText',locator:{automationId:'result'},value:'5'}}]}]},ws,target=>({kind:target.kind,start:async()=>{events.push('start:'+target.kind);},act:async()=>({actual:'ok'}),close:async()=>{events.push('close:'+target.kind);},screenshot:async()=>{},snapshot:async()=>({title:'Fixture',nodes:[],truncated:false}),menus:async()=>[],traceStart:async()=>{},traceStop:async()=>{}} as Driver));

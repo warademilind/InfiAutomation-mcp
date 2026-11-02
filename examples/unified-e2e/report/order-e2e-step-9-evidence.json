@@ -4,35 +4,35 @@
   "layer": "ux",
   "target": "portal",
   "status": "passed",
-  "durationMs": 44.69619999999986,
+  "durationMs": 46.88570000000027,
   "screenshot": "order-e2e-step-9.png",
   "actual": {
     "navigation": {
-      "timeToFirstByteMs": 0.7999999821186066,
-      "domContentLoadedMs": 60.29999998211861,
-      "loadMs": 60.69999998807907,
-      "domInteractiveMs": 60.099999994039536
+      "timeToFirstByteMs": 0.9000000059604645,
+      "domContentLoadedMs": 40.19999998807907,
+      "loadMs": 40.79999998211861,
+      "domInteractiveMs": 40.099999994039536
     },
     "paint": [
       {
         "name": "first-paint",
-        "startTimeMs": 80
+        "startTimeMs": 60
       },
       {
         "name": "first-contentful-paint",
-        "startTimeMs": 80
+        "startTimeMs": 60
       }
     ],
     "webVitals": {
-      "largestContentfulPaintMs": 80,
+      "largestContentfulPaintMs": 60,
       "cumulativeLayoutShift": 0
     },
     "note": "Navigation and paint are browser timings; readyWaitMs measures only this step's wait for visibility. LCP and CLS are observed up to this checkpoint, not final field Core Web Vitals. This is not backend latency or subjective usability.",
-    "readyWaitMs": 9.830500000000029
+    "readyWaitMs": 8.64930000000004
   },
   "timings": {
-    "uxCheckMs": 14.536099999999806,
-    "readyWaitMs": 9.830500000000029
+    "uxCheckMs": 11.160600000000159,
+    "readyWaitMs": 8.64930000000004
   },
   "attachments": [],
   "evidence": "order-e2e-step-9-evidence.json"

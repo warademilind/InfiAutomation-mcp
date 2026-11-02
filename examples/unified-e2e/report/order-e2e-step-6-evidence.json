@@ -4,25 +4,25 @@
   "layer": "database",
   "target": "records",
   "status": "passed",
-  "durationMs": 281.0412000000001,
+  "durationMs": 190.37670000000026,
   "actual": {
     "driver": "sqlite",
     "rows": [
       {
-        "id": "fa0af316-8c0b-4f33-85b8-fd9c056f6089",
+        "id": "7b07bd2e-ef3b-4532-89be-b0b3bf829296",
         "product": "Demonstration keyboard",
         "status": "created"
       }
     ],
     "rowCount": 1,
-    "connectMs": 0.48320000000001073,
-    "queryMs": 0.4895999999999958,
-    "totalMs": 277.8145999999997
+    "connectMs": 0.39230000000000587,
+    "queryMs": 0.40739999999999554,
+    "totalMs": 188.19739999999956
   },
   "timings": {
-    "connectMs": 0.48320000000001073,
-    "queryMs": 0.4895999999999958,
-    "totalMs": 277.8145999999997
+    "connectMs": 0.39230000000000587,
+    "queryMs": 0.40739999999999554,
+    "totalMs": 188.19739999999956
   },
   "evidence": "order-e2e-step-6-evidence.json"
 }
