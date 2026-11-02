@@ -1,6 +1,6 @@
 # InfiAutomation MCP: start-to-finish user guide
 
-This guide is for someone installing InfiAutomation for the first time. It covers setup, connecting an AI client, requirements, test plans, cases, execution, healing and reports. Commands target release **0.3.1**.
+This guide is for someone installing InfiAutomation for the first time. It covers setup, connecting an AI client, requirements, test plans, cases, execution, healing and reports. Commands target release **0.3.2**.
 
 Quick navigation: [Prerequisites](#1-choose-the-capabilities-you-need) | [Install](#3-create-a-workspace-and-install-a-stable-local-launcher) | [Setup](#4-install-the-browser-and-optional-native-worker) | [Doctor](#5-verify-readiness-with-doctor) | [Demo and reports](#6-run-the-bundled-requirement-to-report-demonstration) | [AI clients](#7-connect-your-ai-client) | [Requirements and plans](#8-create-a-plan-from-your-requirement-document) | [Executable cases](#9-inspect-the-real-app-and-create-executable-cases) | [Execution](#10-execute-and-open-the-reports) | [Healing](#11-diagnose-and-heal-a-broken-locator) | [Troubleshooting](TROUBLESHOOTING.md)
 
@@ -81,7 +81,7 @@ Set-Location C:/InfiTests
 The following installs the public release and its Node dependencies in a persistent `tools/infiautomation` folder:
 
 ```powershell
-npm.cmd install --prefix C:/InfiTests/tools/infiautomation --save-exact --no-audit --no-fund https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.1/infiautomation-mcp-0.3.1.tgz
+npm.cmd install --prefix C:/InfiTests/tools/infiautomation --save-exact --no-audit --no-fund https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.2/infiautomation-mcp-0.3.2.tgz
 ```
 
 This is the recommended launcher for regular use: after installation, starting the local CLI avoids npm/GitHub package lookups. Keep this tools folder available. The application and AI client may still need their own network access.
@@ -95,7 +95,7 @@ node C:/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli
 Expected:
 
 ```text
-0.3.1
+0.3.2
 ```
 
 If installation fails with a certificate or connection error, follow [network troubleshooting](TROUBLESHOOTING.md). A successful package installation does not yet install the browser or native worker.
@@ -124,7 +124,7 @@ Windows native only:
 node C:/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js setup --desktop --skip-browser
 ```
 
-Expected: a final JSON response containing `"version": "0.3.1"` and `"setup": "complete"`. Setup downloads matching browser files and, with `--desktop`, the checksum-verified worker. It does not install .NET. Startup of the MCP server does not install these components automatically.
+Expected: a final JSON response containing `"version": "0.3.2"` and `"setup": "complete"`. Setup downloads matching browser files and, with `--desktop`, the checksum-verified worker. It does not install .NET. Startup of the MCP server does not install these components automatically.
 
 If setup fails, complete [troubleshooting](TROUBLESHOOTING.md) before attempting browser/native tests. Document extraction and plan creation can still work without a browser; UI execution needs the relevant runtime.
 
@@ -138,7 +138,7 @@ Read the returned fields:
 
 | Field | Expected / meaning |
 | --- | --- |
-| `version` | `0.3.1` |
+| `version` | `0.3.2` |
 | `runtimeSupported` | `true` |
 | `workspace` | The project folder you chose; JSON displays backslashes as `\` |
 | `chromiumInstalled` | `true` for the bundled web demo and Chromium suites |
@@ -298,6 +298,8 @@ Keep the linked plan JSON and suite inside the same workspace. Generated `.test.
 
 ## 11. Diagnose and heal a broken locator
 
+For report navigation, pagination, screenshot expansion and case links, see [Reading the HTML reports](REPORTS.md).
+
 For the first run, keep `healing:"off"`. Inspect the failure screenshot, actual value, trace and live app. A failed requirement/expected value is an app defect or a requirement question; do not hide it by changing the expected result.
 
 Prompt:
@@ -330,7 +332,7 @@ Use a supported Playwright operating system and Node 24+. The native FlaUI worke
 
 ```sh
 mkdir -p "$HOME/InfiTests"
-npm install --prefix "$HOME/InfiTests/tools/infiautomation" --save-exact --no-audit --no-fund https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.1/infiautomation-mcp-0.3.1.tgz
+npm install --prefix "$HOME/InfiTests/tools/infiautomation" --save-exact --no-audit --no-fund https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.2/infiautomation-mcp-0.3.2.tgz
 node "$HOME/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js" --version
 node "$HOME/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js" setup
 node "$HOME/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js" doctor --workspace "$HOME/InfiTests"

@@ -1,6 +1,6 @@
 # Connect InfiAutomation to an AI client
 
-First complete [installation and the demo](USER_GUIDE.md). These examples use release **0.3.1**, a workspace at **C:/InfiTests**, and the stable local installation at **C:/InfiTests/tools/infiautomation**. Replace these paths if you chose another location. All examples use generic paths.
+First complete [installation and the demo](USER_GUIDE.md). These examples use release **0.3.2**, a workspace at **C:/InfiTests**, and the stable local installation at **C:/InfiTests/tools/infiautomation**. Replace these paths if you chose another location. All examples use generic paths.
 
 Choose exactly one server entry named `infiautomation` in your client. Preserve unrelated existing configuration. PowerShell variables such as `$InfiCli` are not shared with an independently started IDE; put actual absolute paths in the configuration.
 
@@ -104,7 +104,7 @@ Copy-ready file: [mcp.local.json](../examples/mcp.local.json). Omit/change the W
 For an initial try or a client where you prefer npx, the public package can be launched without the persistent local installation. Node 24+ is still required. Run setup with the same release first:
 
 ```powershell
-npx.cmd --yes https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.1/infiautomation-mcp-0.3.1.tgz setup --desktop
+npx.cmd --yes https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.2/infiautomation-mcp-0.3.2.tgz setup --desktop
 ```
 
 For web-only work, omit `--desktop`. Then use `command: npx` and these arguments in the appropriate server entry:
@@ -112,7 +112,7 @@ For web-only work, omit `--desktop`. Then use `command: npx` and these arguments
 ```json
 [
   "--yes",
-  "https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.1/infiautomation-mcp-0.3.1.tgz",
+  "https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.2/infiautomation-mcp-0.3.2.tgz",
   "--workspace",
   "C:/InfiTests"
 ]
@@ -140,7 +140,7 @@ Show its actual tool response, version, workspace, browser installation,
 and native prerequisites. Do not substitute a terminal command for this connection check.
 ```
 
-Expected: an actual `doctor` tool call, version `0.3.1`, and your intended workspace. For Chromium work, check `chromiumInstalled`; for Windows native work also check `nativeWorkerInstalled`, `dotnetDesktopRuntime8`, and `desktopAvailable`.
+Expected: an actual `doctor` tool call, version `0.3.2`, and your intended workspace. For Chromium work, check `chromiumInstalled`; for Windows native work also check `nativeWorkerInstalled`, `dotnetDesktopRuntime8`, and `desktopAvailable`.
 
 If no tool call is available, inspect server output/configuration, check the wrapper and absolute paths, enable the tools, and restart the client. Running CLI doctor in PowerShell verifies the executable and that terminal's environment; this MCP tool call verifies the independently launched client process.
 

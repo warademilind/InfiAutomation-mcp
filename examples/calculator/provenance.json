@@ -14,7 +14,8 @@
     "Original plan JSON and Markdown copied unchanged.",
     "Suite planPath changed to examples/calculator/plan.json; all target settings, locators, steps and assertions preserved.",
     "New requirement reading view and journey pages; navigation banner added to original reports.",
-    "Recorded results, traceability JSON preserved unchanged. Screenshots have a deterministic privacy crop removing surrounding terminal margins and window chrome."
+    "Recorded results, traceability JSON preserved unchanged. Screenshots have a deterministic privacy crop removing surrounding terminal margins and window chrome.",
+    "Report UI regenerated with renderer 0.3.2; recorded results, original plan, requirement mapping and published screenshot pixels unchanged."
   ],
   "originalSourceSha256": {
     "calculator-plan.json": "c2717e00199169e84b8f018a2a8fd85cea3d99f7ba40b1d0a0c67b21c9bedaa5",
@@ -150,5 +151,6 @@
     "CALC09-step-7.png": "a703d56dc1be6b5b64c1431dc0d2e655c24b29029bcefc503ddd5aef3fff17af",
     "CALC09-step-8.png": "a703d56dc1be6b5b64c1431dc0d2e655c24b29029bcefc503ddd5aef3fff17af",
     "CALC09-step-9.png": "bdde9b1eb9a9be237140840e05e69405a5af6d353c5e3f594f71137b61c23966"
-  }
+  },
+  "publishedReportRendererVersion": "0.3.2"
 }

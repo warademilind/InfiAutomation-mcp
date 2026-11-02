@@ -18,7 +18,7 @@ This example includes the original Calculator plan, executable cases and a recor
 | Drill-down | [Detailed case and step report](report/detailed.html) | 53 linked PNG screenshots |
 | Coverage | [Requirement-to-case outcomes](report/traceability.html) | [Recorded traceability](report/traceability.json) |
 
-The supplied archive contains the original plan, suite and recorded output. The public suite changes only `planPath` to `examples/calculator/plan.json`. The original plan files, result JSON and traceability JSON are preserved. Screenshots are losslessly cropped to the Calculator content area to remove surrounding terminal margins and window chrome; their displayed results and control pixels are unchanged. Original images remain private. Crop bounds and original/published checksums are recorded in the provenance file. Report HTML adds navigation back to the walkthrough. The requirement reading view and journey pages were prepared for publication. No fresh execution is claimed. See [provenance.json](provenance.json).
+The supplied archive contains the original plan, suite and recorded output. The public suite changes only `planPath` to `examples/calculator/plan.json`. The original plan files, result JSON and traceability JSON are preserved. Screenshots are losslessly cropped to the Calculator content area to remove surrounding terminal margins and window chrome; their displayed results and control pixels are unchanged. Original images remain private. Crop bounds and original/published checksums are recorded in the provenance file. Report HTML is regenerated with the 0.3.2 renderer and adds navigation back to the walkthrough. The recorded execution still used MCP 0.3.1. The requirement reading view and journey pages were prepared for publication. No fresh execution is claimed. See [provenance.json](provenance.json).
 
 ## Replay on Windows
 
@@ -33,12 +33,12 @@ node --version
 & "$env:ProgramFiles/dotnet/dotnet.exe" --list-runtimes
 $env:PATH = "$env:ProgramFiles/dotnet;" + $env:PATH
 New-Item -ItemType Directory -Path C:/InfiTests -Force
-npm.cmd install --prefix C:/InfiTests/tools/infiautomation --save-exact --no-audit --no-fund https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.1/infiautomation-mcp-0.3.1.tgz
+npm.cmd install --prefix C:/InfiTests/tools/infiautomation --save-exact --no-audit --no-fund https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.2/infiautomation-mcp-0.3.2.tgz
 node C:/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js --version
 node C:/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js setup --desktop --skip-browser
 ```
 
-Expected: version `0.3.1`, a matching native worker, and `Microsoft.WindowsDesktop.App 8.0.x` in the runtime list. For web testing too, run `setup --desktop` without `--skip-browser`. The npm registry package is not yet published; use the pinned GitHub URL above.
+Expected: version `0.3.2`, a matching native worker, and `Microsoft.WindowsDesktop.App 8.0.x` in the runtime list. For web testing too, run `setup --desktop` without `--skip-browser`. The npm registry package is not yet published; use the pinned GitHub URL above.
 
 ### 2. Obtain the example
 

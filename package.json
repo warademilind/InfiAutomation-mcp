@@ -1,6 +1,6 @@
 {
   "name": "@infiautomation/mcp",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "One MCP for evidence-based web, Electron and Windows desktop testing, with auditable healing and offline HTML reports.",
   "type": "module",
   "license": "MIT",
