@@ -3,16 +3,19 @@ import { validateTraceability, writeTraceability } from './traceability.js';
 import { randomUUID } from 'node:crypto';
 import { mkdir } from 'node:fs/promises';
 import { createRequire } from 'node:module';
-import { suiteSchema, type CaseResult, type RunResult, type Suite, type StepResult } from './schema.js';
+import { suiteSchema, type CaseResult, type RunResult, type Target, type StepResult } from './schema.js';
+import { runUnifiedSuite } from './unified-runner.js';
 import { Workspace } from './workspace.js';
 import { createDriver } from './drivers/index.js';
 import type { Driver } from './drivers/types.js';
 import { suggestHealing } from './healing.js';
 import { renderReport } from './report.js';
 const require = createRequire(import.meta.url);
-export async function runSuite(input: unknown, workspace = new Workspace(), factory: (target: Suite['target']) => Driver = createDriver): Promise<{ result: RunResult; directory: string }> {
+export async function runSuite(input: unknown, workspace = new Workspace(), factory: (target: Target) => Driver = createDriver): Promise<{ result: RunResult; directory: string }> {
   const suite = suiteSchema.parse(input), start = Date.now();
+  if(suite.schemaVersion===2)return runUnifiedSuite(suite,workspace,factory);
   const plan=suite.planPath?await loadPlan(suite.planPath,workspace):undefined;
+  if(plan?.policy)throw new Error('A plan with execution policy requires schemaVersion 2; legacy suites remain supported without structured policy');
   if(plan)validateTraceability(plan,suite);
   const id = new Date().toISOString().replace(/[:.]/g, '-') + '-' + randomUUID().slice(0, 8);
   const directory = '.infiautomation/runs/' + id;

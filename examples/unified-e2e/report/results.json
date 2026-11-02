@@ -1,0 +1,446 @@
+{
+  "schemaVersion": 2,
+  "id": "2026-11-02T19-37-15-640Z-517af518",
+  "name": "Order journey: REST, SOAP, browser, SQLite and UX",
+  "target": "api + web + database",
+  "startedAt": "2026-11-02T19:37:15.643Z",
+  "durationMs": 1970,
+  "status": "passed",
+  "summary": {
+    "total": 3,
+    "passed": 3,
+    "failed": 0,
+    "healed": 0,
+    "skipped": 0
+  },
+  "tests": [
+    {
+      "id": "order-e2e",
+      "name": "Create an order, verify browser and database, then inspect UX",
+      "tags": [
+        "e2e",
+        "rest",
+        "web",
+        "database",
+        "ux"
+      ],
+      "requirements": [
+        "ORDER-01",
+        "ORDER-02",
+        "UX-01",
+        "UX-02",
+        "PERF-01"
+      ],
+      "status": "passed",
+      "durationMs": 1927,
+      "steps": [
+        {
+          "name": "Create synthetic order",
+          "action": "POST",
+          "layer": "api",
+          "target": "service",
+          "status": "passed",
+          "durationMs": 82.30319999999983,
+          "actual": {
+            "request": {
+              "method": "POST",
+              "url": "http://127.0.0.1:64697/api/orders",
+              "headers": {},
+              "body": {
+                "product": "Demonstration keyboard"
+              }
+            },
+            "status": 201,
+            "headers": {
+              "content-type": "application/json",
+              "date": "Mon, 02 Nov 2026 19:37:15 GMT",
+              "connection": "keep-alive",
+              "keep-alive": "timeout=5",
+              "transfer-encoding": "chunked"
+            },
+            "body": {
+              "id": "7b07bd2e-ef3b-4532-89be-b0b3bf829296",
+              "product": "Demonstration keyboard",
+              "status": "created"
+            },
+            "durationMs": 30.247700000000123
+          },
+          "timings": {
+            "requestMs": 30.247700000000123
+          },
+          "evidence": "order-e2e-step-1-evidence.json"
+        },
+        {
+          "name": "Read the captured order ID",
+          "action": "GET",
+          "layer": "api",
+          "target": "service",
+          "status": "passed",
+          "durationMs": 7.071799999999939,
+          "actual": {
+            "request": {
+              "method": "GET",
+              "url": "http://127.0.0.1:64697/api/orders/7b07bd2e-ef3b-4532-89be-b0b3bf829296",
+              "headers": {}
+            },
+            "status": 200,
+            "headers": {
+              "content-type": "application/json",
+              "date": "Mon, 02 Nov 2026 19:37:15 GMT",
+              "connection": "keep-alive",
+              "keep-alive": "timeout=5",
+              "transfer-encoding": "chunked"
+            },
+            "body": {
+              "id": "7b07bd2e-ef3b-4532-89be-b0b3bf829296",
+              "product": "Demonstration keyboard",
+              "status": "created"
+            },
+            "durationMs": 5.968299999999999
+          },
+          "timings": {
+            "requestMs": 5.968299999999999
+          },
+          "evidence": "order-e2e-step-2-evidence.json"
+        },
+        {
+          "name": "Open the matching order",
+          "action": "navigate",
+          "layer": "web",
+          "target": "portal",
+          "status": "passed",
+          "durationMs": 701.1747,
+          "screenshot": "order-e2e-step-3.png",
+          "actual": {
+            "url": "http://127.0.0.1:64697/orders/7b07bd2e-ef3b-4532-89be-b0b3bf829296"
+          },
+          "timings": {
+            "actionMs": 45.33969999999999
+          },
+          "evidence": "order-e2e-step-3-evidence.json"
+        },
+        {
+          "name": "Verify the shared order ID",
+          "action": "assertText",
+          "layer": "web",
+          "target": "portal",
+          "status": "passed",
+          "durationMs": 97.45460000000003,
+          "screenshot": "order-e2e-step-4.png",
+          "actual": {
+            "actual": "7b07bd2e-ef3b-4532-89be-b0b3bf829296",
+            "expected": "7b07bd2e-ef3b-4532-89be-b0b3bf829296"
+          },
+          "timings": {
+            "actionMs": 37.87220000000002
+          },
+          "evidence": "order-e2e-step-4-evidence.json"
+        },
+        {
+          "name": "Verify visible order status",
+          "action": "assertText",
+          "layer": "web",
+          "target": "portal",
+          "status": "passed",
+          "durationMs": 66.49549999999999,
+          "screenshot": "order-e2e-step-5.png",
+          "actual": {
+            "actual": "created",
+            "expected": "created"
+          },
+          "timings": {
+            "actionMs": 15.066899999999805
+          },
+          "evidence": "order-e2e-step-5-evidence.json"
+        },
+        {
+          "name": "Verify the same persisted order",
+          "action": "query",
+          "layer": "database",
+          "target": "records",
+          "status": "passed",
+          "durationMs": 190.37670000000026,
+          "actual": {
+            "driver": "sqlite",
+            "rows": [
+              {
+                "id": "7b07bd2e-ef3b-4532-89be-b0b3bf829296",
+                "product": "Demonstration keyboard",
+                "status": "created"
+              }
+            ],
+            "rowCount": 1,
+            "connectMs": 0.39230000000000587,
+            "queryMs": 0.40739999999999554,
+            "totalMs": 188.19739999999956
+          },
+          "timings": {
+            "connectMs": 0.39230000000000587,
+            "queryMs": 0.40739999999999554,
+            "totalMs": 188.19739999999956
+          },
+          "evidence": "order-e2e-step-6-evidence.json"
+        },
+        {
+          "name": "Check mobile layout",
+          "action": "layout",
+          "layer": "ux",
+          "target": "portal",
+          "status": "passed",
+          "durationMs": 38.73419999999987,
+          "screenshot": "order-e2e-step-7.png",
+          "actual": {
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "overflowPx": 0,
+            "smallTargets": []
+          },
+          "timings": {
+            "uxCheckMs": 4.701799999999821,
+            "readyWaitMs": 0.002100000000154978
+          },
+          "attachments": [],
+          "evidence": "order-e2e-step-7-evidence.json"
+        },
+        {
+          "name": "Check automated accessibility",
+          "action": "accessibility",
+          "layer": "ux",
+          "target": "portal",
+          "status": "passed",
+          "durationMs": 617.1446000000001,
+          "screenshot": "order-e2e-step-8.png",
+          "actual": {
+            "engine": "axe-core",
+            "scope": "document",
+            "violationCount": 0,
+            "incompleteCount": 0,
+            "violations": [],
+            "note": "Automated checks cover a subset of accessibility requirements; manual keyboard, screen-reader and usability review remains necessary."
+          },
+          "timings": {
+            "uxCheckMs": 596.9560000000001,
+            "readyWaitMs": 0.0008000000002539309
+          },
+          "attachments": [],
+          "evidence": "order-e2e-step-8-evidence.json"
+        },
+        {
+          "name": "Measure browser navigation and paint",
+          "action": "performance",
+          "layer": "ux",
+          "target": "portal",
+          "status": "passed",
+          "durationMs": 46.88570000000027,
+          "screenshot": "order-e2e-step-9.png",
+          "actual": {
+            "navigation": {
+              "timeToFirstByteMs": 0.9000000059604645,
+              "domContentLoadedMs": 40.19999998807907,
+              "loadMs": 40.79999998211861,
+              "domInteractiveMs": 40.099999994039536
+            },
+            "paint": [
+              {
+                "name": "first-paint",
+                "startTimeMs": 60
+              },
+              {
+                "name": "first-contentful-paint",
+                "startTimeMs": 60
+              }
+            ],
+            "webVitals": {
+              "largestContentfulPaintMs": 60,
+              "cumulativeLayoutShift": 0
+            },
+            "note": "Navigation and paint are browser timings; readyWaitMs measures only this step's wait for visibility. LCP and CLS are observed up to this checkpoint, not final field Core Web Vitals. This is not backend latency or subjective usability.",
+            "readyWaitMs": 8.64930000000004
+          },
+          "timings": {
+            "uxCheckMs": 11.160600000000159,
+            "readyWaitMs": 8.64930000000004
+          },
+          "attachments": [],
+          "evidence": "order-e2e-step-9-evidence.json"
+        }
+      ]
+    },
+    {
+      "id": "soap-add",
+      "name": "SOAP addition uses an explicit XML result assertion",
+      "tags": [
+        "soap"
+      ],
+      "requirements": [
+        "SOAP-01"
+      ],
+      "status": "passed",
+      "durationMs": 19,
+      "steps": [
+        {
+          "name": "Add two and three via SOAP 1.1",
+          "action": "POST",
+          "layer": "api",
+          "target": "service",
+          "status": "passed",
+          "durationMs": 16.114500000000135,
+          "actual": {
+            "request": {
+              "method": "POST",
+              "url": "http://127.0.0.1:64697/soap",
+              "headers": {
+                "Content-Type": "text/xml; charset=utf-8",
+                "SOAPAction": "\"urn:infi:math#Add\""
+              },
+              "body": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"><soap:Body><Add xmlns=\"urn:infi:math\"><a>2</a><b>3</b></Add></soap:Body></soap:Envelope>"
+            },
+            "status": 200,
+            "headers": {
+              "content-type": "text/xml; charset=utf-8",
+              "date": "Mon, 02 Nov 2026 19:37:17 GMT",
+              "connection": "keep-alive",
+              "keep-alive": "timeout=5",
+              "transfer-encoding": "chunked"
+            },
+            "body": {
+              "Envelope": {
+                "Body": {
+                  "AddResponse": {
+                    "AddResult": "5"
+                  }
+                }
+              }
+            },
+            "durationMs": 5.408800000000156
+          },
+          "timings": {
+            "requestMs": 5.408800000000156
+          },
+          "evidence": "soap-add-step-1-evidence.json"
+        }
+      ]
+    },
+    {
+      "id": "order-not-found",
+      "name": "Unknown order returns the documented negative response",
+      "tags": [
+        "rest",
+        "negative"
+      ],
+      "requirements": [
+        "ORDER-02"
+      ],
+      "status": "passed",
+      "durationMs": 9,
+      "steps": [
+        {
+          "name": "Read a missing order",
+          "action": "GET",
+          "layer": "api",
+          "target": "service",
+          "status": "passed",
+          "durationMs": 6.445300000000316,
+          "actual": {
+            "request": {
+              "method": "GET",
+              "url": "http://127.0.0.1:64697/api/orders/missing-demo-id",
+              "headers": {}
+            },
+            "status": 404,
+            "headers": {
+              "content-type": "application/json",
+              "date": "Mon, 02 Nov 2026 19:37:17 GMT",
+              "connection": "keep-alive",
+              "keep-alive": "timeout=5",
+              "transfer-encoding": "chunked"
+            },
+            "body": {
+              "error": "Order not found"
+            },
+            "durationMs": 4.895600000000286
+          },
+          "timings": {
+            "requestMs": 4.895600000000286
+          },
+          "evidence": "order-not-found-step-1-evidence.json"
+        }
+      ]
+    }
+  ],
+  "environment": {
+    "platform": "win32-x64",
+    "node": "v24.22.2",
+    "playwright": "1.64.1"
+  },
+  "policy": {
+    "dos": [
+      "Use synthetic data",
+      "Verify explicit expected outcomes",
+      "Use synthetic demonstration orders",
+      "Verify all layers with explicit assertions"
+    ],
+    "donts": [
+      "Do not access production",
+      "Do not execute database writes",
+      "Do not write through database adapters",
+      "Do not approve visual baselines automatically"
+    ],
+    "allowedOrigins": [
+      "http://127.0.0.1:64697"
+    ],
+    "allowedMethods": [
+      "GET",
+      "POST"
+    ],
+    "deniedTargets": [],
+    "deniedUiActions": [],
+    "captureScreenshots": true,
+    "redactKeys": []
+  },
+  "layers": [
+    {
+      "layer": "api",
+      "steps": 4,
+      "passed": 4,
+      "healed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "durationMs": 111.93480000000022
+    },
+    {
+      "layer": "web",
+      "steps": 3,
+      "passed": 3,
+      "healed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "durationMs": 865.1248
+    },
+    {
+      "layer": "database",
+      "steps": 1,
+      "passed": 1,
+      "healed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "durationMs": 190.37670000000026
+    },
+    {
+      "layer": "ux",
+      "steps": 3,
+      "passed": 3,
+      "healed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "durationMs": 702.7645000000002
+    }
+  ],
+  "traceability": {
+    "planPath": "e2e-demo/plan.json",
+    "total": 6,
+    "unmapped": 0
+  }
+}

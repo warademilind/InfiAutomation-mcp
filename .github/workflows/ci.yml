@@ -40,6 +40,7 @@ jobs:
       - run: npm run test:integration:web
       - run: node scripts/verify-report.mjs
       - run: node scripts/verify-requirements-demo.mjs
+      - run: node scripts/verify-unified-demo.mjs
       - run: xvfb-run -a npm run test:integration:electron
       - uses: actions/upload-artifact@v7.0.2
         if: always()
@@ -68,3 +69,48 @@ jobs:
       - run: npm ci
       - run: npm run build:native
       - run: dotnet build integration/fixtures/native/Fixture.csproj -c Release
+  database-services:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: infi
+          POSTGRES_PASSWORD: fixture-only-password
+          POSTGRES_DB: infi
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U infi -d infi"
+          --health-interval 10s --health-timeout 5s --health-retries 10
+      mysql:
+        image: mysql:8.4
+        env:
+          MYSQL_ROOT_PASSWORD: fixture-only-password
+          MYSQL_DATABASE: infi
+          MYSQL_USER: infi
+          MYSQL_PASSWORD: fixture-only-password
+        ports: ['3306:3306']
+        options: >-
+          --health-cmd "mysqladmin ping -h localhost -pfixture-only-password"
+          --health-interval 10s --health-timeout 5s --health-retries 10
+      mongodb:
+        image: mongo:7
+        ports: ['27017:27017']
+      redis:
+        image: redis:7
+        ports: ['6379:6379']
+    env:
+      INFI_TEST_POSTGRES: postgresql://infi:fixture-only-password@127.0.0.1:5432/infi
+      INFI_TEST_MYSQL: mysql://infi:fixture-only-password@127.0.0.1:3306/infi
+      INFI_TEST_MONGODB: mongodb://127.0.0.1:27017/infi
+      INFI_TEST_REDIS: redis://127.0.0.1:6379
+      INFI_REQUIRE_CORE_DATABASES: '1'
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm install --prefix tools/database --save-exact --no-audit --no-fund pg@8.23.1 mysql2@3.24.6 mongodb@7.8.0 redis@6.3.1
+      - run: node scripts/verify-database-services.mjs

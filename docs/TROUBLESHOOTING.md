@@ -71,7 +71,7 @@ A reset from `release-assets.githubusercontent.com` occurs while fetching the pa
 
 1. Use your approved network/proxy and retry once if appropriate. Ask IT to check required npm/GitHub release and Playwright CDN connectivity when resets persist.
 2. After a successful installation, prefer the [stable local launcher](USER_GUIDE.md#3-create-a-workspace-and-install-a-stable-local-launcher). Its startup does not fetch the package.
-3. If you previously installed successfully through npx, the package may still be in the npm cache. The following temporary recovery locates **version 0.3.2** dynamically. It includes no username or fixed cache hash.
+3. If you previously installed successfully through npx, the package may still be in the npm cache. The following temporary recovery locates **version 0.4.0** dynamically. It includes no username or fixed cache hash.
 
 Run each line separately in PowerShell:
 
@@ -84,11 +84,11 @@ $InfiCandidates = Get-ChildItem -Path "$InfiNpmCache\_npx\*\node_modules\@infiau
 ```
 
 ```powershell
-$InfiPackage = $InfiCandidates | Where-Object { (Get-Content -LiteralPath $_.FullName -Raw | ConvertFrom-Json).version -eq '0.3.2' } | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+$InfiPackage = $InfiCandidates | Where-Object { (Get-Content -LiteralPath $_.FullName -Raw | ConvertFrom-Json).version -eq '0.4.0' } | Sort-Object LastWriteTime -Descending | Select-Object -First 1
 ```
 
 ```powershell
-if (-not $InfiPackage) { throw 'Version 0.3.2 was not found in this npm cache. Restore approved network access and complete installation.' }
+if (-not $InfiPackage) { throw 'Version 0.4.0 was not found in this npm cache. Restore approved network access and complete installation.' }
 ```
 
 ```powershell

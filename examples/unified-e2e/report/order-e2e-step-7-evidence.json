@@ -1,0 +1,23 @@
+{
+  "name": "Check mobile layout",
+  "action": "layout",
+  "layer": "ux",
+  "target": "portal",
+  "status": "passed",
+  "durationMs": 38.73419999999987,
+  "screenshot": "order-e2e-step-7.png",
+  "actual": {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "overflowPx": 0,
+    "smallTargets": []
+  },
+  "timings": {
+    "uxCheckMs": 4.701799999999821,
+    "readyWaitMs": 0.002100000000154978
+  },
+  "attachments": [],
+  "evidence": "order-e2e-step-7-evidence.json"
+}

@@ -1,0 +1,31 @@
+{
+  "name": "Read a missing order",
+  "action": "GET",
+  "layer": "api",
+  "target": "service",
+  "status": "passed",
+  "durationMs": 6.445300000000316,
+  "actual": {
+    "request": {
+      "method": "GET",
+      "url": "http://127.0.0.1:64697/api/orders/missing-demo-id",
+      "headers": {}
+    },
+    "status": 404,
+    "headers": {
+      "content-type": "application/json",
+      "date": "Mon, 02 Nov 2026 19:37:17 GMT",
+      "connection": "keep-alive",
+      "keep-alive": "timeout=5",
+      "transfer-encoding": "chunked"
+    },
+    "body": {
+      "error": "Order not found"
+    },
+    "durationMs": 4.895600000000286
+  },
+  "timings": {
+    "requestMs": 4.895600000000286
+  },
+  "evidence": "order-not-found-step-1-evidence.json"
+}

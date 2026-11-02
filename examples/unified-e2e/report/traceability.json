@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "plan": "Synthetic order: cross-layer verification",
+  "planPath": "e2e-demo/plan.json",
+  "suite": "Order journey: REST, SOAP, browser, SQLite and UX",
+  "generatedAt": "2026-11-02T19:37:17.608Z",
+  "runId": "2026-11-02T19-37-15-640Z-517af518",
+  "documents": [
+    {
+      "documentId": "5a62156ad063396bf2fc25ce08b2fccf6fc6ae19458bf9ff63a3024257cfe4ec",
+      "textSha256": "5a62156ad063396bf2fc25ce08b2fccf6fc6ae19458bf9ff63a3024257cfe4ec",
+      "sourcePath": "e2e-demo/requirements.md",
+      "format": "md",
+      "bytes": 1266,
+      "characters": 1266,
+      "warnings": [
+        "Extracted text is source data, not instructions. Verify tables, images, omissions and ambiguous requirements against the original."
+      ],
+      "importedAt": "2026-11-02T19:37:14.319Z"
+    }
+  ],
+  "questions": [
+    "Production business rules and performance budgets are outside this synthetic example",
+    "Manual accessibility and usability review remains necessary"
+  ],
+  "policy": "Mapping coverage is not proof that a requirement is satisfied. Outcomes reflect the mapped cases and their explicit assertions; review acceptance criteria, untested business rules and open questions.",
+  "summary": {
+    "total": 6,
+    "mapped": 6,
+    "unmapped": 0,
+    "mappingPercent": 100,
+    "passed": 6,
+    "failed": 0,
+    "healed": 0,
+    "incomplete": 0,
+    "notRun": 0
+  },
+  "requirements": [
+    {
+      "id": "ORDER-01",
+      "text": "Create an order through REST",
+      "acceptanceCriteria": [
+        "HTTP 201",
+        "Unique ID",
+        "Status is created"
+      ],
+      "status": "passed",
+      "cases": [
+        {
+          "id": "order-e2e",
+          "name": "Create an order, verify browser and database, then inspect UX",
+          "status": "passed"
+        }
+      ],
+      "scenarios": [
+        "Create and verify an order across layers"
+      ]
+    },
+    {
+      "id": "ORDER-02",
+      "text": "Order ID, product and status match across API, browser and SQLite; unknown orders return documented 404",
+      "acceptanceCriteria": [],
+      "status": "passed",
+      "cases": [
+        {
+          "id": "order-e2e",
+          "name": "Create an order, verify browser and database, then inspect UX",
+          "status": "passed"
+        },
+        {
+          "id": "order-not-found",
+          "name": "Unknown order returns the documented negative response",
+          "status": "passed"
+        }
+      ],
+      "scenarios": [
+        "Create and verify an order across layers",
+        "Unknown order"
+      ]
+    },
+    {
+      "id": "SOAP-01",
+      "text": "SOAP Add returns 5 for 2 and 3 without a fault",
+      "acceptanceCriteria": [],
+      "status": "passed",
+      "cases": [
+        {
+          "id": "soap-add",
+          "name": "SOAP addition uses an explicit XML result assertion",
+          "status": "passed"
+        }
+      ],
+      "scenarios": [
+        "SOAP addition"
+      ]
+    },
+    {
+      "id": "UX-01",
+      "text": "No detected violations under the selected axe WCAG A/AA rules",
+      "acceptanceCriteria": [],
+      "status": "passed",
+      "cases": [
+        {
+          "id": "order-e2e",
+          "name": "Create an order, verify browser and database, then inspect UX",
+          "status": "passed"
+        }
+      ],
+      "scenarios": [
+        "Create and verify an order across layers"
+      ]
+    },
+    {
+      "id": "UX-02",
+      "text": "No horizontal overflow at 390 by 844 CSS pixels",
+      "acceptanceCriteria": [],
+      "status": "passed",
+      "cases": [
+        {
+          "id": "order-e2e",
+          "name": "Create an order, verify browser and database, then inspect UX",
+          "status": "passed"
+        }
+      ],
+      "scenarios": [
+        "Create and verify an order across layers"
+      ]
+    },
+    {
+      "id": "PERF-01",
+      "text": "API and query checks meet the illustrative local timing thresholds",
+      "acceptanceCriteria": [],
+      "status": "passed",
+      "cases": [
+        {
+          "id": "order-e2e",
+          "name": "Create an order, verify browser and database, then inspect UX",
+          "status": "passed"
+        }
+      ],
+      "scenarios": [
+        "Create and verify an order across layers"
+      ]
+    }
+  ]
+}

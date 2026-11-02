@@ -1,0 +1,114 @@
+{
+  "kind": "actual synthetic local fixture execution",
+  "runId": "2026-11-02T19-37-15-640Z-517af518",
+  "startedAt": "2026-11-02T19:37:15.643Z",
+  "executionVersion": "0.4.0",
+  "summary": {
+    "total": 3,
+    "passed": 3,
+    "failed": 0,
+    "healed": 0,
+    "skipped": 0
+  },
+  "environment": {
+    "platform": "win32-x64",
+    "node": "v24.22.2",
+    "playwright": "1.64.1"
+  },
+  "requirements": 6,
+  "note": "No production or internal organization data. Screenshots are actual Chromium fixture/report captures, not generated artwork. The separate native Calculator example is not part of this recorded run. Timings are single-run observations.",
+  "files": [
+    {
+      "file": "report/detailed.html",
+      "sha256": "63eb9bb70453c333350ef9de523a7be3300a107029ccb925b6faa1a46a21acf9"
+    },
+    {
+      "file": "report/index.html",
+      "sha256": "d3c86986131d380f9d2ed508090de6e87cc8588895739cc60d9d2baf4d2644b7"
+    },
+    {
+      "file": "report/order-e2e-step-1-evidence.json",
+      "sha256": "b200648bdd6c2bd1f1193427a737c716d9d249092eb1cdc76c65c4534f6dcffc"
+    },
+    {
+      "file": "report/order-e2e-step-2-evidence.json",
+      "sha256": "af972f2d2ece1a08733365444b7f62f0e23681953cd2a09bcdf68398e83da977"
+    },
+    {
+      "file": "report/order-e2e-step-3-evidence.json",
+      "sha256": "da121660a449eb25959666b7e1793d5c64b3d0353cba14495e013853c8b2c3a7"
+    },
+    {
+      "file": "report/order-e2e-step-3.png",
+      "sha256": "aae73ac31faa82521cfc59bb46e38bc5e230589c935b7bb93aca20ce79f9e285"
+    },
+    {
+      "file": "report/order-e2e-step-4-evidence.json",
+      "sha256": "98f5f7deb8942155d198a5531dcc9424867ddfdd6b7802d47c99e2405e3db8ad"
+    },
+    {
+      "file": "report/order-e2e-step-4.png",
+      "sha256": "aae73ac31faa82521cfc59bb46e38bc5e230589c935b7bb93aca20ce79f9e285"
+    },
+    {
+      "file": "report/order-e2e-step-5-evidence.json",
+      "sha256": "a9846135f76f40655584127d1d743acca49c224172e4c3ca4c7a2e91a0a8ed41"
+    },
+    {
+      "file": "report/order-e2e-step-5.png",
+      "sha256": "aae73ac31faa82521cfc59bb46e38bc5e230589c935b7bb93aca20ce79f9e285"
+    },
+    {
+      "file": "report/order-e2e-step-6-evidence.json",
+      "sha256": "5f62753cb372afe5c26ca3910696fb2f766eb7e8198d675394f302142aed6d1a"
+    },
+    {
+      "file": "report/order-e2e-step-7-evidence.json",
+      "sha256": "e57c01a915d807007214c554404de98f36ced14cbe8cb7d06d80715bf24ccb3e"
+    },
+    {
+      "file": "report/order-e2e-step-7.png",
+      "sha256": "f1e5fa0939d1f32f96aff4203ec198729ca11adce23e905222cc069333c36212"
+    },
+    {
+      "file": "report/order-e2e-step-8-evidence.json",
+      "sha256": "2c06c9eef21c9537e44e69d4476f3cb7323e38de2af0030f5934b718f6a9ee76"
+    },
+    {
+      "file": "report/order-e2e-step-8.png",
+      "sha256": "f1e5fa0939d1f32f96aff4203ec198729ca11adce23e905222cc069333c36212"
+    },
+    {
+      "file": "report/order-e2e-step-9-evidence.json",
+      "sha256": "4db271cd3e71165ffd649c89480e8e26f53a7e3c2d790ab5f231d7145fb214f6"
+    },
+    {
+      "file": "report/order-e2e-step-9.png",
+      "sha256": "f1e5fa0939d1f32f96aff4203ec198729ca11adce23e905222cc069333c36212"
+    },
+    {
+      "file": "report/order-not-found-step-1-evidence.json",
+      "sha256": "da7da26f0f987e93ff8be6642b56192f41f97909b2793a86e84995f9a41c237e"
+    },
+    {
+      "file": "report/report-preview.png",
+      "sha256": "153f74d9bbea297e8ea574a87277ed24548aa5952839063ca26b4e91b0e04f2a"
+    },
+    {
+      "file": "report/results.json",
+      "sha256": "f68aa477e0ea7969f0a0f5d3ced4bcb5d478876bc5e781410db053ca579df1b2"
+    },
+    {
+      "file": "report/soap-add-step-1-evidence.json",
+      "sha256": "09f0c02c09b49913d486fc97a5464fa0bac1ace45ec83a779a2ba8c4644d8bae"
+    },
+    {
+      "file": "report/traceability.html",
+      "sha256": "a8c2ecf3cc6ed72bf8d09bb1b3b68b66a611fe11fad572cb0c64e052abf130dc"
+    },
+    {
+      "file": "report/traceability.json",
+      "sha256": "d3d4bbab319d5000a8b1f1fbea085b014f098a5387afdb159f13f8cab4eb811c"
+    }
+  ]
+}

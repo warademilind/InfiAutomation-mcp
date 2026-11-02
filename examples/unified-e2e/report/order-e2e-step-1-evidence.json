@@ -1,0 +1,36 @@
+{
+  "name": "Create synthetic order",
+  "action": "POST",
+  "layer": "api",
+  "target": "service",
+  "status": "passed",
+  "durationMs": 82.30319999999983,
+  "actual": {
+    "request": {
+      "method": "POST",
+      "url": "http://127.0.0.1:64697/api/orders",
+      "headers": {},
+      "body": {
+        "product": "Demonstration keyboard"
+      }
+    },
+    "status": 201,
+    "headers": {
+      "content-type": "application/json",
+      "date": "Mon, 02 Nov 2026 19:37:15 GMT",
+      "connection": "keep-alive",
+      "keep-alive": "timeout=5",
+      "transfer-encoding": "chunked"
+    },
+    "body": {
+      "id": "7b07bd2e-ef3b-4532-89be-b0b3bf829296",
+      "product": "Demonstration keyboard",
+      "status": "created"
+    },
+    "durationMs": 30.247700000000123
+  },
+  "timings": {
+    "requestMs": 30.247700000000123
+  },
+  "evidence": "order-e2e-step-1-evidence.json"
+}

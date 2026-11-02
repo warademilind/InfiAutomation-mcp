@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { initDemo } from './demo.js';
+import { initDemo, initE2eDemo } from './demo.js';
 import { access, mkdir } from 'node:fs/promises';
 import { constants } from 'node:fs';
 import { homedir } from 'node:os';
@@ -30,14 +30,15 @@ async function main() {
   const { command, args, workspace: requestedWorkspace } = parseCli(process.argv.slice(2));
   if (Number(process.versions.node.split('.')[0]) < 24) throw new Error('InfiAutomation requires Node.js 24 or newer. Upgrade Node.js so npx and your MCP client use the supported runtime.');
   if (command === '--help' || command === 'help') {
-    console.log('InfiAutomation MCP '+VERSION+'\n\n  infiautomation-mcp                              Start stdio MCP server\n  infiautomation-mcp --workspace <directory>       Choose test workspace\n  infiautomation-mcp setup                        Install matching Chromium\n  infiautomation-mcp setup --desktop              Also cache verified Windows x64/ARM64 worker\n  infiautomation-mcp setup --with-deps          Install Chromium with Linux OS dependencies\n  infiautomation-mcp setup --desktop --skip-browser\n  infiautomation-mcp init-demo                    Create requirement-based demo files\n  infiautomation-mcp run <suite.json>              Run suite and generate offline HTML\n  infiautomation-mcp doctor                       Check prerequisites\n  infiautomation-mcp --version\n\nDesktop runtime: .NET 8 Windows Desktop Runtime + unlocked Windows desktop.\nMCP startup never installs software or writes diagnostics to stdout.');
+    console.log('InfiAutomation MCP '+VERSION+'\n\n  infiautomation-mcp                              Start stdio MCP server\n  infiautomation-mcp --workspace <directory>       Choose test workspace\n  infiautomation-mcp setup                        Install matching Chromium\n  infiautomation-mcp setup --desktop              Also cache verified Windows x64/ARM64 worker\n  infiautomation-mcp setup --with-deps          Install Chromium with Linux OS dependencies\n  infiautomation-mcp setup --desktop --skip-browser\n  infiautomation-mcp init-demo                    Create requirement-based demo files\n  infiautomation-mcp init-e2e-demo                Create mixed REST/SOAP/browser/SQLite/UX example\n  infiautomation-mcp run <suite.json>              Run suite and generate offline HTML\n  infiautomation-mcp doctor                       Check prerequisites\n  infiautomation-mcp --version\n\nDesktop runtime: .NET 8 Windows Desktop Runtime + unlocked Windows desktop.\nMCP startup never installs software or writes diagnostics to stdout.');
     return;
   }
   if (command === '--version') { console.log(VERSION); return; }
   if (command === 'setup') { await setup(args); return; }
-  if (command && !['serve','run','doctor','init-demo'].includes(command)) throw new Error('Unknown command: ' + command);
+  if (command && !['serve','run','doctor','init-demo','init-e2e-demo'].includes(command)) throw new Error('Unknown command: ' + command);
   const workspace = await launchWorkspace(command !== 'doctor', requestedWorkspace);
   if (command === 'init-demo') { console.log(JSON.stringify(await initDemo(workspace),null,2)); return; }
+  if (command === 'init-e2e-demo') { console.log(JSON.stringify(await initE2eDemo(workspace),null,2)); return; }
   if (command === 'run') {
     if (!args[0]) throw new Error('Usage: infiautomation-mcp run <suite.json>');
     const suite = JSON.parse(await workspace.read(args[0]));

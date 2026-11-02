@@ -20,6 +20,10 @@ jobs:
       - run: npm run build:native
       - run: dotnet build integration/fixtures/native/Fixture.csproj -c Release
       - run: npm run test:integration:native
+      - run: npx playwright install chromium
+      - run: node --import tsx --test integration/unified-native.test.ts
+        env:
+          INFIAUTOMATION_NATIVE_TEST: '1'
       - uses: actions/upload-artifact@v7.0.2
         if: always()
         with:

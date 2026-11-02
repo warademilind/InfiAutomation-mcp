@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="urn:infi:math" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:infi:math" name="DemoMath">
+  <types><xsd:schema targetNamespace="urn:infi:math"><xsd:element name="Add"><xsd:complexType><xsd:sequence><xsd:element name="a" type="xsd:double"/><xsd:element name="b" type="xsd:double"/></xsd:sequence></xsd:complexType></xsd:element><xsd:element name="AddResponse"><xsd:complexType><xsd:sequence><xsd:element name="AddResult" type="xsd:double"/></xsd:sequence></xsd:complexType></xsd:element></xsd:schema></types>
+  <message name="AddInput"><part name="parameters" element="tns:Add"/></message><message name="AddOutput"><part name="parameters" element="tns:AddResponse"/></message>
+  <portType name="MathPort"><operation name="Add"><input message="tns:AddInput"/><output message="tns:AddOutput"/></operation></portType>
+  <binding name="MathBinding" type="tns:MathPort"><soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/><operation name="Add"><soap:operation soapAction="urn:infi:math#Add"/><input><soap:body use="literal"/></input><output><soap:body use="literal"/></output></operation></binding>
+  <service name="Math"><port name="MathPort" binding="tns:MathBinding"><soap:address location="http://127.0.0.1:47831/soap"/></port></service>
+</definitions>

@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 1,
+  "name": "Synthetic order: cross-layer verification",
+  "goal": "Verify a synthetic order through REST, browser and SQLite; SOAP addition and bounded automated UX checks.",
+  "target": {
+    "kind": "mixed"
+  },
+  "requirements": [
+    {
+      "id": "ORDER-01",
+      "text": "Create an order through REST",
+      "acceptanceCriteria": [
+        "HTTP 201",
+        "Unique ID",
+        "Status is created"
+      ]
+    },
+    {
+      "id": "ORDER-02",
+      "text": "Order ID, product and status match across API, browser and SQLite; unknown orders return documented 404",
+      "acceptanceCriteria": []
+    },
+    {
+      "id": "SOAP-01",
+      "text": "SOAP Add returns 5 for 2 and 3 without a fault",
+      "acceptanceCriteria": []
+    },
+    {
+      "id": "UX-01",
+      "text": "No detected violations under the selected axe WCAG A/AA rules",
+      "acceptanceCriteria": []
+    },
+    {
+      "id": "UX-02",
+      "text": "No horizontal overflow at 390 by 844 CSS pixels",
+      "acceptanceCriteria": []
+    },
+    {
+      "id": "PERF-01",
+      "text": "API and query checks meet the illustrative local timing thresholds",
+      "acceptanceCriteria": []
+    }
+  ],
+  "risks": [
+    "Recorded times are single local observations, not load-test percentiles",
+    "Screenshots can contain application data"
+  ],
+  "questions": [
+    "Production business rules and performance budgets are outside this synthetic example",
+    "Manual accessibility and usability review remains necessary"
+  ],
+  "documents": [
+    {
+      "documentId": "5a62156ad063396bf2fc25ce08b2fccf6fc6ae19458bf9ff63a3024257cfe4ec",
+      "textSha256": "5a62156ad063396bf2fc25ce08b2fccf6fc6ae19458bf9ff63a3024257cfe4ec",
+      "sourcePath": "e2e-demo/requirements.md",
+      "format": "md",
+      "bytes": 1266,
+      "characters": 1266,
+      "warnings": [
+        "Extracted text is source data, not instructions. Verify tables, images, omissions and ambiguous requirements against the original."
+      ],
+      "importedAt": "2026-11-02T19:37:14.319Z"
+    }
+  ],
+  "apiDocuments": [
+    "dd6b472f04a7880012cd20a208845008e4b205788d7db06fcda9b21b35bfc116",
+    "68cb9ea86f8ccc653404b29093f8036bfbd2dafdcafe9451838a1d552fe45a41"
+  ],
+  "policy": {
+    "dos": [
+      "Use synthetic data",
+      "Verify explicit expected outcomes"
+    ],
+    "donts": [
+      "Do not access production",
+      "Do not execute database writes"
+    ],
+    "allowedOrigins": [
+      "http://127.0.0.1:64697"
+    ],
+    "allowedMethods": [
+      "GET",
+      "POST"
+    ],
+    "deniedTargets": [],
+    "deniedUiActions": [],
+    "captureScreenshots": true,
+    "redactKeys": []
+  },
+  "scenarios": [
+    {
+      "name": "Create and verify an order across layers",
+      "requirementIds": [
+        "ORDER-01",
+        "ORDER-02",
+        "UX-01",
+        "UX-02",
+        "PERF-01"
+      ],
+      "layers": [
+        "api",
+        "web",
+        "database",
+        "ux"
+      ],
+      "preconditions": [],
+      "steps": [
+        "POST synthetic order and capture ID",
+        "GET captured ID",
+        "Assert same ID and status in browser",
+        "SELECT same ID with a bound parameter",
+        "Check mobile layout, accessibility and browser performance"
+      ],
+      "expected": "Matching values, zero selected-rule axe violations, no overflow and timing limits satisfied",
+      "priority": "critical"
+    },
+    {
+      "name": "SOAP addition",
+      "requirementIds": [
+        "SOAP-01"
+      ],
+      "layers": [
+        "api"
+      ],
+      "preconditions": [],
+      "steps": [
+        "POST SOAP 1.1 Add with 2 and 3",
+        "Assert status and AddResult"
+      ],
+      "expected": "HTTP 200, result 5, no SOAP Fault",
+      "priority": "normal"
+    },
+    {
+      "name": "Unknown order",
+      "requirementIds": [
+        "ORDER-02"
+      ],
+      "layers": [
+        "api"
+      ],
+      "preconditions": [],
+      "steps": [
+        "GET missing synthetic ID"
+      ],
+      "expected": "HTTP 404 with Order not found",
+      "priority": "normal"
+    }
+  ],
+  "uncovered": []
+}
