@@ -11,7 +11,7 @@ export async function importApiDocument(path:string,workspace:Workspace){
     if(!definitions)throw new Error('Expected WSDL definitions/description');
     format='wsdl';const many=(v:any)=>v===undefined?[]:Array.isArray(v)?v:[v];
     operations=many(definitions.portType||definitions.interface).flatMap((port:any)=>many(port.operation).map((op:any)=>({name:op['@_name'],input:op.input,output:op.output,faults:op.fault,port:port['@_name']})));
-    metadata={name:definitions['@_name'],targetNamespace:definitions['@_targetNamespace'],services:definitions.service,bindings:definitions.binding,types:definitions.types,note:'Operation catalog only. Review schemas, namespaces, SOAP version/action, endpoint, authentication and business assertions. WSDL imports are not fetched automatically.'};
+    metadata={name:definitions['@_name'],targetNamespace:definitions['@_targetNamespace'],services:definitions.service,bindings:definitions.binding,types:definitions.types,messages:definitions.message,imports:definitions.import,note:'Operation catalog only. Review schemas, namespaces, SOAP version/action, endpoint, authentication and business assertions. WSDL imports are not fetched automatically.'};
   }else{
     const data=/\.ya?ml$/i.test(path)?parseYaml(text,{maxAliasCount:0,uniqueKeys:true}):JSON.parse(text);
     if(data?.openapi||data?.swagger){

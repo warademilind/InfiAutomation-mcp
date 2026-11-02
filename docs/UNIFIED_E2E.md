@@ -13,7 +13,7 @@ Available in **0.4.0**. Existing `schemaVersion: 1` UI suites continue to run. U
 | SOAP | POST an XML envelope and assert the response value or an expected fault | Parsed XML, status, request duration |
 | UX | Check mobile overflow, selected axe rules, approved visual baseline and browser timing | Findings, current/baseline/diff PNGs, navigation and paint metrics |
 
-One test case shares captured values across its steps. Cases have fresh UI/API sessions and isolated captures. Targets start on first use and stay available until that case ends. Databases use a bounded worker and a fresh connection per database step. A failed step fails the case and skips its remaining steps. Setup, teardown and evidence-write errors are never silently turned into passes.
+One test case shares captured values across its steps. Cases have fresh UI/API sessions and isolated captures. Targets start on first use and stay available until that case ends. Databases use a bounded worker process and a fresh connection per database step. A failed step fails the case and skips its remaining steps. Setup, teardown and evidence-write errors are never silently turned into passes. Version 2 browser policy requires an isolated browser/Electron launch; existing CDP attachment suites continue to use version 1.
 
 For a real business E2E, provide your application's actual URLs, desktop locators, API contracts, database connection and acceptance criteria. The included local order fixture is synthetic. Its separate Calculator example demonstrates switching UI targets; it is not an order-processing desktop application.
 

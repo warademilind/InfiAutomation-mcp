@@ -56,6 +56,7 @@ export async function runUnifiedSuite(suite:UnifiedSuite,workspace:Workspace,fac
           active=drivers.get(step.target);
           if(!active){
             const resolved=values.resolve(target) as Target;
+            if(resolved.cdpUrl)throw new Error('Version 2 requires an isolated browser/Electron session for execution policy; use version 1 for existing CDP attachment suites');
             if(resolved.kind==='web'&&resolved.url&&/^https?:/.test(resolved.url)&&policy.allowedOrigins.length)assertHttpPolicy(resolved.url,'GET',policy,resolved.url);
             active=factory(resolved.kind==='web'&&!resolved.cwd?{...resolved,cwd:workspace.root}:resolved);drivers.set(step.target,active);
             if(active instanceof WebDriver)active.executionPolicy=policy;
