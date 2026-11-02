@@ -28,6 +28,9 @@ Follow the guides in order. All Windows examples use the generic workspace **C:/
 | [Connect an AI client](docs/CLIENT_SETUP.md) | Copy complete Codex, Copilot/VS Code or portable MCP configurations |
 | [Troubleshooting](docs/TROUBLESHOOTING.md) | Resolve certificate errors, connection resets, .NET detection, pasted commands and cached-launcher recovery |
 | [Tool reference](docs/API.md) | Look up exact tool inputs, actions and locators |
+| [Calculator: requirements to reports](examples/calculator/README.md) | Explore the original plan, nine executable cases, 53 actual screenshots, and linked summary, detailed and coverage HTML reports |
+
+**[Open the live Calculator walkthrough](https://warademilind.github.io/InfiAutomation-mcp/examples/calculator/)** to follow requirements → plan → cases → recorded execution → screenshots and coverage. The example uses provisional UI-derived expectations, with its original plan and suite included. You can also download the repository and open `examples/calculator/index.html` offline.
 
 **Available release: v0.3.1 from GitHub.** The npm registry package `@infiautomation/mcp` is pending first publication; `npx @infiautomation/mcp@latest` currently returns `E404`. The public GitHub package needs no Git installation, npm login, GitHub login or source build.
 

@@ -1,0 +1,714 @@
+{
+  "schemaVersion": 1,
+  "id": "2026-11-02T16-01-02-893Z-5e14a41a",
+  "name": "Calculator Standard observed UI baseline",
+  "target": "desktop",
+  "startedAt": "2026-11-02T16:01:02.895Z",
+  "durationMs": 20745,
+  "status": "passed",
+  "summary": {
+    "total": 9,
+    "passed": 9,
+    "failed": 0,
+    "healed": 0,
+    "skipped": 0
+  },
+  "tests": [
+    {
+      "requirements": [
+        "UI01",
+        "WF01",
+        "WF02"
+      ],
+      "id": "CALC01",
+      "name": "Standard mode and reset",
+      "tags": [],
+      "status": "passed",
+      "durationMs": 1885,
+      "steps": [
+        {
+          "name": "Standard mode",
+          "action": "assertText",
+          "status": "passed",
+          "durationMs": 320,
+          "actual": {
+            "actual": "Standard Calculator mode"
+          },
+          "screenshot": "CALC01-step-1.png"
+        },
+        {
+          "name": "Display visible",
+          "action": "assertVisible",
+          "status": "passed",
+          "durationMs": 269,
+          "actual": {
+            "actual": "True"
+          },
+          "screenshot": "CALC01-step-2.png"
+        },
+        {
+          "name": "Clear",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 267,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC01-step-3.png"
+        },
+        {
+          "name": "Zero result",
+          "action": "assertText",
+          "status": "passed",
+          "durationMs": 265,
+          "actual": {
+            "actual": "Display is 0"
+          },
+          "screenshot": "CALC01-step-4.png"
+        }
+      ]
+    },
+    {
+      "requirements": [
+        "UI02",
+        "WF01"
+      ],
+      "id": "CALC02",
+      "name": "Addition",
+      "tags": [],
+      "status": "passed",
+      "durationMs": 2293,
+      "steps": [
+        {
+          "name": "Clear",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 348,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC02-step-1.png"
+        },
+        {
+          "name": "2",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 257,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC02-step-2.png"
+        },
+        {
+          "name": "Plus",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 280,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC02-step-3.png"
+        },
+        {
+          "name": "3",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 265,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC02-step-4.png"
+        },
+        {
+          "name": "Equals",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 269,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC02-step-5.png"
+        },
+        {
+          "name": "Result 5",
+          "action": "assertText",
+          "status": "passed",
+          "durationMs": 266,
+          "actual": {
+            "actual": "Display is 5"
+          },
+          "screenshot": "CALC02-step-6.png"
+        }
+      ]
+    },
+    {
+      "requirements": [
+        "UI02",
+        "WF01"
+      ],
+      "id": "CALC03",
+      "name": "Subtraction",
+      "tags": [],
+      "status": "passed",
+      "durationMs": 2330,
+      "steps": [
+        {
+          "name": "Clear",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 357,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC03-step-1.png"
+        },
+        {
+          "name": "9",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 274,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC03-step-2.png"
+        },
+        {
+          "name": "Minus",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 290,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC03-step-3.png"
+        },
+        {
+          "name": "4",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 271,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC03-step-4.png"
+        },
+        {
+          "name": "Equals",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 280,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC03-step-5.png"
+        },
+        {
+          "name": "Result 5",
+          "action": "assertText",
+          "status": "passed",
+          "durationMs": 284,
+          "actual": {
+            "actual": "Display is 5"
+          },
+          "screenshot": "CALC03-step-6.png"
+        }
+      ]
+    },
+    {
+      "requirements": [
+        "UI02",
+        "WF01"
+      ],
+      "id": "CALC04",
+      "name": "Multiplication",
+      "tags": [],
+      "status": "passed",
+      "durationMs": 2309,
+      "steps": [
+        {
+          "name": "Clear",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 338,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC04-step-1.png"
+        },
+        {
+          "name": "6",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 278,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC04-step-2.png"
+        },
+        {
+          "name": "Multiply",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 261,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC04-step-3.png"
+        },
+        {
+          "name": "7",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 279,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC04-step-4.png"
+        },
+        {
+          "name": "Equals",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 270,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC04-step-5.png"
+        },
+        {
+          "name": "Result 42",
+          "action": "assertText",
+          "status": "passed",
+          "durationMs": 262,
+          "actual": {
+            "actual": "Display is 42"
+          },
+          "screenshot": "CALC04-step-6.png"
+        }
+      ]
+    },
+    {
+      "requirements": [
+        "UI02",
+        "WF01"
+      ],
+      "id": "CALC05",
+      "name": "Division",
+      "tags": [],
+      "status": "passed",
+      "durationMs": 2331,
+      "steps": [
+        {
+          "name": "Clear",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 354,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC05-step-1.png"
+        },
+        {
+          "name": "8",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 289,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC05-step-2.png"
+        },
+        {
+          "name": "Divide",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 265,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC05-step-3.png"
+        },
+        {
+          "name": "2",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 264,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC05-step-4.png"
+        },
+        {
+          "name": "Equals",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 270,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC05-step-5.png"
+        },
+        {
+          "name": "Result 4",
+          "action": "assertText",
+          "status": "passed",
+          "durationMs": 248,
+          "actual": {
+            "actual": "Display is 4"
+          },
+          "screenshot": "CALC05-step-6.png"
+        }
+      ]
+    },
+    {
+      "requirements": [
+        "UI03",
+        "WF01"
+      ],
+      "id": "CALC06",
+      "name": "Backspace",
+      "tags": [],
+      "status": "passed",
+      "durationMs": 2366,
+      "steps": [
+        {
+          "name": "Clear",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 337,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC06-step-1.png"
+        },
+        {
+          "name": "1",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 284,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC06-step-2.png"
+        },
+        {
+          "name": "2",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 280,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC06-step-3.png"
+        },
+        {
+          "name": "Result 12",
+          "action": "assertText",
+          "status": "passed",
+          "durationMs": 311,
+          "actual": {
+            "actual": "Display is 12"
+          },
+          "screenshot": "CALC06-step-4.png"
+        },
+        {
+          "name": "Backspace",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 299,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC06-step-5.png"
+        },
+        {
+          "name": "Result 1",
+          "action": "assertText",
+          "status": "passed",
+          "durationMs": 276,
+          "actual": {
+            "actual": "Display is 1"
+          },
+          "screenshot": "CALC06-step-6.png"
+        }
+      ]
+    },
+    {
+      "requirements": [
+        "UI04",
+        "WF01"
+      ],
+      "id": "CALC07",
+      "name": "Square",
+      "tags": [],
+      "status": "passed",
+      "durationMs": 1737,
+      "steps": [
+        {
+          "name": "Clear",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 335,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC07-step-1.png"
+        },
+        {
+          "name": "3",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 282,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC07-step-2.png"
+        },
+        {
+          "name": "Square",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 272,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC07-step-3.png"
+        },
+        {
+          "name": "Result 9",
+          "action": "assertText",
+          "status": "passed",
+          "durationMs": 259,
+          "actual": {
+            "actual": "Display is 9"
+          },
+          "screenshot": "CALC07-step-4.png"
+        }
+      ]
+    },
+    {
+      "requirements": [
+        "UI04",
+        "WF01"
+      ],
+      "id": "CALC08",
+      "name": "Square root",
+      "tags": [],
+      "status": "passed",
+      "durationMs": 1818,
+      "steps": [
+        {
+          "name": "Clear",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 351,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC08-step-1.png"
+        },
+        {
+          "name": "9",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 278,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC08-step-2.png"
+        },
+        {
+          "name": "Square root",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 295,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC08-step-3.png"
+        },
+        {
+          "name": "Result 3",
+          "action": "assertText",
+          "status": "passed",
+          "durationMs": 285,
+          "actual": {
+            "actual": "Display is 3"
+          },
+          "screenshot": "CALC08-step-4.png"
+        }
+      ]
+    },
+    {
+      "requirements": [
+        "UI05",
+        "WF01"
+      ],
+      "id": "CALC09",
+      "name": "Memory lifecycle",
+      "tags": [],
+      "status": "passed",
+      "durationMs": 3642,
+      "steps": [
+        {
+          "name": "Clear",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 361,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC09-step-1.png"
+        },
+        {
+          "name": "7",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 287,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC09-step-2.png"
+        },
+        {
+          "name": "Store",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 271,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC09-step-3.png"
+        },
+        {
+          "name": "Recall enabled",
+          "action": "assertEnabled",
+          "status": "passed",
+          "durationMs": 245,
+          "actual": {
+            "actual": "True"
+          },
+          "screenshot": "CALC09-step-4.png"
+        },
+        {
+          "name": "Clear display",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 270,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC09-step-5.png"
+        },
+        {
+          "name": "Zero",
+          "action": "assertText",
+          "status": "passed",
+          "durationMs": 270,
+          "actual": {
+            "actual": "Display is 0"
+          },
+          "screenshot": "CALC09-step-6.png"
+        },
+        {
+          "name": "Recall",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 257,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC09-step-7.png"
+        },
+        {
+          "name": "Result 7",
+          "action": "assertText",
+          "status": "passed",
+          "durationMs": 256,
+          "actual": {
+            "actual": "Display is 7"
+          },
+          "screenshot": "CALC09-step-8.png"
+        },
+        {
+          "name": "Clear memory",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 268,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC09-step-9.png"
+        },
+        {
+          "name": "Recall disabled",
+          "action": "assertEnabled",
+          "status": "passed",
+          "durationMs": 299,
+          "actual": {
+            "actual": "False"
+          },
+          "screenshot": "CALC09-step-10.png"
+        },
+        {
+          "name": "Clear display cleanup",
+          "action": "click",
+          "status": "passed",
+          "durationMs": 279,
+          "actual": {
+            "completed": true,
+            "strategy": "uia-invoke"
+          },
+          "screenshot": "CALC09-step-11.png"
+        }
+      ]
+    }
+  ],
+  "environment": {
+    "platform": "win32-x64",
+    "node": "v26.13.0",
+    "playwright": "1.64.1"
+  },
+  "traceability": {
+    "planPath": "test-plans/calculator-plan.json",
+    "total": 7,
+    "unmapped": 0
+  }
+}

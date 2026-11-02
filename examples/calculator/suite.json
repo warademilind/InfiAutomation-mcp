@@ -1,0 +1,554 @@
+{
+  "schemaVersion": 1,
+  "name": "Calculator Standard observed UI baseline",
+  "target": {
+    "kind": "desktop",
+    "browser": "chromium",
+    "headless": true,
+    "args": [],
+    "windowTitle": "Calculator",
+    "timeoutMs": 10000
+  },
+  "planPath": "examples/calculator/plan.json",
+  "tests": [
+    {
+      "id": "CALC01",
+      "name": "Standard mode and reset",
+      "tags": [],
+      "requirements": [
+        "UI01",
+        "WF01",
+        "WF02"
+      ],
+      "steps": [
+        {
+          "name": "Standard mode",
+          "action": "assertText",
+          "locator": {
+            "automationId": "Header"
+          },
+          "value": "Standard Calculator mode",
+          "contains": false
+        },
+        {
+          "name": "Display visible",
+          "action": "assertVisible",
+          "locator": {
+            "automationId": "CalculatorResults"
+          },
+          "contains": false
+        },
+        {
+          "name": "Clear",
+          "action": "click",
+          "locator": {
+            "automationId": "clearButton"
+          },
+          "contains": false
+        },
+        {
+          "name": "Zero result",
+          "action": "assertText",
+          "locator": {
+            "automationId": "CalculatorResults"
+          },
+          "value": "Display is 0",
+          "contains": false
+        }
+      ]
+    },
+    {
+      "id": "CALC02",
+      "name": "Addition",
+      "tags": [],
+      "requirements": [
+        "UI02",
+        "WF01"
+      ],
+      "steps": [
+        {
+          "name": "Clear",
+          "action": "click",
+          "locator": {
+            "automationId": "clearButton"
+          },
+          "contains": false
+        },
+        {
+          "name": "2",
+          "action": "click",
+          "locator": {
+            "automationId": "num2Button"
+          },
+          "contains": false
+        },
+        {
+          "name": "Plus",
+          "action": "click",
+          "locator": {
+            "automationId": "plusButton"
+          },
+          "contains": false
+        },
+        {
+          "name": "3",
+          "action": "click",
+          "locator": {
+            "automationId": "num3Button"
+          },
+          "contains": false
+        },
+        {
+          "name": "Equals",
+          "action": "click",
+          "locator": {
+            "automationId": "equalButton"
+          },
+          "contains": false
+        },
+        {
+          "name": "Result 5",
+          "action": "assertText",
+          "locator": {
+            "automationId": "CalculatorResults"
+          },
+          "value": "Display is 5",
+          "contains": false
+        }
+      ]
+    },
+    {
+      "id": "CALC03",
+      "name": "Subtraction",
+      "tags": [],
+      "requirements": [
+        "UI02",
+        "WF01"
+      ],
+      "steps": [
+        {
+          "name": "Clear",
+          "action": "click",
+          "locator": {
+            "automationId": "clearButton"
+          },
+          "contains": false
+        },
+        {
+          "name": "9",
+          "action": "click",
+          "locator": {
+            "automationId": "num9Button"
+          },
+          "contains": false
+        },
+        {
+          "name": "Minus",
+          "action": "click",
+          "locator": {
+            "automationId": "minusButton"
+          },
+          "contains": false
+        },
+        {
+          "name": "4",
+          "action": "click",
+          "locator": {
+            "automationId": "num4Button"
+          },
+          "contains": false
+        },
+        {
+          "name": "Equals",
+          "action": "click",
+          "locator": {
+            "automationId": "equalButton"
+          },
+          "contains": false
+        },
+        {
+          "name": "Result 5",
+          "action": "assertText",
+          "locator": {
+            "automationId": "CalculatorResults"
+          },
+          "value": "Display is 5",
+          "contains": false
+        }
+      ]
+    },
+    {
+      "id": "CALC04",
+      "name": "Multiplication",
+      "tags": [],
+      "requirements": [
+        "UI02",
+        "WF01"
+      ],
+      "steps": [
+        {
+          "name": "Clear",
+          "action": "click",
+          "locator": {
+            "automationId": "clearButton"
+          },
+          "contains": false
+        },
+        {
+          "name": "6",
+          "action": "click",
+          "locator": {
+            "automationId": "num6Button"
+          },
+          "contains": false
+        },
+        {
+          "name": "Multiply",
+          "action": "click",
+          "locator": {
+            "automationId": "multiplyButton"
+          },
+          "contains": false
+        },
+        {
+          "name": "7",
+          "action": "click",
+          "locator": {
+            "automationId": "num7Button"
+          },
+          "contains": false
+        },
+        {
+          "name": "Equals",
+          "action": "click",
+          "locator": {
+            "automationId": "equalButton"
+          },
+          "contains": false
+        },
+        {
+          "name": "Result 42",
+          "action": "assertText",
+          "locator": {
+            "automationId": "CalculatorResults"
+          },
+          "value": "Display is 42",
+          "contains": false
+        }
+      ]
+    },
+    {
+      "id": "CALC05",
+      "name": "Division",
+      "tags": [],
+      "requirements": [
+        "UI02",
+        "WF01"
+      ],
+      "steps": [
+        {
+          "name": "Clear",
+          "action": "click",
+          "locator": {
+            "automationId": "clearButton"
+          },
+          "contains": false
+        },
+        {
+          "name": "8",
+          "action": "click",
+          "locator": {
+            "automationId": "num8Button"
+          },
+          "contains": false
+        },
+        {
+          "name": "Divide",
+          "action": "click",
+          "locator": {
+            "automationId": "divideButton"
+          },
+          "contains": false
+        },
+        {
+          "name": "2",
+          "action": "click",
+          "locator": {
+            "automationId": "num2Button"
+          },
+          "contains": false
+        },
+        {
+          "name": "Equals",
+          "action": "click",
+          "locator": {
+            "automationId": "equalButton"
+          },
+          "contains": false
+        },
+        {
+          "name": "Result 4",
+          "action": "assertText",
+          "locator": {
+            "automationId": "CalculatorResults"
+          },
+          "value": "Display is 4",
+          "contains": false
+        }
+      ]
+    },
+    {
+      "id": "CALC06",
+      "name": "Backspace",
+      "tags": [],
+      "requirements": [
+        "UI03",
+        "WF01"
+      ],
+      "steps": [
+        {
+          "name": "Clear",
+          "action": "click",
+          "locator": {
+            "automationId": "clearButton"
+          },
+          "contains": false
+        },
+        {
+          "name": "1",
+          "action": "click",
+          "locator": {
+            "automationId": "num1Button"
+          },
+          "contains": false
+        },
+        {
+          "name": "2",
+          "action": "click",
+          "locator": {
+            "automationId": "num2Button"
+          },
+          "contains": false
+        },
+        {
+          "name": "Result 12",
+          "action": "assertText",
+          "locator": {
+            "automationId": "CalculatorResults"
+          },
+          "value": "Display is 12",
+          "contains": false
+        },
+        {
+          "name": "Backspace",
+          "action": "click",
+          "locator": {
+            "automationId": "backSpaceButton"
+          },
+          "contains": false
+        },
+        {
+          "name": "Result 1",
+          "action": "assertText",
+          "locator": {
+            "automationId": "CalculatorResults"
+          },
+          "value": "Display is 1",
+          "contains": false
+        }
+      ]
+    },
+    {
+      "id": "CALC07",
+      "name": "Square",
+      "tags": [],
+      "requirements": [
+        "UI04",
+        "WF01"
+      ],
+      "steps": [
+        {
+          "name": "Clear",
+          "action": "click",
+          "locator": {
+            "automationId": "clearButton"
+          },
+          "contains": false
+        },
+        {
+          "name": "3",
+          "action": "click",
+          "locator": {
+            "automationId": "num3Button"
+          },
+          "contains": false
+        },
+        {
+          "name": "Square",
+          "action": "click",
+          "locator": {
+            "automationId": "xpower2Button"
+          },
+          "contains": false
+        },
+        {
+          "name": "Result 9",
+          "action": "assertText",
+          "locator": {
+            "automationId": "CalculatorResults"
+          },
+          "value": "Display is 9",
+          "contains": false
+        }
+      ]
+    },
+    {
+      "id": "CALC08",
+      "name": "Square root",
+      "tags": [],
+      "requirements": [
+        "UI04",
+        "WF01"
+      ],
+      "steps": [
+        {
+          "name": "Clear",
+          "action": "click",
+          "locator": {
+            "automationId": "clearButton"
+          },
+          "contains": false
+        },
+        {
+          "name": "9",
+          "action": "click",
+          "locator": {
+            "automationId": "num9Button"
+          },
+          "contains": false
+        },
+        {
+          "name": "Square root",
+          "action": "click",
+          "locator": {
+            "automationId": "squareRootButton"
+          },
+          "contains": false
+        },
+        {
+          "name": "Result 3",
+          "action": "assertText",
+          "locator": {
+            "automationId": "CalculatorResults"
+          },
+          "value": "Display is 3",
+          "contains": false
+        }
+      ]
+    },
+    {
+      "id": "CALC09",
+      "name": "Memory lifecycle",
+      "tags": [],
+      "requirements": [
+        "UI05",
+        "WF01"
+      ],
+      "steps": [
+        {
+          "name": "Clear",
+          "action": "click",
+          "locator": {
+            "automationId": "clearButton"
+          },
+          "contains": false
+        },
+        {
+          "name": "7",
+          "action": "click",
+          "locator": {
+            "automationId": "num7Button"
+          },
+          "contains": false
+        },
+        {
+          "name": "Store",
+          "action": "click",
+          "locator": {
+            "automationId": "memButton"
+          },
+          "contains": false
+        },
+        {
+          "name": "Recall enabled",
+          "action": "assertEnabled",
+          "locator": {
+            "automationId": "MemRecall"
+          },
+          "value": true,
+          "contains": false
+        },
+        {
+          "name": "Clear display",
+          "action": "click",
+          "locator": {
+            "automationId": "clearButton"
+          },
+          "contains": false
+        },
+        {
+          "name": "Zero",
+          "action": "assertText",
+          "locator": {
+            "automationId": "CalculatorResults"
+          },
+          "value": "Display is 0",
+          "contains": false
+        },
+        {
+          "name": "Recall",
+          "action": "click",
+          "locator": {
+            "automationId": "MemRecall"
+          },
+          "contains": false
+        },
+        {
+          "name": "Result 7",
+          "action": "assertText",
+          "locator": {
+            "automationId": "CalculatorResults"
+          },
+          "value": "Display is 7",
+          "contains": false
+        },
+        {
+          "name": "Clear memory",
+          "action": "click",
+          "locator": {
+            "automationId": "ClearMemoryButton"
+          },
+          "contains": false
+        },
+        {
+          "name": "Recall disabled",
+          "action": "assertEnabled",
+          "locator": {
+            "automationId": "MemRecall"
+          },
+          "value": false,
+          "contains": false
+        },
+        {
+          "name": "Clear display cleanup",
+          "action": "click",
+          "locator": {
+            "automationId": "clearButton"
+          },
+          "contains": false
+        }
+      ]
+    }
+  ],
+  "healing": "off"
+}

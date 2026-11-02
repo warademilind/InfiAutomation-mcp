@@ -1,0 +1,242 @@
+{
+  "schemaVersion": 1,
+  "plan": "Calculator observed-UI baseline",
+  "planPath": "test-plans/calculator-plan.json",
+  "suite": "Calculator Standard observed UI baseline",
+  "generatedAt": "2026-11-02T16:01:23.637Z",
+  "runId": "2026-11-02T16-01-02-893Z-5e14a41a",
+  "documents": [],
+  "questions": [
+    "Which Calculator product/version and modes are required? This run targets the observed Windows Calculator Standard mode.",
+    "Are proposed UI01–UI05 functional expectations approved, or are there source requirements to replace them?",
+    "What are required precision, rounding, overflow, divide-by-zero and negative-square-root behaviors?",
+    "Are decimals, percentages, keyboard input, history, converters, accessibility and persistence in scope?"
+  ],
+  "policy": "Mapping coverage is not proof that a requirement is satisfied. Outcomes reflect the mapped cases and their explicit assertions; review acceptance criteria, untested business rules and open questions.",
+  "summary": {
+    "total": 7,
+    "mapped": 7,
+    "unmapped": 0,
+    "mappingPercent": 100,
+    "passed": 7,
+    "failed": 0,
+    "healed": 0,
+    "incomplete": 0,
+    "notRun": 0
+  },
+  "requirements": [
+    {
+      "id": "UI01",
+      "text": "Provisional: Standard mode exposes a visible result display and Clear resets it to zero.",
+      "source": "Observed Header, CalculatorResults and clearButton; acceptance expectation proposed from control semantics.",
+      "acceptanceCriteria": [
+        "Header is Standard Calculator mode.",
+        "After Clear, result text is exactly Display is 0."
+      ],
+      "status": "passed",
+      "cases": [
+        {
+          "id": "CALC01",
+          "name": "Standard mode and reset",
+          "status": "passed"
+        }
+      ],
+      "scenarios": [
+        "Standard mode and reset"
+      ]
+    },
+    {
+      "id": "UI02",
+      "text": "Provisional: basic arithmetic produces mathematically correct integer results.",
+      "source": "Observed plusButton, minusButton, multiplyButton, divideButton and equalButton.",
+      "acceptanceCriteria": [
+        "2 + 3 = 5",
+        "9 - 4 = 5",
+        "6 × 7 = 42",
+        "8 ÷ 2 = 4"
+      ],
+      "status": "passed",
+      "cases": [
+        {
+          "id": "CALC02",
+          "name": "Addition",
+          "status": "passed"
+        },
+        {
+          "id": "CALC03",
+          "name": "Subtraction",
+          "status": "passed"
+        },
+        {
+          "id": "CALC04",
+          "name": "Multiplication",
+          "status": "passed"
+        },
+        {
+          "id": "CALC05",
+          "name": "Division",
+          "status": "passed"
+        }
+      ],
+      "scenarios": [
+        "Addition",
+        "Subtraction",
+        "Multiplication",
+        "Division"
+      ]
+    },
+    {
+      "id": "UI03",
+      "text": "Provisional: Backspace removes the final entered digit.",
+      "source": "Observed number pad and backSpaceButton.",
+      "acceptanceCriteria": [
+        "Entering 12 then Backspace displays 1."
+      ],
+      "status": "passed",
+      "cases": [
+        {
+          "id": "CALC06",
+          "name": "Backspace",
+          "status": "passed"
+        }
+      ],
+      "scenarios": [
+        "Backspace"
+      ]
+    },
+    {
+      "id": "UI04",
+      "text": "Provisional: Square and Square root perform the named operations.",
+      "source": "Observed xpower2Button and squareRootButton.",
+      "acceptanceCriteria": [
+        "Square of 3 displays 9.",
+        "Square root of 9 displays 3."
+      ],
+      "status": "passed",
+      "cases": [
+        {
+          "id": "CALC07",
+          "name": "Square",
+          "status": "passed"
+        },
+        {
+          "id": "CALC08",
+          "name": "Square root",
+          "status": "passed"
+        }
+      ],
+      "scenarios": [
+        "Square",
+        "Square root"
+      ]
+    },
+    {
+      "id": "UI05",
+      "text": "Provisional: memory store, recall and clear function as named.",
+      "source": "Observed memButton, MemRecall and ClearMemoryButton.",
+      "acceptanceCriteria": [
+        "Store 7, clear display, recall displays 7.",
+        "Clearing memory disables Memory recall."
+      ],
+      "status": "passed",
+      "cases": [
+        {
+          "id": "CALC09",
+          "name": "Memory lifecycle",
+          "status": "passed"
+        }
+      ],
+      "scenarios": [
+        "Memory lifecycle"
+      ]
+    },
+    {
+      "id": "WF01",
+      "text": "Use observed selectors, executable cases and explicit assertions; keep healing off for the first run.",
+      "source": "User request",
+      "acceptanceCriteria": [
+        "Suite uses observed UI Automation IDs and explicit assertions.",
+        "Suite healing is off."
+      ],
+      "status": "passed",
+      "cases": [
+        {
+          "id": "CALC01",
+          "name": "Standard mode and reset",
+          "status": "passed"
+        },
+        {
+          "id": "CALC02",
+          "name": "Addition",
+          "status": "passed"
+        },
+        {
+          "id": "CALC03",
+          "name": "Subtraction",
+          "status": "passed"
+        },
+        {
+          "id": "CALC04",
+          "name": "Multiplication",
+          "status": "passed"
+        },
+        {
+          "id": "CALC05",
+          "name": "Division",
+          "status": "passed"
+        },
+        {
+          "id": "CALC06",
+          "name": "Backspace",
+          "status": "passed"
+        },
+        {
+          "id": "CALC07",
+          "name": "Square",
+          "status": "passed"
+        },
+        {
+          "id": "CALC08",
+          "name": "Square root",
+          "status": "passed"
+        },
+        {
+          "id": "CALC09",
+          "name": "Memory lifecycle",
+          "status": "passed"
+        }
+      ],
+      "scenarios": [
+        "Standard mode and reset",
+        "Addition",
+        "Subtraction",
+        "Multiplication",
+        "Division",
+        "Backspace",
+        "Square",
+        "Square root",
+        "Memory lifecycle"
+      ]
+    },
+    {
+      "id": "WF02",
+      "text": "Close inspection session before execution, poll to completion and provide summary, detailed and requirement-coverage reports.",
+      "source": "User request",
+      "acceptanceCriteria": [
+        "Inspection session is closed before test_run.",
+        "Finished job and report paths are recorded."
+      ],
+      "status": "passed",
+      "cases": [
+        {
+          "id": "CALC01",
+          "name": "Standard mode and reset",
+          "status": "passed"
+        }
+      ],
+      "scenarios": [
+        "Standard mode and reset"
+      ]
+    }
+  ]
+}
