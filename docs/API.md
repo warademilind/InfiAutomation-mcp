@@ -104,3 +104,5 @@ Document import supports UTF-8/BOM-marked UTF-16 text and extracts text only fro
 The `init-demo` CLI command creates a pre-authored requirement-based local fixture, imports its source, saves its plan and generates linked cases. It refuses an existing demo folder. See [USER_GUIDE.md](USER_GUIDE.md). Native inspection sessions must be closed before a native `test_run`; the tool rejects conflicting sessions with an actionable message.
 
 Native click uses UIA Invoke when supported and reports its strategy. Mouse fallback, double-click and hover first foreground the target and reject hit points covered by another process. Assertions still determine whether the intended behavior occurred. Native screenshots still require an unobscured window.
+
+Installation and client configuration: [USER_GUIDE.md](USER_GUIDE.md), [CLIENT_SETUP.md](CLIENT_SETUP.md), and [TROUBLESHOOTING.md](TROUBLESHOOTING.md). The stable local launcher avoids npm package resolution on each start. Windows native runtime hosts can be set explicitly with `INFIAUTOMATION_DOTNET`.

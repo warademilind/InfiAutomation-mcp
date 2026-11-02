@@ -18,56 +18,45 @@ InfiAutomation connects an MCP-compatible AI client to real application controls
 
 The verification fixture above deliberately includes one failing assertion and one healed selector to demonstrate truthful reporting.
 
-## Start-to-finish guide
+## Start here
 
-Follow [USER_GUIDE.md](docs/USER_GUIDE.md) for installation, Codex/Copilot configuration, requirement-document import, plans, case generation, execution, healing and reports.
+Follow the guides in order. All Windows examples use the generic workspace **C:/InfiTests**; choose a writable folder and update the paths if yours differs.
 
-Try the full local demonstration after setup, using the same launcher with `init-demo`, then `run infi-demo/suite.json`. No external application or requirements document is needed for that demonstration.
+| Guide | What you will do |
+| --- | --- |
+| [Start-to-finish user guide](docs/USER_GUIDE.md) | Install prerequisites, run the demo, create plans/cases from documents, execute, heal and read reports |
+| [Connect an AI client](docs/CLIENT_SETUP.md) | Copy complete Codex, Copilot/VS Code or portable MCP configurations |
+| [Troubleshooting](docs/TROUBLESHOOTING.md) | Resolve certificate errors, connection resets, .NET detection, pasted commands and cached-launcher recovery |
+| [Tool reference](docs/API.md) | Look up exact tool inputs, actions and locators |
 
-## Install and connect
+**Available release: v0.3.1 from GitHub.** The npm registry package `@infiautomation/mcp` is pending first publication; `npx @infiautomation/mcp@latest` currently returns `E404`. The public GitHub package needs no Git installation, npm login, GitHub login or source build.
 
-**Use the public GitHub release launcher below.** The npm package `@infiautomation/mcp` has not been published. Using `@infiautomation/mcp@latest` currently returns npm `E404` before the MCP starts. GitHub releases and the npm registry are separate distribution services.
+## Quick start on Windows
 
-Install **Node.js 24 or newer** on the machine running the MCP. Check `node --version`, then restart your terminal and MCP client after upgrading. Node 22 does not meet v0.3.1's runtime requirement. Windows native testing also requires the **.NET 8 Windows Desktop Runtime**.
+Install **Node.js 24+**. Windows native testing also needs the **.NET 8 Windows Desktop Runtime**, an unlocked interactive desktop and the same privilege level as the target. The [user guide](docs/USER_GUIDE.md#2-install-prerequisites) gives the exact runtime installation steps. Web/Electron-only users do not need that Windows worker runtime.
 
-Run one-time setup in PowerShell:
+Run each line separately in PowerShell. The install below uses a permanent local folder, so subsequent CLI/MCP starts avoid npm/GitHub package lookups:
 
 ```powershell
-New-Item -ItemType Directory -Path D:/InfiTests -Force
-Set-Location D:/InfiTests
-$Mcp = 'https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.1/infiautomation-mcp-0.3.1.tgz'
-npx.cmd --yes $Mcp setup --desktop
-npx.cmd --yes $Mcp doctor --workspace D:/InfiTests
+node --version
+New-Item -ItemType Directory -Path C:/InfiTests -Force
+npm.cmd install --prefix C:/InfiTests/tools/infiautomation --save-exact --no-audit --no-fund https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.1/infiautomation-mcp-0.3.1.tgz
+node C:/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js --version
+node C:/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js setup
+node C:/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js doctor --workspace C:/InfiTests
+node C:/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js init-demo --workspace C:/InfiTests
+node C:/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js run infi-demo/suite.json --workspace C:/InfiTests
 ```
 
-For web-only testing omit `--desktop`. On macOS/Linux use `npx`, your project path, and `setup` without `--desktop`. No Git clone, Git installation, npm login, source build, or local executable path is required for this launcher. The initial download needs internet access to GitHub and the npm registry for dependencies.
+Expected: version `0.3.1`, successful setup, `chromiumInstalled: true`, then **3 passed demo cases**. Stop at a failed stage and follow [troubleshooting](docs/TROUBLESHOOTING.md). For another demo run, repeat only the final `run` command.
 
-For clients accepting `mcpServers`, use this configuration and set the workspace to your test project:
+For Windows native support, use `setup --desktop` after installing .NET and verify all native fields in doctor. The demo above is a web fixture; test your actual native/Electron app separately.
 
-```json
-{
-  "mcpServers": {
-    "infiautomation": {
-      "command": "npx",
-      "args": [
-        "--yes",
-        "https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.1/infiautomation-mcp-0.3.1.tgz",
-        "--workspace",
-        "D:/InfiTests"
-      ]
-    }
-  }
-}
-```
+Open the run directory printed by the runner: `index.html` is the summary, `detailed.html` provides step drill-down, and `traceability.html` shows requirement coverage. Next, [connect your AI client](docs/CLIENT_SETUP.md) and follow the [requirement-document workflow](docs/USER_GUIDE.md#8-create-a-plan-from-your-requirement-document).
 
-Copy-ready client configurations: [general JSON](examples/mcp.npx.json), [Codex TOML](examples/codex.npx.toml), and [VS Code servers-style JSON](examples/vscode.npx.json). These defaults use the available GitHub release. Replace workspace placeholders with your own path. The explicitly named [GitHub examples](examples/mcp.github.json) use the same release. Local checkout configurations are available in [mcp-clients.json](examples/mcp-clients.json).
+Copy-ready stable local configurations: [Codex](examples/codex.local.toml), [VS Code/Copilot](examples/vscode.local.json), [portable JSON](examples/mcp.local.json). The [GitHub npx alternative](docs/CLIENT_SETUP.md#4-github-npx-alternative) remains available for clients that prefer it; npm can contact the release server on a later invocation.
 
-Restart/reload the client, enable InfiAutomation tools, then ask it to call `doctor`. Its reported version should be `0.3.1`. On Windows, if a client cannot resolve `npx`, try `npx.cmd`. Use the same release for setup and the MCP launcher; startup never silently installs browsers or native workers.
-
-If your log contains `npm exec @infiautomation/mcp@latest` and `E404`, replace that argument in the client's saved configuration with the GitHub URL above. Then stop/start the server so the new configuration takes effect. Check Node 24+ independently: changing the launcher fixes the package lookup; upgrading Node meets the runtime requirement. See the [complete guide and troubleshooting](docs/USER_GUIDE.md).
-
-The intended short npm command is reserved for after the first successful npm publication. Maintainer instructions are in [PUBLISHING.md](docs/PUBLISHING.md).
-
+For macOS/Linux, follow the [platform-specific commands](docs/USER_GUIDE.md#13-macos-and-linux). Startup does not automatically download browser/native software.
 ### Platform support and prerequisites
 
 | Capability | Windows | macOS | Linux |
@@ -89,7 +78,7 @@ Install Node.js 24 and Git, then:
 
 ```sh
 git clone https://github.com/warademilind/InfiAutomation-mcp.git
-cd infiautomation-mcp
+cd InfiAutomation-mcp
 npm ci
 npm run build
 node dist/cli.js setup

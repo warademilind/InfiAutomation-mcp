@@ -1,0 +1,16 @@
+{
+  "servers": {
+    "infiautomation": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "C:/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js",
+        "--workspace",
+        "C:/InfiTests"
+      ],
+      "env": {
+        "INFIAUTOMATION_DOTNET": "C:/Program Files/dotnet/dotnet.exe"
+      }
+    }
+  }
+}

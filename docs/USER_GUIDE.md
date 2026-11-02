@@ -1,110 +1,208 @@
 # InfiAutomation MCP: start-to-finish user guide
 
-This guide covers installation, Codex, VS Code/Copilot, requirement documents, plans, manual/executable cases, execution, healing and reports. Use v0.3.0 or newer for document import and requirement coverage.
+This guide is for someone installing InfiAutomation for the first time. It covers setup, connecting an AI client, requirements, test plans, cases, execution, healing and reports. Commands target release **0.3.1**.
 
-The connected AI client interprets your requirements and drafts cases. InfiAutomation extracts document text, saves/validates the plan and suite, controls the actual app, and records real outcomes. It does not contain a separate model or need an extra model API key. Extracted document text is returned to your chosen AI client.
+Quick navigation: [Prerequisites](#1-choose-the-capabilities-you-need) | [Install](#3-create-a-workspace-and-install-a-stable-local-launcher) | [Setup](#4-install-the-browser-and-optional-native-worker) | [Doctor](#5-verify-readiness-with-doctor) | [Demo and reports](#6-run-the-bundled-requirement-to-report-demonstration) | [AI clients](#7-connect-your-ai-client) | [Requirements and plans](#8-create-a-plan-from-your-requirement-document) | [Executable cases](#9-inspect-the-real-app-and-create-executable-cases) | [Execution](#10-execute-and-open-the-reports) | [Healing](#11-diagnose-and-heal-a-broken-locator) | [Troubleshooting](TROUBLESHOOTING.md)
 
-## 1. Install prerequisites
+## Read this first
 
-- Install Node.js 24 or newer from [nodejs.org](https://nodejs.org/en/download). Check `node --version` and `npx --version` in a new terminal. Node 24 is tested in CI.
-- Web testing works on Playwright-supported Windows, macOS and Linux systems.
-- Native desktop testing needs Windows, the [.NET 8 **Windows Desktop Runtime**](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) (not just the base runtime), an unlocked signed-in desktop, and the same privilege level as the app. The prebuilt worker does not need a .NET SDK.
-- Windows x64 native execution is tested. ARM64 workers are cross-built and still need runtime validation on ARM64 hardware. Match the .NET runtime to the Node/worker architecture.
-- Electron testing needs a supported app executable or an explicitly enabled CDP endpoint. Native Electron menus require launch mode. Some packaged apps disable debugging; the MCP does not bypass that protection.
-- Install/sign in to the AI client you want to use. Its normal model/subscription requirements apply.
+- **MCP server:** the local program that gives an AI client testing tools. It runs on the computer that can access your application.
+- **AI client:** Codex, GitHub Copilot or another compatible client. Its model interprets your requirements and drafts plans/cases. InfiAutomation saves, validates and executes that work; it does not contain a separate model or need an extra model API key.
+- **Workspace:** the folder containing your documents, plans, suites and reports. This guide uses **C:/InfiTests**. Choose a writable location and replace every occurrence if you use another folder. No Windows username is required in these examples.
+- **Plan:** human-readable scenarios and their expected business outcomes, saved as Markdown and JSON.
+- **Executable suite:** actions, observed locators and assertions that the runner executes.
+- **Requirement coverage:** links between requirements, cases and recorded outcomes. A link alone does not establish full business acceptance.
 
-The short `npx @infiautomation/mcp@latest` command remains pending first npm publication. **Use the public GitHub release URL below now.** GitHub npx consumption needs no Git clone, Git installation, npm account, or source build.
+**Distribution:** the public GitHub release works now. The short registry command `npx @infiautomation/mcp@latest` remains unavailable until first npm publication. Consumers of the GitHub package do not need Git, a GitHub account, an npm account or a source build. The initial installation downloads dependencies from npm and the package/worker from GitHub.
 
-## 2. Create a workspace and run setup once
+Follow steps 1-7 for setup; steps 8-12 explain actual testing. For another operating system, use [macOS/Linux setup](#13-macos-and-linux). If a command fails, use [troubleshooting](TROUBLESHOOTING.md) before continuing.
 
-On Windows, open PowerShell and run:
+## 1. Choose the capabilities you need
 
-```powershell
-New-Item -ItemType Directory -Path D:/InfiTests -Force
-Set-Location D:/InfiTests
-$Mcp = 'https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.1/infiautomation-mcp-0.3.1.tgz'
-npx.cmd --yes $Mcp setup --desktop
-npx.cmd --yes $Mcp doctor --workspace D:/InfiTests
-```
+| Capability | Requirements | Current scope |
+| --- | --- | --- |
+| Web | Node 24+, Playwright Chromium installed by setup, access to the website | Playwright-supported Windows/macOS/Linux |
+| Electron | Node 24+, compatible app executable or explicit CDP endpoint, display where required | Supported Electron apps; launch mode is needed for native Electron menus |
+| Windows native | Node 24+, matching native worker, .NET 8 Windows Desktop Runtime, signed-in unlocked interactive Windows desktop | Windows x64 execution verified; ARM64 worker cross-built, hardware validation still needed |
+| Plans, cases and reports | Writable workspace; an AI client for interpreting requirements and generating cases | Saved JSON suites can run from a terminal without an AI client |
 
-For web-only testing omit `--desktop`. `npx.cmd` avoids PowerShell's `npx.ps1` execution-policy issue without changing your security settings.
+Use the same privilege level as a Windows target app. Prepare application access, test accounts, test data and any required services. Some inaccessible controls, protected applications and Electron apps with disabled inspection cannot be automated through the current adapters. Native macOS/Linux desktop adapters are not included.
 
-On macOS/Linux, create a project directory, then use `npx`:
+## 2. Install prerequisites
 
-```sh
-mkdir -p ~/InfiTests
-cd ~/InfiTests
-npx --yes https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.1/infiautomation-mcp-0.3.1.tgz setup
-```
+### Node.js
 
-On Linux, `setup --with-deps` additionally asks Playwright to install OS browser dependencies and may require package-manager privileges. For Windows desktop only, use `setup --desktop --skip-browser`.
-
-Check `doctor`: version should be 0.3.1; `runtimeSupported` should be true; browser tests need `chromiumInstalled`; native tests need `desktopAvailable`. The effective workspace must be your intended project folder. Repeat setup with the same launcher version after upgrading; native workers and browser revisions are version-specific.
-
-## 3. Try the complete bundled demo before connecting an AI client
-
-In the Windows terminal above:
+Install Node.js **24 or newer** from [nodejs.org](https://nodejs.org/en/download). Node 24 is used in CI. Open a new PowerShell window and run:
 
 ```powershell
-npx.cmd --yes $Mcp init-demo --workspace D:/InfiTests
-npx.cmd --yes $Mcp run infi-demo/suite.json --workspace D:/InfiTests
+node --version
 ```
 
-The demo creates a local HTML application, an example requirements document, a Markdown/JSON plan, and a suite with three cases: save a project, export through the File menu, and check notifications. These are pre-authored demonstration cases; the command does not infer business rules from arbitrary documents.
+Expected: a version beginning with `v24` or a newer major. Node 22 is unsupported.
 
-Expected result: 3 passed cases, 3 mapped requirements, no unmapped requirements. Two deliberately unspecified business rules remain visible as open questions. `init-demo` refuses to overwrite an existing `infi-demo` folder.
+```powershell
+npm.cmd --version
+```
 
-Open the printed run folder:
+Expected: an npm version number. Restart your terminal and IDE after changing Node so each uses the new executable.
 
-| File | Use |
+### .NET for Windows native testing
+
+Skip this subsection for web/Electron-only work. Install the **.NET 8 Windows Desktop Runtime**, matching the worker architecture. The base .NET runtime alone is insufficient. A .NET SDK is needed only for building native source.
+
+For an x64 installation, run:
+
+```powershell
+winget install --id Microsoft.DotNet.DesktopRuntime.8 --exact --source winget --architecture x64
+```
+
+Complete the installer prompts. If WinGet is unavailable or installation is managed by your organization, use [Microsoft's .NET 8 download page](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) and select **.NET Desktop Runtime -> Windows -> x64**. ARM64 users must select the architecture matching their Node/worker installation.
+
+For the standard Windows installation, verify directly:
+
+```powershell
+& "$env:ProgramFiles\dotnet\dotnet.exe" --list-runtimes
+```
+
+Expected: a line beginning with `Microsoft.WindowsDesktop.App 8.0.`. A different install location needs its actual executable path; see [runtime detection](TROUBLESHOOTING.md#4-net-installed-but-doctor-reports-false).
+
+## 3. Create a workspace and install a stable local launcher
+
+Run each command on its own line. Copy only the command, without a `PS ...>` prompt. URLs must end in `.tgz`, without `%27` or extra quote characters.
+
+```powershell
+New-Item -ItemType Directory -Path C:/InfiTests -Force
+```
+
+```powershell
+Set-Location C:/InfiTests
+```
+
+The following installs the public release and its Node dependencies in a persistent `tools/infiautomation` folder:
+
+```powershell
+npm.cmd install --prefix C:/InfiTests/tools/infiautomation --save-exact --no-audit --no-fund https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.1/infiautomation-mcp-0.3.1.tgz
+```
+
+This is the recommended launcher for regular use: after installation, starting the local CLI avoids npm/GitHub package lookups. Keep this tools folder available. The application and AI client may still need their own network access.
+
+Check the installed version:
+
+```powershell
+node C:/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js --version
+```
+
+Expected:
+
+```text
+0.3.1
+```
+
+If installation fails with a certificate or connection error, follow [network troubleshooting](TROUBLESHOOTING.md). A successful package installation does not yet install the browser or native worker.
+
+The shorter GitHub `npx` alternative is documented in [client setup](CLIENT_SETUP.md#4-github-npx-alternative). It can contact the release server again on later starts. An installed local launcher avoids that dependency on every launch.
+
+## 4. Install the browser and optional native worker
+
+Choose **one** setup command.
+
+Web/Electron setup (installs matching Chromium for browser work):
+
+```powershell
+node C:/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js setup
+```
+
+Web plus Windows native setup:
+
+```powershell
+node C:/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js setup --desktop
+```
+
+Windows native only:
+
+```powershell
+node C:/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js setup --desktop --skip-browser
+```
+
+Expected: a final JSON response containing `"version": "0.3.1"` and `"setup": "complete"`. Setup downloads matching browser files and, with `--desktop`, the checksum-verified worker. It does not install .NET. Startup of the MCP server does not install these components automatically.
+
+If setup fails, complete [troubleshooting](TROUBLESHOOTING.md) before attempting browser/native tests. Document extraction and plan creation can still work without a browser; UI execution needs the relevant runtime.
+
+## 5. Verify readiness with doctor
+
+```powershell
+node C:/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js doctor --workspace C:/InfiTests
+```
+
+Read the returned fields:
+
+| Field | Expected / meaning |
 | --- | --- |
-| `index.html` | Summary dashboard |
-| `detailed.html` | Search/filter cases and inspect step screenshots, actual values and traces |
-| `traceability.html` | Requirement-to-case mappings, open questions and recorded outcomes; click a case ID for its details |
-| `results.json` / `traceability.json` | Machine-readable results and coverage |
+| `version` | `0.3.1` |
+| `runtimeSupported` | `true` |
+| `workspace` | The project folder you chose; JSON displays backslashes as `\` |
+| `chromiumInstalled` | `true` for the bundled web demo and Chromium suites |
+| `nativeWorkerInstalled` | `true` for Windows native testing |
+| `dotnetDesktopRuntime8` | `true` for Windows native testing |
+| `desktopAvailable` | `true` when the Windows native prerequisites are detected |
+| `web`, `electron` | Adapter capability flags; they do not prove your particular app launches or that browser files exist |
 
-For macOS/Linux, use the same commands with `npx` and your workspace path. The demo uses the matching installed Chromium and needs no external website.
+For web-only work the native fields can remain false. `desktopAvailable: true` checks prerequisites; validate actual native execution against your target app. If the runtime was just installed and detection is false, follow the [explicit .NET host steps](TROUBLESHOOTING.md#4-net-installed-but-doctor-reports-false).
 
-## 4. Connect Codex CLI or the Codex VS Code extension
+## 6. Run the bundled requirement-to-report demonstration
 
-Append or update this server block in `~/.codex/config.toml` (Windows: `%USERPROFILE%\.codex\config.toml`). Do not duplicate an existing block with the same server name.
+This is a local **web** demo. It proves browser execution, plan/case generation and reporting for the included fixture. It does not certify another application or test native/Electron execution on your machine.
 
-```toml
-[mcp_servers.infiautomation]
-command = "npx"
-args = ["--yes", "https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.1/infiautomation-mcp-0.3.1.tgz", "--workspace", "D:/InfiTests"]
-startup_timeout_sec = 120
-tool_timeout_sec = 180
+Create the example files once:
+
+```powershell
+node C:/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js init-demo --workspace C:/InfiTests
 ```
 
-Replace the workspace on macOS/Linux. Restart the Codex session/extension, run `codex mcp list` when using the CLI, and ask the agent to call InfiAutomation's `doctor` tool. CLI and IDE share the configuration; trusted projects can alternatively use `.codex/config.toml`. See the [official OpenAI MCP documentation](https://developers.openai.com/codex/mcp/).
+Expected: `infi-demo/requirements.md`, a small HTML application, `plan.md`, `plan.json`, `suite.json` and a coverage folder. Three pre-authored cases verify saving a project, exporting through a File menu and notifications. The command does not interpret arbitrary requirement documents.
 
-## 5. Connect VS Code with GitHub Copilot
+Run those cases:
 
-Open your test workspace in VS Code and sign in to Copilot. Run **MCP: Add Server** from the Command Palette, choose **Command (stdio)**, and enter the launcher command with its workspace argument. Name the server `infiautomation`, select the appropriate workspace destination, and review the server trust prompt.
+```powershell
+node C:/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js run infi-demo/suite.json --workspace C:/InfiTests
+```
 
-For portable workspace-root `.mcp.json` configurations:
+Expected summary:
 
 ```json
 {
-  "mcpServers": {
-    "infiautomation": {
-      "command": "npx",
-      "args": ["--yes", "https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.1/infiautomation-mcp-0.3.1.tgz", "--workspace", "D:/InfiTests"]
-    }
-  }
+  "status": "passed",
+  "summary": { "total": 3, "passed": 3, "failed": 0, "healed": 0, "skipped": 0 }
 }
 ```
 
-If your VS Code version/harness uses `.vscode/mcp.json`, its wrapper is `servers` and each server also has `"type":"stdio"`. See [the GitHub launcher example](../examples/vscode.github.json) and replace its workspace placeholder. Do not mix the two wrappers. The guided setup selects a supported destination.
+The response also prints a new run `directory`. Three requirements are mapped; two intentionally unspecified business rules remain visible as open questions. `init-demo` refuses to overwrite an existing `infi-demo` folder. For another run, repeat only the `run` command.
 
-Start a Copilot agent session, enable InfiAutomation tools in the tools/customizations UI, and request `doctor`. Verify an actual tool response, not just a chat answer. See [official VS Code instructions](https://code.visualstudio.com/docs/agent-customization/mcp-servers).
+Open the latest report without copying a timestamped path:
 
-Other clients accepting `mcpServers` can use the same portable JSON. On Windows, if a client cannot resolve `npx`, try `npx.cmd`; ensure Node 24 is on the PATH inherited by the client and restart it after changing Node.
+```powershell
+$InfiLatest = Get-Content -LiteralPath C:/InfiTests/.infiautomation/latest.json -Raw | ConvertFrom-Json
+Invoke-Item (Join-Path C:/InfiTests (Join-Path $InfiLatest.directory index.html))
+```
 
-## 6. Create a plan from your requirement document
+| Report file | What to inspect |
+| --- | --- |
+| `index.html` | Summary, pass/fail/healed counts and environment |
+| `detailed.html` | Filter/search cases; open a case to inspect steps, actual values, screenshots and trace links |
+| `traceability.html` | Requirement-to-case mappings, gaps, open questions and recorded outcomes; case links open details |
+| `results.json`, `traceability.json` | Machine-readable execution and requirement coverage |
 
-Put the file inside the configured workspace, for example `D:/InfiTests/requirements/product.docx`. Supported formats: `.pdf`, `.docx`, `.md`, `.txt`. Legacy `.doc` must be converted. Image-only/scanned PDFs need OCR first. Plain-text files support UTF-8 and BOM-marked UTF-16.
+Reports are offline HTML and do not need a report server. Confirm that the report belongs to the requested run; an old report is not evidence that a new run succeeded.
+
+## 7. Connect your AI client
+
+Follow [CLIENT_SETUP.md](CLIENT_SETUP.md) for complete configurations for **Codex CLI, Codex VS Code extension, VS Code/GitHub Copilot and other MCP clients**. The examples use the stable local launcher installed above. Add only the configuration for your client, restart it and call the MCP `doctor` tool to verify the effective workspace and environment.
+
+A setting entered in PowerShell applies to that session and its children. Put required .NET/certificate settings into the client's `env` configuration when it starts independently. A blank terminal after manually starting a stdio server means it is waiting for an MCP client; use `--version`, `doctor` or `run` for terminal checks.
+
+## 8. Create a plan from your requirement document
+
+Put the file inside the configured workspace, for example `C:/InfiTests/requirements/product.docx`. Supported formats: `.pdf`, `.docx`, `.md`, `.txt`. Legacy `.doc` must be converted. Image-only/scanned PDFs need OCR first. Plain-text files support UTF-8 and BOM-marked UTF-16.
 
 Use this prompt in your connected AI client, replacing the file and app target:
 
@@ -144,7 +242,7 @@ Documents are bounded to 20 MiB, 300 PDF pages and 1,000,000 extracted character
 
 If the client already read an attachment, it can pass the extracted requirements directly to `plan_create`; imported-file provenance is available only when the MCP imported the local source.
 
-## 7. Inspect the real app and create executable cases
+## 9. Inspect the real app and create executable cases
 
 Provide one explicit target:
 
@@ -174,7 +272,7 @@ Close the inspection session with session_close before execution, especially for
 
 The plan describes intent. The executable suite contains real actions/locators/values plus assertions. An assertion such as `assertText` or `assertChecked` is required in every case. Expected values must come from requirements or an explicitly agreed rule; a successful click is not proof of a business outcome.
 
-## 8. Execute and open the reports
+## 10. Execute and open the reports
 
 Prompt:
 
@@ -191,14 +289,14 @@ Separate clean passes, healed cases, failures, unmapped requirements and open bu
 Use the same suite without an AI client:
 
 ```powershell
-npx.cmd --yes $Mcp run tests/product.suite.json --workspace D:/InfiTests
+node C:/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js run tests/product.suite.json --workspace C:/InfiTests
 ```
 
 Keep the linked plan JSON and suite inside the same workspace. Generated `.test.mjs` files additionally need `@infiautomation/mcp` installed in the project to resolve their import; the npx JSON-suite command does not need a local install.
 
 **A passed suite is not a statement that every requirement is satisfied.** Requirement coverage reports distinguish unmapped, not-run, passed, failed, healed and incomplete mappings. Mapping a case to an ID does not prove that all acceptance criteria, security rules or business behaviors are covered. Review the actual assertions and open questions.
 
-## 9. Diagnose and heal a broken locator
+## 11. Diagnose and heal a broken locator
 
 For the first run, keep `healing:"off"`. Inspect the failure screenshot, actual value, trace and live app. A failed requirement/expected value is an app defect or a requirement question; do not hide it by changing the expected result.
 
@@ -222,30 +320,32 @@ and rerun the saved suite. Report unresolved or ambiguous failures; do not guess
 
 Example identity useful for healing: `{"css":"#save-old","role":"button","name":"Save project"}`. Without stable name/text metadata, there may be no justified automatic suggestion.
 
-## 10. Repeat the workflow when requirements or the app change
+## 12. Repeat the workflow when requirements or the app change
 
 Import the revised document, update the plan with the correct source ID/version, review requirement changes and open questions, regenerate/update affected cases, inspect changed controls, execute, and compare evidence. Do not silently reuse obsolete expected values. No client or framework can guarantee every application is automatable.
 
-## Troubleshooting
+## 13. macOS and Linux
 
-### npm E404 on another Windows machine
+Use a supported Playwright operating system and Node 24+. The native FlaUI worker is Windows-only. This example uses a project in your home directory; it does not change the HOME environment variable.
 
-A log showing `npm exec @infiautomation/mcp@latest` and HTTP 404 means the client is still requesting the unpublished npm package. Replace that package argument in the saved MCP configuration with the public GitHub tarball URL from section 4 or 5, then stop/start the server. Consumers do not need an npm login for the public GitHub launcher.
+```sh
+mkdir -p "$HOME/InfiTests"
+npm install --prefix "$HOME/InfiTests/tools/infiautomation" --save-exact --no-audit --no-fund https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.1/infiautomation-mcp-0.3.1.tgz
+node "$HOME/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js" --version
+node "$HOME/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js" setup
+node "$HOME/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js" doctor --workspace "$HOME/InfiTests"
+node "$HOME/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js" init-demo --workspace "$HOME/InfiTests"
+node "$HOME/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js" run infi-demo/suite.json --workspace "$HOME/InfiTests"
+```
 
-A log showing `node@v22` also needs a runtime upgrade: install Node 24 or newer, reopen the terminal and fully restart the client, then check `node --version`. Both changes are required. Retry setup and doctor using the same GitHub release. The README and default npx examples now use that available release.
+Run each line separately and continue after success. On Linux, use `setup --with-deps` if OS browser dependencies are missing; package-manager privileges may be needed. Electron may need a display server. Use the actual absolute home/project paths in client configuration; JSON/TOML path strings do not automatically expand shell variables.
 
-| Symptom | Next action |
-| --- | --- |
-| `@infiautomation/mcp@latest` gives 404 | Use the GitHub tarball URL until npm publication |
-| Runtime is unsupported | Install Node 24+, restart terminal and client, recheck their PATH |
-| MCP tools missing | Check configuration wrapper/file, restart the server/client, call `doctor`, verify version 0.3.0+ |
-| Browser/worker missing | Run matching-version setup; check doctor and workspace |
-| Document path rejected | Place the file inside the configured workspace; external paths and escaping links are blocked |
-| PDF has no text | Run OCR outside the MCP or provide a text/Word export |
-| Unknown requirement ID | Correct the suite mapping or update/recreate the saved JSON plan |
-| Native session already owns desktop | Close inspection/healing sessions before `test_run` |
-| Screenshot includes another window | Keep the target unobscured on an unlocked interactive desktop |
-| Electron startup fails | Check executable/args, supported Electron/debug settings and timeout; some apps intentionally disable inspection |
-| Healer has no candidate | Preserve the failure, inspect the real controls and review a manual repair; do not weaken assertions |
+## 14. Reference and next steps
 
-Tool details: [API.md](API.md). Maintainer-only package publication: [PUBLISHING.md](PUBLISHING.md). Public users can consume the GitHub package without npm authentication.
+- [Client configuration](CLIENT_SETUP.md): Codex, Copilot and portable JSON.
+- [Troubleshooting](TROUBLESHOOTING.md): certificate/proxy errors, connection resets, cached recovery, .NET detection and common failures.
+- [API reference](API.md): tools, fields, supported actions and locators.
+- [CI and releases](CI.md): what can run on GitHub and what needs an interactive desktop.
+- [Publishing](PUBLISHING.md): maintainer-only npm publication and repository review policy.
+
+Repeat installation/setup with the intended release when upgrading. Retain requirement documents, plan JSON and suites needed to reproduce a run. Source document text is sent to your chosen AI client through tool responses; reports/screenshots/traces stay in your workspace unless you share them. Review artifacts before publishing them.

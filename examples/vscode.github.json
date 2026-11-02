@@ -7,7 +7,7 @@
         "--yes",
         "https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.3.1/infiautomation-mcp-0.3.1.tgz",
         "--workspace",
-        "/absolute/path/your-test-project"
+        "C:/InfiTests"
       ]
     }
   }

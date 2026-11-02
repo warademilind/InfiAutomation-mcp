@@ -1,0 +1,8 @@
+[mcp_servers.infiautomation]
+command = "node"
+args = ["C:/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js","--workspace","C:/InfiTests"]
+startup_timeout_sec = 120
+tool_timeout_sec = 180
+
+[mcp_servers.infiautomation.env]
+INFIAUTOMATION_DOTNET = "C:/Program Files/dotnet/dotnet.exe"
