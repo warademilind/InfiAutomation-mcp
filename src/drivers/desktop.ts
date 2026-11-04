@@ -28,7 +28,9 @@ export class DesktopDriver implements Driver {
     const worker = nativeWorkerPath();
     try { await access(worker); } catch { throw new Error('Desktop worker missing. Run the same InfiAutomation launcher with: setup --desktop --skip-browser. Install .NET 8 Windows Desktop Runtime, or build from source with npm run build:native.'); }
     const command = isDll(worker) ? (process.env.INFIAUTOMATION_DOTNET || 'dotnet') : worker;
-    this.child = spawn(command, isDll(worker) ? [worker] : [], { stdio: ['pipe', 'pipe', 'pipe'], windowsHide: true });
+    // VS Code/Electron hosts set this flag; GUI apps launched by the worker must not run as Node.
+    const env = Object.fromEntries(Object.entries(process.env).filter(([key, value]) => key !== 'ELECTRON_RUN_AS_NODE' && value !== undefined)) as Record<string, string>;
+    this.child = spawn(command, isDll(worker) ? [worker] : [], { stdio: ['pipe', 'pipe', 'pipe'], windowsHide: true, env });
     let errors = '';
     this.child.stderr.on('data', chunk => { errors = (errors + chunk.toString()).slice(-4000); this.diagnostics = errors; });
     createInterface({ input: this.child.stdout }).on('line', line => {

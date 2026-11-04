@@ -35,12 +35,13 @@ Follow the guides in order. All Windows examples use the generic workspace **C:/
 | [Use the HTML reports](docs/REPORTS.md) | Navigate stable panels, search and page cases, review repairs, and expand screenshots and actual results |
 | [Mixed UI/API/database/UX guide](docs/UNIFIED_E2E.md) | Run a complete synthetic example, import API documents, chain values and interpret timing evidence |
 | [Database adapters](docs/DATABASES.md) | SQLite, PostgreSQL, MySQL/MariaDB, SQL Server, Oracle, MongoDB, Redis and ODBC extension path |
+| [Electron desktop automation](docs/ELECTRON.md) | Launch or attach, inspect runtime versions, select windows, invoke menus and use Windows accessibility when appropriate |
 | [Version history and rollback](docs/VERSIONS.md) | Keep earlier releases, use both suite formats and install versions side by side |
 | [Calculator: requirements to reports](examples/calculator/README.md) | Explore the original plan, nine executable cases, 53 actual screenshots, and linked summary, detailed and coverage HTML reports |
 
 **[Open the live Calculator walkthrough](https://warademilind.github.io/InfiAutomation-mcp/examples/calculator/)** to follow requirements → plan → cases → recorded execution → screenshots and coverage. The example uses provisional UI-derived expectations, with its original plan and suite included. You can also download the repository and open `examples/calculator/index.html` offline.
 
-**Available release: v0.4.0 from GitHub.** The npm registry package `@infiautomation/mcp` is pending first publication; `npx @infiautomation/mcp@latest` currently returns `E404`. The public GitHub package needs no Git installation, npm login, GitHub login or source build.
+**Available release: v0.5.0 from GitHub.** The npm registry package `@infiautomation/mcp` is pending first publication; `npx @infiautomation/mcp@latest` currently returns `E404`. The public GitHub package needs no Git installation, npm login, GitHub login or source build.
 
 ## Quick start on Windows
 
@@ -51,7 +52,7 @@ Run each line separately in PowerShell. The install below uses a permanent local
 ```powershell
 node --version
 New-Item -ItemType Directory -Path C:/InfiTests -Force
-npm.cmd install --prefix C:/InfiTests/tools/infiautomation --save-exact --no-audit --no-fund https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.4.0/infiautomation-mcp-0.4.0.tgz
+npm.cmd install --prefix C:/InfiTests/tools/infiautomation --save-exact --no-audit --no-fund https://github.com/warademilind/InfiAutomation-mcp/releases/download/v0.5.0/infiautomation-mcp-0.5.0.tgz
 node C:/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js --version
 node C:/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js setup
 node C:/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js doctor --workspace C:/InfiTests
@@ -59,7 +60,7 @@ node C:/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli
 node C:/InfiTests/tools/infiautomation/node_modules/@infiautomation/mcp/dist/cli.js run infi-demo/suite.json --workspace C:/InfiTests
 ```
 
-Expected: version `0.4.0`, successful setup, `chromiumInstalled: true`, then **3 passed demo cases**. Stop at a failed stage and follow [troubleshooting](docs/TROUBLESHOOTING.md). For another demo run, repeat only the final `run` command.
+Expected: version `0.5.0`, successful setup, `chromiumInstalled: true`, then **3 passed demo cases**. Stop at a failed stage and follow [troubleshooting](docs/TROUBLESHOOTING.md). For another demo run, repeat only the final `run` command.
 
 For Windows native support, use `setup --desktop` after installing .NET and verify all native fields in doctor. The demo above is a web fixture; test your actual native/Electron app separately.
 

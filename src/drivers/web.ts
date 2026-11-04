@@ -1,6 +1,7 @@
 import { chromium, firefox, webkit, _electron, type Browser, type BrowserContext, type ElectronApplication, type Locator, type Page } from 'playwright';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { createRequire } from 'node:module';
 import type { Selector, Snapshot, Step, Target } from '../schema.js';
 import type { Driver } from './types.js';
 
@@ -9,36 +10,98 @@ export class WebDriver implements Driver {
   readonly kind: Target['kind'];
   browser?: Browser; context!: BrowserContext; page!: Page; electron?: ElectronApplication;
   private tracing = false;
+  private windowIds = new WeakMap<Page, string>();
+  private windowSerial = 0;
   executionPolicy?: {allowedOrigins:string[];allowedMethods:string[]};
   constructor(readonly target: Target) { this.kind = target.kind; }
   async start(): Promise<void> {
+    if (this.target.cdpUrl && this.executionPolicy) throw new Error('Version 2 requires an isolated browser/Electron session; attached CDP cannot guarantee policy isolation. Launch an owned Electron target or use a version 1 attachment suite.');
     if (this.target.cdpUrl) {
-      this.browser = await chromium.connectOverCDP(this.target.cdpUrl, { timeout: this.target.timeoutMs });
+      // Preserve the app's settings and avoid unsupported context-management defaults on older Electron.
+      this.browser = await chromium.connectOverCDP(this.target.cdpUrl, { timeout: this.target.timeoutMs, noDefaults: true });
       this.context = this.browser.contexts()[0];
       if (!this.context) throw new Error('CDP endpoint has no browser context');
-      this.page = this.context.pages()[0] || await this.context.newPage();
+      this.page = await this.waitForWindow(this.target.windowTitle, this.target.windowUrlContains);
     } else if (this.kind === 'electron') {
       const env = Object.fromEntries(Object.entries(process.env).filter(([key, value]) => key !== 'ELECTRON_RUN_AS_NODE' && value !== undefined)) as Record<string, string>;
-      this.electron = await _electron.launch({ env, executablePath: this.target.executable, args: this.target.args, cwd: this.target.cwd, timeout: this.target.timeoutMs });
+      try {
+        this.electron = await _electron.launch({ env, executablePath: this.target.executable, args: this.target.args, cwd: this.target.cwd, timeout: this.target.timeoutMs });
+      } catch (error) {
+        throw new Error('Electron launch failed. Check the executable, app arguments, interactive display and nodeCliInspect fuse. Try an app-authorized CDP endpoint, or explicit Windows UIA for accessible controls. No fuses are modified. Cause: ' + (error instanceof Error ? error.message : String(error)));
+      }
       this.context = this.electron.context();
-      this.page = await this.electron.firstWindow({ timeout: this.target.timeoutMs });
+      this.page = await this.waitForWindow(this.target.windowTitle, this.target.windowUrlContains);
     } else {
       const engine = { chromium, firefox, webkit }[this.target.browser];
       this.browser = await engine.launch({ headless: this.target.headless, ...(this.target.channel ? { channel: this.target.channel } : {}) });
       this.context = await this.browser.newContext({ viewport: { width: 1440, height: 1000 }, ...(this.executionPolicy?{serviceWorkers:'block' as const}:{}) });
       this.page = await this.context.newPage();
     }
+    this.setPage(this.page);
     if(this.executionPolicy){
       const policy=this.executionPolicy,origins=policy.allowedOrigins.map(value=>new URL(value).origin);
-      if(this.target.cdpUrl)throw new Error('Version 2 browser policy requires an isolated browser/Electron session; attached CDP cannot guarantee isolation');
       await this.context.route('**/*',async route=>{const request=route.request(),url=new URL(request.url());if(['http:','https:'].includes(url.protocol)&&((origins.length>0&&!origins.includes(url.origin))||!policy.allowedMethods.includes(request.method())))await route.abort('blockedbyclient');else await route.continue();});
     }
     if(this.executionPolicy){
       const installMetrics=()=>{if((window as any).__infiMetrics)return;const metrics={largestContentfulPaintMs:0,cumulativeLayoutShift:0};(window as any).__infiMetrics=metrics;try{new PerformanceObserver(list=>{for(const entry of list.getEntries())metrics.largestContentfulPaintMs=entry.startTime;}).observe({type:'largest-contentful-paint',buffered:true});new PerformanceObserver(list=>{for(const entry of list.getEntries())if(!(entry as any).hadRecentInput)metrics.cumulativeLayoutShift+=(entry as any).value;}).observe({type:'layout-shift',buffered:true});}catch{}};
       await this.context.addInitScript(installMetrics);await this.page.evaluate(installMetrics);
     }
-    this.page.setDefaultTimeout(this.target.timeoutMs);
     if (this.target.url) await this.page.goto(this.url(this.target.url), { waitUntil: 'domcontentloaded', timeout: this.target.timeoutMs });
+  }
+  private pages(): Page[] {
+    return (this.browser ? this.browser.contexts().flatMap(context => context.pages()) : this.context?.pages() || []).filter(page => !page.isClosed());
+  }
+  private windowId(page: Page): string {
+    let id = this.windowIds.get(page);
+    if (!id) { id = 'window-' + (++this.windowSerial); this.windowIds.set(page, id); }
+    return id;
+  }
+  private async waitForWindow(title?: string, urlPart?: string, timeout = this.target.timeoutMs): Promise<Page> {
+    const deadline = Date.now() + timeout;
+    do {
+      const matches: Page[] = [];
+      for (const page of this.pages()) {
+        try { if ((!title || (await page.title()).includes(title)) && (!urlPart || page.url().includes(urlPart))) matches.push(page); }
+        catch { /* A splash window may close while its title is read. */ }
+      }
+      if (matches.length > 1) throw new Error('Window selector is ambiguous: matched ' + matches.length + ' renderer windows. Set windowTitle and/or windowUrlContains; use ui_windows to inspect an existing session.');
+      if (matches.length === 1) return matches[0];
+      await new Promise(resolve => setTimeout(resolve, 100));
+    } while (Date.now() < deadline);
+    throw new Error('No matching renderer window within ' + timeout + 'ms. Check windowTitle/windowUrlContains, finish login or startup, and verify the CDP endpoint belongs to the intended app. No new tab was created.');
+  }
+  private setPage(page: Page) { this.page = page; this.context = page.context(); this.page.setDefaultTimeout(this.target.timeoutMs); }
+  async windows() {
+    const windows = [];
+    for (const page of this.pages()) {
+      try { windows.push({ windowId: this.windowId(page), title: await page.title(), url: page.url(), selected: page === this.page }); }
+      catch { /* Ignore windows closed during enumeration. */ }
+    }
+    return { windows };
+  }
+  async selectWindow(windowId: string) {
+    const page = this.pages().find(page => this.windowId(page) === windowId);
+    if (!page) throw new Error('Window ID is unknown or closed. Refresh ui_windows; IDs belong to this session only.');
+    this.setPage(page);
+    return { windowId, title: await page.title(), url: page.url() };
+  }
+  async info() {
+    const runtime: Record<string, string> = { playwright: createRequire(import.meta.url)('playwright/package.json').version };
+    const notes: string[] = [];
+    if (this.electron) {
+      Object.assign(runtime, await this.electron.evaluate(() => ({ electron: process.versions.electron!, chromium: process.versions.chrome!, node: process.versions.node })));
+      notes.push('Playwright Electron launch support is experimental. The app supplies its embedded Chromium; installed Chrome is not used.');
+    } else {
+      runtime.browser = this.browser!.version();
+      const userAgent = await this.page.evaluate(() => navigator.userAgent);
+      const chrome = /(?:Chrome|Chromium)\/([\d.]+)/.exec(userAgent), electron = /Electron\/([\d.]+)/.exec(userAgent);
+      if (chrome) runtime.chromium = chrome[1];
+      if (electron) runtime.electron = electron[1];
+      if (this.target.cdpUrl) notes.push('CDP exposes renderer DOM only. Runtime versions inferred from the user agent may be absent or customized. Native Electron Menu/main-process access is unavailable. Closing this session detaches; it does not close the app.');
+    }
+    return { kind: this.kind, transport: this.target.cdpUrl ? 'cdp' : this.electron ? 'electron-launch' : 'browser-launch', ownership: this.target.cdpUrl ? 'attached' : 'owned', runtime,
+      capabilities: { rendererDom: true, screenshots: true, windowSelection: true, nativeElectronMenus: !!this.electron, mainProcess: !!this.electron, osDialogs: false, version2Execution: !this.target.cdpUrl },
+      selectedWindowId: this.windowId(this.page), notes };
   }
   private url(value: string) { return /^[a-z][a-z0-9+.-]*:/i.test(value) ? value : pathToFileURL(resolve(this.target.cwd || process.env.INFIAUTOMATION_WORKSPACE || process.cwd(), value)).href; }
   locator(s: Selector): Locator {
@@ -105,18 +168,44 @@ export class WebDriver implements Driver {
     const timeout = step.timeoutMs || this.target.timeoutMs;
     if (step.action === 'navigate') { await this.page.goto(this.url(String(step.value)), { waitUntil: 'domcontentloaded', timeout }); return { url: this.page.url() }; }
     if (step.action === 'selectWindow') {
-      const title = String(step.value);
-      const pages = this.context.pages(), matches: Page[] = [];
-      for (const p of pages) if ((await p.title()).includes(title)) matches.push(p);
-      if (matches.length !== 1) throw new Error('Window title must identify exactly one page; matched ' + matches.length);
-      this.page = matches[0]; return { title: await this.page.title() };
+      this.setPage(await this.waitForWindow(String(step.value), undefined, timeout));
+      return { windowId: this.windowId(this.page), title: await this.page.title() };
     }
     if (step.action === 'focusWindow') { await this.page.bringToFront(); return { focused: true }; }
     if (step.action === 'assertTitle') return this.assert(() => this.page.title(), step.value, step.contains, timeout);
     if (step.action === 'press' && !step.locator) { await this.page.keyboard.press(String(step.value)); return { pressed: true }; }
     if (step.action === 'menu') {
+      if (step.menuSource === 'native' && !this.electron) throw new Error('Native Electron Menu API requires an electron-launch session. CDP supplies renderer access only; use DOM menus or explicit Windows UIA.');
+      if (this.electron && step.menuSource !== 'dom') {
+        const windowHandle = await this.electron.browserWindow(this.page);
+        const windowId = await windowHandle.evaluate(window => window.id);
+        await windowHandle.dispose();
+        const result = await this.electron.evaluate(({ Menu, BrowserWindow }, { path, windowId, source }) => {
+          type NativeMenuItem = { label: string; enabled: boolean; visible: boolean; type: string; submenu?: { items: NativeMenuItem[] }; click(event: object, window: unknown, contents: unknown): unknown };
+          let items: NativeMenuItem[] = Menu.getApplicationMenu()?.items || [];
+          if (source !== 'native' && !items.some(item => item.label === path[0])) return null;
+          for (let index = 0; index < path.length; index++) {
+            const matches = items.filter(item => item.label === path[index]);
+            if (matches.length !== 1) throw new Error('Native menu path must match one exact item at each level: ' + path[index] + ' matched ' + matches.length);
+            const item = matches[0];
+            if (!item.enabled || !item.visible) throw new Error('Native menu item is disabled or hidden: ' + path[index]);
+            if (index < path.length - 1) {
+              if (!item.submenu) throw new Error('Native menu item has no submenu: ' + path[index]);
+              items = item.submenu.items;
+            } else {
+              if (item.submenu || ['separator', 'header'].includes(item.type)) throw new Error('Native menu path must end at an invokable leaf command');
+              const window = BrowserWindow.fromId(windowId);
+              if (!window || window.isDestroyed()) throw new Error('Selected Electron window is closed');
+              item.click({ shiftKey: false, ctrlKey: false, altKey: false, metaKey: false, triggeredByAccelerator: false }, window, window.webContents);
+              return { path, source: 'electron-native-menu', invocation: 'MenuItem.click' };
+            }
+          }
+          return null;
+        }, { path: step.menuPath!, windowId, source: step.menuSource });
+        if (result) return result;
+      }
       for (const name of step.menuPath || []) await this.page.getByRole('menuitem', { name, exact: true }).click({ timeout });
-      return { path: step.menuPath };
+      return { path: step.menuPath, source: 'renderer-dom' };
     }
     if (step.action === 'assertCount') return this.assert(() => this.locator(step.locator!).count(), step.value, false, timeout);
     if (step.action === 'assertVisible' && step.value === false) {

@@ -52,16 +52,20 @@ export function createMcpServer(workspace = new Workspace()) {
   tool('ui_ux_check','Run axe accessibility, responsive layout, browser performance or an approved PNG visual-baseline assertion on an existing web/Electron session. Native desktop uses UIA functional assertions and screenshots.',idSchema.extend({step:uxStepSchema}),async({sessionId,step})=>enqueue(()=>evidenceCall((values,prefix)=>executeUx(session(sessionId),values.resolve(step),workspace,prefix))));
   tool('session_start', 'Launch web/Electron/desktop or attach to a CDP endpoint/native PID. Runs on this machine. Desktop actions are serialized.', z.object({ target: targetSchema }).strict(), async ({ target }) => enqueue(async () => {
     if (sessions.size >= 5) throw new Error('Close an existing session before opening another (maximum 5)');
-    const driver = createDriver(target);
+    const driver: Driver = createDriver(target);
     try {
       await driver.start();
       const snapshot = await driver.snapshot(), sessionId = randomUUID();
+      const info = driver.info ? await driver.info() : undefined;
       sessions.set(sessionId, driver);
-      return { sessionId, kind: target.kind, snapshot };
+      return { sessionId, kind: target.kind, snapshot, ...(info ? { info } : {}) };
     } catch (error) { await driver.close().catch(() => {}); throw error; }
   }));
   tool('session_list', 'List sessions owned by this MCP process.', z.object({}).strict(), async () => ({ sessions: [...sessions].map(([sessionId,driver])=>({sessionId,kind:driver.kind})) }), true);
-  tool('session_close', 'Close an owned session; native attached applications stay open.', idSchema, async ({ sessionId }) => enqueue(async () => {
+  tool('session_info', 'Show the actual session transport, ownership, runtime versions and capabilities. Electron uses its bundled Chromium, not installed Chrome. CDP has no Electron main-process/Menu API.', idSchema, async ({ sessionId }) => enqueue(async () => { const driver=session(sessionId); return driver.info ? driver.info() : {kind:driver.kind,transport:'windows-uia',note:'Inspect native controls with ui_snapshot; Chromium version does not control Windows UIA.'}; }), true);
+  tool('ui_windows', 'List live web/Electron renderer windows with session-local IDs, titles, URLs and selected state. Does not open tabs. Native window trees are available through ui_snapshot.', idSchema, async ({ sessionId }) => enqueue(async () => {const driver=session(sessionId);if(!driver.windows)throw new Error('Use ui_snapshot for native desktop windows');return driver.windows();}), true);
+  tool('ui_window_select', 'Select a web/Electron renderer by an observed ID from ui_windows. IDs are valid only in their session; closed or unknown windows fail.', idSchema.extend({windowId:z.string().min(1)}), async ({ sessionId,windowId }) => enqueue(async () => {const driver=session(sessionId);if(!driver.selectWindow)throw new Error('Use ui_action selectWindow with an observed title for native desktop');return driver.selectWindow(windowId);}));
+  tool('session_close', 'Close an owned application/session. Attached CDP/native applications stay open.', idSchema, async ({ sessionId }) => enqueue(async () => {
     await session(sessionId).close(); sessions.delete(sessionId); return { closed: true };
   }));
   tool('ui_snapshot', 'Read the real accessible controls, IDs, labels and windows. Bounded tree; truncated indicates omitted controls.', idSchema.extend({ depth: z.number().int().min(1).max(32).default(8), maxNodes: z.number().int().min(1).max(5000).default(500) }), async ({ sessionId, depth, maxNodes }) => enqueue(() => session(sessionId).snapshot(depth, maxNodes)), true);

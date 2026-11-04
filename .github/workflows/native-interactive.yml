@@ -20,6 +20,11 @@ jobs:
       - run: npm run build:native
       - run: dotnet build integration/fixtures/native/Fixture.csproj -c Release
       - run: npm run test:integration:native
+      - run: npm ci --prefix integration/fixtures/electron
+      - run: node integration/fixtures/electron/node_modules/electron/install.js
+      - run: npm run test:integration:electron:native
+        env:
+          INFIAUTOMATION_NATIVE_TEST: '1'
       - run: npx playwright install chromium
       - run: node --import tsx --test integration/unified-native.test.ts
         env:

@@ -28,6 +28,7 @@ export async function runSuite(input: unknown, workspace = new Workspace(), fact
     let trace = false;
     try {
       await driver.start();
+      if (driver.info) record.sessions = [{target: suite.target.kind, info: await driver.info()}];
       if (suite.target.kind !== 'desktop') { await driver.traceStart(); trace = true; }
       for (let i = 0; i < test.steps.length; i++) {
         const step = test.steps[i], stepStart = Date.now();

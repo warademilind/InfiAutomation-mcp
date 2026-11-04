@@ -13,10 +13,13 @@ export const targetSchema = z.object({
   executable: z.string().optional(), args: z.array(z.string()).default([]),
   cwd: z.string().optional(), cdpUrl: z.string().url().optional(),
   pid: z.number().int().positive().optional(), windowTitle: z.string().optional(),
+  windowUrlContains: z.string().min(1).optional(),
   timeoutMs: z.number().int().min(100).max(120000).default(10000)
 }).strict().superRefine((v, ctx) => {
   if (v.kind === 'electron' && !v.executable && !v.cdpUrl) ctx.addIssue({ code: 'custom', message: 'Electron requires executable or cdpUrl' });
   if (v.kind === 'desktop' && !v.executable && !v.pid && !v.windowTitle) ctx.addIssue({ code: 'custom', message: 'Desktop requires executable, pid or windowTitle' });
+  if (v.kind === 'desktop' && v.windowUrlContains) ctx.addIssue({ code: 'custom', message: 'windowUrlContains is for web/Electron renderer windows' });
+  if (v.cdpUrl && (v.kind === 'desktop' || v.browser !== 'chromium')) ctx.addIssue({ code: 'custom', message: 'CDP requires a Chromium web/Electron target' });
 });
 export type Target = z.infer<typeof targetSchema>;
 export const actionNames = ['navigate', 'click', 'doubleClick', 'fill', 'press', 'select', 'check', 'uncheck', 'hover', 'setRange', 'focusWindow', 'selectWindow', 'menu', 'assertText', 'assertValue', 'assertVisible', 'assertEnabled', 'assertChecked', 'assertCount', 'assertTitle', 'screenshot', 'waitFor'] as const;
@@ -24,7 +27,7 @@ export const stepSchema = z.object({
   name: z.string().min(1), action: z.enum(actionNames), locator: locatorSchema.optional(),
   value: z.union([z.string(), z.number(), z.boolean()]).optional(),
   contains: z.boolean().default(false), timeoutMs: z.number().int().min(100).max(120000).optional(),
-  menuPath: z.array(z.string()).max(12).optional()
+  menuPath: z.array(z.string()).max(12).optional(), menuSource: z.enum(['auto', 'native', 'dom']).optional()
 }).strict().superRefine((v, ctx) => {
   const global = ['navigate', 'press', 'focusWindow', 'selectWindow', 'menu', 'assertTitle', 'screenshot'];
   if (!global.includes(v.action) && !v.locator) ctx.addIssue({ code: 'custom', message: v.action + ' requires locator' });
@@ -82,5 +85,5 @@ export interface UiNode { name: string; role?: string; testId?: string; automati
 export interface Snapshot { title: string; url?: string; nodes: UiNode[]; accessibility?: string; truncated: boolean; windows?: unknown[]; }
 export interface Healing { original: Selector; proposed: Selector; confidence: number; reason: string; applied: boolean; }
 export interface StepResult { name: string; action: string; status: 'passed' | 'failed' | 'healed' | 'skipped'; durationMs: number; error?: string; actual?: unknown; screenshot?: string; healing?: Healing; layer?: string; target?: string; evidence?: string; timings?: Record<string,number>; attachments?: {label:string;path:string}[]; }
-export interface CaseResult { requirements?: string[]; id: string; name: string; tags: string[]; status: 'passed' | 'failed' | 'healed' | 'skipped'; durationMs: number; steps: StepResult[]; error?: string; trace?: string; }
+export interface CaseResult { requirements?: string[]; id: string; name: string; tags: string[]; status: 'passed' | 'failed' | 'healed' | 'skipped'; durationMs: number; steps: StepResult[]; error?: string; trace?: string; sessions?: {target:string;info:unknown}[]; }
 export interface RunResult { traceability?: {planPath:string;total:number;unmapped:number}; schemaVersion: 1 | 2; id: string; name: string; target: string; startedAt: string; durationMs: number; status: 'passed' | 'failed' | 'healed'; summary: { total: number; passed: number; failed: number; healed: number; skipped: number }; tests: CaseResult[]; environment: { platform: string; node: string; playwright: string }; policy?: z.infer<typeof policySchema>; layers?: {layer:string;steps:number;passed:number;healed?:number;failed:number;skipped:number;durationMs:number}[]; }

@@ -1,0 +1,16 @@
+{
+  "name": "Save project",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 214.16440000000057,
+  "screenshot": "electron-save-step-2.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 105.17590000000018
+  },
+  "evidence": "electron-save-step-2-evidence.json"
+}

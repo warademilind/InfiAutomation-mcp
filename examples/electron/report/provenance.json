@@ -1,0 +1,25 @@
+{
+  "description": "Unmodified synthetic Electron fixture execution; no internal application or client data.",
+  "frameworkVersion": "0.5.0",
+  "sourceRun": "2026-11-04T07-06-08-287Z-c7411463",
+  "platform": "win32-x64",
+  "electron": "45.2.1",
+  "chromium": "156.0.8078.75",
+  "playwright": "1.64.1",
+  "scope": "Two adapter fixture cases, not business acceptance or universal compatibility.",
+  "sha256": {
+    "detailed.html": "106710c796487952c43784bd7d7fb1c82292a1ef64e6ae5c65f32f55aae15f1a",
+    "electron-native-menu-step-1-evidence.json": "ff9d9f070f3490f0512d6f3c8a2785628d35fe03cc64b2be952b1e51bbf611a2",
+    "electron-native-menu-step-1.png": "6e2c6804408b4feb932727c39c57baf92f08b7abc477ab6ee21420a86f0b7e33",
+    "electron-native-menu-step-2-evidence.json": "5a0ead2ae61e75103247cce7bd4b7e8b99eeba6019f8910498dfc09e3fdc6b15",
+    "electron-native-menu-step-2.png": "6e2c6804408b4feb932727c39c57baf92f08b7abc477ab6ee21420a86f0b7e33",
+    "electron-save-step-1-evidence.json": "75bded29cc95d05859c6772f6db02d1983e21284c94a05ed6e63d36dd2144c58",
+    "electron-save-step-1.png": "ac54d927d2a89b703a02f40eff8cf84123e3c8380a3ef22e96a5634e9d06cf22",
+    "electron-save-step-2-evidence.json": "908469e85c27a52396db28fbd196196ffaf194f38781e678ac7a789203475ed8",
+    "electron-save-step-2.png": "6995ea5ad528805195240f4f50842ac1d1a35ab596b10b6cf6e9858c7c733696",
+    "electron-save-step-3-evidence.json": "15b038513e938e929f6706fb6fad3e93a9231b32ab38fad437ab6c8bf25f5755",
+    "electron-save-step-3.png": "6995ea5ad528805195240f4f50842ac1d1a35ab596b10b6cf6e9858c7c733696",
+    "index.html": "8871b2d449ad26b558c84a0c851933db3cc2b6b902c044d17f7ba2c800897b53",
+    "results.json": "35e3497af1f69283041597a6aa1d28281edddff637575e4e2ea4fdfd3abbc71a"
+  }
+}
