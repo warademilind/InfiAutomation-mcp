@@ -1,0 +1,17 @@
+{
+  "name": "Expected enabled=false: Next page",
+  "action": "assertEnabled",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 107.9230000000025,
+  "screenshot": "privacy-withheld.svg#lab06-step-15.png",
+  "actual": {
+    "actual": false,
+    "expected": false
+  },
+  "timings": {
+    "actionMs": 11.921699999998964
+  },
+  "evidence": "lab06-step-15-evidence.json"
+}

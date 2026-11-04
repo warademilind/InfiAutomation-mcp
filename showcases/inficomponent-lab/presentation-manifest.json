@@ -1,0 +1,81 @@
+{
+  "description": "Published presentation views, real video encodes, previews and browser QA. Source acceptance artifacts are hashed separately in provenance.json.",
+  "artifacts": [
+    {
+      "path": "index.html",
+      "sha256": "9e00f23d867e4dea3e0d351dd3ff68b5146ef4984d27b411c342389135ad0d46"
+    },
+    {
+      "path": "requirements.html",
+      "sha256": "64e71e73064e05b3bc938ef5f355a910ae8c05247c746ab8ca53e2ea2357cd6c"
+    },
+    {
+      "path": "REQUIREMENTS.md",
+      "sha256": "1fb3f3ad4746e6a592efbcdfecfd73c34fc90002c9f9ac94fcfd2cdfd35feee6"
+    },
+    {
+      "path": "README.md",
+      "sha256": "85686d34bdf578dfad92976c56c29bd639d5d7254eb132b7c717e3d85f47dc61"
+    },
+    {
+      "path": "browser-qa.json",
+      "sha256": "fe79694a47aa0c34b1bc330727179f091dd7d8499690a7bf14ec5529e31d0a77"
+    },
+    {
+      "path": "media/chapters.vtt",
+      "sha256": "cdff0bab8c7409cb893f756629fa6a336244f3a98fd7ac1ef55df6fab047a30e"
+    },
+    {
+      "path": "media/execution.mp4",
+      "sha256": "d6b26826d6fc6dc48d7d40d43c5ef0b6ddabc39ce3820c9fc2ef3c3ffaabcb75"
+    },
+    {
+      "path": "media/poster.jpg",
+      "sha256": "180f28042e3bbfd98bd98fc41b16d1a6d0383f3554104bd32e241c465c320514"
+    },
+    {
+      "path": "media/recording.json",
+      "sha256": "fdddd4886cd051107e2fa5c40f307bb9e4ab9ccfe381c9b1896002c246731441"
+    },
+    {
+      "path": "media/report-tour.json",
+      "sha256": "3af90701e6c1a347fe37d6321dc7a345141422228aa83349699c0fe2814b2c6f"
+    },
+    {
+      "path": "media/report-tour.mp4",
+      "sha256": "3d816a9c3b7b3bfe206492992e3fd2145b55c801163b69c2a2099f7f84a6cd55"
+    },
+    {
+      "path": "previews/cases.png",
+      "sha256": "696d406a602da6e653f4ccdef5d513faf5e0df9dc43c90d5decf58fe22254f21"
+    },
+    {
+      "path": "previews/coverage.png",
+      "sha256": "d75afcccf4204164ae5b941f23b4cf154beccec03dbd50343db239b995a31bd5"
+    },
+    {
+      "path": "previews/execution-detail.png",
+      "sha256": "e106a37c40579698adc69c742f237881b2d5aa75ae3dd5ccefd3cd6b36e28483"
+    },
+    {
+      "path": "previews/execution-summary.png",
+      "sha256": "1ceb84abd161afdb608b42f469f89189dcb554d7b4b6451538b2f84965ea5333"
+    },
+    {
+      "path": "previews/plan.png",
+      "sha256": "0117ed13dca0efc2e6698db327fa2b7c400bdf9b510f4108ca13c28ec6b08876"
+    },
+    {
+      "path": "previews/requirements.png",
+      "sha256": "83bce938b0bdb6446e317ac1e7868ea1c56a9f9feb2bea3cec1f10f0f98b9ebb"
+    },
+    {
+      "path": "previews/video-player.png",
+      "sha256": "a3f6b4528bf8f0d83d6636208e8bb65cec58b179750e693300b168cb3c088878"
+    },
+    {
+      "path": "previews/walkthrough.png",
+      "sha256": "e70a2015b5041360313dc80ea8256e4c52c55414c180b1041fc09f6451df3390"
+    }
+  ]
+}

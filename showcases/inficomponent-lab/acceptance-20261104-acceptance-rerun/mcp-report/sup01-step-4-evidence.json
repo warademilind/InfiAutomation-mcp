@@ -1,0 +1,33 @@
+{
+  "name": "Download identical bytes",
+  "action": "GET",
+  "layer": "api",
+  "target": "api",
+  "status": "passed",
+  "durationMs": 3.537400000001071,
+  "actual": {
+    "request": {
+      "method": "GET",
+      "url": "http://127.0.0.1:49724/api/download/35abcad3-4a12-43a7-ac10-d03eabe1edca",
+      "headers": {}
+    },
+    "status": 200,
+    "headers": {
+      "x-content-type-options": "nosniff",
+      "referrer-policy": "no-referrer",
+      "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'",
+      "content-type": "text/plain",
+      "content-disposition": "attachment; filename=\"acceptance.txt\"",
+      "date": "Wed, 04 Nov 2026 09:57:42 GMT",
+      "connection": "keep-alive",
+      "keep-alive": "timeout=5",
+      "transfer-encoding": "chunked"
+    },
+    "body": "Synthetic MCP roundtrip\n",
+    "durationMs": 2.9698999999964144
+  },
+  "timings": {
+    "requestMs": 2.9698999999964144
+  },
+  "evidence": "sup01-step-4-evidence.json"
+}

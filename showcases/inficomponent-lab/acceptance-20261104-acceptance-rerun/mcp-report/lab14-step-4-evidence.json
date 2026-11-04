@@ -1,0 +1,16 @@
+{
+  "name": "Open workflows/requests",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 192.37349999998696,
+  "screenshot": "lab14-step-4.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 58.250599999999395
+  },
+  "evidence": "lab14-step-4-evidence.json"
+}

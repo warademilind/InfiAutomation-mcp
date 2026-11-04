@@ -1,0 +1,16 @@
+{
+  "name": "Open components/structure",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 187.96689999999944,
+  "screenshot": "privacy-withheld.svg#sup03-step-14.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 53.71140000000014
+  },
+  "evidence": "sup03-step-14-evidence.json"
+}

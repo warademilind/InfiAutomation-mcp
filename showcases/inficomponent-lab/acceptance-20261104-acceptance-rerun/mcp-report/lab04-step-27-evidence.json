@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-result = Check project code",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 115.58610000000044,
+  "screenshot": "lab04-step-27.png",
+  "actual": {
+    "actual": "Check project code ABC-123, team size 1–20, and an eight-character passphrase.",
+    "expected": "Check project code"
+  },
+  "timings": {
+    "actionMs": 7.178100000000995
+  },
+  "evidence": "lab04-step-27-evidence.json"
+}

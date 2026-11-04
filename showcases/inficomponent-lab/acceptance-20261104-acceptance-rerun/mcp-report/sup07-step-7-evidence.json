@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-title = A workspace built to be tested.",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 167.93129999999655,
+  "screenshot": "sup07-step-7.png",
+  "actual": {
+    "actual": "A workspace built to be tested.",
+    "expected": "A workspace built to be tested."
+  },
+  "timings": {
+    "actionMs": 10.849499999996624
+  },
+  "evidence": "sup07-step-7-evidence.json"
+}

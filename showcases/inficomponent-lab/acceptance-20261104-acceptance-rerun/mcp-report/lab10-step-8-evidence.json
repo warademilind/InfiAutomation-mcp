@@ -1,0 +1,17 @@
+{
+  "name": "Expect 1 elements: #tab-panel-0[hidden]",
+  "action": "assertCount",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 91.89770000000135,
+  "screenshot": "lab10-step-8.png",
+  "actual": {
+    "actual": 1,
+    "expected": 1
+  },
+  "timings": {
+    "actionMs": 2.414100000001781
+  },
+  "evidence": "lab10-step-8-evidence.json"
+}

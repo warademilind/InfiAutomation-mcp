@@ -1,0 +1,21 @@
+{
+  "name": "Navigate > Workflows",
+  "action": "menu",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 107.20480000000134,
+  "screenshot": "privacy-withheld.svg#lab01-step-60.png",
+  "actual": {
+    "path": [
+      "Navigate",
+      "Workflows"
+    ],
+    "source": "electron-native-menu",
+    "invocation": "MenuItem.click"
+  },
+  "timings": {
+    "actionMs": 7.19629999999961
+  },
+  "evidence": "lab01-step-60-evidence.json"
+}

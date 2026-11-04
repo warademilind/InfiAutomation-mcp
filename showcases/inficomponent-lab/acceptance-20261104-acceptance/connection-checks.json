@@ -1,0 +1,162 @@
+{
+  "at": "2026-11-04T10:03:57.380Z",
+  "results": [
+    {
+      "id": "CONN01",
+      "name": "Owned launch reports real runtime and native menu discovery",
+      "requirements": [
+        "CONN01"
+      ],
+      "status": "passed",
+      "durationMs": 1,
+      "actual": {
+        "kind": "electron",
+        "transport": "electron-launch",
+        "ownership": "owned",
+        "runtime": {
+          "playwright": "1.64.1",
+          "electron": "45.2.1",
+          "chromium": "156.0.8078.75",
+          "node": "24.22.1"
+        },
+        "capabilities": {
+          "rendererDom": true,
+          "screenshots": true,
+          "windowSelection": true,
+          "nativeElectronMenus": true,
+          "mainProcess": true,
+          "osDialogs": false,
+          "version2Execution": true
+        },
+        "selectedWindowId": "window-1",
+        "notes": [
+          "Playwright Electron launch support is experimental. The app supplies its embedded Chromium; installed Chrome is not used."
+        ]
+      }
+    },
+    {
+      "id": "CONN02",
+      "name": "CDP reports attached renderer-only capabilities and rejects native Menu API",
+      "requirements": [
+        "CONN02"
+      ],
+      "status": "passed",
+      "durationMs": 24,
+      "actual": {
+        "info": {
+          "kind": "electron",
+          "transport": "cdp",
+          "ownership": "attached",
+          "runtime": {
+            "playwright": "1.64.1",
+            "browser": "156.0.8078.75",
+            "chromium": "156.0.8078.75",
+            "electron": "45.2.1"
+          },
+          "capabilities": {
+            "rendererDom": true,
+            "screenshots": true,
+            "windowSelection": true,
+            "nativeElectronMenus": false,
+            "mainProcess": false,
+            "osDialogs": false,
+            "version2Execution": false
+          },
+          "selectedWindowId": "window-1",
+          "notes": [
+            "CDP exposes renderer DOM only. Runtime versions inferred from the user agent may be absent or customized. Native Electron Menu/main-process access is unavailable. Closing this session detaches; it does not close the app."
+          ]
+        },
+        "windows": {
+          "windows": [
+            {
+              "windowId": "window-1",
+              "title": "InfiComponent Lab - Workspace",
+              "url": "http://127.0.0.1:55757/workspace.html",
+              "selected": true
+            }
+          ]
+        },
+        "endpoint": "ws://127.0.0.1:55756/devtools/browser/a1e1db4b-15cb-4b4f-93a8-d34e80ebaeca"
+      }
+    },
+    {
+      "id": "CONN03",
+      "name": "CDP detach preserves app and current entered value on reconnect",
+      "requirements": [
+        "CONN03"
+      ],
+      "status": "passed",
+      "durationMs": 301,
+      "actual": {
+        "appAlive": true,
+        "preservedValue": true
+      }
+    },
+    {
+      "id": "NATIVE01",
+      "name": "Explicit Windows UIA cancels an observed real OS message dialog",
+      "requirements": [
+        "CONN04"
+      ],
+      "status": "passed",
+      "durationMs": 2449,
+      "actual": {
+        "observedControl": {
+          "name": "Cancel",
+          "controlType": "Button"
+        },
+        "screenshot": "privacy-withheld.svg#native-message.png"
+      }
+    },
+    {
+      "id": "NATIVE02",
+      "name": "Explicit Windows UIA cancels an observed real OS file picker",
+      "requirements": [
+        "CONN04"
+      ],
+      "status": "passed",
+      "durationMs": 6228,
+      "actual": {
+        "screenshot": "privacy-withheld.svg#native-file.png",
+        "observedCancel": true
+      }
+    },
+    {
+      "id": "SAFE03",
+      "name": "Packaged configuration retains isolation, sandbox, web security and loopback binding",
+      "requirements": [
+        "SAFE03"
+      ],
+      "status": "passed",
+      "durationMs": 1,
+      "actual": {
+        "method": "Packaged-source configuration audit plus observed loopback endpoint URLs; no claim of renderer exploit testing.",
+        "webPreferences": [
+          "contextIsolation: true",
+          "nodeIntegration: false",
+          "sandbox: true",
+          "webSecurity: true"
+        ],
+        "origin": "http://127.0.0.1:55757",
+        "endpoint": "ws://127.0.0.1:55756/devtools/browser/a1e1db4b-15cb-4b4f-93a8-d34e80ebaeca"
+      }
+    },
+    {
+      "id": "NATIVE03",
+      "name": "HTML file chooser uses observed UIA controls; upload persists and downloads identical bytes",
+      "requirements": [
+        "SUP01",
+        "CONN04"
+      ],
+      "status": "passed",
+      "startedAt": "2026-11-04T10:03:47.559Z",
+      "durationMs": 9692,
+      "actual": {
+        "bytes": 32,
+        "fixture": "uia-upload-fixture.txt",
+        "screenshot": "privacy-withheld.svg#ui-upload-result.png"
+      }
+    }
+  ]
+}

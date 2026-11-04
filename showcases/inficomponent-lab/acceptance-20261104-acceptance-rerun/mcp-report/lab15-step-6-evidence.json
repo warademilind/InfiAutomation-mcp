@@ -1,0 +1,16 @@
+{
+  "name": "Click Save inspector note",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 135.18829999999434,
+  "screenshot": "lab15-step-6.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 38.888200000001234
+  },
+  "evidence": "lab15-step-6-evidence.json"
+}

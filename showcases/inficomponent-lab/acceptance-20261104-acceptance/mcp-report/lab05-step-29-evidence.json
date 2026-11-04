@@ -1,0 +1,35 @@
+{
+  "name": "Deleted customer is absent",
+  "action": "GET",
+  "layer": "api",
+  "target": "api",
+  "status": "passed",
+  "durationMs": 4.6172999999980675,
+  "actual": {
+    "request": {
+      "method": "GET",
+      "url": "http://127.0.0.1:54972/api/customers/CUS-b4430047",
+      "headers": {}
+    },
+    "status": 404,
+    "headers": {
+      "x-content-type-options": "nosniff",
+      "referrer-policy": "no-referrer",
+      "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'",
+      "content-type": "application/json; charset=utf-8",
+      "cache-control": "no-store",
+      "date": "Wed, 04 Nov 2026 09:53:37 GMT",
+      "connection": "keep-alive",
+      "keep-alive": "timeout=5",
+      "transfer-encoding": "chunked"
+    },
+    "body": {
+      "error": "Customer not found"
+    },
+    "durationMs": 3.976600000001781
+  },
+  "timings": {
+    "requestMs": 3.976600000001781
+  },
+  "evidence": "lab05-step-29-evidence.json"
+}

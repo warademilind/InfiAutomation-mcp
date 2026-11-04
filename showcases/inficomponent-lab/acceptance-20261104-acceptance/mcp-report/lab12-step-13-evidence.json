@@ -1,0 +1,16 @@
+{
+  "name": "Click Sign out",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 180.79829999999492,
+  "screenshot": "privacy-withheld.svg#lab12-step-13.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 43.97320000000764
+  },
+  "evidence": "lab12-step-13-evidence.json"
+}

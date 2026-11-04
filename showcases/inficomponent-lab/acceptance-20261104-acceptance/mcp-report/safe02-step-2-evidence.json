@@ -1,0 +1,16 @@
+{
+  "name": "Open settings/runtime",
+  "action": "click",
+  "layer": "electron",
+  "target": "appOff",
+  "status": "passed",
+  "durationMs": 243.86110000000917,
+  "screenshot": "privacy-withheld.svg#safe02-step-2.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 88.90620000001218
+  },
+  "evidence": "safe02-step-2-evidence.json"
+}

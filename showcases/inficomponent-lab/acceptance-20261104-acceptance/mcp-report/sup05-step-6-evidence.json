@@ -1,0 +1,16 @@
+{
+  "name": "Check Compact table rows",
+  "action": "check",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 123.1304999999993,
+  "screenshot": "privacy-withheld.svg#sup05-step-6.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 20.607700000007753
+  },
+  "evidence": "sup05-step-6-evidence.json"
+}

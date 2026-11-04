@@ -1,0 +1,16 @@
+{
+  "name": "Click Read input values",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 157.8140999999996,
+  "screenshot": "lab03-step-22.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 30.955000000001746
+  },
+  "evidence": "lab03-step-22-evidence.json"
+}

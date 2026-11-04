@@ -1,0 +1,16 @@
+{
+  "name": "Open settings/preferences",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 150.65929999999935,
+  "screenshot": "privacy-withheld.svg#sup05-step-2.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 50.23630000000412
+  },
+  "evidence": "sup05-step-2-evidence.json"
+}

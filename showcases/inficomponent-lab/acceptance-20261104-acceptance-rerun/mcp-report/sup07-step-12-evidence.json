@@ -1,0 +1,17 @@
+{
+  "name": "Expect #event-list text",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 142.73589999999967,
+  "screenshot": "sup07-step-12.png",
+  "actual": {
+    "actual": "✓\n\nForm submitted: Acceptance Tester\n\nform · 11/4/2026, 3:26:44 PM",
+    "expected": "Form submitted: Acceptance Tester"
+  },
+  "timings": {
+    "actionMs": 12.936099999991711
+  },
+  "evidence": "sup07-step-12-evidence.json"
+}

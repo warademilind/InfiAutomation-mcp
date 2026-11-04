@@ -1,0 +1,16 @@
+{
+  "name": "Select Order customer = Aarav Shah",
+  "action": "select",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 159.63060000000405,
+  "screenshot": "lab13-step-8.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 22.342399999994086
+  },
+  "evidence": "lab13-step-8-evidence.json"
+}

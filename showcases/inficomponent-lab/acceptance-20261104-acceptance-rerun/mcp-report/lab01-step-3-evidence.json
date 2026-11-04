@@ -1,0 +1,17 @@
+{
+  "name": "Expect 7 elements: .nav-group",
+  "action": "assertCount",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 91.02059999999983,
+  "screenshot": "lab01-step-3.png",
+  "actual": {
+    "actual": 7,
+    "expected": 7
+  },
+  "timings": {
+    "actionMs": 3.9243000000001302
+  },
+  "evidence": "lab01-step-3-evidence.json"
+}

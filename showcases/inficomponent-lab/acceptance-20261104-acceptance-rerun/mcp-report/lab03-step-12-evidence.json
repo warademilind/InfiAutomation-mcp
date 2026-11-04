@@ -1,0 +1,16 @@
+{
+  "name": "Press Home in Confidence",
+  "action": "press",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 152.2528999999995,
+  "screenshot": "lab03-step-12.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 31.898700000001554
+  },
+  "evidence": "lab03-step-12-evidence.json"
+}

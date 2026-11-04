@@ -1,0 +1,17 @@
+{
+  "name": "Start owned app before REST",
+  "action": "assertTitle",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 946.0265999999974,
+  "screenshot": "privacy-withheld.svg#lab16-step-1.png",
+  "actual": {
+    "actual": "InfiComponent Lab - Workspace",
+    "expected": "InfiComponent Lab - Workspace"
+  },
+  "timings": {
+    "actionMs": 3.8268000000098255
+  },
+  "evidence": "lab16-step-1-evidence.json"
+}

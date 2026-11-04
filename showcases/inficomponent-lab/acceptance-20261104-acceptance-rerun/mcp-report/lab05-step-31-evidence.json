@@ -1,0 +1,16 @@
+{
+  "name": "Fill Search customers",
+  "action": "fill",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 155.39159999999538,
+  "screenshot": "lab05-step-31.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 47.03139999999985
+  },
+  "evidence": "lab05-step-31-evidence.json"
+}

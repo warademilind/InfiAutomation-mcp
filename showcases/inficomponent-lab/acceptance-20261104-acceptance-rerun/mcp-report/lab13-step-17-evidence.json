@@ -1,0 +1,17 @@
+{
+  "name": "Expect 1 elements: #wizard-form input[name=\"confirmed\"]:not(:checked)",
+  "action": "assertCount",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 128.85039999999572,
+  "screenshot": "lab13-step-17.png",
+  "actual": {
+    "actual": 1,
+    "expected": 1
+  },
+  "timings": {
+    "actionMs": 3.927000000010594
+  },
+  "evidence": "lab13-step-17-evidence.json"
+}

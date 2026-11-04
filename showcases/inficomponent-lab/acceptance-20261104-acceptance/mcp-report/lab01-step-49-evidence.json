@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-title = Downloads & exports",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 97.89959999999883,
+  "screenshot": "privacy-withheld.svg#lab01-step-49.png",
+  "actual": {
+    "actual": "Downloads & exports",
+    "expected": "Downloads & exports"
+  },
+  "timings": {
+    "actionMs": 6.536200000000463
+  },
+  "evidence": "lab01-step-49-evidence.json"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Fill Reporting week",
+  "action": "fill",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 155.2525999999998,
+  "screenshot": "privacy-withheld.svg#lab03-step-9.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 20.926400000000285
+  },
+  "evidence": "lab03-step-9-evidence.json"
+}

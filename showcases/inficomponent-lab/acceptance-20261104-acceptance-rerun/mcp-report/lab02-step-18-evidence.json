@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-result = required fields",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 132.07080000000133,
+  "screenshot": "lab02-step-18.png",
+  "actual": {
+    "actual": "Please complete the required fields with valid values and accept the demo terms.",
+    "expected": "required fields"
+  },
+  "timings": {
+    "actionMs": 9.466499999998632
+  },
+  "evidence": "lab02-step-18-evidence.json"
+}

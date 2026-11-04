@@ -1,0 +1,16 @@
+{
+  "name": "Click Save registration",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 170.07300000000032,
+  "screenshot": "lab02-step-17.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 52.566100000000006
+  },
+  "evidence": "lab02-step-17-evidence.json"
+}

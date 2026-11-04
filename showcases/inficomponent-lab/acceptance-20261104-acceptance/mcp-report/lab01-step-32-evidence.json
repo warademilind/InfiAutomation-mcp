@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-title = Advanced data grid",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 119.88899999999921,
+  "screenshot": "privacy-withheld.svg#lab01-step-32.png",
+  "actual": {
+    "actual": "Advanced data grid",
+    "expected": "Advanced data grid"
+  },
+  "timings": {
+    "actionMs": 10.008900000000722
+  },
+  "evidence": "lab01-step-32-evidence.json"
+}

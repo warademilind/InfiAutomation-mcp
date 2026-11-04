@@ -1,0 +1,46 @@
+{
+  "scope": "Actual renderer capture of three completed passing cases (LAB01, LAB02, LAB03) from a separate recording attempt. This is not a full-suite execution video. The attempt was interrupted after later video startup timeouts; the supplied 26/26 acceptance run is a separate recording.",
+  "recordedAt": "2026-11-04T17:06:21.616Z",
+  "playback": "Source clips retained at natural source speed, joined only at case boundaries; no synthetic application frames, narration or audio. Native OS menus/dialogs are outside the renderer capture.",
+  "capturedCases": 3,
+  "chapters": [
+    {
+      "id": "lab01",
+      "name": "Packaged Workspace has seven groups with three working subpages each",
+      "status": "passed",
+      "start": 0,
+      "end": 108.95,
+      "sourceSha256": "c9847e69a2e8798fa81fd513b5bdf4c33ce3c3a826091631d8f7622186cf9023",
+      "sourceDurationSeconds": 108.95
+    },
+    {
+      "id": "lab02",
+      "name": "Registration rejects missing name/email/terms and records a backend submission",
+      "status": "passed",
+      "start": 108.95,
+      "end": 123.15,
+      "sourceSha256": "d9be67994051f0ed8cb176fafbec84270d610a894a58d48ab495ea6e8505a1f9",
+      "sourceDurationSeconds": 14.2
+    },
+    {
+      "id": "lab03",
+      "name": "Dates, multiple selection, keyboard slider and framework expose submitted values",
+      "status": "passed",
+      "start": 123.15,
+      "end": 154.1,
+      "sourceSha256": "af91919405a75dcfe830d86b06c762f3059b71295db2023e4ebcc01447ac6f17",
+      "sourceDurationSeconds": 30.95
+    }
+  ],
+  "durationSeconds": 154.1,
+  "width": 1380,
+  "height": 900,
+  "videoSha256": "d6b26826d6fc6dc48d7d40d43c5ef0b6ddabc39ce3820c9fc2ef3c3ffaabcb75",
+  "sourceSuiteSummaryAtInterruption": {
+    "total": 26,
+    "passed": 3,
+    "failed": 2,
+    "healed": 0,
+    "skipped": 0
+  }
+}

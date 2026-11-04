@@ -1,0 +1,17 @@
+{
+  "name": "Expect Theme value",
+  "action": "assertValue",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 120.19180000000051,
+  "screenshot": "sup06-step-6.png",
+  "actual": {
+    "actual": "dark",
+    "expected": "dark"
+  },
+  "timings": {
+    "actionMs": 18.218500000002678
+  },
+  "evidence": "sup06-step-6-evidence.json"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Open workflows/board",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 154.38630000001285,
+  "screenshot": "sup02-step-4.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 40.26900000000023
+  },
+  "evidence": "sup02-step-4-evidence.json"
+}

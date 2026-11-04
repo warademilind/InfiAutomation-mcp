@@ -1,0 +1,16 @@
+{
+  "name": "Click Place order",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 188.56819999999425,
+  "screenshot": "privacy-withheld.svg#lab13-step-18.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 79.98859999999695
+  },
+  "evidence": "lab13-step-18-evidence.json"
+}

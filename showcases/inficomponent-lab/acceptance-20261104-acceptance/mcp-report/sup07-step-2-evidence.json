@@ -1,0 +1,11 @@
+{
+  "name": "Fill Search pages",
+  "action": "fill",
+  "layer": "electron",
+  "target": "app",
+  "status": "failed",
+  "durationMs": 168.52520000000368,
+  "error": "locator.waitFor: Error: strict mode violation: getByLabel('Search pages', { exact: true }) resolved to 2 elements:\n    1) <button id=\"command-search\" class=\"search-trigger\" aria-label=\"Search pages\">…</button> aka getByRole('button', { name: 'Search pages' })\n    2) <input type=\"search\" id=\"page-search\" placeholder=\"Try forms, customers, uploads…\"/> aka getByRole('searchbox', { name: 'Search pages' })\n\nCall log:\n\u001b[2m  - waiting for getByLabel('Search pages', { exact: true })\u001b[22m\n",
+  "screenshot": "privacy-withheld.svg#sup07-step-2-failure.png",
+  "evidence": "sup07-step-2-evidence.json"
+}

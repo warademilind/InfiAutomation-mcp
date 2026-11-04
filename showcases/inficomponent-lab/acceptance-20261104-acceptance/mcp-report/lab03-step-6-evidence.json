@@ -1,0 +1,16 @@
+{
+  "name": "Fill Start time",
+  "action": "fill",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 166.53260000000228,
+  "screenshot": "privacy-withheld.svg#lab03-step-6.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 22.892400000000634
+  },
+  "evidence": "lab03-step-6-evidence.json"
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Expect 0 elements: [data-testid=\"page-result\"]:not([hidden])",
+  "action": "assertCount",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 88.216499999995,
+  "screenshot": "privacy-withheld.svg#lab09-step-8.png",
+  "actual": {
+    "actual": 0,
+    "expected": 0
+  },
+  "timings": {
+    "actionMs": 4.758799999995972
+  },
+  "evidence": "lab09-step-8-evidence.json"
+}

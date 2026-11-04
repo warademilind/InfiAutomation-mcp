@@ -1,0 +1,16 @@
+{
+  "name": "Fill Full name *",
+  "action": "fill",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 136.13000000000102,
+  "screenshot": "lab02-step-8.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 26.63619999999719
+  },
+  "evidence": "lab02-step-8-evidence.json"
+}

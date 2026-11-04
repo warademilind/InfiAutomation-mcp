@@ -1,0 +1,16 @@
+{
+  "name": "Open files/preview",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 178.57360000000335,
+  "screenshot": "lab11-step-4.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 31.741800000003423
+  },
+  "evidence": "lab11-step-4-evidence.json"
+}

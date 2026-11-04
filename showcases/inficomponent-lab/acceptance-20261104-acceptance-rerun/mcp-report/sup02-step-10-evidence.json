@@ -1,0 +1,17 @@
+{
+  "name": "Expect Move Acceptance keyboard task value",
+  "action": "assertValue",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 109.36639999999898,
+  "screenshot": "sup02-step-10.png",
+  "actual": {
+    "actual": "Done",
+    "expected": "Done"
+  },
+  "timings": {
+    "actionMs": 11.75789999999688
+  },
+  "evidence": "sup02-step-10-evidence.json"
+}

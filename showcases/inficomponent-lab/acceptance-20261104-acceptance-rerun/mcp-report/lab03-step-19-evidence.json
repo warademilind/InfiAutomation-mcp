@@ -1,0 +1,16 @@
+{
+  "name": "Fill Test framework",
+  "action": "fill",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 173.54040000000168,
+  "screenshot": "lab03-step-19.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 32.63920000000144
+  },
+  "evidence": "lab03-step-19-evidence.json"
+}

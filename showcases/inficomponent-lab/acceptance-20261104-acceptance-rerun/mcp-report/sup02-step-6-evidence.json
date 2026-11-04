@@ -1,0 +1,16 @@
+{
+  "name": "Fill New task title",
+  "action": "fill",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 111.33870000000752,
+  "screenshot": "sup02-step-6.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 17.20350000000326
+  },
+  "evidence": "sup02-step-6-evidence.json"
+}

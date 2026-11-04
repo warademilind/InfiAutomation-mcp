@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-result = Project ABC-123 is valid.",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 120.42259999999806,
+  "screenshot": "lab04-step-37.png",
+  "actual": {
+    "actual": "Project ABC-123 is valid. Release notes: (empty)",
+    "expected": "Project ABC-123 is valid."
+  },
+  "timings": {
+    "actionMs": 10.41929999999411
+  },
+  "evidence": "lab04-step-37-evidence.json"
+}

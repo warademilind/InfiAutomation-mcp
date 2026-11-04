@@ -1,0 +1,16 @@
+{
+  "name": "Open forms/input-lab",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 192.59209999999985,
+  "screenshot": "privacy-withheld.svg#lab01-step-18.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 39.84029999999984
+  },
+  "evidence": "lab01-step-18-evidence.json"
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Expect request-response = Intentional lab error",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 133.005799999999,
+  "screenshot": "privacy-withheld.svg#lab14-step-7.png",
+  "actual": {
+    "actual": "Intentional lab error. Retry with Success.",
+    "expected": "Intentional lab error"
+  },
+  "timings": {
+    "actionMs": 16.480299999995623
+  },
+  "evidence": "lab14-step-7-evidence.json"
+}

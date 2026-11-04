@@ -1,0 +1,16 @@
+{
+  "name": "Click Save shadow feedback",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 214.09169999998994,
+  "screenshot": "privacy-withheld.svg#lab11-step-8.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 71.29400000000896
+  },
+  "evidence": "lab11-step-8-evidence.json"
+}

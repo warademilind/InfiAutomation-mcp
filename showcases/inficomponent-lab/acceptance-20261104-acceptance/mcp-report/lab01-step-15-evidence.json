@@ -1,0 +1,16 @@
+{
+  "name": "Open forms/registration",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 186.92550000000028,
+  "screenshot": "privacy-withheld.svg#lab01-step-15.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 70.22209999999995
+  },
+  "evidence": "lab01-step-15-evidence.json"
+}

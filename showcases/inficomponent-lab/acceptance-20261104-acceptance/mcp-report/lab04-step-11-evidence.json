@@ -1,0 +1,16 @@
+{
+  "name": "Fill Project code",
+  "action": "fill",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 130.58420000000115,
+  "screenshot": "privacy-withheld.svg#lab04-step-11.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 27.856300000003102
+  },
+  "evidence": "lab04-step-11-evidence.json"
+}

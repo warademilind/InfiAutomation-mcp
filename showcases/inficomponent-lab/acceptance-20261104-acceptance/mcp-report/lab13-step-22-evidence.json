@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-title = Orders",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 132.33580000000075,
+  "screenshot": "privacy-withheld.svg#lab13-step-22.png",
+  "actual": {
+    "actual": "Orders",
+    "expected": "Orders"
+  },
+  "timings": {
+    "actionMs": 9.25010000000475
+  },
+  "evidence": "lab13-step-22-evidence.json"
+}

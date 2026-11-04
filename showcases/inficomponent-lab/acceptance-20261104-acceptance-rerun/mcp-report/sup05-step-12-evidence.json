@@ -1,0 +1,17 @@
+{
+  "name": "Expect 1 elements: body.dark.compact",
+  "action": "assertCount",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 90.60250000000815,
+  "screenshot": "sup05-step-12.png",
+  "actual": {
+    "actual": 1,
+    "expected": 1
+  },
+  "timings": {
+    "actionMs": 3.3542000000015832
+  },
+  "evidence": "sup05-step-12-evidence.json"
+}

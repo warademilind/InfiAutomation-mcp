@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-title = Dialogs & overlays",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 111.57020000000193,
+  "screenshot": "sup03-step-11.png",
+  "actual": {
+    "actual": "Dialogs & overlays",
+    "expected": "Dialogs & overlays"
+  },
+  "timings": {
+    "actionMs": 8.079400000002352
+  },
+  "evidence": "sup03-step-11-evidence.json"
+}

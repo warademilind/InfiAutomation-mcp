@@ -1,0 +1,16 @@
+{
+  "name": "Open workflows/requests",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 183.34990000000107,
+  "screenshot": "privacy-withheld.svg#sup08-step-2.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 57.85940000000119
+  },
+  "evidence": "sup08-step-2-evidence.json"
+}

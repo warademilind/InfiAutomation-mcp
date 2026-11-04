@@ -1,0 +1,16 @@
+{
+  "name": "Fill Team size",
+  "action": "fill",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 126.8090000000011,
+  "screenshot": "lab04-step-17.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 18.774700000001758
+  },
+  "evidence": "lab04-step-17-evidence.json"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Open History",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 181.21989999999641,
+  "screenshot": "privacy-withheld.svg#lab10-step-7.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 49.48890000000392
+  },
+  "evidence": "lab10-step-7-evidence.json"
+}

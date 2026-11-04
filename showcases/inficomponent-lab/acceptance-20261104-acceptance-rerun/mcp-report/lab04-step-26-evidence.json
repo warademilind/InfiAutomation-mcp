@@ -1,0 +1,16 @@
+{
+  "name": "Click Validate project",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 161.238400000002,
+  "screenshot": "lab04-step-26.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 51.084100000000035
+  },
+  "evidence": "lab04-step-26-evidence.json"
+}

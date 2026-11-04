@@ -1,0 +1,46 @@
+{
+  "name": "Cancelled reset preserved synthetic customer",
+  "action": "GET",
+  "layer": "api",
+  "target": "api",
+  "status": "passed",
+  "durationMs": 8.83969999999681,
+  "actual": {
+    "request": {
+      "method": "GET",
+      "url": "http://127.0.0.1:49724/api/customers?q=API%20Acceptance%20Customer",
+      "headers": {}
+    },
+    "status": 200,
+    "headers": {
+      "x-content-type-options": "nosniff",
+      "referrer-policy": "no-referrer",
+      "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'",
+      "content-type": "application/json; charset=utf-8",
+      "cache-control": "no-store",
+      "date": "Wed, 04 Nov 2026 09:58:10 GMT",
+      "connection": "keep-alive",
+      "keep-alive": "timeout=5",
+      "transfer-encoding": "chunked"
+    },
+    "body": {
+      "items": [
+        {
+          "id": "CUS-4545451d",
+          "name": "API Acceptance Customer",
+          "email": "crosslayer@example.test",
+          "department": "Quality",
+          "status": "Active",
+          "budget": 0,
+          "joined": "2026-11-04"
+        }
+      ],
+      "total": 1
+    },
+    "durationMs": 6.713300000003073
+  },
+  "timings": {
+    "requestMs": 6.713300000003073
+  },
+  "evidence": "safe01-step-8-evidence.json"
+}

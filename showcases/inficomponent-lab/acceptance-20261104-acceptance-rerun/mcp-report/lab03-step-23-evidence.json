@@ -1,0 +1,17 @@
+{
+  "name": "Expect input-values = \"quantity\": \"9\"",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 135.34920000000056,
+  "screenshot": "lab03-step-23.png",
+  "actual": {
+    "actual": "{\n  \"search\": \"\",\n  \"quantity\": \"9\",\n  \"date\": \"2026-11-15\",\n  \"time\": \"14:45\",\n  \"datetime\": \"2026-11-15T14:45\",\n  \"month\": \"2026-12\",\n  \"week\": \"2026-W47\",\n  \"color\": \"#7155d9\",\n  \"confidence\": \"100\",\n  \"skills\": [\n    \"Playwright\",\n    \"Electron\"\n  ],\n  \"city\": \"\",\n  \"framework\": \"InfiAutomation\",\n  \"reference\": \"REF-2026-001\",\n  \"enabled\": true,\n  \"source\": \"electron-lab\"\n}",
+    "expected": "\"quantity\": \"9\""
+  },
+  "timings": {
+    "actionMs": 12.080399999998917
+  },
+  "evidence": "lab03-step-23-evidence.json"
+}

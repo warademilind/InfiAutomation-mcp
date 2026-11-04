@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-result = Release notes: Acceptance rich text note",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 128.50650000000314,
+  "screenshot": "privacy-withheld.svg#sup04-step-9.png",
+  "actual": {
+    "actual": "Project ABC-123 is valid. Release notes: Acceptance rich text note",
+    "expected": "Release notes: Acceptance rich text note"
+  },
+  "timings": {
+    "actionMs": 11.301599999991595
+  },
+  "evidence": "sup04-step-9-evidence.json"
+}

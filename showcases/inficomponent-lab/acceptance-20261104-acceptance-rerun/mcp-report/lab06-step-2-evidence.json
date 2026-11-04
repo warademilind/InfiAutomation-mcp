@@ -1,0 +1,21 @@
+{
+  "name": "Navigate > Records",
+  "action": "menu",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 195.26050000000396,
+  "screenshot": "lab06-step-2.png",
+  "actual": {
+    "path": [
+      "Navigate",
+      "Records"
+    ],
+    "source": "electron-native-menu",
+    "invocation": "MenuItem.click"
+  },
+  "timings": {
+    "actionMs": 7.753799999998591
+  },
+  "evidence": "lab06-step-2-evidence.json"
+}

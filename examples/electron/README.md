@@ -2,6 +2,8 @@
 
 This synthetic adapter example uses the repository's Electron fixture. It verifies actual native menu effects and a form result in separate cases, with healing off. It does not claim coverage of another application's business requirements.
 
+For a larger packaged-app journey, open the [InfiComponent Lab acceptance walkthrough](https://warademilind.github.io/InfiAutomation-mcp/showcases/inficomponent-lab/): supplied requirements, generated plan/cases, complete recorded reports, privacy-reviewed screenshots and an actual execution-video player.
+
 [Open the recorded HTML report](report/index.html) · [Detailed steps and screenshots](report/detailed.html) · [Actual result JSON](report/results.json) · [Evidence provenance](report/provenance.json). The recorded Windows x64 run passed 2/2 cases with five screenshots using Electron 45.2.1 / Chromium 156.0.8078.75. View it online at [the live Electron report](https://warademilind.github.io/InfiAutomation-mcp/examples/electron/report/), or keep this folder together and open the report locally. It is a synthetic fixture run, not a recording of your application.
 
 To execute this repository fixture, clone the repository, open its root and run `npm ci` (builds the CLI), then `npm ci --prefix integration/fixtures/electron`. The fixture pins Electron 45.2.1. Viewing the recorded report needs no installation. Testing your own installed Electron app does not require this fixture dependency. Set these environment variables in PowerShell, using your checkout path:

@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-result = Note saved: Acceptance saved note",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 104.6877999999997,
+  "screenshot": "lab09-step-15.png",
+  "actual": {
+    "actual": "Note saved: Acceptance saved note",
+    "expected": "Note saved: Acceptance saved note"
+  },
+  "timings": {
+    "actionMs": 10.917500000003201
+  },
+  "evidence": "lab09-step-15-evidence.json"
+}

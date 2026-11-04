@@ -1,0 +1,17 @@
+{
+  "name": "Expect 3 elements: [data-testid^=\"nav-records-\"]",
+  "action": "assertCount",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 98.56950000000052,
+  "screenshot": "privacy-withheld.svg#lab01-step-23.png",
+  "actual": {
+    "actual": 3,
+    "expected": 3
+  },
+  "timings": {
+    "actionMs": 4.246599999999489
+  },
+  "evidence": "lab01-step-23-evidence.json"
+}

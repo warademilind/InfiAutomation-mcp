@@ -1,0 +1,17 @@
+{
+  "name": "Expect session-user = Signed in as Alex Morgan",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 118.71950000000652,
+  "screenshot": "privacy-withheld.svg#lab12-step-10.png",
+  "actual": {
+    "actual": "Signed in as Alex Morgan",
+    "expected": "Signed in as Alex Morgan"
+  },
+  "timings": {
+    "actionMs": 16.814400000002934
+  },
+  "evidence": "lab12-step-10-evidence.json"
+}

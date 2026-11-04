@@ -1,0 +1,16 @@
+{
+  "name": "Select Locale = en-GB",
+  "action": "select",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 118.76320000000123,
+  "screenshot": "privacy-withheld.svg#sup05-step-5.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 17.632099999987986
+  },
+  "evidence": "sup05-step-5-evidence.json"
+}

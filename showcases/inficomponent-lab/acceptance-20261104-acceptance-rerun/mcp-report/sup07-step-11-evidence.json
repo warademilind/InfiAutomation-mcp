@@ -1,0 +1,17 @@
+{
+  "name": "Expect 1 elements: #event-list .activity-item",
+  "action": "assertCount",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 110.51279999999679,
+  "screenshot": "sup07-step-11.png",
+  "actual": {
+    "actual": 1,
+    "expected": 1
+  },
+  "timings": {
+    "actionMs": 4.425300000002608
+  },
+  "evidence": "sup07-step-11-evidence.json"
+}

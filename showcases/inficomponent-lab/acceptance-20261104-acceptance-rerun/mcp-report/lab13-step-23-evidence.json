@@ -1,0 +1,16 @@
+{
+  "name": "Click View orders",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 156.44140000001062,
+  "screenshot": "lab13-step-23.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 48.55210000000079
+  },
+  "evidence": "lab13-step-23-evidence.json"
+}

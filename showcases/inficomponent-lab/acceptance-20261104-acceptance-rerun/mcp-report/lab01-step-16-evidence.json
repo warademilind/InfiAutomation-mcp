@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-title = Sign-in sandbox",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 105.84069999999974,
+  "screenshot": "lab01-step-16.png",
+  "actual": {
+    "actual": "Sign-in sandbox",
+    "expected": "Sign-in sandbox"
+  },
+  "timings": {
+    "actionMs": 9.250299999999697
+  },
+  "evidence": "lab01-step-16-evidence.json"
+}

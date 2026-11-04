@@ -1,0 +1,16 @@
+{
+  "name": "Fill observed search input",
+  "action": "fill",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 189.14549999999872,
+  "screenshot": "sup07-step-3.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 29.058300000004238
+  },
+  "evidence": "sup07-step-3-evidence.json"
+}

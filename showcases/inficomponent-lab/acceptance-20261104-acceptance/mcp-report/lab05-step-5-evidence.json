@@ -1,0 +1,16 @@
+{
+  "name": "Fill Customer name",
+  "action": "fill",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 199.90680000000066,
+  "screenshot": "privacy-withheld.svg#lab05-step-5.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 31.44840000000113
+  },
+  "evidence": "lab05-step-5-evidence.json"
+}

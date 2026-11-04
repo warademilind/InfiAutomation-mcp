@@ -1,0 +1,16 @@
+{
+  "name": "Check I confirm this demo order",
+  "action": "check",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 190.94980000000214,
+  "screenshot": "lab13-step-19.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 61.12480000000505
+  },
+  "evidence": "lab13-step-19-evidence.json"
+}

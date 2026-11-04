@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-result = DOM note saved",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 126.01239999999962,
+  "screenshot": "lab08-step-7.png",
+  "actual": {
+    "actual": "DOM note saved",
+    "expected": "DOM note saved"
+  },
+  "timings": {
+    "actionMs": 7.548900000001595
+  },
+  "evidence": "lab08-step-7-evidence.json"
+}

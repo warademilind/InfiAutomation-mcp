@@ -1,0 +1,17 @@
+{
+  "name": "Expect Confidence value",
+  "action": "assertValue",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 136.5526000000027,
+  "screenshot": "privacy-withheld.svg#lab03-step-13.png",
+  "actual": {
+    "actual": "100",
+    "expected": "100"
+  },
+  "timings": {
+    "actionMs": 14.558400000001711
+  },
+  "evidence": "lab03-step-13-evidence.json"
+}

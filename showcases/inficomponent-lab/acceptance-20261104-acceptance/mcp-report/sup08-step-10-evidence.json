@@ -1,0 +1,16 @@
+{
+  "name": "Select Response scenario = Success",
+  "action": "select",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 124.46549999999115,
+  "screenshot": "privacy-withheld.svg#sup08-step-10.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 13.070999999996275
+  },
+  "evidence": "sup08-step-10-evidence.json"
+}

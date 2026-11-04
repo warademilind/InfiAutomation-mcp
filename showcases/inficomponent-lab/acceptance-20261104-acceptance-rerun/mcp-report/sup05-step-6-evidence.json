@@ -1,0 +1,16 @@
+{
+  "name": "Select Theme = dark",
+  "action": "select",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 107.16950000000361,
+  "screenshot": "sup05-step-6.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 13.319999999992433
+  },
+  "evidence": "sup05-step-6-evidence.json"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Fill Meeting date and time",
+  "action": "fill",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 142.10480000000098,
+  "screenshot": "lab03-step-9.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 19.116900000000896
+  },
+  "evidence": "lab03-step-9-evidence.json"
+}

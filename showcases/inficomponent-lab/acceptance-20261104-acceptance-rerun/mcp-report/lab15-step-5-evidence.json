@@ -1,0 +1,16 @@
+{
+  "name": "Fill Inspector note",
+  "action": "fill",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 93.12049999998999,
+  "screenshot": "lab15-step-5.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 26.8180999999895
+  },
+  "evidence": "lab15-step-5-evidence.json"
+}

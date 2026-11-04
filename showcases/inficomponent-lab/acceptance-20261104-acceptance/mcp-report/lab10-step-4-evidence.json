@@ -1,0 +1,16 @@
+{
+  "name": "Open Details",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 179.56520000000455,
+  "screenshot": "privacy-withheld.svg#lab10-step-4.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 45.18370000000141
+  },
+  "evidence": "lab10-step-4-evidence.json"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Select Reports",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 173.67899999999645,
+  "screenshot": "privacy-withheld.svg#lab10-step-10.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 45.85830000000715
+  },
+  "evidence": "lab10-step-10-evidence.json"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Choose observed framework",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 155.05589999999938,
+  "screenshot": "lab03-step-20.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 45.82260000000315
+  },
+  "evidence": "lab03-step-20-evidence.json"
+}

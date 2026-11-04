@@ -1,0 +1,16 @@
+{
+  "name": "Click Load delayed content",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 160.0561000000016,
+  "screenshot": "lab14-step-13.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 39.37119999999413
+  },
+  "evidence": "lab14-step-13-evidence.json"
+}

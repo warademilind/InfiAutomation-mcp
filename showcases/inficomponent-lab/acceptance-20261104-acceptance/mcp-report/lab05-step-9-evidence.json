@@ -1,0 +1,17 @@
+{
+  "name": "Expect 1 elements: [data-testid=\"customer-row\"]",
+  "action": "assertCount",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 116.14150000000154,
+  "screenshot": "privacy-withheld.svg#lab05-step-9.png",
+  "actual": {
+    "actual": 1,
+    "expected": 1
+  },
+  "timings": {
+    "actionMs": 3.405800000000454
+  },
+  "evidence": "lab05-step-9-evidence.json"
+}

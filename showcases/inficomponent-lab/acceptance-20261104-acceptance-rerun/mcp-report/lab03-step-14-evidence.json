@@ -1,0 +1,16 @@
+{
+  "name": "Press End in Confidence",
+  "action": "press",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 136.08870000000024,
+  "screenshot": "lab03-step-14.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 24.203300000001036
+  },
+  "evidence": "lab03-step-14-evidence.json"
+}

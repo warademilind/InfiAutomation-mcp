@@ -1,0 +1,16 @@
+{
+  "name": "Fill Account password",
+  "action": "fill",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 149.71259999999893,
+  "screenshot": "lab12-step-7.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 27.178899999998976
+  },
+  "evidence": "lab12-step-7-evidence.json"
+}

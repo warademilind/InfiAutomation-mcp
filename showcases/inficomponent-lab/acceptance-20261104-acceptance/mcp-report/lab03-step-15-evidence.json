@@ -1,0 +1,16 @@
+{
+  "name": "Press Shift+ArrowDown in Skills (multiple selection)",
+  "action": "press",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 141.45060000000012,
+  "screenshot": "privacy-withheld.svg#lab03-step-15.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 24.528800000000047
+  },
+  "evidence": "lab03-step-15-evidence.json"
+}

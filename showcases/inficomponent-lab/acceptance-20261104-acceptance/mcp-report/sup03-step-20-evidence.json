@@ -1,0 +1,16 @@
+{
+  "name": "Open files/preview",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 225.22999999999593,
+  "screenshot": "privacy-withheld.svg#sup03-step-20.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 51.38169999999809
+  },
+  "evidence": "sup03-step-20-evidence.json"
+}

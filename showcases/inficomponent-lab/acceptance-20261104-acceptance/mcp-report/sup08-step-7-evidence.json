@@ -1,0 +1,17 @@
+{
+  "name": "Expect request-response = Request cancelled",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 118.87260000000242,
+  "screenshot": "privacy-withheld.svg#sup08-step-7.png",
+  "actual": {
+    "actual": "Request cancelled",
+    "expected": "Request cancelled"
+  },
+  "timings": {
+    "actionMs": 11.364600000000792
+  },
+  "evidence": "sup08-step-7-evidence.json"
+}

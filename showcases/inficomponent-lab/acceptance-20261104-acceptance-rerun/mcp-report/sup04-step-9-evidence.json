@@ -1,0 +1,16 @@
+{
+  "name": "Fill Release notes",
+  "action": "fill",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 118.91099999999278,
+  "screenshot": "sup04-step-9.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 19.932400000005146
+  },
+  "evidence": "sup04-step-9-evidence.json"
+}

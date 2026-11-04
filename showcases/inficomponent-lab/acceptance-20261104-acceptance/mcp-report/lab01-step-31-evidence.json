@@ -1,0 +1,16 @@
+{
+  "name": "Open records/grid",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 189.1740000000009,
+  "screenshot": "privacy-withheld.svg#lab01-step-31.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 33.65230000000065
+  },
+  "evidence": "lab01-step-31-evidence.json"
+}

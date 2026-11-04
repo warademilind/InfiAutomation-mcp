@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-title = Validation & editor",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 123.43569999999818,
+  "screenshot": "privacy-withheld.svg#lab04-step-3.png",
+  "actual": {
+    "actual": "Validation & editor",
+    "expected": "Validation & editor"
+  },
+  "timings": {
+    "actionMs": 13.058000000000902
+  },
+  "evidence": "lab04-step-3-evidence.json"
+}

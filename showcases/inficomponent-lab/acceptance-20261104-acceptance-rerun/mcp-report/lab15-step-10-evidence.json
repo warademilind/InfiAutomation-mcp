@@ -1,0 +1,17 @@
+{
+  "name": "Expect 0 elements: [data-testid=\"inspector-result\"]",
+  "action": "assertCount",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 100.43980000000738,
+  "screenshot": "lab15-step-10.png",
+  "actual": {
+    "actual": 0,
+    "expected": 0
+  },
+  "timings": {
+    "actionMs": 3.607000000003609
+  },
+  "evidence": "lab15-step-10-evidence.json"
+}

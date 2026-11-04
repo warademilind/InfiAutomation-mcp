@@ -36,6 +36,7 @@ Follow the guides in order. All Windows examples use the generic workspace **C:/
 | [Mixed UI/API/database/UX guide](docs/UNIFIED_E2E.md) | Run a complete synthetic example, import API documents, chain values and interpret timing evidence |
 | [Database adapters](docs/DATABASES.md) | SQLite, PostgreSQL, MySQL/MariaDB, SQL Server, Oracle, MongoDB, Redis and ODBC extension path |
 | [Electron desktop automation](docs/ELECTRON.md) | Launch or attach, inspect runtime versions, select windows, invoke menus and use Windows accessibility when appropriate |
+| [InfiComponent Lab acceptance walkthrough](https://warademilind.github.io/InfiAutomation-mcp/showcases/inficomponent-lab/) | Supplied requirements, generated plan/cases, 26/26 typed cases, seven connection/native checks, screenshots and actual execution video |
 | [Version history and rollback](docs/VERSIONS.md) | Keep earlier releases, use both suite formats and install versions side by side |
 | [Calculator: requirements to reports](examples/calculator/README.md) | Explore the original plan, nine executable cases, 53 actual screenshots, and linked summary, detailed and coverage HTML reports |
 

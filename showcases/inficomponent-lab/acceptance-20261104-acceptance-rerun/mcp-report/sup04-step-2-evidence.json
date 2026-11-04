@@ -1,0 +1,21 @@
+{
+  "name": "Navigate > Forms",
+  "action": "menu",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 183.0109999999986,
+  "screenshot": "sup04-step-2.png",
+  "actual": {
+    "path": [
+      "Navigate",
+      "Forms"
+    ],
+    "source": "electron-native-menu",
+    "invocation": "MenuItem.click"
+  },
+  "timings": {
+    "actionMs": 9.372000000003027
+  },
+  "evidence": "sup04-step-2-evidence.json"
+}

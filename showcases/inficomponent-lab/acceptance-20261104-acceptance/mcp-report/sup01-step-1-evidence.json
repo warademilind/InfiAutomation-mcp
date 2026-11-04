@@ -1,0 +1,17 @@
+{
+  "name": "Start app",
+  "action": "assertTitle",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 1161.454099999988,
+  "screenshot": "privacy-withheld.svg#sup01-step-1.png",
+  "actual": {
+    "actual": "InfiComponent Lab - Workspace",
+    "expected": "InfiComponent Lab - Workspace"
+  },
+  "timings": {
+    "actionMs": 4.450899999996182
+  },
+  "evidence": "sup01-step-1-evidence.json"
+}

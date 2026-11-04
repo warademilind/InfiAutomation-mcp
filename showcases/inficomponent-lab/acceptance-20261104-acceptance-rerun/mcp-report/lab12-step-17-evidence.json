@@ -1,0 +1,16 @@
+{
+  "name": "Click Check session",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 194.12780000000203,
+  "screenshot": "lab12-step-17.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 50.90459999999439
+  },
+  "evidence": "lab12-step-17-evidence.json"
+}

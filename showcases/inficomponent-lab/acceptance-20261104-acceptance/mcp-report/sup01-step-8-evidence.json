@@ -1,0 +1,17 @@
+{
+  "name": "Expect 1 elements: #uploaded-files a[download=\"acceptance.txt\"]",
+  "action": "assertCount",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 98.1027999999933,
+  "screenshot": "privacy-withheld.svg#sup01-step-8.png",
+  "actual": {
+    "actual": 1,
+    "expected": 1
+  },
+  "timings": {
+    "actionMs": 3.399699999994482
+  },
+  "evidence": "sup01-step-8-evidence.json"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Click Cancel",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 190.31410000000324,
+  "screenshot": "lab09-step-8.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 57.31149999999616
+  },
+  "evidence": "lab09-step-8-evidence.json"
+}

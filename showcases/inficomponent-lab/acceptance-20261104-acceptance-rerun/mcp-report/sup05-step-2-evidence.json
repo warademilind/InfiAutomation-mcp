@@ -1,0 +1,21 @@
+{
+  "name": "Navigate > Settings",
+  "action": "menu",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 128.58859999998822,
+  "screenshot": "sup05-step-2.png",
+  "actual": {
+    "path": [
+      "Navigate",
+      "Settings"
+    ],
+    "source": "electron-native-menu",
+    "invocation": "MenuItem.click"
+  },
+  "timings": {
+    "actionMs": 8.584499999997206
+  },
+  "evidence": "sup05-step-2-evidence.json"
+}

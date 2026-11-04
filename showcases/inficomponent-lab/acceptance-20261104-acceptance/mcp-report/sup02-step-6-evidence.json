@@ -1,0 +1,16 @@
+{
+  "name": "Select Move Acceptance keyboard task = Done",
+  "action": "select",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 150.19059999998717,
+  "screenshot": "privacy-withheld.svg#sup02-step-6.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 18.584400000007008
+  },
+  "evidence": "sup02-step-6-evidence.json"
+}

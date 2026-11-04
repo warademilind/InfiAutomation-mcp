@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-result = Registration saved for Acceptance Tester",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 133.3850999999995,
+  "screenshot": "lab02-step-22.png",
+  "actual": {
+    "actual": "Registration saved for Acceptance Tester",
+    "expected": "Registration saved for Acceptance Tester"
+  },
+  "timings": {
+    "actionMs": 9.1691000000028
+  },
+  "evidence": "lab02-step-22-evidence.json"
+}

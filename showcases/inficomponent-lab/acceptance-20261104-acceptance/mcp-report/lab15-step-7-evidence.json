@@ -1,0 +1,17 @@
+{
+  "name": "Select Workspace",
+  "action": "selectWindow",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 95.34560000000056,
+  "screenshot": "privacy-withheld.svg#lab15-step-7.png",
+  "actual": {
+    "windowId": "window-1",
+    "title": "InfiComponent Lab - Workspace"
+  },
+  "timings": {
+    "actionMs": 5.7247000000061234
+  },
+  "evidence": "lab15-step-7-evidence.json"
+}

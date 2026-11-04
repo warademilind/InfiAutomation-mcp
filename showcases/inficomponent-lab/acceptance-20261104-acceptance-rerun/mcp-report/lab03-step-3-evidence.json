@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-title = Registration form",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 124.3101999999999,
+  "screenshot": "lab03-step-3.png",
+  "actual": {
+    "actual": "Registration form",
+    "expected": "Registration form"
+  },
+  "timings": {
+    "actionMs": 14.019899999999325
+  },
+  "evidence": "lab03-step-3-evidence.json"
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-title = Buttons & menus",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 112.9207000000024,
+  "screenshot": "lab09-step-3.png",
+  "actual": {
+    "actual": "Buttons & menus",
+    "expected": "Buttons & menus"
+  },
+  "timings": {
+    "actionMs": 7.487699999997858
+  },
+  "evidence": "lab09-step-3-evidence.json"
+}

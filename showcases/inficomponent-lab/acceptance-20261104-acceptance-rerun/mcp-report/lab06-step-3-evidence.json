@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-title = Customers",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 127.02070000000094,
+  "screenshot": "lab06-step-3.png",
+  "actual": {
+    "actual": "Customers",
+    "expected": "Customers"
+  },
+  "timings": {
+    "actionMs": 11.340000000003783
+  },
+  "evidence": "lab06-step-3-evidence.json"
+}

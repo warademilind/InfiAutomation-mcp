@@ -1,0 +1,16 @@
+{
+  "name": "Select Response scenario = Server error",
+  "action": "select",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 133.4713999999949,
+  "screenshot": "lab14-step-7.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 23.57499999999709
+  },
+  "evidence": "lab14-step-7-evidence.json"
+}

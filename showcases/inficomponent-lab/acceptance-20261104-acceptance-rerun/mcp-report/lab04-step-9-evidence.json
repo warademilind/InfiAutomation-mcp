@@ -1,0 +1,16 @@
+{
+  "name": "Fill Secure passphrase",
+  "action": "fill",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 130.64069999999992,
+  "screenshot": "lab04-step-9.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 19.068499999997584
+  },
+  "evidence": "lab04-step-9-evidence.json"
+}

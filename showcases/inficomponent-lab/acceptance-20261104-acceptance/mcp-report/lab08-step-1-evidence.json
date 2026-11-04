@@ -1,0 +1,21 @@
+{
+  "name": "Navigate > Components",
+  "action": "menu",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 1431.2315999999992,
+  "screenshot": "privacy-withheld.svg#lab08-step-1.png",
+  "actual": {
+    "path": [
+      "Navigate",
+      "Components"
+    ],
+    "source": "electron-native-menu",
+    "invocation": "MenuItem.click"
+  },
+  "timings": {
+    "actionMs": 13.071900000002643
+  },
+  "evidence": "lab08-step-1-evidence.json"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Open settings/connections",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 127.22739999999976,
+  "screenshot": "lab01-step-89.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 33.7479000000003
+  },
+  "evidence": "lab01-step-89-evidence.json"
+}

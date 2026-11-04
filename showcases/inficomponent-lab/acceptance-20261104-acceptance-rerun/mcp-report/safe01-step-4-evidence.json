@@ -1,0 +1,16 @@
+{
+  "name": "Open settings/runtime",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 199.63069999999425,
+  "screenshot": "privacy-withheld.svg#safe01-step-4.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 57.60460000000603
+  },
+  "evidence": "safe01-step-4-evidence.json"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Click Close popover",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 173.0396000000037,
+  "screenshot": "privacy-withheld.svg#sup03-step-11.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 45.34130000000005
+  },
+  "evidence": "sup03-step-11-evidence.json"
+}

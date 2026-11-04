@@ -1,0 +1,8317 @@
+import { runSuite, Workspace } from "@infiautomation/mcp";
+const suite = {
+  "schemaVersion": 2,
+  "name": "InfiComponent Lab acceptance 20261104-acceptance-rerun",
+  "targets": {
+    "app": {
+      "kind": "electron",
+      "browser": "chromium",
+      "headless": true,
+      "executable": "C:/InfiComponentLab\\dist\\win-unpacked\\InfiComponentLab.exe",
+      "args": [
+        "--test-mode",
+        "--api-port=49724",
+        "--data-dir=C:/InfiComponentLab\\.runtime\\acceptance-execution-20261104-acceptance-rerun-1793786183771"
+      ],
+      "windowTitle": "InfiComponent Lab - Workspace",
+      "windowUrlContains": "workspace.html",
+      "timeoutMs": 15000
+    },
+    "api": {
+      "kind": "api",
+      "baseUrl": "http://127.0.0.1:49724",
+      "headers": {},
+      "timeoutMs": 10000
+    },
+    "appOff": {
+      "kind": "electron",
+      "browser": "chromium",
+      "headless": true,
+      "executable": "C:/InfiComponentLab\\dist\\win-unpacked\\InfiComponentLab.exe",
+      "args": [
+        "--api-port=49725",
+        "--data-dir=C:/InfiComponentLab\\.runtime\\acceptance-execution-20261104-acceptance-rerun-1793786183771-no-test-mode"
+      ],
+      "windowTitle": "InfiComponent Lab - Workspace",
+      "windowUrlContains": "workspace.html",
+      "timeoutMs": 15000
+    },
+    "apiOff": {
+      "kind": "api",
+      "baseUrl": "http://127.0.0.1:49725",
+      "headers": {},
+      "timeoutMs": 10000
+    }
+  },
+  "policy": {
+    "dos": [
+      "Use synthetic records only. Every execution starts a new owned data directory. Test-mode reset is restricted to that directory."
+    ],
+    "donts": [
+      "Do not reset the normal user profile. Healing must stay off. Do not create or approve visual baselines. Do not disable Electron context isolation, sandboxing or web security."
+    ],
+    "allowedOrigins": [
+      "http://127.0.0.1:49724",
+      "http://127.0.0.1:49725"
+    ],
+    "allowedMethods": [
+      "GET",
+      "POST",
+      "PUT",
+      "PATCH",
+      "DELETE"
+    ],
+    "deniedTargets": [],
+    "deniedUiActions": [],
+    "captureScreenshots": true,
+    "redactKeys": [
+      "password",
+      "token",
+      "passphrase",
+      "confirm"
+    ]
+  },
+  "healing": "off",
+  "tests": [
+    {
+      "id": "lab01",
+      "name": "Packaged Workspace has seven groups with three working subpages each",
+      "tags": [],
+      "requirements": [
+        "LAB01"
+      ],
+      "steps": [
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Unique Workspace title",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Unique Workspace title",
+            "action": "assertTitle",
+            "value": "InfiComponent Lab - Workspace",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 7 elements: .nav-group",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 7 elements: .nav-group",
+            "action": "assertCount",
+            "locator": {
+              "css": ".nav-group"
+            },
+            "value": 7,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 3 elements: [data-testid^=\"nav-workspace-\"]",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 3 elements: [data-testid^=\"nav-workspace-\"]",
+            "action": "assertCount",
+            "locator": {
+              "css": "[data-testid^=\"nav-workspace-\"]"
+            },
+            "value": 3,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Workspace",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Workspace",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Workspace"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open workspace/overview",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open workspace/overview",
+            "action": "click",
+            "locator": {
+              "testId": "nav-workspace-overview"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Workspace",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Workspace",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Workspace"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open workspace/activity",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open workspace/activity",
+            "action": "click",
+            "locator": {
+              "testId": "nav-workspace-activity"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Activity log",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Activity log",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Activity log",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Workspace",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Workspace",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Workspace"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open workspace/session",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open workspace/session",
+            "action": "click",
+            "locator": {
+              "testId": "nav-workspace-session"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Sign-in sandbox",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Sign-in sandbox",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Sign-in sandbox",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 3 elements: [data-testid^=\"nav-forms-\"]",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 3 elements: [data-testid^=\"nav-forms-\"]",
+            "action": "assertCount",
+            "locator": {
+              "css": "[data-testid^=\"nav-forms-\"]"
+            },
+            "value": 3,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Forms",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Forms",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Forms"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Registration form",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Registration form",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Registration form",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open forms/registration",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open forms/registration",
+            "action": "click",
+            "locator": {
+              "testId": "nav-forms-registration"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Registration form",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Registration form",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Registration form",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Forms",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Forms",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Forms"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Registration form",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Registration form",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Registration form",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open forms/input-lab",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open forms/input-lab",
+            "action": "click",
+            "locator": {
+              "testId": "nav-forms-input-lab"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Input laboratory",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Input laboratory",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Input laboratory",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Forms",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Forms",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Forms"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Registration form",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Registration form",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Registration form",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open forms/validation",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open forms/validation",
+            "action": "click",
+            "locator": {
+              "testId": "nav-forms-validation"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Validation & editor",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Validation & editor",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Validation & editor",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 3 elements: [data-testid^=\"nav-records-\"]",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 3 elements: [data-testid^=\"nav-records-\"]",
+            "action": "assertCount",
+            "locator": {
+              "css": "[data-testid^=\"nav-records-\"]"
+            },
+            "value": 3,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Records",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Records",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Records"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Customers",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Customers",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Customers",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open records/customers",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open records/customers",
+            "action": "click",
+            "locator": {
+              "testId": "nav-records-customers"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Customers",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Customers",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Customers",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Records",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Records",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Records"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Customers",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Customers",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Customers",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open records/orders",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open records/orders",
+            "action": "click",
+            "locator": {
+              "testId": "nav-records-orders"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Orders",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Orders",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Orders",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Records",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Records",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Records"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Customers",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Customers",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Customers",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open records/grid",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open records/grid",
+            "action": "click",
+            "locator": {
+              "testId": "nav-records-grid"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Advanced data grid",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Advanced data grid",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Advanced data grid",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 3 elements: [data-testid^=\"nav-components-\"]",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 3 elements: [data-testid^=\"nav-components-\"]",
+            "action": "assertCount",
+            "locator": {
+              "css": "[data-testid^=\"nav-components-\"]"
+            },
+            "value": 3,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Components",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Components",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Components"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Buttons & menus",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Buttons & menus",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Buttons & menus",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open components/actions",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open components/actions",
+            "action": "click",
+            "locator": {
+              "testId": "nav-components-actions"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Buttons & menus",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Buttons & menus",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Buttons & menus",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Components",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Components",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Components"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Buttons & menus",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Buttons & menus",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Buttons & menus",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open components/overlays",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open components/overlays",
+            "action": "click",
+            "locator": {
+              "testId": "nav-components-overlays"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Dialogs & overlays",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Dialogs & overlays",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Dialogs & overlays",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Components",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Components",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Components"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Buttons & menus",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Buttons & menus",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Buttons & menus",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open components/structure",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open components/structure",
+            "action": "click",
+            "locator": {
+              "testId": "nav-components-structure"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Tabs, tree & accordion",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Tabs, tree & accordion",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Tabs, tree & accordion",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 3 elements: [data-testid^=\"nav-files-\"]",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 3 elements: [data-testid^=\"nav-files-\"]",
+            "action": "assertCount",
+            "locator": {
+              "css": "[data-testid^=\"nav-files-\"]"
+            },
+            "value": 3,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Files & Media",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Files & Media",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Files & Media"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Upload center",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Upload center",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Upload center",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open files/uploads",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open files/uploads",
+            "action": "click",
+            "locator": {
+              "testId": "nav-files-uploads"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Upload center",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Upload center",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Upload center",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Files & Media",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Files & Media",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Files & Media"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Upload center",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Upload center",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Upload center",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open files/downloads",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open files/downloads",
+            "action": "click",
+            "locator": {
+              "testId": "nav-files-downloads"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Downloads & exports",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Downloads & exports",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Downloads & exports",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Files & Media",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Files & Media",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Files & Media"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Upload center",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Upload center",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Upload center",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open files/preview",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open files/preview",
+            "action": "click",
+            "locator": {
+              "testId": "nav-files-preview"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Frames & media",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Frames & media",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Frames & media",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 3 elements: [data-testid^=\"nav-workflows-\"]",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 3 elements: [data-testid^=\"nav-workflows-\"]",
+            "action": "assertCount",
+            "locator": {
+              "css": "[data-testid^=\"nav-workflows-\"]"
+            },
+            "value": 3,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Workflows",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Workflows",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Workflows"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Task board",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Task board",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Task board",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open workflows/board",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open workflows/board",
+            "action": "click",
+            "locator": {
+              "testId": "nav-workflows-board"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Task board",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Task board",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Task board",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Workflows",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Workflows",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Workflows"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Task board",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Task board",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Task board",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open workflows/wizard",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open workflows/wizard",
+            "action": "click",
+            "locator": {
+              "testId": "nav-workflows-wizard"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Order wizard",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Order wizard",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Order wizard",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Workflows",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Workflows",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Workflows"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Task board",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Task board",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Task board",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open workflows/requests",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open workflows/requests",
+            "action": "click",
+            "locator": {
+              "testId": "nav-workflows-requests"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Async & recovery",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Async & recovery",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Async & recovery",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 3 elements: [data-testid^=\"nav-settings-\"]",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 3 elements: [data-testid^=\"nav-settings-\"]",
+            "action": "assertCount",
+            "locator": {
+              "css": "[data-testid^=\"nav-settings-\"]"
+            },
+            "value": 3,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Settings",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Settings",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Settings"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Preferences",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Preferences",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Preferences",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open settings/preferences",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open settings/preferences",
+            "action": "click",
+            "locator": {
+              "testId": "nav-settings-preferences"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Preferences",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Preferences",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Preferences",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Settings",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Settings",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Settings"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Preferences",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Preferences",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Preferences",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open settings/connections",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open settings/connections",
+            "action": "click",
+            "locator": {
+              "testId": "nav-settings-connections"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Windows & connections",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Windows & connections",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Windows & connections",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Settings",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Settings",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Settings"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Preferences",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Preferences",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Preferences",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open settings/runtime",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open settings/runtime",
+            "action": "click",
+            "locator": {
+              "testId": "nav-settings-runtime"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Runtime & test data",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Runtime & test data",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Runtime & test data",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Health identifies synthetic test-mode app",
+          "target": "api",
+          "kind": "api",
+          "method": "GET",
+          "path": "/api/health",
+          "headers": {},
+          "expect": {
+            "status": 200,
+            "checks": [
+              {
+                "path": "body.status",
+                "equals": "ok"
+              },
+              {
+                "path": "body.testMode",
+                "equals": true
+              }
+            ],
+            "allowSoapFault": false
+          },
+          "capture": {}
+        }
+      ]
+    },
+    {
+      "id": "lab02",
+      "name": "Registration rejects missing name/email/terms and records a backend submission",
+      "tags": [],
+      "requirements": [
+        "LAB02"
+      ],
+      "steps": [
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Forms",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Forms",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Forms"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Registration form",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Registration form",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Registration form",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open forms/registration",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open forms/registration",
+            "action": "click",
+            "locator": {
+              "testId": "nav-forms-registration"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Registration form",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Registration form",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Registration form",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Save registration",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Save registration",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Save registration"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-result = required fields",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-result = required fields",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-result"
+            },
+            "value": "required fields",
+            "contains": true
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Full name *",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Full name *",
+            "action": "fill",
+            "locator": {
+              "label": "Full name *"
+            },
+            "value": "Acceptance Tester",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Save registration",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Save registration",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Save registration"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-result = required fields",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-result = required fields",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-result"
+            },
+            "value": "required fields",
+            "contains": true
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Email *",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Email *",
+            "action": "fill",
+            "locator": {
+              "label": "Email *"
+            },
+            "value": "invalid-email",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Check I accept the demo terms (required)",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Check I accept the demo terms (required)",
+            "action": "check",
+            "locator": {
+              "label": "I accept the demo terms (required)"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Save registration",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Save registration",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Save registration"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-result = required fields",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-result = required fields",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-result"
+            },
+            "value": "required fields",
+            "contains": true
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Email *",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Email *",
+            "action": "fill",
+            "locator": {
+              "label": "Email *"
+            },
+            "value": "acceptance@example.test",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Uncheck I accept the demo terms (required)",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Uncheck I accept the demo terms (required)",
+            "action": "uncheck",
+            "locator": {
+              "label": "I accept the demo terms (required)"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Save registration",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Save registration",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Save registration"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-result = required fields",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-result = required fields",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-result"
+            },
+            "value": "required fields",
+            "contains": true
+          },
+          "capture": {}
+        },
+        {
+          "name": "Backend independently rejects missing terms",
+          "target": "api",
+          "kind": "api",
+          "method": "POST",
+          "path": "/api/forms",
+          "headers": {},
+          "body": {
+            "fullName": "Acceptance Tester",
+            "email": "acceptance@example.test",
+            "terms": false
+          },
+          "expect": {
+            "status": 422,
+            "checks": [
+              {
+                "path": "body.error",
+                "contains": "accepted terms"
+              }
+            ],
+            "allowSoapFault": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Check I accept the demo terms (required)",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Check I accept the demo terms (required)",
+            "action": "check",
+            "locator": {
+              "label": "I accept the demo terms (required)"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Save registration",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Save registration",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Save registration"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-result = Registration saved for Acceptance Tester",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-result = Registration saved for Acceptance Tester",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-result"
+            },
+            "value": "Registration saved for Acceptance Tester",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Submission produced a persisted form event",
+          "target": "api",
+          "kind": "api",
+          "method": "GET",
+          "path": "/api/state",
+          "headers": {},
+          "expect": {
+            "status": 200,
+            "checks": [
+              {
+                "path": "body.events.0.type",
+                "equals": "form"
+              },
+              {
+                "path": "body.events.0.message",
+                "equals": "Form submitted: Acceptance Tester"
+              }
+            ],
+            "allowSoapFault": false
+          },
+          "capture": {}
+        }
+      ]
+    },
+    {
+      "id": "lab03",
+      "name": "Dates, multiple selection, keyboard slider and framework expose submitted values",
+      "tags": [],
+      "requirements": [
+        "LAB03"
+      ],
+      "steps": [
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Forms",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Forms",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Forms"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Registration form",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Registration form",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Registration form",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open forms/input-lab",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open forms/input-lab",
+            "action": "click",
+            "locator": {
+              "testId": "nav-forms-input-lab"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Input laboratory",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Input laboratory",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Input laboratory",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Quantity",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Quantity",
+            "action": "fill",
+            "locator": {
+              "label": "Quantity"
+            },
+            "value": "9",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Start date",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Start date",
+            "action": "fill",
+            "locator": {
+              "label": "Start date"
+            },
+            "value": "2026-11-15",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Start time",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Start time",
+            "action": "fill",
+            "locator": {
+              "label": "Start time"
+            },
+            "value": "14:45",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Meeting date and time",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Meeting date and time",
+            "action": "fill",
+            "locator": {
+              "label": "Meeting date and time"
+            },
+            "value": "2026-11-15T14:45",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Reporting month",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Reporting month",
+            "action": "fill",
+            "locator": {
+              "label": "Reporting month"
+            },
+            "value": "2026-12",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Reporting week",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Reporting week",
+            "action": "fill",
+            "locator": {
+              "label": "Reporting week"
+            },
+            "value": "2026-W47",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Press Home in Confidence",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Press Home in Confidence",
+            "action": "press",
+            "locator": {
+              "label": "Confidence"
+            },
+            "value": "Home",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect Confidence value",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect Confidence value",
+            "action": "assertValue",
+            "locator": {
+              "label": "Confidence"
+            },
+            "value": "0",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Press End in Confidence",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Press End in Confidence",
+            "action": "press",
+            "locator": {
+              "label": "Confidence"
+            },
+            "value": "End",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect Confidence value",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect Confidence value",
+            "action": "assertValue",
+            "locator": {
+              "label": "Confidence"
+            },
+            "value": "100",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Select Skills (multiple selection) = Playwright",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Select Skills (multiple selection) = Playwright",
+            "action": "select",
+            "locator": {
+              "label": "Skills (multiple selection)"
+            },
+            "value": "Playwright",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Press Shift+ArrowDown in Skills (multiple selection)",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Press Shift+ArrowDown in Skills (multiple selection)",
+            "action": "press",
+            "locator": {
+              "label": "Skills (multiple selection)"
+            },
+            "value": "Shift+ArrowDown",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 2 elements: select[name=\"skills\"] option:checked",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 2 elements: select[name=\"skills\"] option:checked",
+            "action": "assertCount",
+            "locator": {
+              "css": "select[name=\"skills\"] option:checked"
+            },
+            "value": 2,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Test framework",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Test framework",
+            "action": "fill",
+            "locator": {
+              "label": "Test framework"
+            },
+            "value": "Infi",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Choose observed framework",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Choose observed framework",
+            "action": "click",
+            "locator": {
+              "role": "option",
+              "name": "InfiAutomation"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect Test framework value",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect Test framework value",
+            "action": "assertValue",
+            "locator": {
+              "label": "Test framework"
+            },
+            "value": "InfiAutomation",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Read input values",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Read input values",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Read input values"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect input-values = \"quantity\": \"9\"",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect input-values = \"quantity\": \"9\"",
+            "action": "assertText",
+            "locator": {
+              "testId": "input-values"
+            },
+            "value": "\"quantity\": \"9\"",
+            "contains": true
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect input-values = \"date\": \"2026-11-15\"",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect input-values = \"date\": \"2026-11-15\"",
+            "action": "assertText",
+            "locator": {
+              "testId": "input-values"
+            },
+            "value": "\"date\": \"2026-11-15\"",
+            "contains": true
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect input-values = \"time\": \"14:45\"",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect input-values = \"time\": \"14:45\"",
+            "action": "assertText",
+            "locator": {
+              "testId": "input-values"
+            },
+            "value": "\"time\": \"14:45\"",
+            "contains": true
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect input-values = \"datetime\": \"2026-11-15T14:45\"",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect input-values = \"datetime\": \"2026-11-15T14:45\"",
+            "action": "assertText",
+            "locator": {
+              "testId": "input-values"
+            },
+            "value": "\"datetime\": \"2026-11-15T14:45\"",
+            "contains": true
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect input-values = \"month\": \"2026-12\"",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect input-values = \"month\": \"2026-12\"",
+            "action": "assertText",
+            "locator": {
+              "testId": "input-values"
+            },
+            "value": "\"month\": \"2026-12\"",
+            "contains": true
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect input-values = \"week\": \"2026-W47\"",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect input-values = \"week\": \"2026-W47\"",
+            "action": "assertText",
+            "locator": {
+              "testId": "input-values"
+            },
+            "value": "\"week\": \"2026-W47\"",
+            "contains": true
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect input-values = \"confidence\": \"100\"",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect input-values = \"confidence\": \"100\"",
+            "action": "assertText",
+            "locator": {
+              "testId": "input-values"
+            },
+            "value": "\"confidence\": \"100\"",
+            "contains": true
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect input-values = \"Playwright\"",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect input-values = \"Playwright\"",
+            "action": "assertText",
+            "locator": {
+              "testId": "input-values"
+            },
+            "value": "\"Playwright\"",
+            "contains": true
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect input-values = \"Electron\"",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect input-values = \"Electron\"",
+            "action": "assertText",
+            "locator": {
+              "testId": "input-values"
+            },
+            "value": "\"Electron\"",
+            "contains": true
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect input-values = \"framework\": \"InfiAutomation\"",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect input-values = \"framework\": \"InfiAutomation\"",
+            "action": "assertText",
+            "locator": {
+              "testId": "input-values"
+            },
+            "value": "\"framework\": \"InfiAutomation\"",
+            "contains": true
+          },
+          "capture": {}
+        }
+      ]
+    },
+    {
+      "id": "lab04",
+      "name": "Project format, team boundaries, password length and confirmation are enforced",
+      "tags": [],
+      "requirements": [
+        "LAB04"
+      ],
+      "steps": [
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Forms",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Forms",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Forms"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Registration form",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Registration form",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Registration form",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open forms/validation",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open forms/validation",
+            "action": "click",
+            "locator": {
+              "testId": "nav-forms-validation"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Validation & editor",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Validation & editor",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Validation & editor",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Validate project",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Validate project",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Validate project"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-result = Check project code",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-result = Check project code",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-result"
+            },
+            "value": "Check project code",
+            "contains": true
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Project code",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Project code",
+            "action": "fill",
+            "locator": {
+              "label": "Project code"
+            },
+            "value": "abc-123",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Secure passphrase",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Secure passphrase",
+            "action": "fill",
+            "locator": {
+              "label": "Secure passphrase"
+            },
+            "value": "12345678",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Confirm passphrase",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Confirm passphrase",
+            "action": "fill",
+            "locator": {
+              "label": "Confirm passphrase"
+            },
+            "value": "12345678",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Validate project",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Validate project",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Validate project"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-result = Check project code",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-result = Check project code",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-result"
+            },
+            "value": "Check project code",
+            "contains": true
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Project code",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Project code",
+            "action": "fill",
+            "locator": {
+              "label": "Project code"
+            },
+            "value": "ABC-12",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Validate project",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Validate project",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Validate project"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-result = Check project code",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-result = Check project code",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-result"
+            },
+            "value": "Check project code",
+            "contains": true
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Project code",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Project code",
+            "action": "fill",
+            "locator": {
+              "label": "Project code"
+            },
+            "value": "ABC-123",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Team size",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Team size",
+            "action": "fill",
+            "locator": {
+              "label": "Team size"
+            },
+            "value": "0",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Validate project",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Validate project",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Validate project"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-result = Check project code",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-result = Check project code",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-result"
+            },
+            "value": "Check project code",
+            "contains": true
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Team size",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Team size",
+            "action": "fill",
+            "locator": {
+              "label": "Team size"
+            },
+            "value": "21",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Validate project",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Validate project",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Validate project"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-result = Check project code",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-result = Check project code",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-result"
+            },
+            "value": "Check project code",
+            "contains": true
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Team size",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Team size",
+            "action": "fill",
+            "locator": {
+              "label": "Team size"
+            },
+            "value": "1",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Secure passphrase",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Secure passphrase",
+            "action": "fill",
+            "locator": {
+              "label": "Secure passphrase"
+            },
+            "value": "1234567",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Confirm passphrase",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Confirm passphrase",
+            "action": "fill",
+            "locator": {
+              "label": "Confirm passphrase"
+            },
+            "value": "1234567",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Validate project",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Validate project",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Validate project"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-result = Check project code",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-result = Check project code",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-result"
+            },
+            "value": "Check project code",
+            "contains": true
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Secure passphrase",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Secure passphrase",
+            "action": "fill",
+            "locator": {
+              "label": "Secure passphrase"
+            },
+            "value": "12345678",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Confirm passphrase",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Confirm passphrase",
+            "action": "fill",
+            "locator": {
+              "label": "Confirm passphrase"
+            },
+            "value": "87654321",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Validate project",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Validate project",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Validate project"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-result = Passphrases do not match.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-result = Passphrases do not match.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-result"
+            },
+            "value": "Passphrases do not match.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Confirm passphrase",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Confirm passphrase",
+            "action": "fill",
+            "locator": {
+              "label": "Confirm passphrase"
+            },
+            "value": "12345678",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Validate project",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Validate project",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Validate project"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-result = Project ABC-123 is valid.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-result = Project ABC-123 is valid.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-result"
+            },
+            "value": "Project ABC-123 is valid.",
+            "contains": true
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Team size",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Team size",
+            "action": "fill",
+            "locator": {
+              "label": "Team size"
+            },
+            "value": "20",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Validate project",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Validate project",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Validate project"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-result = Project ABC-123 is valid.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-result = Project ABC-123 is valid.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-result"
+            },
+            "value": "Project ABC-123 is valid.",
+            "contains": true
+          },
+          "capture": {}
+        }
+      ]
+    },
+    {
+      "id": "lab05",
+      "name": "Customers create, edit, search, persist and delete across UI and REST",
+      "tags": [],
+      "requirements": [
+        "LAB05"
+      ],
+      "steps": [
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Records",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Records",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Records"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Customers",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Customers",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Customers",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open records/customers",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open records/customers",
+            "action": "click",
+            "locator": {
+              "testId": "nav-records-customers"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Customers",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Customers",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Customers",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click + Add customer",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click + Add customer",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "+ Add customer"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Customer name",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Customer name",
+            "action": "fill",
+            "locator": {
+              "label": "Customer name"
+            },
+            "value": "Acceptance Customer",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Email address",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Email address",
+            "action": "fill",
+            "locator": {
+              "label": "Email address"
+            },
+            "value": "customer@example.test",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Create customer",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Create customer",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Create customer"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Search customers",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Search customers",
+            "action": "fill",
+            "locator": {
+              "label": "Search customers"
+            },
+            "value": "Acceptance Customer",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 1 elements: [data-testid=\"customer-row\"]",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 1 elements: [data-testid=\"customer-row\"]",
+            "action": "assertCount",
+            "locator": {
+              "css": "[data-testid=\"customer-row\"]"
+            },
+            "value": 1,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Created customer exists in REST",
+          "target": "api",
+          "kind": "api",
+          "method": "GET",
+          "path": "/api/customers?q=Acceptance%20Customer",
+          "headers": {},
+          "expect": {
+            "status": 200,
+            "checks": [
+              {
+                "path": "body.total",
+                "equals": 1
+              },
+              {
+                "path": "body.items.0.email",
+                "equals": "customer@example.test"
+              }
+            ],
+            "allowSoapFault": false
+          },
+          "capture": {
+            "customerId": "body.items.0.id"
+          }
+        },
+        {
+          "name": "Navigate > Workspace",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Workspace",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Workspace"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open workspace/overview",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open workspace/overview",
+            "action": "click",
+            "locator": {
+              "testId": "nav-workspace-overview"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Records",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Records",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Records"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Customers",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Customers",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Customers",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open records/customers",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open records/customers",
+            "action": "click",
+            "locator": {
+              "testId": "nav-records-customers"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Customers",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Customers",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Customers",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Search customers",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Search customers",
+            "action": "fill",
+            "locator": {
+              "label": "Search customers"
+            },
+            "value": "Acceptance Customer",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 1 elements: [data-testid=\"customer-row\"]",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 1 elements: [data-testid=\"customer-row\"]",
+            "action": "assertCount",
+            "locator": {
+              "css": "[data-testid=\"customer-row\"]"
+            },
+            "value": 1,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Edit Acceptance Customer",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Edit Acceptance Customer",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Edit Acceptance Customer"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Customer name",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Customer name",
+            "action": "fill",
+            "locator": {
+              "label": "Customer name"
+            },
+            "value": "Acceptance Updated",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Save changes",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Save changes",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Save changes"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Edited customer persisted",
+          "target": "api",
+          "kind": "api",
+          "method": "GET",
+          "path": "/api/customers/${vars.customerId}",
+          "headers": {},
+          "expect": {
+            "status": 200,
+            "checks": [
+              {
+                "path": "body.name",
+                "equals": "Acceptance Updated"
+              }
+            ],
+            "allowSoapFault": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Search customers",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Search customers",
+            "action": "fill",
+            "locator": {
+              "label": "Search customers"
+            },
+            "value": "Acceptance Updated",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 1 elements: [data-testid=\"customer-row\"]",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 1 elements: [data-testid=\"customer-row\"]",
+            "action": "assertCount",
+            "locator": {
+              "css": "[data-testid=\"customer-row\"]"
+            },
+            "value": 1,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Delete Acceptance Updated",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Delete Acceptance Updated",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Delete Acceptance Updated"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Delete customer",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Delete customer",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Delete customer"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Search customers",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Search customers",
+            "action": "fill",
+            "locator": {
+              "label": "Search customers"
+            },
+            "value": "Acceptance Updated",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect empty-customers = No customers match your filters.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect empty-customers = No customers match your filters.",
+            "action": "assertText",
+            "locator": {
+              "testId": "empty-customers"
+            },
+            "value": "No customers match your filters.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Deleted customer is absent",
+          "target": "api",
+          "kind": "api",
+          "method": "GET",
+          "path": "/api/customers/${vars.customerId}",
+          "headers": {},
+          "expect": {
+            "status": 404,
+            "checks": [
+              {
+                "path": "body.error",
+                "equals": "Customer not found"
+              }
+            ],
+            "allowSoapFault": false
+          },
+          "capture": {}
+        }
+      ]
+    },
+    {
+      "id": "lab06",
+      "name": "Grid selects five of eighteen records and paginates to the final three",
+      "tags": [],
+      "requirements": [
+        "LAB06"
+      ],
+      "steps": [
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Records",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Records",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Records"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Customers",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Customers",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Customers",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open records/grid",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open records/grid",
+            "action": "click",
+            "locator": {
+              "testId": "nav-records-grid"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Advanced data grid",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Advanced data grid",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Advanced data grid",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect .pagination text",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect .pagination text",
+            "action": "assertText",
+            "locator": {
+              "css": ".pagination"
+            },
+            "value": "18 records",
+            "contains": true
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 5 elements: #grid-table tbody tr",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 5 elements: #grid-table tbody tr",
+            "action": "assertCount",
+            "locator": {
+              "css": "#grid-table tbody tr"
+            },
+            "value": 5,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Check Select current page",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Check Select current page",
+            "action": "check",
+            "locator": {
+              "label": "Select current page"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect #selection-count text",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect #selection-count text",
+            "action": "assertText",
+            "locator": {
+              "css": "#selection-count"
+            },
+            "value": "5 rows selected",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Next page",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Next page",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Next page"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect .pagination text",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect .pagination text",
+            "action": "assertText",
+            "locator": {
+              "css": ".pagination"
+            },
+            "value": "Page 2 of 4",
+            "contains": true
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect #selection-count text",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect #selection-count text",
+            "action": "assertText",
+            "locator": {
+              "css": "#selection-count"
+            },
+            "value": "5 rows selected",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Next page",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Next page",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Next page"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Next page",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Next page",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Next page"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect .pagination text",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect .pagination text",
+            "action": "assertText",
+            "locator": {
+              "css": ".pagination"
+            },
+            "value": "Page 4 of 4",
+            "contains": true
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 3 elements: #grid-table tbody tr",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 3 elements: #grid-table tbody tr",
+            "action": "assertCount",
+            "locator": {
+              "css": "#grid-table tbody tr"
+            },
+            "value": 3,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expected enabled=false: Next page",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expected enabled=false: Next page",
+            "action": "assertEnabled",
+            "locator": {
+              "role": "button",
+              "name": "Next page"
+            },
+            "value": false,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Previous page",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Previous page",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Previous page"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect .pagination text",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect .pagination text",
+            "action": "assertText",
+            "locator": {
+              "css": ".pagination"
+            },
+            "value": "Page 3 of 4",
+            "contains": true
+          },
+          "capture": {}
+        }
+      ]
+    },
+    {
+      "id": "lab07",
+      "name": "Native JSON export reports a real path and Compact changes renderer state",
+      "tags": [],
+      "requirements": [
+        "LAB07"
+      ],
+      "steps": [
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "File > Export > Export JSON",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "File > Export > Export JSON",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "File",
+              "Export",
+              "Export JSON"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect command-status = C:/InfiComponentLab\\.runtime\\acceptance-execution-20261104-acceptance-rerun-1793786183771\\lab-data\\infi-lab-export.json",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect command-status = C:/InfiComponentLab\\.runtime\\acceptance-execution-20261104-acceptance-rerun-1793786183771\\lab-data\\infi-lab-export.json",
+            "action": "assertText",
+            "locator": {
+              "testId": "command-status"
+            },
+            "value": "C:/InfiComponentLab\\.runtime\\acceptance-execution-20261104-acceptance-rerun-1793786183771\\lab-data\\infi-lab-export.json",
+            "contains": true
+          },
+          "capture": {}
+        },
+        {
+          "name": "View > Compact mode",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "View > Compact mode",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "View",
+              "Compact mode"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect command-status = Compact mode on",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect command-status = Compact mode on",
+            "action": "assertText",
+            "locator": {
+              "testId": "command-status"
+            },
+            "value": "Compact mode on",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 1 elements: body.compact",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 1 elements: body.compact",
+            "action": "assertCount",
+            "locator": {
+              "css": "body.compact"
+            },
+            "value": 1,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "View > Compact mode",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "View > Compact mode",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "View",
+              "Compact mode"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect command-status = Compact mode off",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect command-status = Compact mode off",
+            "action": "assertText",
+            "locator": {
+              "testId": "command-status"
+            },
+            "value": "Compact mode off",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 0 elements: body.compact",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 0 elements: body.compact",
+            "action": "assertCount",
+            "locator": {
+              "css": "body.compact"
+            },
+            "value": 0,
+            "contains": false
+          },
+          "capture": {}
+        }
+      ]
+    },
+    {
+      "id": "lab08",
+      "name": "DOM File action, double click and disabled button preserve explicit behavior",
+      "tags": [],
+      "requirements": [
+        "LAB08"
+      ],
+      "steps": [
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Components",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Components",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Components"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Buttons & menus",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Buttons & menus",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Buttons & menus",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open components/actions",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open components/actions",
+            "action": "click",
+            "locator": {
+              "testId": "nav-components-actions"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Buttons & menus",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Buttons & menus",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Buttons & menus",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Explicit DOM File > Save note",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Explicit DOM File > Save note",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "File",
+              "Save note"
+            ],
+            "menuSource": "dom"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-result = DOM note saved",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-result = DOM note saved",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-result"
+            },
+            "value": "DOM note saved",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Double click",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Double click",
+            "action": "doubleClick",
+            "locator": {
+              "role": "button",
+              "name": "Double-click me"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-result = Double-click detected",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-result = Double-click detected",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-result"
+            },
+            "value": "Double-click detected",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Disabled remains disabled",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Disabled remains disabled",
+            "action": "assertEnabled",
+            "locator": {
+              "testId": "disabled-button"
+            },
+            "value": false,
+            "contains": false
+          },
+          "capture": {}
+        }
+      ]
+    },
+    {
+      "id": "lab09",
+      "name": "Note dialog cancels without saving and saves only the submitted note",
+      "tags": [],
+      "requirements": [
+        "LAB09"
+      ],
+      "steps": [
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Components",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Components",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Components"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Buttons & menus",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Buttons & menus",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Buttons & menus",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open components/overlays",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open components/overlays",
+            "action": "click",
+            "locator": {
+              "testId": "nav-components-overlays"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Dialogs & overlays",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Dialogs & overlays",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Dialogs & overlays",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Open modal",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Open modal",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Open modal"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Workspace note",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Workspace note",
+            "action": "fill",
+            "locator": {
+              "label": "Workspace note"
+            },
+            "value": "Discard first note",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Cancel",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Cancel",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Cancel"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 0 elements: #app-dialog[open]",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 0 elements: #app-dialog[open]",
+            "action": "assertCount",
+            "locator": {
+              "css": "#app-dialog[open]"
+            },
+            "value": 0,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 0 elements: [data-testid=\"page-result\"]:not([hidden])",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 0 elements: [data-testid=\"page-result\"]:not([hidden])",
+            "action": "assertCount",
+            "locator": {
+              "css": "[data-testid=\"page-result\"]:not([hidden])"
+            },
+            "value": 0,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Open modal",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Open modal",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Open modal"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Workspace note",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Workspace note",
+            "action": "fill",
+            "locator": {
+              "label": "Workspace note"
+            },
+            "value": "Acceptance saved note",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Save note",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Save note",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Save note"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 0 elements: #app-dialog[open]",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 0 elements: #app-dialog[open]",
+            "action": "assertCount",
+            "locator": {
+              "css": "#app-dialog[open]"
+            },
+            "value": 0,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-result = Note saved: Acceptance saved note",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-result = Note saved: Acceptance saved note",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-result"
+            },
+            "value": "Note saved: Acceptance saved note",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Open modal",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Open modal",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Open modal"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Workspace note",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Workspace note",
+            "action": "fill",
+            "locator": {
+              "label": "Workspace note"
+            },
+            "value": "Discard second note",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Cancel",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Cancel",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Cancel"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 0 elements: #app-dialog[open]",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 0 elements: #app-dialog[open]",
+            "action": "assertCount",
+            "locator": {
+              "css": "#app-dialog[open]"
+            },
+            "value": 0,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-result = Note saved: Acceptance saved note",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-result = Note saved: Acceptance saved note",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-result"
+            },
+            "value": "Note saved: Acceptance saved note",
+            "contains": false
+          },
+          "capture": {}
+        }
+      ]
+    },
+    {
+      "id": "lab10",
+      "name": "Tabs change visible panels and expanded tree selects Reports",
+      "tags": [],
+      "requirements": [
+        "LAB10"
+      ],
+      "steps": [
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Components",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Components",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Components"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Buttons & menus",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Buttons & menus",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Buttons & menus",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open components/structure",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open components/structure",
+            "action": "click",
+            "locator": {
+              "testId": "nav-components-structure"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Tabs, tree & accordion",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Tabs, tree & accordion",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Tabs, tree & accordion",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open Details",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open Details",
+            "action": "click",
+            "locator": {
+              "role": "tab",
+              "name": "Details"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 1 elements: #tab-panel-1:not([hidden])",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 1 elements: #tab-panel-1:not([hidden])",
+            "action": "assertCount",
+            "locator": {
+              "css": "#tab-panel-1:not([hidden])"
+            },
+            "value": 1,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 1 elements: #tab-panel-0[hidden]",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 1 elements: #tab-panel-0[hidden]",
+            "action": "assertCount",
+            "locator": {
+              "css": "#tab-panel-0[hidden]"
+            },
+            "value": 1,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open History",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open History",
+            "action": "click",
+            "locator": {
+              "role": "tab",
+              "name": "History"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 1 elements: #tab-panel-2:not([hidden])",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 1 elements: #tab-panel-2:not([hidden])",
+            "action": "assertCount",
+            "locator": {
+              "css": "#tab-panel-2:not([hidden])"
+            },
+            "value": 1,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expand project",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expand project",
+            "action": "click",
+            "locator": {
+              "css": "#tree-root"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Select Reports",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Select Reports",
+            "action": "click",
+            "locator": {
+              "role": "treeitem",
+              "name": "Reports"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-result = Tree selected: Reports",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-result = Tree selected: Reports",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-result"
+            },
+            "value": "Tree selected: Reports",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 1 elements: [role=\"treeitem\"][aria-selected=\"true\"][data-tree-leaf=\"Reports\"]",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 1 elements: [role=\"treeitem\"][aria-selected=\"true\"][data-tree-leaf=\"Reports\"]",
+            "action": "assertCount",
+            "locator": {
+              "css": "[role=\"treeitem\"][aria-selected=\"true\"][data-tree-leaf=\"Reports\"]"
+            },
+            "value": 1,
+            "contains": false
+          },
+          "capture": {}
+        }
+      ]
+    },
+    {
+      "id": "lab11",
+      "name": "Same-origin iframe and open shadow forms retain independent feedback",
+      "tags": [],
+      "requirements": [
+        "LAB11"
+      ],
+      "steps": [
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Files & Media",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Files & Media",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Files & Media"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Upload center",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Upload center",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Upload center",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open files/preview",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open files/preview",
+            "action": "click",
+            "locator": {
+              "testId": "nav-files-preview"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Frames & media",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Frames & media",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Frames & media",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Frame feedback",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Frame feedback",
+            "action": "fill",
+            "locator": {
+              "label": "Frame feedback",
+              "frame": "#lab-frame"
+            },
+            "value": "Acceptance frame",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Save frame",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Save frame",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Save frame feedback",
+              "frame": "#lab-frame"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Frame saved",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Frame saved",
+            "action": "assertText",
+            "locator": {
+              "testId": "frame-result",
+              "frame": "#lab-frame"
+            },
+            "value": "Frame saved: Acceptance frame",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Shadow feedback",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Shadow feedback",
+            "action": "fill",
+            "locator": {
+              "testId": "shadow-input"
+            },
+            "value": "Acceptance shadow",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Save shadow feedback",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Save shadow feedback",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Save shadow feedback"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect shadow-output = Shadow saved: Acceptance shadow",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect shadow-output = Shadow saved: Acceptance shadow",
+            "action": "assertText",
+            "locator": {
+              "testId": "shadow-output"
+            },
+            "value": "Shadow saved: Acceptance shadow",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Frame remains independent",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Frame remains independent",
+            "action": "assertText",
+            "locator": {
+              "testId": "frame-result",
+              "frame": "#lab-frame"
+            },
+            "value": "Frame saved: Acceptance frame",
+            "contains": false
+          },
+          "capture": {}
+        }
+      ]
+    },
+    {
+      "id": "lab12",
+      "name": "Invalid credentials reject; login, session read, logout and post-logout denial work",
+      "tags": [],
+      "requirements": [
+        "LAB12"
+      ],
+      "steps": [
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Workspace",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Workspace",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Workspace"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open workspace/session",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open workspace/session",
+            "action": "click",
+            "locator": {
+              "testId": "nav-workspace-session"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Sign-in sandbox",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Sign-in sandbox",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Sign-in sandbox",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Account email",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Account email",
+            "action": "fill",
+            "locator": {
+              "label": "Account email"
+            },
+            "value": "tester@example.test",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Account password",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Account password",
+            "action": "fill",
+            "locator": {
+              "label": "Account password"
+            },
+            "value": "wrong",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Sign in",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Sign in",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Sign in"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-result = incorrect",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-result = incorrect",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-result"
+            },
+            "value": "incorrect",
+            "contains": true
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Account password",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Account password",
+            "action": "fill",
+            "locator": {
+              "label": "Account password"
+            },
+            "value": "LabPass!2026",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Sign in",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Sign in",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Sign in"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect session-user = Signed in as Alex Morgan",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect session-user = Signed in as Alex Morgan",
+            "action": "assertText",
+            "locator": {
+              "testId": "session-user"
+            },
+            "value": "Signed in as Alex Morgan",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Check session",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Check session",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Check session"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-result = Session is active",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-result = Session is active",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-result"
+            },
+            "value": "Session is active",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Sign out",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Sign out",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Sign out"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect session-user = Signed out",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect session-user = Signed out",
+            "action": "assertText",
+            "locator": {
+              "testId": "session-user"
+            },
+            "value": "Signed out",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Check session",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Check session",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Check session"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-result = Sign in to continue",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-result = Sign in to continue",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-result"
+            },
+            "value": "Sign in to continue",
+            "contains": false
+          },
+          "capture": {}
+        }
+      ]
+    },
+    {
+      "id": "lab13",
+      "name": "Wizard validates all three stages and persists the resulting order",
+      "tags": [],
+      "requirements": [
+        "LAB13"
+      ],
+      "steps": [
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Workflows",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Workflows",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Workflows"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Task board",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Task board",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Task board",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open workflows/wizard",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open workflows/wizard",
+            "action": "click",
+            "locator": {
+              "testId": "nav-workflows-wizard"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Order wizard",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Order wizard",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Order wizard",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Continue",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Continue",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Continue"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 1 elements: #wizard-form select[name=\"customer\"]",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 1 elements: #wizard-form select[name=\"customer\"]",
+            "action": "assertCount",
+            "locator": {
+              "css": "#wizard-form select[name=\"customer\"]"
+            },
+            "value": 1,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Select Order customer = Aarav Shah",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Select Order customer = Aarav Shah",
+            "action": "select",
+            "locator": {
+              "label": "Order customer"
+            },
+            "value": "Aarav Shah",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Continue",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Continue",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Continue"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Order amount",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Order amount",
+            "action": "fill",
+            "locator": {
+              "label": "Order amount"
+            },
+            "value": "0",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Continue",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Continue",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Continue"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 1 elements: #wizard-form input[name=\"amount\"]",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 1 elements: #wizard-form input[name=\"amount\"]",
+            "action": "assertCount",
+            "locator": {
+              "css": "#wizard-form input[name=\"amount\"]"
+            },
+            "value": 1,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Order amount",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Order amount",
+            "action": "fill",
+            "locator": {
+              "label": "Order amount"
+            },
+            "value": "640",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Continue",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Continue",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Continue"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect order-review = Customer: Aarav Shah",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect order-review = Customer: Aarav Shah",
+            "action": "assertText",
+            "locator": {
+              "testId": "order-review"
+            },
+            "value": "Customer: Aarav Shah",
+            "contains": true
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Place order",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Place order",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Place order"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 1 elements: #wizard-form input[name=\"confirmed\"]:not(:checked)",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 1 elements: #wizard-form input[name=\"confirmed\"]:not(:checked)",
+            "action": "assertCount",
+            "locator": {
+              "css": "#wizard-form input[name=\"confirmed\"]:not(:checked)"
+            },
+            "value": 1,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "No order without confirmation",
+          "target": "api",
+          "kind": "api",
+          "method": "GET",
+          "path": "/api/state",
+          "headers": {},
+          "expect": {
+            "status": 200,
+            "checks": [
+              {
+                "path": "body.orders.length",
+                "equals": 8
+              }
+            ],
+            "allowSoapFault": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Check I confirm this demo order",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Check I confirm this demo order",
+            "action": "check",
+            "locator": {
+              "label": "I confirm this demo order"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Place order",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Place order",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Place order"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect order-success = created for Aarav Shah",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect order-success = created for Aarav Shah",
+            "action": "assertText",
+            "locator": {
+              "testId": "order-success"
+            },
+            "value": "created for Aarav Shah",
+            "contains": true
+          },
+          "capture": {}
+        },
+        {
+          "name": "Order exists in persisted backend",
+          "target": "api",
+          "kind": "api",
+          "method": "GET",
+          "path": "/api/state",
+          "headers": {},
+          "expect": {
+            "status": 200,
+            "checks": [
+              {
+                "path": "body.orders.length",
+                "equals": 9
+              },
+              {
+                "path": "body.orders.0.customer",
+                "equals": "Aarav Shah"
+              },
+              {
+                "path": "body.orders.0.amount",
+                "equals": 640
+              }
+            ],
+            "allowSoapFault": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click View orders",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click View orders",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "View orders"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Orders",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Orders",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Orders",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect #order-table tbody tr:first-child text",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect #order-table tbody tr:first-child text",
+            "action": "assertText",
+            "locator": {
+              "css": "#order-table tbody tr:first-child"
+            },
+            "value": "Aarav Shah",
+            "contains": true
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect #order-table tbody tr:first-child text",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect #order-table tbody tr:first-child text",
+            "action": "assertText",
+            "locator": {
+              "css": "#order-table tbody tr:first-child"
+            },
+            "value": "640",
+            "contains": true
+          },
+          "capture": {}
+        }
+      ]
+    },
+    {
+      "id": "lab14",
+      "name": "HTTP 503 error is reported, Success recovers and delayed content becomes ready",
+      "tags": [],
+      "requirements": [
+        "LAB14"
+      ],
+      "steps": [
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Workflows",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Workflows",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Workflows"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Task board",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Task board",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Task board",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open workflows/requests",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open workflows/requests",
+            "action": "click",
+            "locator": {
+              "testId": "nav-workflows-requests"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Async & recovery",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Async & recovery",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Async & recovery",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Intentional error is actual HTTP 503",
+          "target": "api",
+          "kind": "api",
+          "method": "GET",
+          "path": "/api/lab?mode=error",
+          "headers": {},
+          "expect": {
+            "status": 503,
+            "checks": [
+              {
+                "path": "body.error",
+                "contains": "Intentional lab error"
+              }
+            ],
+            "allowSoapFault": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Select Response scenario = Server error",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Select Response scenario = Server error",
+            "action": "select",
+            "locator": {
+              "label": "Response scenario"
+            },
+            "value": "Server error",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Send request",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Send request",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Send request"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect request-response = Intentional lab error",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect request-response = Intentional lab error",
+            "action": "assertText",
+            "locator": {
+              "testId": "request-response"
+            },
+            "value": "Intentional lab error",
+            "contains": true
+          },
+          "capture": {}
+        },
+        {
+          "name": "Select Response scenario = Success",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Select Response scenario = Success",
+            "action": "select",
+            "locator": {
+              "label": "Response scenario"
+            },
+            "value": "Success",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Send request",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Send request",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Send request"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect request-response = Request completed successfully",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect request-response = Request completed successfully",
+            "action": "assertText",
+            "locator": {
+              "testId": "request-response"
+            },
+            "value": "Request completed successfully",
+            "contains": true
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Load delayed content",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Load delayed content",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Load delayed content"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect delayed-result = Delayed content is ready",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect delayed-result = Delayed content is ready",
+            "action": "assertText",
+            "locator": {
+              "testId": "delayed-result"
+            },
+            "value": "Delayed content is ready",
+            "contains": false
+          },
+          "capture": {}
+        }
+      ]
+    },
+    {
+      "id": "lab15",
+      "name": "Uniquely titled Inspector stores its own note and returns to Workspace",
+      "tags": [],
+      "requirements": [
+        "LAB15"
+      ],
+      "steps": [
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Tools > Open Inspector",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Tools > Open Inspector",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Tools",
+              "Open Inspector"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Select Inspector",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Select Inspector",
+            "action": "selectWindow",
+            "value": "InfiComponent Lab - Inspector",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Inspector unique title",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Inspector unique title",
+            "action": "assertTitle",
+            "value": "InfiComponent Lab - Inspector",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Inspector note",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Inspector note",
+            "action": "fill",
+            "locator": {
+              "label": "Inspector note"
+            },
+            "value": "Acceptance independent note",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Save inspector note",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Save inspector note",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Save inspector note"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect inspector-result = Inspector saved: Acceptance independent note",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect inspector-result = Inspector saved: Acceptance independent note",
+            "action": "assertText",
+            "locator": {
+              "testId": "inspector-result"
+            },
+            "value": "Inspector saved: Acceptance independent note",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Select Workspace",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Select Workspace",
+            "action": "selectWindow",
+            "value": "InfiComponent Lab - Workspace",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Workspace title",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Workspace title",
+            "action": "assertTitle",
+            "value": "InfiComponent Lab - Workspace",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 0 elements: [data-testid=\"inspector-result\"]",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 0 elements: [data-testid=\"inspector-result\"]",
+            "action": "assertCount",
+            "locator": {
+              "css": "[data-testid=\"inspector-result\"]"
+            },
+            "value": 0,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Return Inspector retains note",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Return Inspector retains note",
+            "action": "selectWindow",
+            "value": "InfiComponent Lab - Inspector",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect inspector-result = Inspector saved: Acceptance independent note",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect inspector-result = Inspector saved: Acceptance independent note",
+            "action": "assertText",
+            "locator": {
+              "testId": "inspector-result"
+            },
+            "value": "Inspector saved: Acceptance independent note",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Return Workspace",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Return Workspace",
+            "action": "selectWindow",
+            "value": "InfiComponent Lab - Workspace",
+            "contains": false
+          },
+          "capture": {}
+        }
+      ]
+    },
+    {
+      "id": "lab16",
+      "name": "API-created synthetic customer is exactly one matching renderer row",
+      "tags": [],
+      "requirements": [
+        "LAB16"
+      ],
+      "steps": [
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Start owned app before REST",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Start owned app before REST",
+            "action": "assertTitle",
+            "value": "InfiComponent Lab - Workspace",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Create REST customer",
+          "target": "api",
+          "kind": "api",
+          "method": "POST",
+          "path": "/api/customers",
+          "headers": {},
+          "body": {
+            "name": "API Acceptance Customer",
+            "email": "crosslayer@example.test",
+            "department": "Quality"
+          },
+          "expect": {
+            "status": 201,
+            "checks": [
+              {
+                "path": "body.name",
+                "equals": "API Acceptance Customer"
+              }
+            ],
+            "allowSoapFault": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Records",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Records",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Records"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Customers",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Customers",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Customers",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open records/customers",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open records/customers",
+            "action": "click",
+            "locator": {
+              "testId": "nav-records-customers"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Customers",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Customers",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Customers",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Search customers",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Search customers",
+            "action": "fill",
+            "locator": {
+              "label": "Search customers"
+            },
+            "value": "API Acceptance Customer",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 1 elements: [data-testid=\"customer-row\"]",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 1 elements: [data-testid=\"customer-row\"]",
+            "action": "assertCount",
+            "locator": {
+              "css": "[data-testid=\"customer-row\"]"
+            },
+            "value": 1,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect [data-testid=\"customer-row\"] text",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect [data-testid=\"customer-row\"] text",
+            "action": "assertText",
+            "locator": {
+              "css": "[data-testid=\"customer-row\"]"
+            },
+            "value": "API Acceptance Customer",
+            "contains": true
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect [data-testid=\"customer-row\"] text",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect [data-testid=\"customer-row\"] text",
+            "action": "assertText",
+            "locator": {
+              "css": "[data-testid=\"customer-row\"]"
+            },
+            "value": "crosslayer@example.test",
+            "contains": true
+          },
+          "capture": {}
+        }
+      ]
+    },
+    {
+      "id": "sup01",
+      "name": "Upload/download API returns identical bytes and renderer lists the real file",
+      "tags": [],
+      "requirements": [
+        "SUP01"
+      ],
+      "steps": [
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Start app",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Start app",
+            "action": "assertTitle",
+            "value": "InfiComponent Lab - Workspace",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Upload synthetic bytes",
+          "target": "api",
+          "kind": "api",
+          "method": "POST",
+          "path": "/api/upload",
+          "headers": {},
+          "body": {
+            "name": "acceptance.txt",
+            "type": "text/plain",
+            "data": "U3ludGhldGljIE1DUCByb3VuZHRyaXAK"
+          },
+          "expect": {
+            "status": 201,
+            "checks": [
+              {
+                "path": "body.name",
+                "equals": "acceptance.txt"
+              },
+              {
+                "path": "body.size",
+                "equals": 24
+              }
+            ],
+            "allowSoapFault": false
+          },
+          "capture": {
+            "uploadId": "body.id"
+          }
+        },
+        {
+          "name": "Download identical bytes",
+          "target": "api",
+          "kind": "api",
+          "method": "GET",
+          "path": "/api/download/${vars.uploadId}",
+          "headers": {},
+          "expect": {
+            "status": 200,
+            "checks": [
+              {
+                "path": "body",
+                "equals": "Synthetic MCP roundtrip\n"
+              }
+            ],
+            "allowSoapFault": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Files & Media",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Files & Media",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Files & Media"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Upload center",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Upload center",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Upload center",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open files/uploads",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open files/uploads",
+            "action": "click",
+            "locator": {
+              "testId": "nav-files-uploads"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Upload center",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Upload center",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Upload center",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect #uploaded-files text",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect #uploaded-files text",
+            "action": "assertText",
+            "locator": {
+              "css": "#uploaded-files"
+            },
+            "value": "acceptance.txt",
+            "contains": true
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 1 elements: #uploaded-files a[download=\"acceptance.txt\"]",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 1 elements: #uploaded-files a[download=\"acceptance.txt\"]",
+            "action": "assertCount",
+            "locator": {
+              "css": "#uploaded-files a[download=\"acceptance.txt\"]"
+            },
+            "value": 1,
+            "contains": false
+          },
+          "capture": {}
+        }
+      ]
+    },
+    {
+      "id": "sup02",
+      "name": "Task keyboard alternative creates and moves a persistent task",
+      "tags": [],
+      "requirements": [
+        "SUP02"
+      ],
+      "steps": [
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Workflows",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Workflows",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Workflows"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Task board",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Task board",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Task board",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open workflows/board",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open workflows/board",
+            "action": "click",
+            "locator": {
+              "testId": "nav-workflows-board"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Task board",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Task board",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Task board",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill New task title",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill New task title",
+            "action": "fill",
+            "locator": {
+              "label": "New task title"
+            },
+            "value": "Acceptance keyboard task",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click + Add task",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click + Add task",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "+ Add task"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Select Move Acceptance keyboard task = Done",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Select Move Acceptance keyboard task = Done",
+            "action": "select",
+            "locator": {
+              "label": "Move Acceptance keyboard task"
+            },
+            "value": "Done",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-result = Task moved to Done",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-result = Task moved to Done",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-result"
+            },
+            "value": "Task moved to Done",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect Move Acceptance keyboard task value",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect Move Acceptance keyboard task value",
+            "action": "assertValue",
+            "locator": {
+              "label": "Move Acceptance keyboard task"
+            },
+            "value": "Done",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Task move persisted",
+          "target": "api",
+          "kind": "api",
+          "method": "GET",
+          "path": "/api/state",
+          "headers": {},
+          "expect": {
+            "status": 200,
+            "checks": [
+              {
+                "path": "body.tasks.3.title",
+                "equals": "Acceptance keyboard task"
+              },
+              {
+                "path": "body.tasks.3.lane",
+                "equals": "Done"
+              }
+            ],
+            "allowSoapFault": false
+          },
+          "capture": {}
+        }
+      ]
+    },
+    {
+      "id": "sup03",
+      "name": "Tooltip, popover, progress, meter and accessible canvas have observable results",
+      "tags": [],
+      "requirements": [
+        "SUP03"
+      ],
+      "steps": [
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Components",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Components",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Components"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Buttons & menus",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Buttons & menus",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Buttons & menus",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open components/actions",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open components/actions",
+            "action": "click",
+            "locator": {
+              "testId": "nav-components-actions"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Buttons & menus",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Buttons & menus",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Buttons & menus",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Hover observed tooltip trigger",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Hover observed tooltip trigger",
+            "action": "hover",
+            "locator": {
+              "role": "button",
+              "name": "Hover or focus me"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Tooltip visible",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Tooltip visible",
+            "action": "assertVisible",
+            "locator": {
+              "role": "tooltip"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Components",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Components",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Components"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Buttons & menus",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Buttons & menus",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Buttons & menus",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open components/overlays",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open components/overlays",
+            "action": "click",
+            "locator": {
+              "testId": "nav-components-overlays"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Dialogs & overlays",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Dialogs & overlays",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Dialogs & overlays",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Open popover",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Open popover",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Open popover"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 1 elements: #details-popover:popover-open",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 1 elements: #details-popover:popover-open",
+            "action": "assertCount",
+            "locator": {
+              "css": "#details-popover:popover-open"
+            },
+            "value": 1,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Close popover",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Close popover",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Close popover"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 0 elements: #details-popover:popover-open",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 0 elements: #details-popover:popover-open",
+            "action": "assertCount",
+            "locator": {
+              "css": "#details-popover:popover-open"
+            },
+            "value": 0,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Components",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Components",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Components"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Buttons & menus",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Buttons & menus",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Buttons & menus",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open components/structure",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open components/structure",
+            "action": "click",
+            "locator": {
+              "testId": "nav-components-structure"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Tabs, tree & accordion",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Tabs, tree & accordion",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Tabs, tree & accordion",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Advance progress",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Advance progress",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Advance progress"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 1 elements: #demo-progress[value=\"50\"]",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 1 elements: #demo-progress[value=\"50\"]",
+            "action": "assertCount",
+            "locator": {
+              "css": "#demo-progress[value=\"50\"]"
+            },
+            "value": 1,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 1 elements: meter[value=\"62\"]",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 1 elements: meter[value=\"62\"]",
+            "action": "assertCount",
+            "locator": {
+              "css": "meter[value=\"62\"]"
+            },
+            "value": 1,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Files & Media",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Files & Media",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Files & Media"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Upload center",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Upload center",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Upload center",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open files/preview",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open files/preview",
+            "action": "click",
+            "locator": {
+              "testId": "nav-files-preview"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Frames & media",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Frames & media",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Frames & media",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Change canvas signal",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Change canvas signal",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Change canvas signal"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect #canvas-result text",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect #canvas-result text",
+            "action": "assertText",
+            "locator": {
+              "css": "#canvas-result"
+            },
+            "value": "Signal level 2",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Local audio asset exists",
+          "target": "api",
+          "kind": "api",
+          "method": "GET",
+          "path": "/sample.wav",
+          "headers": {},
+          "expect": {
+            "status": 200,
+            "checks": [
+              {
+                "path": "headers.content-type",
+                "equals": "audio/wav"
+              }
+            ],
+            "allowSoapFault": false
+          },
+          "capture": {}
+        }
+      ]
+    },
+    {
+      "id": "sup04",
+      "name": "Rich text value appears in valid project result",
+      "tags": [],
+      "requirements": [
+        "SUP04"
+      ],
+      "steps": [
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Forms",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Forms",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Forms"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Registration form",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Registration form",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Registration form",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open forms/validation",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open forms/validation",
+            "action": "click",
+            "locator": {
+              "testId": "nav-forms-validation"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Validation & editor",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Validation & editor",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Validation & editor",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Project code",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Project code",
+            "action": "fill",
+            "locator": {
+              "label": "Project code"
+            },
+            "value": "ABC-123",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Secure passphrase",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Secure passphrase",
+            "action": "fill",
+            "locator": {
+              "label": "Secure passphrase"
+            },
+            "value": "12345678",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Confirm passphrase",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Confirm passphrase",
+            "action": "fill",
+            "locator": {
+              "label": "Confirm passphrase"
+            },
+            "value": "12345678",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Release notes",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Release notes",
+            "action": "fill",
+            "locator": {
+              "label": "Release notes"
+            },
+            "value": "Acceptance rich text note",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Validate project",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Validate project",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Validate project"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-result = Release notes: Acceptance rich text note",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-result = Release notes: Acceptance rich text note",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-result"
+            },
+            "value": "Release notes: Acceptance rich text note",
+            "contains": true
+          },
+          "capture": {}
+        }
+      ]
+    },
+    {
+      "id": "sup05",
+      "name": "Preferences save real theme, compact mode, locale and notification values",
+      "tags": [],
+      "requirements": [
+        "SUP05"
+      ],
+      "steps": [
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Settings",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Settings",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Settings"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Preferences",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Preferences",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Preferences",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open settings/preferences",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open settings/preferences",
+            "action": "click",
+            "locator": {
+              "testId": "nav-settings-preferences"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Preferences",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Preferences",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Preferences",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Select Theme = dark",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Select Theme = dark",
+            "action": "select",
+            "locator": {
+              "label": "Theme"
+            },
+            "value": "dark",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Select Locale = en-GB",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Select Locale = en-GB",
+            "action": "select",
+            "locator": {
+              "label": "Locale"
+            },
+            "value": "en-GB",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Check Compact table rows",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Check Compact table rows",
+            "action": "check",
+            "locator": {
+              "label": "Compact table rows"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Uncheck Workspace notifications",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Uncheck Workspace notifications",
+            "action": "uncheck",
+            "locator": {
+              "label": "Workspace notifications"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Save preferences",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Save preferences",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Save preferences"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-result = Preferences saved",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-result = Preferences saved",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-result"
+            },
+            "value": "Preferences saved",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 1 elements: body.dark.compact",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 1 elements: body.dark.compact",
+            "action": "assertCount",
+            "locator": {
+              "css": "body.dark.compact"
+            },
+            "value": 1,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Preferences persisted in backend",
+          "target": "api",
+          "kind": "api",
+          "method": "GET",
+          "path": "/api/state",
+          "headers": {},
+          "expect": {
+            "status": 200,
+            "checks": [
+              {
+                "path": "body.preferences.theme",
+                "equals": "dark"
+              },
+              {
+                "path": "body.preferences.locale",
+                "equals": "en-GB"
+              },
+              {
+                "path": "body.preferences.notifications",
+                "equals": false
+              },
+              {
+                "path": "body.preferences.compact",
+                "equals": true
+              }
+            ],
+            "allowSoapFault": false
+          },
+          "capture": {}
+        }
+      ]
+    },
+    {
+      "id": "sup06",
+      "name": "A new owned launch reads persisted preferences, customer and order",
+      "tags": [],
+      "requirements": [
+        "SUP05",
+        "LAB05",
+        "LAB13",
+        "LAB16"
+      ],
+      "steps": [
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Settings",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Settings",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Settings"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Preferences",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Preferences",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Preferences",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open settings/preferences",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open settings/preferences",
+            "action": "click",
+            "locator": {
+              "testId": "nav-settings-preferences"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Preferences",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Preferences",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Preferences",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect Theme value",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect Theme value",
+            "action": "assertValue",
+            "locator": {
+              "label": "Theme"
+            },
+            "value": "dark",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect Locale value",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect Locale value",
+            "action": "assertValue",
+            "locator": {
+              "label": "Locale"
+            },
+            "value": "en-GB",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Compact preference persists",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Compact preference persists",
+            "action": "assertChecked",
+            "locator": {
+              "label": "Compact table rows"
+            },
+            "value": true,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 1 elements: body.dark.compact",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 1 elements: body.dark.compact",
+            "action": "assertCount",
+            "locator": {
+              "css": "body.dark.compact"
+            },
+            "value": 1,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Order persisted across launch",
+          "target": "api",
+          "kind": "api",
+          "method": "GET",
+          "path": "/api/state",
+          "headers": {},
+          "expect": {
+            "status": 200,
+            "checks": [
+              {
+                "path": "body.orders.0.amount",
+                "equals": 640
+              }
+            ],
+            "allowSoapFault": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Records",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Records",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Records"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Customers",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Customers",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Customers",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open records/customers",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open records/customers",
+            "action": "click",
+            "locator": {
+              "testId": "nav-records-customers"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Customers",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Customers",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Customers",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Search customers",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Search customers",
+            "action": "fill",
+            "locator": {
+              "label": "Search customers"
+            },
+            "value": "API Acceptance Customer",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 1 elements: [data-testid=\"customer-row\"]",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 1 elements: [data-testid=\"customer-row\"]",
+            "action": "assertCount",
+            "locator": {
+              "css": "[data-testid=\"customer-row\"]"
+            },
+            "value": 1,
+            "contains": false
+          },
+          "capture": {}
+        }
+      ]
+    },
+    {
+      "id": "sup07",
+      "name": "Command search and activity filtering expose specific results",
+      "tags": [],
+      "requirements": [
+        "SUP06"
+      ],
+      "steps": [
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Search pages",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Search pages",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Search pages"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill observed search input",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill observed search input",
+            "action": "fill",
+            "locator": {
+              "css": "#page-search"
+            },
+            "value": "Registration",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Choose observed page search result",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Choose observed page search result",
+            "action": "click",
+            "locator": {
+              "css": "#search-results a[href=\"#forms/registration\"]"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Registration form",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Registration form",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Registration form",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Workspace",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Workspace",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Workspace"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open workspace/activity",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open workspace/activity",
+            "action": "click",
+            "locator": {
+              "testId": "nav-workspace-activity"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Activity log",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Activity log",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Activity log",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Filter events",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Filter events",
+            "action": "fill",
+            "locator": {
+              "label": "Filter events"
+            },
+            "value": "Form submitted: Acceptance Tester",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 1 elements: #event-list .activity-item",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 1 elements: #event-list .activity-item",
+            "action": "assertCount",
+            "locator": {
+              "css": "#event-list .activity-item"
+            },
+            "value": 1,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect #event-list text",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect #event-list text",
+            "action": "assertText",
+            "locator": {
+              "css": "#event-list"
+            },
+            "value": "Form submitted: Acceptance Tester",
+            "contains": true
+          },
+          "capture": {}
+        },
+        {
+          "name": "Fill Filter events",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Fill Filter events",
+            "action": "fill",
+            "locator": {
+              "label": "Filter events"
+            },
+            "value": "No matching synthetic event 987654",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect 0 elements: #event-list .activity-item",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect 0 elements: #event-list .activity-item",
+            "action": "assertCount",
+            "locator": {
+              "css": "#event-list .activity-item"
+            },
+            "value": 0,
+            "contains": false
+          },
+          "capture": {}
+        }
+      ]
+    },
+    {
+      "id": "sup08",
+      "name": "Slow request can cancel and then recover successfully",
+      "tags": [],
+      "requirements": [
+        "SUP07"
+      ],
+      "steps": [
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Workflows",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Workflows",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Workflows"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Task board",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Task board",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Task board",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open workflows/requests",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open workflows/requests",
+            "action": "click",
+            "locator": {
+              "testId": "nav-workflows-requests"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Async & recovery",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Async & recovery",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Async & recovery",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Select Response scenario = Slow response",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Select Response scenario = Slow response",
+            "action": "select",
+            "locator": {
+              "label": "Response scenario"
+            },
+            "value": "Slow response",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Send request",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Send request",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Send request"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Cancel request",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Cancel request",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Cancel request"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect request-response = Request cancelled",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect request-response = Request cancelled",
+            "action": "assertText",
+            "locator": {
+              "testId": "request-response"
+            },
+            "value": "Request cancelled",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expected enabled=true: Send request",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expected enabled=true: Send request",
+            "action": "assertEnabled",
+            "locator": {
+              "role": "button",
+              "name": "Send request"
+            },
+            "value": true,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expected enabled=false: Cancel request",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expected enabled=false: Cancel request",
+            "action": "assertEnabled",
+            "locator": {
+              "role": "button",
+              "name": "Cancel request"
+            },
+            "value": false,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Select Response scenario = Success",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Select Response scenario = Success",
+            "action": "select",
+            "locator": {
+              "label": "Response scenario"
+            },
+            "value": "Success",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Send request",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Send request",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Send request"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect request-response = Request completed successfully",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect request-response = Request completed successfully",
+            "action": "assertText",
+            "locator": {
+              "testId": "request-response"
+            },
+            "value": "Request completed successfully",
+            "contains": true
+          },
+          "capture": {}
+        }
+      ]
+    },
+    {
+      "id": "safe01",
+      "name": "Test-mode reset requires confirmation, cancellation preserves data, confirmed reset restores seed",
+      "tags": [],
+      "requirements": [
+        "SAFE01"
+      ],
+      "steps": [
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Settings",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Settings",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Settings"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Preferences",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Preferences",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Preferences",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open settings/runtime",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Open settings/runtime",
+            "action": "click",
+            "locator": {
+              "testId": "nav-settings-runtime"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Runtime & test data",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Runtime & test data",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Runtime & test data",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Reset test data",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Reset test data",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Reset test data"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Cancel",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Cancel",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Cancel"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Cancelled reset preserved synthetic customer",
+          "target": "api",
+          "kind": "api",
+          "method": "GET",
+          "path": "/api/customers?q=API%20Acceptance%20Customer",
+          "headers": {},
+          "expect": {
+            "status": 200,
+            "checks": [
+              {
+                "path": "body.total",
+                "equals": 1
+              }
+            ],
+            "allowSoapFault": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Reset test data",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Reset test data",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Reset test data"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Click Reset data",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Click Reset data",
+            "action": "click",
+            "locator": {
+              "role": "button",
+              "name": "Reset data"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Reset modal closed",
+          "target": "app",
+          "kind": "ui",
+          "step": {
+            "name": "Reset modal closed",
+            "action": "assertCount",
+            "locator": {
+              "css": "#app-dialog[open]"
+            },
+            "value": 0,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Confirmed reset restores all seeded state",
+          "target": "api",
+          "kind": "api",
+          "method": "GET",
+          "path": "/api/state",
+          "headers": {},
+          "expect": {
+            "status": 200,
+            "checks": [
+              {
+                "path": "body.customers.length",
+                "equals": 18
+              },
+              {
+                "path": "body.orders.length",
+                "equals": 8
+              },
+              {
+                "path": "body.tasks.length",
+                "equals": 3
+              },
+              {
+                "path": "body.uploads.length",
+                "equals": 0
+              },
+              {
+                "path": "body.preferences.theme",
+                "equals": "light"
+              }
+            ],
+            "allowSoapFault": false
+          },
+          "capture": {}
+        }
+      ]
+    },
+    {
+      "id": "safe02",
+      "name": "Without --test-mode, UI/native reset are unavailable and backend reset returns 403",
+      "tags": [],
+      "requirements": [
+        "SAFE02"
+      ],
+      "steps": [
+        {
+          "name": "Expect page-title = A workspace built to be tested.",
+          "target": "appOff",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = A workspace built to be tested.",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "A workspace built to be tested.",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Navigate > Settings",
+          "target": "appOff",
+          "kind": "ui",
+          "step": {
+            "name": "Navigate > Settings",
+            "action": "menu",
+            "contains": false,
+            "menuPath": [
+              "Navigate",
+              "Settings"
+            ],
+            "menuSource": "native"
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Preferences",
+          "target": "appOff",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Preferences",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Preferences",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Open settings/runtime",
+          "target": "appOff",
+          "kind": "ui",
+          "step": {
+            "name": "Open settings/runtime",
+            "action": "click",
+            "locator": {
+              "testId": "nav-settings-runtime"
+            },
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expect page-title = Runtime & test data",
+          "target": "appOff",
+          "kind": "ui",
+          "step": {
+            "name": "Expect page-title = Runtime & test data",
+            "action": "assertText",
+            "locator": {
+              "testId": "page-title"
+            },
+            "value": "Runtime & test data",
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Expected enabled=false: Reset test data",
+          "target": "appOff",
+          "kind": "ui",
+          "step": {
+            "name": "Expected enabled=false: Reset test data",
+            "action": "assertEnabled",
+            "locator": {
+              "role": "button",
+              "name": "Reset test data"
+            },
+            "value": false,
+            "contains": false
+          },
+          "capture": {}
+        },
+        {
+          "name": "Backend rejects reset outside test mode",
+          "target": "apiOff",
+          "kind": "api",
+          "method": "POST",
+          "path": "/api/reset",
+          "headers": {},
+          "expect": {
+            "status": 403,
+            "checks": [
+              {
+                "path": "body.error",
+                "equals": "Reset is available only in test mode"
+              }
+            ],
+            "allowSoapFault": false
+          },
+          "capture": {}
+        }
+      ]
+    }
+  ],
+  "planPath": "reports/acceptance-20261104-acceptance-rerun/test-plan.json"
+};
+const { result, directory } = await runSuite(suite, new Workspace());
+console.log(directory);
+process.exitCode = result.status === "failed" ? 1 : 0;

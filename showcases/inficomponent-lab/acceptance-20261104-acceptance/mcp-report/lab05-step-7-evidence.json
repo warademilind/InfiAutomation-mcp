@@ -1,0 +1,16 @@
+{
+  "name": "Click Create customer",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 219.2739999999976,
+  "screenshot": "privacy-withheld.svg#lab05-step-7.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 71.34709999999905
+  },
+  "evidence": "lab05-step-7-evidence.json"
+}

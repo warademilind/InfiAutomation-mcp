@@ -1,0 +1,16 @@
+{
+  "name": "Open settings/runtime",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 145.91990000000078,
+  "screenshot": "privacy-withheld.svg#lab01-step-71.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 42.14859999999862
+  },
+  "evidence": "lab01-step-71-evidence.json"
+}

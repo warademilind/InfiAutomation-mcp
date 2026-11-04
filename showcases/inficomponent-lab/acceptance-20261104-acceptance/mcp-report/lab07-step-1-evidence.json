@@ -1,0 +1,22 @@
+{
+  "name": "File > Export > Export JSON",
+  "action": "menu",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 1122.9951999999976,
+  "screenshot": "privacy-withheld.svg#lab07-step-1.png",
+  "actual": {
+    "path": [
+      "File",
+      "Export",
+      "Export JSON"
+    ],
+    "source": "electron-native-menu",
+    "invocation": "MenuItem.click"
+  },
+  "timings": {
+    "actionMs": 12.853599999994913
+  },
+  "evidence": "lab07-step-1-evidence.json"
+}

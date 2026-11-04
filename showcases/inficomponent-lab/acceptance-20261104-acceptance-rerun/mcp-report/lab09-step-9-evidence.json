@@ -1,0 +1,17 @@
+{
+  "name": "Expect 0 elements: #app-dialog[open]",
+  "action": "assertCount",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 117.93679999999586,
+  "screenshot": "lab09-step-9.png",
+  "actual": {
+    "actual": 0,
+    "expected": 0
+  },
+  "timings": {
+    "actionMs": 4.4790999999968335
+  },
+  "evidence": "lab09-step-9-evidence.json"
+}

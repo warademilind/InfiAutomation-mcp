@@ -1,0 +1,16 @@
+{
+  "name": "Click Advance progress",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 138.0445000000036,
+  "screenshot": "sup03-step-20.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 28.87829999999667
+  },
+  "evidence": "sup03-step-20-evidence.json"
+}

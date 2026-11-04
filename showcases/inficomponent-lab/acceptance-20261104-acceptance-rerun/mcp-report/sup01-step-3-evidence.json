@@ -1,0 +1,43 @@
+{
+  "name": "Upload synthetic bytes",
+  "action": "POST",
+  "layer": "api",
+  "target": "api",
+  "status": "passed",
+  "durationMs": 12.0399000000034,
+  "actual": {
+    "request": {
+      "method": "POST",
+      "url": "http://127.0.0.1:49724/api/upload",
+      "headers": {},
+      "body": {
+        "name": "acceptance.txt",
+        "type": "text/plain",
+        "data": "U3ludGhldGljIE1DUCByb3VuZHRyaXAK"
+      }
+    },
+    "status": 201,
+    "headers": {
+      "x-content-type-options": "nosniff",
+      "referrer-policy": "no-referrer",
+      "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'",
+      "content-type": "application/json; charset=utf-8",
+      "cache-control": "no-store",
+      "date": "Wed, 04 Nov 2026 09:57:42 GMT",
+      "connection": "keep-alive",
+      "keep-alive": "timeout=5",
+      "transfer-encoding": "chunked"
+    },
+    "body": {
+      "id": "35abcad3-4a12-43a7-ac10-d03eabe1edca",
+      "name": "acceptance.txt",
+      "size": 24,
+      "type": "text/plain"
+    },
+    "durationMs": 10.69210000000021
+  },
+  "timings": {
+    "requestMs": 10.69210000000021
+  },
+  "evidence": "sup01-step-3-evidence.json"
+}

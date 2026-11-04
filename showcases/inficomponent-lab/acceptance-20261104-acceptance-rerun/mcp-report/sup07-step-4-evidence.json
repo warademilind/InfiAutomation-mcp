@@ -1,0 +1,16 @@
+{
+  "name": "Choose observed page search result",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 217.84210000000894,
+  "screenshot": "sup07-step-4.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 59.09470000000147
+  },
+  "evidence": "sup07-step-4-evidence.json"
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-title = Async & recovery",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 106.21809999999823,
+  "screenshot": "privacy-withheld.svg#sup08-step-3.png",
+  "actual": {
+    "actual": "Async & recovery",
+    "expected": "Async & recovery"
+  },
+  "timings": {
+    "actionMs": 10.165099999998347
+  },
+  "evidence": "sup08-step-3-evidence.json"
+}

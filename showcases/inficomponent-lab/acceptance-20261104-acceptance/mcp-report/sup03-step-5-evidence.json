@@ -1,0 +1,16 @@
+{
+  "name": "Tooltip visible",
+  "action": "assertVisible",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 142.82540000000154,
+  "screenshot": "privacy-withheld.svg#sup03-step-5.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 14.251100000008591
+  },
+  "evidence": "sup03-step-5-evidence.json"
+}

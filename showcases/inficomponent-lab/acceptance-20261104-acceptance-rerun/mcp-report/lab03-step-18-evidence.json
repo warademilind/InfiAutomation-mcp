@@ -1,0 +1,17 @@
+{
+  "name": "Expect 2 elements: select[name=\"skills\"] option:checked",
+  "action": "assertCount",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 137.28119999999763,
+  "screenshot": "lab03-step-18.png",
+  "actual": {
+    "actual": 2,
+    "expected": 2
+  },
+  "timings": {
+    "actionMs": 6.488900000000285
+  },
+  "evidence": "lab03-step-18-evidence.json"
+}

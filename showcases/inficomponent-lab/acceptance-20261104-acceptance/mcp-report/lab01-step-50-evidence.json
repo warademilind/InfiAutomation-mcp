@@ -1,0 +1,21 @@
+{
+  "name": "Navigate > Files & Media",
+  "action": "menu",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 118.79750000000058,
+  "screenshot": "privacy-withheld.svg#lab01-step-50.png",
+  "actual": {
+    "path": [
+      "Navigate",
+      "Files & Media"
+    ],
+    "source": "electron-native-menu",
+    "invocation": "MenuItem.click"
+  },
+  "timings": {
+    "actionMs": 9.554700000000594
+  },
+  "evidence": "lab01-step-50-evidence.json"
+}
