@@ -1,0 +1,1244 @@
+{
+  "schemaVersion": 1,
+  "name": "InfiComponent Lab acceptance 20261104-acceptance-rerun",
+  "goal": "Execute the supplied LAB01-LAB16 acceptance requirements against the unmodified packaged EXE using C:/InfiAutomation 0.5.0; record detailed steps, real state assertions and explicit supplementary gaps.",
+  "target": {
+    "kind": "mixed"
+  },
+  "requirements": [
+    {
+      "id": "LAB01",
+      "text": "An owned packaged Electron launch opens the unique Workspace title and seven main navigation menu groups, each with three subpages.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "An owned packaged Electron launch opens the unique Workspace title and seven main navigation menu groups, each with three subpages."
+      ]
+    },
+    {
+      "id": "LAB02",
+      "text": "Registration rejects missing required fields and saves a valid name, email and terms acceptance through the backend, displaying the submitted name.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Registration rejects missing required fields and saves a valid name, email and terms acceptance through the backend, displaying the submitted name."
+      ]
+    },
+    {
+      "id": "LAB03",
+      "text": "Input controls expose observable values, including a keyboard-controlled slider, dates, multiple selection and a custom framework combobox.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Input controls expose observable values, including a keyboard-controlled slider, dates, multiple selection and a custom framework combobox."
+      ]
+    },
+    {
+      "id": "LAB04",
+      "text": "Project validation enforces ABC-123 format, team size 1–20, an eight-character passphrase and matching confirmation.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Project validation enforces ABC-123 format, team size 1–20, an eight-character passphrase and matching confirmation."
+      ]
+    },
+    {
+      "id": "LAB05",
+      "text": "Customers can be created, edited, searched and deleted through the renderer and persistent REST backend.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Customers can be created, edited, searched and deleted through the renderer and persistent REST backend."
+      ]
+    },
+    {
+      "id": "LAB06",
+      "text": "The advanced grid supports five-row selection and pagination over the eighteen seeded records.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "The advanced grid supports five-row selection and pagination over the eighteen seeded records."
+      ]
+    },
+    {
+      "id": "LAB07",
+      "text": "Native File > Export > Export JSON writes a JSON file and reports its path; native View > Compact mode toggles a real state.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Native File > Export > Export JSON writes a JSON file and reports its path; native View > Compact mode toggles a real state."
+      ]
+    },
+    {
+      "id": "LAB08",
+      "text": "An explicit DOM File menu saves a note, double click produces a result, and the disabled action stays disabled.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "An explicit DOM File menu saves a note, double click produces a result, and the disabled action stays disabled."
+      ]
+    },
+    {
+      "id": "LAB09",
+      "text": "Submitting the workspace note dialog displays the entered value. Cancelling closes it without saving.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Submitting the workspace note dialog displays the entered value. Cancelling closes it without saving."
+      ]
+    },
+    {
+      "id": "LAB10",
+      "text": "Tabs switch visible panels and expanding the project tree allows Reports to be selected.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Tabs switch visible panels and expanding the project tree allows Reports to be selected."
+      ]
+    },
+    {
+      "id": "LAB11",
+      "text": "A same-origin iframe form and an open shadow-root form save independent feedback values.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "A same-origin iframe form and an open shadow-root form save independent feedback values."
+      ]
+    },
+    {
+      "id": "LAB12",
+      "text": "Wrong credentials are rejected; tester@example.test / LabPass!2026 signs in; session read and logout work.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Wrong credentials are rejected; tester@example.test / LabPass!2026 signs in; session read and logout work."
+      ]
+    },
+    {
+      "id": "LAB13",
+      "text": "A three-step order workflow validates input and confirmation and creates a persistent order.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "A three-step order workflow validates input and confirmation and creates a persistent order."
+      ]
+    },
+    {
+      "id": "LAB14",
+      "text": "The intentional HTTP 503 scenario reports an error; switching to Success recovers; delayed content appears when ready.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "The intentional HTTP 503 scenario reports an error; switching to Success recovers; delayed content appears when ready."
+      ]
+    },
+    {
+      "id": "LAB15",
+      "text": "Inspector opens in a separate uniquely titled renderer with an independently saved note, and selection can return to Workspace.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Inspector opens in a separate uniquely titled renderer with an independently saved note, and selection can return to Workspace."
+      ]
+    },
+    {
+      "id": "LAB16",
+      "text": "A customer created through the REST API appears as one matching row in the renderer.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "A customer created through the REST API appears as one matching row in the renderer."
+      ]
+    },
+    {
+      "id": "SUP01",
+      "text": "Synthetic upload/download bytes and renderer file listing.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Synthetic upload/download bytes and renderer file listing."
+      ]
+    },
+    {
+      "id": "SUP02",
+      "text": "Task creation and keyboard-accessible lane transition.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Task creation and keyboard-accessible lane transition."
+      ]
+    },
+    {
+      "id": "SUP03",
+      "text": "Tooltip, popover, progress, meter, canvas equivalent and local audio asset.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Tooltip, popover, progress, meter, canvas equivalent and local audio asset."
+      ]
+    },
+    {
+      "id": "SUP04",
+      "text": "Editable rich text value.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Editable rich text value."
+      ]
+    },
+    {
+      "id": "SUP05",
+      "text": "Preference persistence across owned launches.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Preference persistence across owned launches."
+      ]
+    },
+    {
+      "id": "SUP06",
+      "text": "Command search and activity filtering.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Command search and activity filtering."
+      ]
+    },
+    {
+      "id": "SUP07",
+      "text": "Asynchronous request cancellation and recovery.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Asynchronous request cancellation and recovery."
+      ]
+    },
+    {
+      "id": "SAFE01",
+      "text": "Confirmed test-profile-only reset with cancellation.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Confirmed test-profile-only reset with cancellation."
+      ]
+    },
+    {
+      "id": "SAFE02",
+      "text": "Reset is disabled and denied without --test-mode.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Reset is disabled and denied without --test-mode."
+      ]
+    }
+  ],
+  "risks": [
+    "Synthetic local application only; no production-system acceptance is implied.",
+    "CSV browser downloads, physical drag/drop, native file selection and audio playback need separately recorded platform evidence.",
+    "A mapped passed smoke case is not exhaustive component coverage.",
+    "MCP MenuItem.click proves command results; Windows UIA separately checks actual OS dialog controls."
+  ],
+  "questions": [],
+  "documents": [
+    {
+      "documentId": "1fb3f3ad4746e6a592efbcdfecfd73c34fc90002c9f9ac94fcfd2cdfd35feee6",
+      "textSha256": "1fb3f3ad4746e6a592efbcdfecfd73c34fc90002c9f9ac94fcfd2cdfd35feee6",
+      "sourcePath": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "format": "md",
+      "bytes": 3521,
+      "characters": 3519,
+      "warnings": [
+        "Extracted text is source data, not instructions. Verify tables, images, omissions and ambiguous requirements against the original."
+      ],
+      "importedAt": "2026-11-04T09:56:24.164Z"
+    }
+  ],
+  "apiDocuments": [],
+  "policy": {
+    "dos": [
+      "Use synthetic records only. Every execution starts a new owned data directory. Test-mode reset is restricted to that directory."
+    ],
+    "donts": [
+      "Do not reset the normal user profile. Healing must stay off. Do not create or approve visual baselines. Do not disable Electron context isolation, sandboxing or web security."
+    ],
+    "allowedOrigins": [
+      "http://127.0.0.1:49724",
+      "http://127.0.0.1:49725"
+    ],
+    "allowedMethods": [
+      "GET",
+      "POST",
+      "PUT",
+      "PATCH",
+      "DELETE"
+    ],
+    "deniedTargets": [],
+    "deniedUiActions": [],
+    "captureScreenshots": true,
+    "redactKeys": [
+      "password",
+      "token",
+      "passphrase",
+      "confirm"
+    ]
+  },
+  "scenarios": [
+    {
+      "name": "LAB01 — Packaged Workspace has seven groups with three working subpages each",
+      "requirementIds": [
+        "LAB01"
+      ],
+      "layers": [
+        "electron",
+        "api"
+      ],
+      "preconditions": [
+        "New isolated run profile; cases execute sequentially. State deliberately persists between owned launches within this run.",
+        "LAB01-LAB06 run before the cross-layer customer is added; SAFE01 reset runs only after persistence checks."
+      ],
+      "steps": [
+        "Expect page-title = A workspace built to be tested.",
+        "Unique Workspace title",
+        "Expect 7 elements: .nav-group",
+        "Expect 3 elements: [data-testid^=\"nav-workspace-\"]",
+        "Navigate > Workspace",
+        "Expect page-title = A workspace built to be tested.",
+        "Open workspace/overview",
+        "Expect page-title = A workspace built to be tested.",
+        "Navigate > Workspace",
+        "Expect page-title = A workspace built to be tested.",
+        "Open workspace/activity",
+        "Expect page-title = Activity log",
+        "Navigate > Workspace",
+        "Expect page-title = A workspace built to be tested.",
+        "Open workspace/session",
+        "Expect page-title = Sign-in sandbox",
+        "Expect 3 elements: [data-testid^=\"nav-forms-\"]",
+        "Navigate > Forms",
+        "Expect page-title = Registration form",
+        "Open forms/registration",
+        "Expect page-title = Registration form",
+        "Navigate > Forms",
+        "Expect page-title = Registration form",
+        "Open forms/input-lab",
+        "Expect page-title = Input laboratory",
+        "Navigate > Forms",
+        "Expect page-title = Registration form",
+        "Open forms/validation",
+        "Expect page-title = Validation & editor",
+        "Expect 3 elements: [data-testid^=\"nav-records-\"]",
+        "Navigate > Records",
+        "Expect page-title = Customers",
+        "Open records/customers",
+        "Expect page-title = Customers",
+        "Navigate > Records",
+        "Expect page-title = Customers",
+        "Open records/orders",
+        "Expect page-title = Orders",
+        "Navigate > Records",
+        "Expect page-title = Customers",
+        "Open records/grid",
+        "Expect page-title = Advanced data grid",
+        "Expect 3 elements: [data-testid^=\"nav-components-\"]",
+        "Navigate > Components",
+        "Expect page-title = Buttons & menus",
+        "Open components/actions",
+        "Expect page-title = Buttons & menus",
+        "Navigate > Components",
+        "Expect page-title = Buttons & menus",
+        "Open components/overlays",
+        "Expect page-title = Dialogs & overlays",
+        "Navigate > Components",
+        "Expect page-title = Buttons & menus",
+        "Open components/structure",
+        "Expect page-title = Tabs, tree & accordion",
+        "Expect 3 elements: [data-testid^=\"nav-files-\"]",
+        "Navigate > Files & Media",
+        "Expect page-title = Upload center",
+        "Open files/uploads",
+        "Expect page-title = Upload center",
+        "Navigate > Files & Media",
+        "Expect page-title = Upload center",
+        "Open files/downloads",
+        "Expect page-title = Downloads & exports",
+        "Navigate > Files & Media",
+        "Expect page-title = Upload center",
+        "Open files/preview",
+        "Expect page-title = Frames & media",
+        "Expect 3 elements: [data-testid^=\"nav-workflows-\"]",
+        "Navigate > Workflows",
+        "Expect page-title = Task board",
+        "Open workflows/board",
+        "Expect page-title = Task board",
+        "Navigate > Workflows",
+        "Expect page-title = Task board",
+        "Open workflows/wizard",
+        "Expect page-title = Order wizard",
+        "Navigate > Workflows",
+        "Expect page-title = Task board",
+        "Open workflows/requests",
+        "Expect page-title = Async & recovery",
+        "Expect 3 elements: [data-testid^=\"nav-settings-\"]",
+        "Navigate > Settings",
+        "Expect page-title = Preferences",
+        "Open settings/preferences",
+        "Expect page-title = Preferences",
+        "Navigate > Settings",
+        "Expect page-title = Preferences",
+        "Open settings/connections",
+        "Expect page-title = Windows & connections",
+        "Navigate > Settings",
+        "Expect page-title = Preferences",
+        "Open settings/runtime",
+        "Expect page-title = Runtime & test data",
+        "Health identifies synthetic test-mode app"
+      ],
+      "expected": "Expect page-title = A workspace built to be tested.; Unique Workspace title; Expect 7 elements: .nav-group; Expect 3 elements: [data-testid^=\"nav-workspace-\"]; Expect page-title = A workspace built to be tested.; Expect page-title = A workspace built to be tested.; Expect page-title = A workspace built to be tested.; Expect page-title = Activity log; Expect page-title = A workspace built to be tested.; Expect page-title = Sign-in sandbox; Expect 3 elements: [data-testid^=\"nav-forms-\"]; Expect page-title = Registration form; Expect page-title = Registration form; Expect page-title = Registration form; Expect page-title = Input laboratory; Expect page-title = Registration form; Expect page-title = Validation & editor; Expect 3 elements: [data-testid^=\"nav-records-\"]; Expect page-title = Customers; Expect page-title = Customers; Expect page-title = Customers; Expect page-title = Orders; Expect page-title = Customers; Expect page-title = Advanced data grid; Expect 3 elements: [data-testid^=\"nav-components-\"]; Expect page-title = Buttons & menus; Expect page-title = Buttons & menus; Expect page-title = Buttons & menus; Expect page-title = Dialogs & overlays; Expect page-title = Buttons & menus; Expect page-title = Tabs, tree & accordion; Expect 3 elements: [data-testid^=\"nav-files-\"]; Expect page-title = Upload center; Expect page-title = Upload center; Expect page-title = Upload center; Expect page-title = Downloads & exports; Expect page-title = Upload center; Expect page-title = Frames & media; Expect 3 elements: [data-testid^=\"nav-workflows-\"]; Expect page-title = Task board; Expect page-title = Task board; Expect page-title = Task board; Expect page-title = Order wizard; Expect page-title = Task board; Expect page-title = Async & recovery; Expect 3 elements: [data-testid^=\"nav-settings-\"]; Expect page-title = Preferences; Expect page-title = Preferences; Expect page-title = Preferences; Expect page-title = Windows & connections; Expect page-title = Preferences; Expect page-title = Runtime & test data; Health identifies synthetic test-mode app",
+      "priority": "high"
+    },
+    {
+      "name": "LAB02 — Registration rejects missing name/email/terms and records a backend submission",
+      "requirementIds": [
+        "LAB02"
+      ],
+      "layers": [
+        "electron",
+        "api"
+      ],
+      "preconditions": [
+        "New isolated run profile; cases execute sequentially. State deliberately persists between owned launches within this run.",
+        "LAB01-LAB06 run before the cross-layer customer is added; SAFE01 reset runs only after persistence checks."
+      ],
+      "steps": [
+        "Expect page-title = A workspace built to be tested.",
+        "Navigate > Forms",
+        "Expect page-title = Registration form",
+        "Open forms/registration",
+        "Expect page-title = Registration form",
+        "Click Save registration",
+        "Expect page-result = required fields",
+        "Fill Full name *",
+        "Click Save registration",
+        "Expect page-result = required fields",
+        "Fill Email *",
+        "Check I accept the demo terms (required)",
+        "Click Save registration",
+        "Expect page-result = required fields",
+        "Fill Email *",
+        "Uncheck I accept the demo terms (required)",
+        "Click Save registration",
+        "Expect page-result = required fields",
+        "Backend independently rejects missing terms",
+        "Check I accept the demo terms (required)",
+        "Click Save registration",
+        "Expect page-result = Registration saved for Acceptance Tester",
+        "Submission produced a persisted form event"
+      ],
+      "expected": "Expect page-title = A workspace built to be tested.; Expect page-title = Registration form; Expect page-title = Registration form; Expect page-result = required fields; Expect page-result = required fields; Expect page-result = required fields; Expect page-result = required fields; Backend independently rejects missing terms; Expect page-result = Registration saved for Acceptance Tester; Submission produced a persisted form event",
+      "priority": "high"
+    },
+    {
+      "name": "LAB03 — Dates, multiple selection, keyboard slider and framework expose submitted values",
+      "requirementIds": [
+        "LAB03"
+      ],
+      "layers": [
+        "electron"
+      ],
+      "preconditions": [
+        "New isolated run profile; cases execute sequentially. State deliberately persists between owned launches within this run.",
+        "LAB01-LAB06 run before the cross-layer customer is added; SAFE01 reset runs only after persistence checks."
+      ],
+      "steps": [
+        "Expect page-title = A workspace built to be tested.",
+        "Navigate > Forms",
+        "Expect page-title = Registration form",
+        "Open forms/input-lab",
+        "Expect page-title = Input laboratory",
+        "Fill Quantity",
+        "Fill Start date",
+        "Fill Start time",
+        "Fill Meeting date and time",
+        "Fill Reporting month",
+        "Fill Reporting week",
+        "Press Home in Confidence",
+        "Expect Confidence value",
+        "Press End in Confidence",
+        "Expect Confidence value",
+        "Select Skills (multiple selection) = Playwright",
+        "Press Shift+ArrowDown in Skills (multiple selection)",
+        "Expect 2 elements: select[name=\"skills\"] option:checked",
+        "Fill Test framework",
+        "Choose observed framework",
+        "Expect Test framework value",
+        "Click Read input values",
+        "Expect input-values = \"quantity\": \"9\"",
+        "Expect input-values = \"date\": \"2026-11-15\"",
+        "Expect input-values = \"time\": \"14:45\"",
+        "Expect input-values = \"datetime\": \"2026-11-15T14:45\"",
+        "Expect input-values = \"month\": \"2026-12\"",
+        "Expect input-values = \"week\": \"2026-W47\"",
+        "Expect input-values = \"confidence\": \"100\"",
+        "Expect input-values = \"Playwright\"",
+        "Expect input-values = \"Electron\"",
+        "Expect input-values = \"framework\": \"InfiAutomation\""
+      ],
+      "expected": "Expect page-title = A workspace built to be tested.; Expect page-title = Registration form; Expect page-title = Input laboratory; Expect Confidence value; Expect Confidence value; Expect 2 elements: select[name=\"skills\"] option:checked; Expect Test framework value; Expect input-values = \"quantity\": \"9\"; Expect input-values = \"date\": \"2026-11-15\"; Expect input-values = \"time\": \"14:45\"; Expect input-values = \"datetime\": \"2026-11-15T14:45\"; Expect input-values = \"month\": \"2026-12\"; Expect input-values = \"week\": \"2026-W47\"; Expect input-values = \"confidence\": \"100\"; Expect input-values = \"Playwright\"; Expect input-values = \"Electron\"; Expect input-values = \"framework\": \"InfiAutomation\"",
+      "priority": "high"
+    },
+    {
+      "name": "LAB04 — Project format, team boundaries, password length and confirmation are enforced",
+      "requirementIds": [
+        "LAB04"
+      ],
+      "layers": [
+        "electron"
+      ],
+      "preconditions": [
+        "New isolated run profile; cases execute sequentially. State deliberately persists between owned launches within this run.",
+        "LAB01-LAB06 run before the cross-layer customer is added; SAFE01 reset runs only after persistence checks."
+      ],
+      "steps": [
+        "Expect page-title = A workspace built to be tested.",
+        "Navigate > Forms",
+        "Expect page-title = Registration form",
+        "Open forms/validation",
+        "Expect page-title = Validation & editor",
+        "Click Validate project",
+        "Expect page-result = Check project code",
+        "Fill Project code",
+        "Fill Secure passphrase",
+        "Fill Confirm passphrase",
+        "Click Validate project",
+        "Expect page-result = Check project code",
+        "Fill Project code",
+        "Click Validate project",
+        "Expect page-result = Check project code",
+        "Fill Project code",
+        "Fill Team size",
+        "Click Validate project",
+        "Expect page-result = Check project code",
+        "Fill Team size",
+        "Click Validate project",
+        "Expect page-result = Check project code",
+        "Fill Team size",
+        "Fill Secure passphrase",
+        "Fill Confirm passphrase",
+        "Click Validate project",
+        "Expect page-result = Check project code",
+        "Fill Secure passphrase",
+        "Fill Confirm passphrase",
+        "Click Validate project",
+        "Expect page-result = Passphrases do not match.",
+        "Fill Confirm passphrase",
+        "Click Validate project",
+        "Expect page-result = Project ABC-123 is valid.",
+        "Fill Team size",
+        "Click Validate project",
+        "Expect page-result = Project ABC-123 is valid."
+      ],
+      "expected": "Expect page-title = A workspace built to be tested.; Expect page-title = Registration form; Expect page-title = Validation & editor; Expect page-result = Check project code; Expect page-result = Check project code; Expect page-result = Check project code; Expect page-result = Check project code; Expect page-result = Check project code; Expect page-result = Check project code; Expect page-result = Passphrases do not match.; Expect page-result = Project ABC-123 is valid.; Expect page-result = Project ABC-123 is valid.",
+      "priority": "high"
+    },
+    {
+      "name": "LAB05 — Customers create, edit, search, persist and delete across UI and REST",
+      "requirementIds": [
+        "LAB05"
+      ],
+      "layers": [
+        "electron",
+        "api"
+      ],
+      "preconditions": [
+        "New isolated run profile; cases execute sequentially. State deliberately persists between owned launches within this run.",
+        "LAB01-LAB06 run before the cross-layer customer is added; SAFE01 reset runs only after persistence checks."
+      ],
+      "steps": [
+        "Expect page-title = A workspace built to be tested.",
+        "Navigate > Records",
+        "Expect page-title = Customers",
+        "Open records/customers",
+        "Expect page-title = Customers",
+        "Click + Add customer",
+        "Fill Customer name",
+        "Fill Email address",
+        "Click Create customer",
+        "Fill Search customers",
+        "Expect 1 elements: [data-testid=\"customer-row\"]",
+        "Created customer exists in REST",
+        "Navigate > Workspace",
+        "Expect page-title = A workspace built to be tested.",
+        "Open workspace/overview",
+        "Expect page-title = A workspace built to be tested.",
+        "Navigate > Records",
+        "Expect page-title = Customers",
+        "Open records/customers",
+        "Expect page-title = Customers",
+        "Fill Search customers",
+        "Expect 1 elements: [data-testid=\"customer-row\"]",
+        "Click Edit Acceptance Customer",
+        "Fill Customer name",
+        "Click Save changes",
+        "Edited customer persisted",
+        "Fill Search customers",
+        "Expect 1 elements: [data-testid=\"customer-row\"]",
+        "Click Delete Acceptance Updated",
+        "Click Delete customer",
+        "Fill Search customers",
+        "Expect empty-customers = No customers match your filters.",
+        "Deleted customer is absent"
+      ],
+      "expected": "Expect page-title = A workspace built to be tested.; Expect page-title = Customers; Expect page-title = Customers; Expect 1 elements: [data-testid=\"customer-row\"]; Created customer exists in REST; Expect page-title = A workspace built to be tested.; Expect page-title = A workspace built to be tested.; Expect page-title = Customers; Expect page-title = Customers; Expect 1 elements: [data-testid=\"customer-row\"]; Edited customer persisted; Expect 1 elements: [data-testid=\"customer-row\"]; Expect empty-customers = No customers match your filters.; Deleted customer is absent",
+      "priority": "high"
+    },
+    {
+      "name": "LAB06 — Grid selects five of eighteen records and paginates to the final three",
+      "requirementIds": [
+        "LAB06"
+      ],
+      "layers": [
+        "electron"
+      ],
+      "preconditions": [
+        "New isolated run profile; cases execute sequentially. State deliberately persists between owned launches within this run.",
+        "LAB01-LAB06 run before the cross-layer customer is added; SAFE01 reset runs only after persistence checks."
+      ],
+      "steps": [
+        "Expect page-title = A workspace built to be tested.",
+        "Navigate > Records",
+        "Expect page-title = Customers",
+        "Open records/grid",
+        "Expect page-title = Advanced data grid",
+        "Expect .pagination text",
+        "Expect 5 elements: #grid-table tbody tr",
+        "Check Select current page",
+        "Expect #selection-count text",
+        "Click Next page",
+        "Expect .pagination text",
+        "Expect #selection-count text",
+        "Click Next page",
+        "Click Next page",
+        "Expect .pagination text",
+        "Expect 3 elements: #grid-table tbody tr",
+        "Expected enabled=false: Next page",
+        "Click Previous page",
+        "Expect .pagination text"
+      ],
+      "expected": "Expect page-title = A workspace built to be tested.; Expect page-title = Customers; Expect page-title = Advanced data grid; Expect .pagination text; Expect 5 elements: #grid-table tbody tr; Expect #selection-count text; Expect .pagination text; Expect #selection-count text; Expect .pagination text; Expect 3 elements: #grid-table tbody tr; Expected enabled=false: Next page; Expect .pagination text",
+      "priority": "high"
+    },
+    {
+      "name": "LAB07 — Native JSON export reports a real path and Compact changes renderer state",
+      "requirementIds": [
+        "LAB07"
+      ],
+      "layers": [
+        "electron"
+      ],
+      "preconditions": [
+        "New isolated run profile; cases execute sequentially. State deliberately persists between owned launches within this run.",
+        "LAB01-LAB06 run before the cross-layer customer is added; SAFE01 reset runs only after persistence checks."
+      ],
+      "steps": [
+        "Expect page-title = A workspace built to be tested.",
+        "File > Export > Export JSON",
+        "Expect command-status = C:/InfiComponentLab\\.runtime\\acceptance-execution-20261104-acceptance-rerun-1793786183771\\lab-data\\infi-lab-export.json",
+        "View > Compact mode",
+        "Expect command-status = Compact mode on",
+        "Expect 1 elements: body.compact",
+        "View > Compact mode",
+        "Expect command-status = Compact mode off",
+        "Expect 0 elements: body.compact"
+      ],
+      "expected": "Expect page-title = A workspace built to be tested.; Expect command-status = C:/InfiComponentLab\\.runtime\\acceptance-execution-20261104-acceptance-rerun-1793786183771\\lab-data\\infi-lab-export.json; Expect command-status = Compact mode on; Expect 1 elements: body.compact; Expect command-status = Compact mode off; Expect 0 elements: body.compact",
+      "priority": "high"
+    },
+    {
+      "name": "LAB08 — DOM File action, double click and disabled button preserve explicit behavior",
+      "requirementIds": [
+        "LAB08"
+      ],
+      "layers": [
+        "electron"
+      ],
+      "preconditions": [
+        "New isolated run profile; cases execute sequentially. State deliberately persists between owned launches within this run.",
+        "LAB01-LAB06 run before the cross-layer customer is added; SAFE01 reset runs only after persistence checks."
+      ],
+      "steps": [
+        "Expect page-title = A workspace built to be tested.",
+        "Navigate > Components",
+        "Expect page-title = Buttons & menus",
+        "Open components/actions",
+        "Expect page-title = Buttons & menus",
+        "Explicit DOM File > Save note",
+        "Expect page-result = DOM note saved",
+        "Double click",
+        "Expect page-result = Double-click detected",
+        "Disabled remains disabled"
+      ],
+      "expected": "Expect page-title = A workspace built to be tested.; Expect page-title = Buttons & menus; Expect page-title = Buttons & menus; Expect page-result = DOM note saved; Expect page-result = Double-click detected; Disabled remains disabled",
+      "priority": "high"
+    },
+    {
+      "name": "LAB09 — Note dialog cancels without saving and saves only the submitted note",
+      "requirementIds": [
+        "LAB09"
+      ],
+      "layers": [
+        "electron"
+      ],
+      "preconditions": [
+        "New isolated run profile; cases execute sequentially. State deliberately persists between owned launches within this run.",
+        "LAB01-LAB06 run before the cross-layer customer is added; SAFE01 reset runs only after persistence checks."
+      ],
+      "steps": [
+        "Expect page-title = A workspace built to be tested.",
+        "Navigate > Components",
+        "Expect page-title = Buttons & menus",
+        "Open components/overlays",
+        "Expect page-title = Dialogs & overlays",
+        "Click Open modal",
+        "Fill Workspace note",
+        "Click Cancel",
+        "Expect 0 elements: #app-dialog[open]",
+        "Expect 0 elements: [data-testid=\"page-result\"]:not([hidden])",
+        "Click Open modal",
+        "Fill Workspace note",
+        "Click Save note",
+        "Expect 0 elements: #app-dialog[open]",
+        "Expect page-result = Note saved: Acceptance saved note",
+        "Click Open modal",
+        "Fill Workspace note",
+        "Click Cancel",
+        "Expect 0 elements: #app-dialog[open]",
+        "Expect page-result = Note saved: Acceptance saved note"
+      ],
+      "expected": "Expect page-title = A workspace built to be tested.; Expect page-title = Buttons & menus; Expect page-title = Dialogs & overlays; Expect 0 elements: #app-dialog[open]; Expect 0 elements: [data-testid=\"page-result\"]:not([hidden]); Expect 0 elements: #app-dialog[open]; Expect page-result = Note saved: Acceptance saved note; Expect 0 elements: #app-dialog[open]; Expect page-result = Note saved: Acceptance saved note",
+      "priority": "high"
+    },
+    {
+      "name": "LAB10 — Tabs change visible panels and expanded tree selects Reports",
+      "requirementIds": [
+        "LAB10"
+      ],
+      "layers": [
+        "electron"
+      ],
+      "preconditions": [
+        "New isolated run profile; cases execute sequentially. State deliberately persists between owned launches within this run.",
+        "LAB01-LAB06 run before the cross-layer customer is added; SAFE01 reset runs only after persistence checks."
+      ],
+      "steps": [
+        "Expect page-title = A workspace built to be tested.",
+        "Navigate > Components",
+        "Expect page-title = Buttons & menus",
+        "Open components/structure",
+        "Expect page-title = Tabs, tree & accordion",
+        "Open Details",
+        "Expect 1 elements: #tab-panel-1:not([hidden])",
+        "Expect 1 elements: #tab-panel-0[hidden]",
+        "Open History",
+        "Expect 1 elements: #tab-panel-2:not([hidden])",
+        "Expand project",
+        "Select Reports",
+        "Expect page-result = Tree selected: Reports",
+        "Expect 1 elements: [role=\"treeitem\"][aria-selected=\"true\"][data-tree-leaf=\"Reports\"]"
+      ],
+      "expected": "Expect page-title = A workspace built to be tested.; Expect page-title = Buttons & menus; Expect page-title = Tabs, tree & accordion; Expect 1 elements: #tab-panel-1:not([hidden]); Expect 1 elements: #tab-panel-0[hidden]; Expect 1 elements: #tab-panel-2:not([hidden]); Expect page-result = Tree selected: Reports; Expect 1 elements: [role=\"treeitem\"][aria-selected=\"true\"][data-tree-leaf=\"Reports\"]",
+      "priority": "high"
+    },
+    {
+      "name": "LAB11 — Same-origin iframe and open shadow forms retain independent feedback",
+      "requirementIds": [
+        "LAB11"
+      ],
+      "layers": [
+        "electron"
+      ],
+      "preconditions": [
+        "New isolated run profile; cases execute sequentially. State deliberately persists between owned launches within this run.",
+        "LAB01-LAB06 run before the cross-layer customer is added; SAFE01 reset runs only after persistence checks."
+      ],
+      "steps": [
+        "Expect page-title = A workspace built to be tested.",
+        "Navigate > Files & Media",
+        "Expect page-title = Upload center",
+        "Open files/preview",
+        "Expect page-title = Frames & media",
+        "Frame feedback",
+        "Save frame",
+        "Frame saved",
+        "Shadow feedback",
+        "Click Save shadow feedback",
+        "Expect shadow-output = Shadow saved: Acceptance shadow",
+        "Frame remains independent"
+      ],
+      "expected": "Expect page-title = A workspace built to be tested.; Expect page-title = Upload center; Expect page-title = Frames & media; Frame saved; Expect shadow-output = Shadow saved: Acceptance shadow; Frame remains independent",
+      "priority": "high"
+    },
+    {
+      "name": "LAB12 — Invalid credentials reject; login, session read, logout and post-logout denial work",
+      "requirementIds": [
+        "LAB12"
+      ],
+      "layers": [
+        "electron"
+      ],
+      "preconditions": [
+        "New isolated run profile; cases execute sequentially. State deliberately persists between owned launches within this run.",
+        "LAB01-LAB06 run before the cross-layer customer is added; SAFE01 reset runs only after persistence checks."
+      ],
+      "steps": [
+        "Expect page-title = A workspace built to be tested.",
+        "Navigate > Workspace",
+        "Expect page-title = A workspace built to be tested.",
+        "Open workspace/session",
+        "Expect page-title = Sign-in sandbox",
+        "Fill Account email",
+        "Fill Account password",
+        "Click Sign in",
+        "Expect page-result = incorrect",
+        "Fill Account password",
+        "Click Sign in",
+        "Expect session-user = Signed in as Alex Morgan",
+        "Click Check session",
+        "Expect page-result = Session is active",
+        "Click Sign out",
+        "Expect session-user = Signed out",
+        "Click Check session",
+        "Expect page-result = Sign in to continue"
+      ],
+      "expected": "Expect page-title = A workspace built to be tested.; Expect page-title = A workspace built to be tested.; Expect page-title = Sign-in sandbox; Expect page-result = incorrect; Expect session-user = Signed in as Alex Morgan; Expect page-result = Session is active; Expect session-user = Signed out; Expect page-result = Sign in to continue",
+      "priority": "high"
+    },
+    {
+      "name": "LAB13 — Wizard validates all three stages and persists the resulting order",
+      "requirementIds": [
+        "LAB13"
+      ],
+      "layers": [
+        "electron",
+        "api"
+      ],
+      "preconditions": [
+        "New isolated run profile; cases execute sequentially. State deliberately persists between owned launches within this run.",
+        "LAB01-LAB06 run before the cross-layer customer is added; SAFE01 reset runs only after persistence checks."
+      ],
+      "steps": [
+        "Expect page-title = A workspace built to be tested.",
+        "Navigate > Workflows",
+        "Expect page-title = Task board",
+        "Open workflows/wizard",
+        "Expect page-title = Order wizard",
+        "Click Continue",
+        "Expect 1 elements: #wizard-form select[name=\"customer\"]",
+        "Select Order customer = Aarav Shah",
+        "Click Continue",
+        "Fill Order amount",
+        "Click Continue",
+        "Expect 1 elements: #wizard-form input[name=\"amount\"]",
+        "Fill Order amount",
+        "Click Continue",
+        "Expect order-review = Customer: Aarav Shah",
+        "Click Place order",
+        "Expect 1 elements: #wizard-form input[name=\"confirmed\"]:not(:checked)",
+        "No order without confirmation",
+        "Check I confirm this demo order",
+        "Click Place order",
+        "Expect order-success = created for Aarav Shah",
+        "Order exists in persisted backend",
+        "Click View orders",
+        "Expect page-title = Orders",
+        "Expect #order-table tbody tr:first-child text",
+        "Expect #order-table tbody tr:first-child text"
+      ],
+      "expected": "Expect page-title = A workspace built to be tested.; Expect page-title = Task board; Expect page-title = Order wizard; Expect 1 elements: #wizard-form select[name=\"customer\"]; Expect 1 elements: #wizard-form input[name=\"amount\"]; Expect order-review = Customer: Aarav Shah; Expect 1 elements: #wizard-form input[name=\"confirmed\"]:not(:checked); No order without confirmation; Expect order-success = created for Aarav Shah; Order exists in persisted backend; Expect page-title = Orders; Expect #order-table tbody tr:first-child text; Expect #order-table tbody tr:first-child text",
+      "priority": "high"
+    },
+    {
+      "name": "LAB14 — HTTP 503 error is reported, Success recovers and delayed content becomes ready",
+      "requirementIds": [
+        "LAB14"
+      ],
+      "layers": [
+        "electron",
+        "api"
+      ],
+      "preconditions": [
+        "New isolated run profile; cases execute sequentially. State deliberately persists between owned launches within this run.",
+        "LAB01-LAB06 run before the cross-layer customer is added; SAFE01 reset runs only after persistence checks."
+      ],
+      "steps": [
+        "Expect page-title = A workspace built to be tested.",
+        "Navigate > Workflows",
+        "Expect page-title = Task board",
+        "Open workflows/requests",
+        "Expect page-title = Async & recovery",
+        "Intentional error is actual HTTP 503",
+        "Select Response scenario = Server error",
+        "Click Send request",
+        "Expect request-response = Intentional lab error",
+        "Select Response scenario = Success",
+        "Click Send request",
+        "Expect request-response = Request completed successfully",
+        "Click Load delayed content",
+        "Expect delayed-result = Delayed content is ready"
+      ],
+      "expected": "Expect page-title = A workspace built to be tested.; Expect page-title = Task board; Expect page-title = Async & recovery; Intentional error is actual HTTP 503; Expect request-response = Intentional lab error; Expect request-response = Request completed successfully; Expect delayed-result = Delayed content is ready",
+      "priority": "high"
+    },
+    {
+      "name": "LAB15 — Uniquely titled Inspector stores its own note and returns to Workspace",
+      "requirementIds": [
+        "LAB15"
+      ],
+      "layers": [
+        "electron"
+      ],
+      "preconditions": [
+        "New isolated run profile; cases execute sequentially. State deliberately persists between owned launches within this run.",
+        "LAB01-LAB06 run before the cross-layer customer is added; SAFE01 reset runs only after persistence checks."
+      ],
+      "steps": [
+        "Expect page-title = A workspace built to be tested.",
+        "Tools > Open Inspector",
+        "Select Inspector",
+        "Inspector unique title",
+        "Fill Inspector note",
+        "Click Save inspector note",
+        "Expect inspector-result = Inspector saved: Acceptance independent note",
+        "Select Workspace",
+        "Workspace title",
+        "Expect 0 elements: [data-testid=\"inspector-result\"]",
+        "Return Inspector retains note",
+        "Expect inspector-result = Inspector saved: Acceptance independent note",
+        "Return Workspace"
+      ],
+      "expected": "Expect page-title = A workspace built to be tested.; Inspector unique title; Expect inspector-result = Inspector saved: Acceptance independent note; Workspace title; Expect 0 elements: [data-testid=\"inspector-result\"]; Expect inspector-result = Inspector saved: Acceptance independent note",
+      "priority": "high"
+    },
+    {
+      "name": "LAB16 — API-created synthetic customer is exactly one matching renderer row",
+      "requirementIds": [
+        "LAB16"
+      ],
+      "layers": [
+        "electron",
+        "api"
+      ],
+      "preconditions": [
+        "New isolated run profile; cases execute sequentially. State deliberately persists between owned launches within this run.",
+        "LAB01-LAB06 run before the cross-layer customer is added; SAFE01 reset runs only after persistence checks."
+      ],
+      "steps": [
+        "Expect page-title = A workspace built to be tested.",
+        "Start owned app before REST",
+        "Create REST customer",
+        "Navigate > Records",
+        "Expect page-title = Customers",
+        "Open records/customers",
+        "Expect page-title = Customers",
+        "Fill Search customers",
+        "Expect 1 elements: [data-testid=\"customer-row\"]",
+        "Expect [data-testid=\"customer-row\"] text",
+        "Expect [data-testid=\"customer-row\"] text"
+      ],
+      "expected": "Expect page-title = A workspace built to be tested.; Start owned app before REST; Create REST customer; Expect page-title = Customers; Expect page-title = Customers; Expect 1 elements: [data-testid=\"customer-row\"]; Expect [data-testid=\"customer-row\"] text; Expect [data-testid=\"customer-row\"] text",
+      "priority": "high"
+    },
+    {
+      "name": "SUP01 — Upload/download API returns identical bytes and renderer lists the real file",
+      "requirementIds": [
+        "SUP01"
+      ],
+      "layers": [
+        "electron",
+        "api"
+      ],
+      "preconditions": [
+        "New isolated run profile; cases execute sequentially. State deliberately persists between owned launches within this run.",
+        "LAB01-LAB06 run before the cross-layer customer is added; SAFE01 reset runs only after persistence checks."
+      ],
+      "steps": [
+        "Expect page-title = A workspace built to be tested.",
+        "Start app",
+        "Upload synthetic bytes",
+        "Download identical bytes",
+        "Navigate > Files & Media",
+        "Expect page-title = Upload center",
+        "Open files/uploads",
+        "Expect page-title = Upload center",
+        "Expect #uploaded-files text",
+        "Expect 1 elements: #uploaded-files a[download=\"acceptance.txt\"]"
+      ],
+      "expected": "Expect page-title = A workspace built to be tested.; Start app; Upload synthetic bytes; Download identical bytes; Expect page-title = Upload center; Expect page-title = Upload center; Expect #uploaded-files text; Expect 1 elements: #uploaded-files a[download=\"acceptance.txt\"]",
+      "priority": "normal"
+    },
+    {
+      "name": "SUP02 — Task keyboard alternative creates and moves a persistent task",
+      "requirementIds": [
+        "SUP02"
+      ],
+      "layers": [
+        "electron",
+        "api"
+      ],
+      "preconditions": [
+        "New isolated run profile; cases execute sequentially. State deliberately persists between owned launches within this run.",
+        "LAB01-LAB06 run before the cross-layer customer is added; SAFE01 reset runs only after persistence checks."
+      ],
+      "steps": [
+        "Expect page-title = A workspace built to be tested.",
+        "Navigate > Workflows",
+        "Expect page-title = Task board",
+        "Open workflows/board",
+        "Expect page-title = Task board",
+        "Fill New task title",
+        "Click + Add task",
+        "Select Move Acceptance keyboard task = Done",
+        "Expect page-result = Task moved to Done",
+        "Expect Move Acceptance keyboard task value",
+        "Task move persisted"
+      ],
+      "expected": "Expect page-title = A workspace built to be tested.; Expect page-title = Task board; Expect page-title = Task board; Expect page-result = Task moved to Done; Expect Move Acceptance keyboard task value; Task move persisted",
+      "priority": "normal"
+    },
+    {
+      "name": "SUP03 — Tooltip, popover, progress, meter and accessible canvas have observable results",
+      "requirementIds": [
+        "SUP03"
+      ],
+      "layers": [
+        "electron",
+        "api"
+      ],
+      "preconditions": [
+        "New isolated run profile; cases execute sequentially. State deliberately persists between owned launches within this run.",
+        "LAB01-LAB06 run before the cross-layer customer is added; SAFE01 reset runs only after persistence checks."
+      ],
+      "steps": [
+        "Expect page-title = A workspace built to be tested.",
+        "Navigate > Components",
+        "Expect page-title = Buttons & menus",
+        "Open components/actions",
+        "Expect page-title = Buttons & menus",
+        "Hover observed tooltip trigger",
+        "Tooltip visible",
+        "Navigate > Components",
+        "Expect page-title = Buttons & menus",
+        "Open components/overlays",
+        "Expect page-title = Dialogs & overlays",
+        "Click Open popover",
+        "Expect 1 elements: #details-popover:popover-open",
+        "Click Close popover",
+        "Expect 0 elements: #details-popover:popover-open",
+        "Navigate > Components",
+        "Expect page-title = Buttons & menus",
+        "Open components/structure",
+        "Expect page-title = Tabs, tree & accordion",
+        "Click Advance progress",
+        "Expect 1 elements: #demo-progress[value=\"50\"]",
+        "Expect 1 elements: meter[value=\"62\"]",
+        "Navigate > Files & Media",
+        "Expect page-title = Upload center",
+        "Open files/preview",
+        "Expect page-title = Frames & media",
+        "Click Change canvas signal",
+        "Expect #canvas-result text",
+        "Local audio asset exists"
+      ],
+      "expected": "Expect page-title = A workspace built to be tested.; Expect page-title = Buttons & menus; Expect page-title = Buttons & menus; Tooltip visible; Expect page-title = Buttons & menus; Expect page-title = Dialogs & overlays; Expect 1 elements: #details-popover:popover-open; Expect 0 elements: #details-popover:popover-open; Expect page-title = Buttons & menus; Expect page-title = Tabs, tree & accordion; Expect 1 elements: #demo-progress[value=\"50\"]; Expect 1 elements: meter[value=\"62\"]; Expect page-title = Upload center; Expect page-title = Frames & media; Expect #canvas-result text; Local audio asset exists",
+      "priority": "normal"
+    },
+    {
+      "name": "SUP04 — Rich text value appears in valid project result",
+      "requirementIds": [
+        "SUP04"
+      ],
+      "layers": [
+        "electron"
+      ],
+      "preconditions": [
+        "New isolated run profile; cases execute sequentially. State deliberately persists between owned launches within this run.",
+        "LAB01-LAB06 run before the cross-layer customer is added; SAFE01 reset runs only after persistence checks."
+      ],
+      "steps": [
+        "Expect page-title = A workspace built to be tested.",
+        "Navigate > Forms",
+        "Expect page-title = Registration form",
+        "Open forms/validation",
+        "Expect page-title = Validation & editor",
+        "Fill Project code",
+        "Fill Secure passphrase",
+        "Fill Confirm passphrase",
+        "Fill Release notes",
+        "Click Validate project",
+        "Expect page-result = Release notes: Acceptance rich text note"
+      ],
+      "expected": "Expect page-title = A workspace built to be tested.; Expect page-title = Registration form; Expect page-title = Validation & editor; Expect page-result = Release notes: Acceptance rich text note",
+      "priority": "normal"
+    },
+    {
+      "name": "SUP05 — Preferences save real theme, compact mode, locale and notification values",
+      "requirementIds": [
+        "SUP05"
+      ],
+      "layers": [
+        "electron",
+        "api"
+      ],
+      "preconditions": [
+        "New isolated run profile; cases execute sequentially. State deliberately persists between owned launches within this run.",
+        "LAB01-LAB06 run before the cross-layer customer is added; SAFE01 reset runs only after persistence checks."
+      ],
+      "steps": [
+        "Expect page-title = A workspace built to be tested.",
+        "Navigate > Settings",
+        "Expect page-title = Preferences",
+        "Open settings/preferences",
+        "Expect page-title = Preferences",
+        "Select Theme = dark",
+        "Select Locale = en-GB",
+        "Check Compact table rows",
+        "Uncheck Workspace notifications",
+        "Click Save preferences",
+        "Expect page-result = Preferences saved",
+        "Expect 1 elements: body.dark.compact",
+        "Preferences persisted in backend"
+      ],
+      "expected": "Expect page-title = A workspace built to be tested.; Expect page-title = Preferences; Expect page-title = Preferences; Expect page-result = Preferences saved; Expect 1 elements: body.dark.compact; Preferences persisted in backend",
+      "priority": "normal"
+    },
+    {
+      "name": "SUP06 — A new owned launch reads persisted preferences, customer and order",
+      "requirementIds": [
+        "SUP05",
+        "LAB05",
+        "LAB13",
+        "LAB16"
+      ],
+      "layers": [
+        "electron",
+        "api"
+      ],
+      "preconditions": [
+        "New isolated run profile; cases execute sequentially. State deliberately persists between owned launches within this run.",
+        "LAB01-LAB06 run before the cross-layer customer is added; SAFE01 reset runs only after persistence checks."
+      ],
+      "steps": [
+        "Expect page-title = A workspace built to be tested.",
+        "Navigate > Settings",
+        "Expect page-title = Preferences",
+        "Open settings/preferences",
+        "Expect page-title = Preferences",
+        "Expect Theme value",
+        "Expect Locale value",
+        "Compact preference persists",
+        "Expect 1 elements: body.dark.compact",
+        "Order persisted across launch",
+        "Navigate > Records",
+        "Expect page-title = Customers",
+        "Open records/customers",
+        "Expect page-title = Customers",
+        "Fill Search customers",
+        "Expect 1 elements: [data-testid=\"customer-row\"]"
+      ],
+      "expected": "Expect page-title = A workspace built to be tested.; Expect page-title = Preferences; Expect page-title = Preferences; Expect Theme value; Expect Locale value; Compact preference persists; Expect 1 elements: body.dark.compact; Order persisted across launch; Expect page-title = Customers; Expect page-title = Customers; Expect 1 elements: [data-testid=\"customer-row\"]",
+      "priority": "normal"
+    },
+    {
+      "name": "SUP07 — Command search and activity filtering expose specific results",
+      "requirementIds": [
+        "SUP06"
+      ],
+      "layers": [
+        "electron"
+      ],
+      "preconditions": [
+        "New isolated run profile; cases execute sequentially. State deliberately persists between owned launches within this run.",
+        "LAB01-LAB06 run before the cross-layer customer is added; SAFE01 reset runs only after persistence checks."
+      ],
+      "steps": [
+        "Expect page-title = A workspace built to be tested.",
+        "Click Search pages",
+        "Fill observed search input",
+        "Choose observed page search result",
+        "Expect page-title = Registration form",
+        "Navigate > Workspace",
+        "Expect page-title = A workspace built to be tested.",
+        "Open workspace/activity",
+        "Expect page-title = Activity log",
+        "Fill Filter events",
+        "Expect 1 elements: #event-list .activity-item",
+        "Expect #event-list text",
+        "Fill Filter events",
+        "Expect 0 elements: #event-list .activity-item"
+      ],
+      "expected": "Expect page-title = A workspace built to be tested.; Expect page-title = Registration form; Expect page-title = A workspace built to be tested.; Expect page-title = Activity log; Expect 1 elements: #event-list .activity-item; Expect #event-list text; Expect 0 elements: #event-list .activity-item",
+      "priority": "normal"
+    },
+    {
+      "name": "SUP08 — Slow request can cancel and then recover successfully",
+      "requirementIds": [
+        "SUP07"
+      ],
+      "layers": [
+        "electron"
+      ],
+      "preconditions": [
+        "New isolated run profile; cases execute sequentially. State deliberately persists between owned launches within this run.",
+        "LAB01-LAB06 run before the cross-layer customer is added; SAFE01 reset runs only after persistence checks."
+      ],
+      "steps": [
+        "Expect page-title = A workspace built to be tested.",
+        "Navigate > Workflows",
+        "Expect page-title = Task board",
+        "Open workflows/requests",
+        "Expect page-title = Async & recovery",
+        "Select Response scenario = Slow response",
+        "Click Send request",
+        "Click Cancel request",
+        "Expect request-response = Request cancelled",
+        "Expected enabled=true: Send request",
+        "Expected enabled=false: Cancel request",
+        "Select Response scenario = Success",
+        "Click Send request",
+        "Expect request-response = Request completed successfully"
+      ],
+      "expected": "Expect page-title = A workspace built to be tested.; Expect page-title = Task board; Expect page-title = Async & recovery; Expect request-response = Request cancelled; Expected enabled=true: Send request; Expected enabled=false: Cancel request; Expect request-response = Request completed successfully",
+      "priority": "normal"
+    },
+    {
+      "name": "SAFE01 — Test-mode reset requires confirmation, cancellation preserves data, confirmed reset restores seed",
+      "requirementIds": [
+        "SAFE01"
+      ],
+      "layers": [
+        "electron",
+        "api"
+      ],
+      "preconditions": [
+        "New isolated run profile; cases execute sequentially. State deliberately persists between owned launches within this run.",
+        "LAB01-LAB06 run before the cross-layer customer is added; SAFE01 reset runs only after persistence checks."
+      ],
+      "steps": [
+        "Expect page-title = A workspace built to be tested.",
+        "Navigate > Settings",
+        "Expect page-title = Preferences",
+        "Open settings/runtime",
+        "Expect page-title = Runtime & test data",
+        "Click Reset test data",
+        "Click Cancel",
+        "Cancelled reset preserved synthetic customer",
+        "Click Reset test data",
+        "Click Reset data",
+        "Reset modal closed",
+        "Confirmed reset restores all seeded state"
+      ],
+      "expected": "Expect page-title = A workspace built to be tested.; Expect page-title = Preferences; Expect page-title = Runtime & test data; Cancelled reset preserved synthetic customer; Reset modal closed; Confirmed reset restores all seeded state",
+      "priority": "normal"
+    },
+    {
+      "name": "SAFE02 — Without --test-mode, UI/native reset are unavailable and backend reset returns 403",
+      "requirementIds": [
+        "SAFE02"
+      ],
+      "layers": [
+        "electron",
+        "api"
+      ],
+      "preconditions": [
+        "New isolated run profile; cases execute sequentially. State deliberately persists between owned launches within this run.",
+        "LAB01-LAB06 run before the cross-layer customer is added; SAFE01 reset runs only after persistence checks."
+      ],
+      "steps": [
+        "Expect page-title = A workspace built to be tested.",
+        "Navigate > Settings",
+        "Expect page-title = Preferences",
+        "Open settings/runtime",
+        "Expect page-title = Runtime & test data",
+        "Expected enabled=false: Reset test data",
+        "Backend rejects reset outside test mode"
+      ],
+      "expected": "Expect page-title = A workspace built to be tested.; Expect page-title = Preferences; Expect page-title = Runtime & test data; Expected enabled=false: Reset test data; Backend rejects reset outside test mode",
+      "priority": "normal"
+    }
+  ],
+  "uncovered": []
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-title = Frames & media",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 155.7097999999969,
+  "screenshot": "privacy-withheld.svg#sup03-step-21.png",
+  "actual": {
+    "actual": "Frames & media",
+    "expected": "Frames & media"
+  },
+  "timings": {
+    "actionMs": 12.626700000007986
+  },
+  "evidence": "sup03-step-21-evidence.json"
+}

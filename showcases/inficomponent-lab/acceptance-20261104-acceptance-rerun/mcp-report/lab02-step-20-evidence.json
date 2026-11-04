@@ -1,0 +1,16 @@
+{
+  "name": "Check I accept the demo terms (required)",
+  "action": "check",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 177.2422000000006,
+  "screenshot": "lab02-step-20.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 39.16989999999714
+  },
+  "evidence": "lab02-step-20-evidence.json"
+}

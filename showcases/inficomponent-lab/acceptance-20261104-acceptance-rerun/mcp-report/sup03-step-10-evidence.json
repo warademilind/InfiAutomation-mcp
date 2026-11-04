@@ -1,0 +1,16 @@
+{
+  "name": "Open components/overlays",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 149.48619999999937,
+  "screenshot": "sup03-step-10.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 35.056700000001
+  },
+  "evidence": "sup03-step-10-evidence.json"
+}

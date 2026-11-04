@@ -1,0 +1,3 @@
+# Preserve recorded evidence bytes, including original EOL/Markdown spacing.
+# Artifact checksums provide integrity checks for these immutable snapshots.
+* -text whitespace=-trailing-space,cr-at-eol

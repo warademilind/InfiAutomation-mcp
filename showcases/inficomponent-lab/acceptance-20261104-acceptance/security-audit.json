@@ -1,0 +1,11 @@
+{
+  "method": "Packaged-source configuration audit plus observed loopback endpoint URLs; no claim of renderer exploit testing.",
+  "webPreferences": [
+    "contextIsolation: true",
+    "nodeIntegration: false",
+    "sandbox: true",
+    "webSecurity: true"
+  ],
+  "origin": "http://127.0.0.1:55757",
+  "endpoint": "ws://127.0.0.1:55756/devtools/browser/a1e1db4b-15cb-4b4f-93a8-d34e80ebaeca"
+}

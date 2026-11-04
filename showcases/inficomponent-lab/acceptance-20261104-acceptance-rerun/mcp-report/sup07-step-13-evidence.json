@@ -1,0 +1,16 @@
+{
+  "name": "Fill Filter events",
+  "action": "fill",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 132.87129999999888,
+  "screenshot": "sup07-step-13.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 22.25219999998808
+  },
+  "evidence": "sup07-step-13-evidence.json"
+}

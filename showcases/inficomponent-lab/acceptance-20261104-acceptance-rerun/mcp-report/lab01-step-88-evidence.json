@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-title = Preferences",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 96.22350000000006,
+  "screenshot": "lab01-step-88.png",
+  "actual": {
+    "actual": "Preferences",
+    "expected": "Preferences"
+  },
+  "timings": {
+    "actionMs": 9.019599999999627
+  },
+  "evidence": "lab01-step-88-evidence.json"
+}

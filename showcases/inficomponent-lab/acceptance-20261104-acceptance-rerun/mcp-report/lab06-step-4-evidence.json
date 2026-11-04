@@ -1,0 +1,16 @@
+{
+  "name": "Open records/grid",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 226.82220000000234,
+  "screenshot": "lab06-step-4.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 81.0023000000001
+  },
+  "evidence": "lab06-step-4-evidence.json"
+}

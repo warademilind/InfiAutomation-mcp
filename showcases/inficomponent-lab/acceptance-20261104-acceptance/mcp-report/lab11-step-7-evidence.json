@@ -1,0 +1,16 @@
+{
+  "name": "Shadow feedback",
+  "action": "fill",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 167.13690000001225,
+  "screenshot": "privacy-withheld.svg#lab11-step-7.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 34.41860000000452
+  },
+  "evidence": "lab11-step-7-evidence.json"
+}

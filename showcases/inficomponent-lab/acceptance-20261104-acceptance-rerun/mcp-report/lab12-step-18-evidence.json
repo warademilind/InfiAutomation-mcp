@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-result = Sign in to continue",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 148.58849999999802,
+  "screenshot": "lab12-step-18.png",
+  "actual": {
+    "actual": "Sign in to continue",
+    "expected": "Sign in to continue"
+  },
+  "timings": {
+    "actionMs": 19.50409999999829
+  },
+  "evidence": "lab12-step-18-evidence.json"
+}

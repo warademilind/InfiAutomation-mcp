@@ -1,0 +1,40 @@
+{
+  "name": "Backend independently rejects missing terms",
+  "action": "POST",
+  "layer": "api",
+  "target": "api",
+  "status": "passed",
+  "durationMs": 10.557299999996758,
+  "actual": {
+    "request": {
+      "method": "POST",
+      "url": "http://127.0.0.1:54972/api/forms",
+      "headers": {},
+      "body": {
+        "fullName": "Acceptance Tester",
+        "email": "acceptance@example.test",
+        "terms": false
+      }
+    },
+    "status": 422,
+    "headers": {
+      "x-content-type-options": "nosniff",
+      "referrer-policy": "no-referrer",
+      "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'",
+      "content-type": "application/json; charset=utf-8",
+      "cache-control": "no-store",
+      "date": "Wed, 04 Nov 2026 09:53:19 GMT",
+      "connection": "keep-alive",
+      "keep-alive": "timeout=5",
+      "transfer-encoding": "chunked"
+    },
+    "body": {
+      "error": "Name, valid email and accepted terms are required"
+    },
+    "durationMs": 8.596999999997934
+  },
+  "timings": {
+    "requestMs": 8.596999999997934
+  },
+  "evidence": "lab02-step-17-evidence.json"
+}

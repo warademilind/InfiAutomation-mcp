@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-title = Runtime & test data",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 98.7489999999998,
+  "screenshot": "privacy-withheld.svg#lab01-step-72.png",
+  "actual": {
+    "actual": "Runtime & test data",
+    "expected": "Runtime & test data"
+  },
+  "timings": {
+    "actionMs": 7.387800000000425
+  },
+  "evidence": "lab01-step-72-evidence.json"
+}

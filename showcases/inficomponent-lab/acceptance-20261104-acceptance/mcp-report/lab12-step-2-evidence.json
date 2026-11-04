@@ -1,0 +1,16 @@
+{
+  "name": "Open workspace/session",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 215.83729999999923,
+  "screenshot": "privacy-withheld.svg#lab12-step-2.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 76.28859999999986
+  },
+  "evidence": "lab12-step-2-evidence.json"
+}

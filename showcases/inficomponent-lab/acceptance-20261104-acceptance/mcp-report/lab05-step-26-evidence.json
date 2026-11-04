@@ -1,0 +1,16 @@
+{
+  "name": "Click Delete customer",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 195.29039999999804,
+  "screenshot": "privacy-withheld.svg#lab05-step-26.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 29.612999999997555
+  },
+  "evidence": "lab05-step-26-evidence.json"
+}

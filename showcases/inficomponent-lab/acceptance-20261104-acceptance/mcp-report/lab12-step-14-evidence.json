@@ -1,0 +1,17 @@
+{
+  "name": "Expect session-user = Signed out",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 136.8134999999893,
+  "screenshot": "privacy-withheld.svg#lab12-step-14.png",
+  "actual": {
+    "actual": "Signed out",
+    "expected": "Signed out"
+  },
+  "timings": {
+    "actionMs": 10.279500000004191
+  },
+  "evidence": "lab12-step-14-evidence.json"
+}

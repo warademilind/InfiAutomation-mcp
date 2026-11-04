@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-result = Double-click detected",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 121.41010000000097,
+  "screenshot": "lab08-step-9.png",
+  "actual": {
+    "actual": "Double-click detected",
+    "expected": "Double-click detected"
+  },
+  "timings": {
+    "actionMs": 7.766599999995378
+  },
+  "evidence": "lab08-step-9-evidence.json"
+}

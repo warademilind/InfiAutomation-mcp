@@ -1,0 +1,16 @@
+{
+  "name": "Click Save preferences",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 156.19830000000366,
+  "screenshot": "sup05-step-10.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 59.1533000000054
+  },
+  "evidence": "sup05-step-10-evidence.json"
+}

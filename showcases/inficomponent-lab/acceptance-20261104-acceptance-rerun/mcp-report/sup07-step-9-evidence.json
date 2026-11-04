@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-title = Activity log",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 124.87029999999504,
+  "screenshot": "sup07-step-9.png",
+  "actual": {
+    "actual": "Activity log",
+    "expected": "Activity log"
+  },
+  "timings": {
+    "actionMs": 9.947899999999208
+  },
+  "evidence": "sup07-step-9-evidence.json"
+}

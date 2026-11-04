@@ -1,0 +1,16 @@
+{
+  "name": "Click Save changes",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 193.21850000000268,
+  "screenshot": "lab05-step-25.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 59.491399999998976
+  },
+  "evidence": "lab05-step-25-evidence.json"
+}

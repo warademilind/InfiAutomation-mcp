@@ -1,0 +1,17 @@
+{
+  "name": "Expect request-response = Request completed successfully",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 115.50089999999909,
+  "screenshot": "sup08-step-14.png",
+  "actual": {
+    "actual": "{\n  \"message\": \"Request completed successfully\",\n  \"requestId\": 1,\n  \"mode\": \"success\"\n}",
+    "expected": "Request completed successfully"
+  },
+  "timings": {
+    "actionMs": 9.159899999998743
+  },
+  "evidence": "sup08-step-14-evidence.json"
+}

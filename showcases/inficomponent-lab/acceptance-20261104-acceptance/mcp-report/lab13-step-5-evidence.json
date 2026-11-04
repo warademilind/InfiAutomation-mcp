@@ -1,0 +1,17 @@
+{
+  "name": "Expect 1 elements: #wizard-form select[name=\"customer\"]",
+  "action": "assertCount",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 125.29499999999825,
+  "screenshot": "privacy-withheld.svg#lab13-step-5.png",
+  "actual": {
+    "actual": 1,
+    "expected": 1
+  },
+  "timings": {
+    "actionMs": 4.61250000000291
+  },
+  "evidence": "lab13-step-5-evidence.json"
+}

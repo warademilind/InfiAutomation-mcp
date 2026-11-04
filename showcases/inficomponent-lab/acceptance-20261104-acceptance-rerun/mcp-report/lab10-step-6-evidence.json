@@ -1,0 +1,16 @@
+{
+  "name": "Open Details",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 163.50800000000163,
+  "screenshot": "lab10-step-6.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 36.39860000000044
+  },
+  "evidence": "lab10-step-6-evidence.json"
+}

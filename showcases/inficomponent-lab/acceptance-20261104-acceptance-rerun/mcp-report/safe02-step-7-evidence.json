@@ -1,0 +1,35 @@
+{
+  "name": "Backend rejects reset outside test mode",
+  "action": "POST",
+  "layer": "api",
+  "target": "apiOff",
+  "status": "passed",
+  "durationMs": 10.55580000000191,
+  "actual": {
+    "request": {
+      "method": "POST",
+      "url": "http://127.0.0.1:49725/api/reset",
+      "headers": {}
+    },
+    "status": 403,
+    "headers": {
+      "x-content-type-options": "nosniff",
+      "referrer-policy": "no-referrer",
+      "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'",
+      "content-type": "application/json; charset=utf-8",
+      "cache-control": "no-store",
+      "date": "Wed, 04 Nov 2026 09:58:13 GMT",
+      "connection": "keep-alive",
+      "keep-alive": "timeout=5",
+      "transfer-encoding": "chunked"
+    },
+    "body": {
+      "error": "Reset is available only in test mode"
+    },
+    "durationMs": 8.833499999993364
+  },
+  "timings": {
+    "requestMs": 8.833499999993364
+  },
+  "evidence": "safe02-step-7-evidence.json"
+}

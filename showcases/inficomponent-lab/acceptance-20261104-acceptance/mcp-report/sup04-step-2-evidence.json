@@ -1,0 +1,16 @@
+{
+  "name": "Open forms/validation",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 191.63670000000275,
+  "screenshot": "privacy-withheld.svg#sup04-step-2.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 63.630799999999
+  },
+  "evidence": "sup04-step-2-evidence.json"
+}

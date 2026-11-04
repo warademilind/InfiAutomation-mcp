@@ -1,0 +1,16 @@
+{
+  "name": "Click Change canvas signal",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 214.8744000000006,
+  "screenshot": "privacy-withheld.svg#sup03-step-22.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 63.576700000005076
+  },
+  "evidence": "sup03-step-22-evidence.json"
+}

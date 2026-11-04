@@ -1,0 +1,17 @@
+{
+  "name": "Expect 1 elements: #details-popover:popover-open",
+  "action": "assertCount",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 118.58230000000913,
+  "screenshot": "sup03-step-13.png",
+  "actual": {
+    "actual": 1,
+    "expected": 1
+  },
+  "timings": {
+    "actionMs": 3.9389000000082888
+  },
+  "evidence": "sup03-step-13-evidence.json"
+}

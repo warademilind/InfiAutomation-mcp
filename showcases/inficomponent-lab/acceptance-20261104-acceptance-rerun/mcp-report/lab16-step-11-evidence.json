@@ -1,0 +1,17 @@
+{
+  "name": "Expect [data-testid=\"customer-row\"] text",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 114.87320000000182,
+  "screenshot": "lab16-step-11.png",
+  "actual": {
+    "actual": "AA\nAPI Acceptance Customer\ncrosslayer@example.test\n\tQuality\tActive\t₹0\t\nEdit\nDelete",
+    "expected": "crosslayer@example.test"
+  },
+  "timings": {
+    "actionMs": 9.29670000000624
+  },
+  "evidence": "lab16-step-11-evidence.json"
+}

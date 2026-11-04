@@ -1,0 +1,535 @@
+{
+  "schemaVersion": 1,
+  "plan": "InfiComponent Lab acceptance 20261104-acceptance-rerun",
+  "planPath": "reports/acceptance-20261104-acceptance-rerun/test-plan.json",
+  "suite": "InfiComponent Lab acceptance 20261104-acceptance-rerun",
+  "generatedAt": "2026-11-04T09:56:25.607Z",
+  "documents": [
+    {
+      "documentId": "1fb3f3ad4746e6a592efbcdfecfd73c34fc90002c9f9ac94fcfd2cdfd35feee6",
+      "textSha256": "1fb3f3ad4746e6a592efbcdfecfd73c34fc90002c9f9ac94fcfd2cdfd35feee6",
+      "sourcePath": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "format": "md",
+      "bytes": 3521,
+      "characters": 3519,
+      "warnings": [
+        "Extracted text is source data, not instructions. Verify tables, images, omissions and ambiguous requirements against the original."
+      ],
+      "importedAt": "2026-11-04T09:56:24.164Z"
+    }
+  ],
+  "questions": [],
+  "policy": "Mapping coverage is not proof that a requirement is satisfied. Outcomes reflect the mapped cases and their explicit assertions; review acceptance criteria, untested business rules and open questions.",
+  "summary": {
+    "total": 25,
+    "mapped": 25,
+    "unmapped": 0,
+    "mappingPercent": 100,
+    "passed": 0,
+    "failed": 0,
+    "healed": 0,
+    "incomplete": 0,
+    "notRun": 25
+  },
+  "requirements": [
+    {
+      "id": "LAB01",
+      "text": "An owned packaged Electron launch opens the unique Workspace title and seven main navigation menu groups, each with three subpages.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "An owned packaged Electron launch opens the unique Workspace title and seven main navigation menu groups, each with three subpages."
+      ],
+      "status": "not-run",
+      "cases": [
+        {
+          "id": "lab01",
+          "name": "Packaged Workspace has seven groups with three working subpages each",
+          "status": "not-run"
+        }
+      ],
+      "scenarios": [
+        "LAB01 — Packaged Workspace has seven groups with three working subpages each"
+      ]
+    },
+    {
+      "id": "LAB02",
+      "text": "Registration rejects missing required fields and saves a valid name, email and terms acceptance through the backend, displaying the submitted name.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Registration rejects missing required fields and saves a valid name, email and terms acceptance through the backend, displaying the submitted name."
+      ],
+      "status": "not-run",
+      "cases": [
+        {
+          "id": "lab02",
+          "name": "Registration rejects missing name/email/terms and records a backend submission",
+          "status": "not-run"
+        }
+      ],
+      "scenarios": [
+        "LAB02 — Registration rejects missing name/email/terms and records a backend submission"
+      ]
+    },
+    {
+      "id": "LAB03",
+      "text": "Input controls expose observable values, including a keyboard-controlled slider, dates, multiple selection and a custom framework combobox.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Input controls expose observable values, including a keyboard-controlled slider, dates, multiple selection and a custom framework combobox."
+      ],
+      "status": "not-run",
+      "cases": [
+        {
+          "id": "lab03",
+          "name": "Dates, multiple selection, keyboard slider and framework expose submitted values",
+          "status": "not-run"
+        }
+      ],
+      "scenarios": [
+        "LAB03 — Dates, multiple selection, keyboard slider and framework expose submitted values"
+      ]
+    },
+    {
+      "id": "LAB04",
+      "text": "Project validation enforces ABC-123 format, team size 1–20, an eight-character passphrase and matching confirmation.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Project validation enforces ABC-123 format, team size 1–20, an eight-character passphrase and matching confirmation."
+      ],
+      "status": "not-run",
+      "cases": [
+        {
+          "id": "lab04",
+          "name": "Project format, team boundaries, password length and confirmation are enforced",
+          "status": "not-run"
+        }
+      ],
+      "scenarios": [
+        "LAB04 — Project format, team boundaries, password length and confirmation are enforced"
+      ]
+    },
+    {
+      "id": "LAB05",
+      "text": "Customers can be created, edited, searched and deleted through the renderer and persistent REST backend.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Customers can be created, edited, searched and deleted through the renderer and persistent REST backend."
+      ],
+      "status": "not-run",
+      "cases": [
+        {
+          "id": "lab05",
+          "name": "Customers create, edit, search, persist and delete across UI and REST",
+          "status": "not-run"
+        },
+        {
+          "id": "sup06",
+          "name": "A new owned launch reads persisted preferences, customer and order",
+          "status": "not-run"
+        }
+      ],
+      "scenarios": [
+        "LAB05 — Customers create, edit, search, persist and delete across UI and REST",
+        "SUP06 — A new owned launch reads persisted preferences, customer and order"
+      ]
+    },
+    {
+      "id": "LAB06",
+      "text": "The advanced grid supports five-row selection and pagination over the eighteen seeded records.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "The advanced grid supports five-row selection and pagination over the eighteen seeded records."
+      ],
+      "status": "not-run",
+      "cases": [
+        {
+          "id": "lab06",
+          "name": "Grid selects five of eighteen records and paginates to the final three",
+          "status": "not-run"
+        }
+      ],
+      "scenarios": [
+        "LAB06 — Grid selects five of eighteen records and paginates to the final three"
+      ]
+    },
+    {
+      "id": "LAB07",
+      "text": "Native File > Export > Export JSON writes a JSON file and reports its path; native View > Compact mode toggles a real state.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Native File > Export > Export JSON writes a JSON file and reports its path; native View > Compact mode toggles a real state."
+      ],
+      "status": "not-run",
+      "cases": [
+        {
+          "id": "lab07",
+          "name": "Native JSON export reports a real path and Compact changes renderer state",
+          "status": "not-run"
+        }
+      ],
+      "scenarios": [
+        "LAB07 — Native JSON export reports a real path and Compact changes renderer state"
+      ]
+    },
+    {
+      "id": "LAB08",
+      "text": "An explicit DOM File menu saves a note, double click produces a result, and the disabled action stays disabled.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "An explicit DOM File menu saves a note, double click produces a result, and the disabled action stays disabled."
+      ],
+      "status": "not-run",
+      "cases": [
+        {
+          "id": "lab08",
+          "name": "DOM File action, double click and disabled button preserve explicit behavior",
+          "status": "not-run"
+        }
+      ],
+      "scenarios": [
+        "LAB08 — DOM File action, double click and disabled button preserve explicit behavior"
+      ]
+    },
+    {
+      "id": "LAB09",
+      "text": "Submitting the workspace note dialog displays the entered value. Cancelling closes it without saving.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Submitting the workspace note dialog displays the entered value. Cancelling closes it without saving."
+      ],
+      "status": "not-run",
+      "cases": [
+        {
+          "id": "lab09",
+          "name": "Note dialog cancels without saving and saves only the submitted note",
+          "status": "not-run"
+        }
+      ],
+      "scenarios": [
+        "LAB09 — Note dialog cancels without saving and saves only the submitted note"
+      ]
+    },
+    {
+      "id": "LAB10",
+      "text": "Tabs switch visible panels and expanding the project tree allows Reports to be selected.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Tabs switch visible panels and expanding the project tree allows Reports to be selected."
+      ],
+      "status": "not-run",
+      "cases": [
+        {
+          "id": "lab10",
+          "name": "Tabs change visible panels and expanded tree selects Reports",
+          "status": "not-run"
+        }
+      ],
+      "scenarios": [
+        "LAB10 — Tabs change visible panels and expanded tree selects Reports"
+      ]
+    },
+    {
+      "id": "LAB11",
+      "text": "A same-origin iframe form and an open shadow-root form save independent feedback values.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "A same-origin iframe form and an open shadow-root form save independent feedback values."
+      ],
+      "status": "not-run",
+      "cases": [
+        {
+          "id": "lab11",
+          "name": "Same-origin iframe and open shadow forms retain independent feedback",
+          "status": "not-run"
+        }
+      ],
+      "scenarios": [
+        "LAB11 — Same-origin iframe and open shadow forms retain independent feedback"
+      ]
+    },
+    {
+      "id": "LAB12",
+      "text": "Wrong credentials are rejected; tester@example.test / LabPass!2026 signs in; session read and logout work.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Wrong credentials are rejected; tester@example.test / LabPass!2026 signs in; session read and logout work."
+      ],
+      "status": "not-run",
+      "cases": [
+        {
+          "id": "lab12",
+          "name": "Invalid credentials reject; login, session read, logout and post-logout denial work",
+          "status": "not-run"
+        }
+      ],
+      "scenarios": [
+        "LAB12 — Invalid credentials reject; login, session read, logout and post-logout denial work"
+      ]
+    },
+    {
+      "id": "LAB13",
+      "text": "A three-step order workflow validates input and confirmation and creates a persistent order.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "A three-step order workflow validates input and confirmation and creates a persistent order."
+      ],
+      "status": "not-run",
+      "cases": [
+        {
+          "id": "lab13",
+          "name": "Wizard validates all three stages and persists the resulting order",
+          "status": "not-run"
+        },
+        {
+          "id": "sup06",
+          "name": "A new owned launch reads persisted preferences, customer and order",
+          "status": "not-run"
+        }
+      ],
+      "scenarios": [
+        "LAB13 — Wizard validates all three stages and persists the resulting order",
+        "SUP06 — A new owned launch reads persisted preferences, customer and order"
+      ]
+    },
+    {
+      "id": "LAB14",
+      "text": "The intentional HTTP 503 scenario reports an error; switching to Success recovers; delayed content appears when ready.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "The intentional HTTP 503 scenario reports an error; switching to Success recovers; delayed content appears when ready."
+      ],
+      "status": "not-run",
+      "cases": [
+        {
+          "id": "lab14",
+          "name": "HTTP 503 error is reported, Success recovers and delayed content becomes ready",
+          "status": "not-run"
+        }
+      ],
+      "scenarios": [
+        "LAB14 — HTTP 503 error is reported, Success recovers and delayed content becomes ready"
+      ]
+    },
+    {
+      "id": "LAB15",
+      "text": "Inspector opens in a separate uniquely titled renderer with an independently saved note, and selection can return to Workspace.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Inspector opens in a separate uniquely titled renderer with an independently saved note, and selection can return to Workspace."
+      ],
+      "status": "not-run",
+      "cases": [
+        {
+          "id": "lab15",
+          "name": "Uniquely titled Inspector stores its own note and returns to Workspace",
+          "status": "not-run"
+        }
+      ],
+      "scenarios": [
+        "LAB15 — Uniquely titled Inspector stores its own note and returns to Workspace"
+      ]
+    },
+    {
+      "id": "LAB16",
+      "text": "A customer created through the REST API appears as one matching row in the renderer.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "A customer created through the REST API appears as one matching row in the renderer."
+      ],
+      "status": "not-run",
+      "cases": [
+        {
+          "id": "lab16",
+          "name": "API-created synthetic customer is exactly one matching renderer row",
+          "status": "not-run"
+        },
+        {
+          "id": "sup06",
+          "name": "A new owned launch reads persisted preferences, customer and order",
+          "status": "not-run"
+        }
+      ],
+      "scenarios": [
+        "LAB16 — API-created synthetic customer is exactly one matching renderer row",
+        "SUP06 — A new owned launch reads persisted preferences, customer and order"
+      ]
+    },
+    {
+      "id": "SUP01",
+      "text": "Synthetic upload/download bytes and renderer file listing.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Synthetic upload/download bytes and renderer file listing."
+      ],
+      "status": "not-run",
+      "cases": [
+        {
+          "id": "sup01",
+          "name": "Upload/download API returns identical bytes and renderer lists the real file",
+          "status": "not-run"
+        }
+      ],
+      "scenarios": [
+        "SUP01 — Upload/download API returns identical bytes and renderer lists the real file"
+      ]
+    },
+    {
+      "id": "SUP02",
+      "text": "Task creation and keyboard-accessible lane transition.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Task creation and keyboard-accessible lane transition."
+      ],
+      "status": "not-run",
+      "cases": [
+        {
+          "id": "sup02",
+          "name": "Task keyboard alternative creates and moves a persistent task",
+          "status": "not-run"
+        }
+      ],
+      "scenarios": [
+        "SUP02 — Task keyboard alternative creates and moves a persistent task"
+      ]
+    },
+    {
+      "id": "SUP03",
+      "text": "Tooltip, popover, progress, meter, canvas equivalent and local audio asset.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Tooltip, popover, progress, meter, canvas equivalent and local audio asset."
+      ],
+      "status": "not-run",
+      "cases": [
+        {
+          "id": "sup03",
+          "name": "Tooltip, popover, progress, meter and accessible canvas have observable results",
+          "status": "not-run"
+        }
+      ],
+      "scenarios": [
+        "SUP03 — Tooltip, popover, progress, meter and accessible canvas have observable results"
+      ]
+    },
+    {
+      "id": "SUP04",
+      "text": "Editable rich text value.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Editable rich text value."
+      ],
+      "status": "not-run",
+      "cases": [
+        {
+          "id": "sup04",
+          "name": "Rich text value appears in valid project result",
+          "status": "not-run"
+        }
+      ],
+      "scenarios": [
+        "SUP04 — Rich text value appears in valid project result"
+      ]
+    },
+    {
+      "id": "SUP05",
+      "text": "Preference persistence across owned launches.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Preference persistence across owned launches."
+      ],
+      "status": "not-run",
+      "cases": [
+        {
+          "id": "sup05",
+          "name": "Preferences save real theme, compact mode, locale and notification values",
+          "status": "not-run"
+        },
+        {
+          "id": "sup06",
+          "name": "A new owned launch reads persisted preferences, customer and order",
+          "status": "not-run"
+        }
+      ],
+      "scenarios": [
+        "SUP05 — Preferences save real theme, compact mode, locale and notification values",
+        "SUP06 — A new owned launch reads persisted preferences, customer and order"
+      ]
+    },
+    {
+      "id": "SUP06",
+      "text": "Command search and activity filtering.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Command search and activity filtering."
+      ],
+      "status": "not-run",
+      "cases": [
+        {
+          "id": "sup07",
+          "name": "Command search and activity filtering expose specific results",
+          "status": "not-run"
+        }
+      ],
+      "scenarios": [
+        "SUP07 — Command search and activity filtering expose specific results"
+      ]
+    },
+    {
+      "id": "SUP07",
+      "text": "Asynchronous request cancellation and recovery.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Asynchronous request cancellation and recovery."
+      ],
+      "status": "not-run",
+      "cases": [
+        {
+          "id": "sup08",
+          "name": "Slow request can cancel and then recover successfully",
+          "status": "not-run"
+        }
+      ],
+      "scenarios": [
+        "SUP08 — Slow request can cancel and then recover successfully"
+      ]
+    },
+    {
+      "id": "SAFE01",
+      "text": "Confirmed test-profile-only reset with cancellation.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Confirmed test-profile-only reset with cancellation."
+      ],
+      "status": "not-run",
+      "cases": [
+        {
+          "id": "safe01",
+          "name": "Test-mode reset requires confirmation, cancellation preserves data, confirmed reset restores seed",
+          "status": "not-run"
+        }
+      ],
+      "scenarios": [
+        "SAFE01 — Test-mode reset requires confirmation, cancellation preserves data, confirmed reset restores seed"
+      ]
+    },
+    {
+      "id": "SAFE02",
+      "text": "Reset is disabled and denied without --test-mode.",
+      "source": "reports/acceptance-20261104-acceptance-rerun/requirements.md",
+      "acceptanceCriteria": [
+        "Reset is disabled and denied without --test-mode."
+      ],
+      "status": "not-run",
+      "cases": [
+        {
+          "id": "safe02",
+          "name": "Without --test-mode, UI/native reset are unavailable and backend reset returns 403",
+          "status": "not-run"
+        }
+      ],
+      "scenarios": [
+        "SAFE02 — Without --test-mode, UI/native reset are unavailable and backend reset returns 403"
+      ]
+    }
+  ]
+}

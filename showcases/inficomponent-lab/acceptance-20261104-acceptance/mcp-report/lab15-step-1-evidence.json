@@ -1,0 +1,21 @@
+{
+  "name": "Tools > Open Inspector",
+  "action": "menu",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 1051.2077999999892,
+  "screenshot": "privacy-withheld.svg#lab15-step-1.png",
+  "actual": {
+    "path": [
+      "Tools",
+      "Open Inspector"
+    ],
+    "source": "electron-native-menu",
+    "invocation": "MenuItem.click"
+  },
+  "timings": {
+    "actionMs": 55.76840000000084
+  },
+  "evidence": "lab15-step-1-evidence.json"
+}

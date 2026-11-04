@@ -1,0 +1,17 @@
+{
+  "name": "Compact preference persists",
+  "action": "assertChecked",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 99.66909999999916,
+  "screenshot": "sup06-step-8.png",
+  "actual": {
+    "actual": true,
+    "expected": true
+  },
+  "timings": {
+    "actionMs": 9.77060000000347
+  },
+  "evidence": "sup06-step-8-evidence.json"
+}

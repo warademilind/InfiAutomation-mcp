@@ -1,0 +1,17 @@
+{
+  "name": "Expect Test framework value",
+  "action": "assertValue",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 122.63739999999962,
+  "screenshot": "lab03-step-21.png",
+  "actual": {
+    "actual": "InfiAutomation",
+    "expected": "InfiAutomation"
+  },
+  "timings": {
+    "actionMs": 11.362900000000081
+  },
+  "evidence": "lab03-step-21-evidence.json"
+}

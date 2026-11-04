@@ -1,0 +1,495 @@
+{
+  "target": {
+    "kind": "electron",
+    "executable": "C:/InfiComponentLab\\dist\\win-unpacked\\InfiComponentLab.exe",
+    "args": [
+      "--test-mode",
+      "--api-port=0",
+      "--data-dir=C:/InfiComponentLab\\.runtime\\acceptance-inspect-20261104-acceptance-1793785765397"
+    ],
+    "windowTitle": "InfiComponent Lab - Workspace",
+    "windowUrlContains": "workspace.html",
+    "timeoutMs": 20000
+  },
+  "info": {
+    "kind": "electron",
+    "transport": "electron-launch",
+    "ownership": "owned",
+    "runtime": {
+      "playwright": "1.64.1",
+      "electron": "45.2.1",
+      "chromium": "156.0.8078.75",
+      "node": "24.22.1"
+    },
+    "capabilities": {
+      "rendererDom": true,
+      "screenshots": true,
+      "windowSelection": true,
+      "nativeElectronMenus": true,
+      "mainProcess": true,
+      "osDialogs": false,
+      "version2Execution": true
+    },
+    "selectedWindowId": "window-1",
+    "notes": [
+      "Playwright Electron launch support is experimental. The app supplies its embedded Chromium; installed Chrome is not used."
+    ]
+  },
+  "windows": {
+    "windows": [
+      {
+        "windowId": "window-1",
+        "title": "InfiComponent Lab - Workspace",
+        "url": "http://127.0.0.1:59974/workspace.html",
+        "selected": true
+      }
+    ]
+  },
+  "menus": {
+    "source": "electron-native-menu",
+    "items": [
+      {
+        "label": "File",
+        "role": null,
+        "enabled": true,
+        "visible": true,
+        "checked": false,
+        "type": "submenu",
+        "submenu": [
+          {
+            "label": "New customer",
+            "role": null,
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "normal",
+            "submenu": []
+          },
+          {
+            "label": "Export",
+            "role": null,
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "submenu",
+            "submenu": [
+              {
+                "label": "Export JSON",
+                "role": null,
+                "enabled": true,
+                "visible": true,
+                "checked": false,
+                "type": "normal",
+                "submenu": []
+              },
+              {
+                "label": "Export CSV",
+                "role": null,
+                "enabled": true,
+                "visible": true,
+                "checked": false,
+                "type": "normal",
+                "submenu": []
+              }
+            ]
+          },
+          {
+            "label": "Open file...",
+            "role": null,
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "normal",
+            "submenu": []
+          },
+          {
+            "label": "",
+            "role": null,
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "separator",
+            "submenu": []
+          },
+          {
+            "label": "Exit",
+            "role": "quit",
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "normal",
+            "submenu": []
+          }
+        ]
+      },
+      {
+        "label": "Edit",
+        "role": null,
+        "enabled": true,
+        "visible": true,
+        "checked": false,
+        "type": "submenu",
+        "submenu": [
+          {
+            "label": "Undo",
+            "role": "undo",
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "normal",
+            "submenu": []
+          },
+          {
+            "label": "Redo",
+            "role": "redo",
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "normal",
+            "submenu": []
+          },
+          {
+            "label": "",
+            "role": null,
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "separator",
+            "submenu": []
+          },
+          {
+            "label": "Cut",
+            "role": "cut",
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "normal",
+            "submenu": []
+          },
+          {
+            "label": "Copy",
+            "role": "copy",
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "normal",
+            "submenu": []
+          },
+          {
+            "label": "Paste",
+            "role": "paste",
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "normal",
+            "submenu": []
+          },
+          {
+            "label": "Select All",
+            "role": "selectall",
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "normal",
+            "submenu": []
+          }
+        ]
+      },
+      {
+        "label": "View",
+        "role": null,
+        "enabled": true,
+        "visible": true,
+        "checked": false,
+        "type": "submenu",
+        "submenu": [
+          {
+            "label": "Compact mode",
+            "role": null,
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "checkbox",
+            "submenu": []
+          },
+          {
+            "label": "Theme",
+            "role": null,
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "submenu",
+            "submenu": [
+              {
+                "label": "Light",
+                "role": null,
+                "enabled": true,
+                "visible": true,
+                "checked": true,
+                "type": "radio",
+                "submenu": []
+              },
+              {
+                "label": "Dark",
+                "role": null,
+                "enabled": true,
+                "visible": true,
+                "checked": false,
+                "type": "radio",
+                "submenu": []
+              }
+            ]
+          },
+          {
+            "label": "",
+            "role": null,
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "separator",
+            "submenu": []
+          },
+          {
+            "label": "Actual Size",
+            "role": "resetzoom",
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "normal",
+            "submenu": []
+          },
+          {
+            "label": "Zoom In",
+            "role": "zoomin",
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "normal",
+            "submenu": []
+          },
+          {
+            "label": "Zoom Out",
+            "role": "zoomout",
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "normal",
+            "submenu": []
+          },
+          {
+            "label": "Toggle Full Screen",
+            "role": "togglefullscreen",
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "normal",
+            "submenu": []
+          }
+        ]
+      },
+      {
+        "label": "Navigate",
+        "role": null,
+        "enabled": true,
+        "visible": true,
+        "checked": false,
+        "type": "submenu",
+        "submenu": [
+          {
+            "label": "Workspace",
+            "role": null,
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "normal",
+            "submenu": []
+          },
+          {
+            "label": "Forms",
+            "role": null,
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "normal",
+            "submenu": []
+          },
+          {
+            "label": "Records",
+            "role": null,
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "normal",
+            "submenu": []
+          },
+          {
+            "label": "Components",
+            "role": null,
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "normal",
+            "submenu": []
+          },
+          {
+            "label": "Files & Media",
+            "role": null,
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "normal",
+            "submenu": []
+          },
+          {
+            "label": "Workflows",
+            "role": null,
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "normal",
+            "submenu": []
+          },
+          {
+            "label": "Settings",
+            "role": null,
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "normal",
+            "submenu": []
+          }
+        ]
+      },
+      {
+        "label": "Tools",
+        "role": null,
+        "enabled": true,
+        "visible": true,
+        "checked": false,
+        "type": "submenu",
+        "submenu": [
+          {
+            "label": "Open Inspector",
+            "role": null,
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "normal",
+            "submenu": []
+          },
+          {
+            "label": "Native message...",
+            "role": null,
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "normal",
+            "submenu": []
+          },
+          {
+            "label": "Unavailable command",
+            "role": null,
+            "enabled": false,
+            "visible": true,
+            "checked": false,
+            "type": "normal",
+            "submenu": []
+          },
+          {
+            "label": "",
+            "role": null,
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "separator",
+            "submenu": []
+          },
+          {
+            "label": "Reset test data",
+            "role": null,
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "normal",
+            "submenu": []
+          }
+        ]
+      },
+      {
+        "label": "Window",
+        "role": null,
+        "enabled": true,
+        "visible": true,
+        "checked": false,
+        "type": "submenu",
+        "submenu": [
+          {
+            "label": "Main workspace",
+            "role": null,
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "normal",
+            "submenu": []
+          },
+          {
+            "label": "Inspector",
+            "role": null,
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "normal",
+            "submenu": []
+          },
+          {
+            "label": "Guide",
+            "role": null,
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "normal",
+            "submenu": []
+          },
+          {
+            "label": "Minimize",
+            "role": "minimize",
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "normal",
+            "submenu": []
+          }
+        ]
+      },
+      {
+        "label": "Help",
+        "role": null,
+        "enabled": true,
+        "visible": true,
+        "checked": false,
+        "type": "submenu",
+        "submenu": [
+          {
+            "label": "Component guide",
+            "role": null,
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "normal",
+            "submenu": []
+          },
+          {
+            "label": "About InfiComponent Lab",
+            "role": null,
+            "enabled": true,
+            "visible": true,
+            "checked": false,
+            "type": "normal",
+            "submenu": []
+          }
+        ]
+      }
+    ],
+    "note": "Read from the running application; no leaf commands invoked."
+  }
+}

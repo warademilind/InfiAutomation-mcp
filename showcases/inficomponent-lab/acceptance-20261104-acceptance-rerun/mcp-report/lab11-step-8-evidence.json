@@ -1,0 +1,17 @@
+{
+  "name": "Frame saved",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 152.96219999999448,
+  "screenshot": "lab11-step-8.png",
+  "actual": {
+    "actual": "Frame saved: Acceptance frame",
+    "expected": "Frame saved: Acceptance frame"
+  },
+  "timings": {
+    "actionMs": 40.62329999999929
+  },
+  "evidence": "lab11-step-8-evidence.json"
+}

@@ -1,0 +1,332 @@
+{
+  "name": "Order exists in persisted backend",
+  "action": "GET",
+  "layer": "api",
+  "target": "api",
+  "status": "passed",
+  "durationMs": 5.045199999993201,
+  "actual": {
+    "request": {
+      "method": "GET",
+      "url": "http://127.0.0.1:54972/api/state",
+      "headers": {}
+    },
+    "status": 200,
+    "headers": {
+      "x-content-type-options": "nosniff",
+      "referrer-policy": "no-referrer",
+      "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'",
+      "content-type": "application/json; charset=utf-8",
+      "cache-control": "no-store",
+      "date": "Wed, 04 Nov 2026 09:54:17 GMT",
+      "connection": "keep-alive",
+      "keep-alive": "timeout=5",
+      "transfer-encoding": "chunked"
+    },
+    "body": {
+      "version": 1,
+      "customers": [
+        {
+          "id": "CUS-001",
+          "name": "Aarav Shah",
+          "email": "aarav.shah@example.test",
+          "department": "Engineering",
+          "status": "Inactive",
+          "budget": 1500,
+          "joined": "2026-10-01"
+        },
+        {
+          "id": "CUS-002",
+          "name": "Maya Patel",
+          "email": "maya.patel@example.test",
+          "department": "Design",
+          "status": "Active",
+          "budget": 1750,
+          "joined": "2026-10-02"
+        },
+        {
+          "id": "CUS-003",
+          "name": "Oliver Chen",
+          "email": "oliver.chen@example.test",
+          "department": "Operations",
+          "status": "Active",
+          "budget": 2000,
+          "joined": "2026-10-03"
+        },
+        {
+          "id": "CUS-004",
+          "name": "Zoe Wilson",
+          "email": "zoe.wilson@example.test",
+          "department": "Quality",
+          "status": "Active",
+          "budget": 2250,
+          "joined": "2026-10-04"
+        },
+        {
+          "id": "CUS-005",
+          "name": "Liam Brooks",
+          "email": "liam.brooks@example.test",
+          "department": "Engineering",
+          "status": "Active",
+          "budget": 2500,
+          "joined": "2026-10-05"
+        },
+        {
+          "id": "CUS-006",
+          "name": "Isla Martin",
+          "email": "isla.martin@example.test",
+          "department": "Design",
+          "status": "Inactive",
+          "budget": 2750,
+          "joined": "2026-10-06"
+        },
+        {
+          "id": "CUS-007",
+          "name": "Arjun Rao",
+          "email": "arjun.rao@example.test",
+          "department": "Operations",
+          "status": "Active",
+          "budget": 3000,
+          "joined": "2026-10-07"
+        },
+        {
+          "id": "CUS-008",
+          "name": "Emma Davis",
+          "email": "emma.davis@example.test",
+          "department": "Quality",
+          "status": "Active",
+          "budget": 3250,
+          "joined": "2026-10-08"
+        },
+        {
+          "id": "CUS-009",
+          "name": "Noah Kim",
+          "email": "noah.kim@example.test",
+          "department": "Engineering",
+          "status": "Active",
+          "budget": 3500,
+          "joined": "2026-10-09"
+        },
+        {
+          "id": "CUS-010",
+          "name": "Sophia Bell",
+          "email": "sophia.bell@example.test",
+          "department": "Design",
+          "status": "Active",
+          "budget": 3750,
+          "joined": "2026-10-10"
+        },
+        {
+          "id": "CUS-011",
+          "name": "Kabir Singh",
+          "email": "kabir.singh@example.test",
+          "department": "Operations",
+          "status": "Inactive",
+          "budget": 4000,
+          "joined": "2026-10-11"
+        },
+        {
+          "id": "CUS-012",
+          "name": "Amelia Scott",
+          "email": "amelia.scott@example.test",
+          "department": "Quality",
+          "status": "Active",
+          "budget": 4250,
+          "joined": "2026-10-12"
+        },
+        {
+          "id": "CUS-013",
+          "name": "Leo Clarke",
+          "email": "leo.clarke@example.test",
+          "department": "Engineering",
+          "status": "Active",
+          "budget": 4500,
+          "joined": "2026-10-13"
+        },
+        {
+          "id": "CUS-014",
+          "name": "Anaya Joshi",
+          "email": "anaya.joshi@example.test",
+          "department": "Design",
+          "status": "Active",
+          "budget": 4750,
+          "joined": "2026-10-14"
+        },
+        {
+          "id": "CUS-015",
+          "name": "Ethan Moore",
+          "email": "ethan.moore@example.test",
+          "department": "Operations",
+          "status": "Active",
+          "budget": 5000,
+          "joined": "2026-10-15"
+        },
+        {
+          "id": "CUS-016",
+          "name": "Eva Wright",
+          "email": "eva.wright@example.test",
+          "department": "Quality",
+          "status": "Inactive",
+          "budget": 5250,
+          "joined": "2026-10-16"
+        },
+        {
+          "id": "CUS-017",
+          "name": "Vihaan Desai",
+          "email": "vihaan.desai@example.test",
+          "department": "Engineering",
+          "status": "Active",
+          "budget": 5500,
+          "joined": "2026-10-17"
+        },
+        {
+          "id": "CUS-018",
+          "name": "Mia Torres",
+          "email": "mia.torres@example.test",
+          "department": "Design",
+          "status": "Active",
+          "budget": 5750,
+          "joined": "2026-10-18"
+        }
+      ],
+      "orders": [
+        {
+          "id": "ORD-f2b9d2e5",
+          "customer": "Aarav Shah",
+          "product": "Test device kit",
+          "amount": 640,
+          "status": "Pending"
+        },
+        {
+          "id": "ORD-101",
+          "customer": "Aarav Shah",
+          "product": "Test device kit",
+          "amount": 250,
+          "status": "Pending"
+        },
+        {
+          "id": "ORD-102",
+          "customer": "Maya Patel",
+          "product": "Quality workspace",
+          "amount": 375,
+          "status": "Processing"
+        },
+        {
+          "id": "ORD-103",
+          "customer": "Oliver Chen",
+          "product": "Automation license",
+          "amount": 500,
+          "status": "Complete"
+        },
+        {
+          "id": "ORD-104",
+          "customer": "Zoe Wilson",
+          "product": "Test device kit",
+          "amount": 625,
+          "status": "Pending"
+        },
+        {
+          "id": "ORD-105",
+          "customer": "Liam Brooks",
+          "product": "Quality workspace",
+          "amount": 750,
+          "status": "Processing"
+        },
+        {
+          "id": "ORD-106",
+          "customer": "Isla Martin",
+          "product": "Automation license",
+          "amount": 875,
+          "status": "Complete"
+        },
+        {
+          "id": "ORD-107",
+          "customer": "Arjun Rao",
+          "product": "Test device kit",
+          "amount": 1000,
+          "status": "Pending"
+        },
+        {
+          "id": "ORD-108",
+          "customer": "Emma Davis",
+          "product": "Quality workspace",
+          "amount": 1125,
+          "status": "Processing"
+        }
+      ],
+      "tasks": [
+        {
+          "id": "T-1",
+          "title": "Inspect accessible controls",
+          "lane": "To do"
+        },
+        {
+          "id": "T-2",
+          "title": "Verify customer workflow",
+          "lane": "In progress"
+        },
+        {
+          "id": "T-3",
+          "title": "Capture runtime evidence",
+          "lane": "Done"
+        }
+      ],
+      "preferences": {
+        "theme": "light",
+        "notifications": true,
+        "compact": false,
+        "locale": "en-IN"
+      },
+      "uploads": [],
+      "events": [
+        {
+          "id": "c1f979c9-77e2-4633-a44a-d51153c36c03",
+          "type": "order",
+          "message": "Order created: ORD-f2b9d2e5",
+          "at": "2026-11-04T09:54:17.759Z"
+        },
+        {
+          "id": "3c139469-95d5-468f-bcb9-c27a0637ca7c",
+          "type": "file",
+          "message": "Native JSON export completed",
+          "at": "2026-11-04T09:53:42.466Z"
+        },
+        {
+          "id": "bf8fad9c-d8e9-446a-a80d-c92a330ba9a6",
+          "type": "customer",
+          "message": "Customer deleted: Acceptance Updated",
+          "at": "2026-11-04T09:53:37.282Z"
+        },
+        {
+          "id": "2e69e738-a770-446c-90df-67b90264a0b2",
+          "type": "customer",
+          "message": "Customer updated: Acceptance Updated",
+          "at": "2026-11-04T09:53:36.651Z"
+        },
+        {
+          "id": "c7cdc089-f732-4b31-8adc-c9ab2fd8c40a",
+          "type": "customer",
+          "message": "Customer created: Acceptance Customer",
+          "at": "2026-11-04T09:53:34.589Z"
+        },
+        {
+          "id": "25bac529-c479-4c8a-aa41-5d673af67b53",
+          "type": "form",
+          "message": "Form submitted: Acceptance Tester",
+          "at": "2026-11-04T09:53:20.136Z"
+        },
+        {
+          "id": "EV-1",
+          "type": "system",
+          "message": "Workspace seeded and ready for testing",
+          "at": "2026-11-04T03:30:00.000Z"
+        }
+      ]
+    },
+    "durationMs": 4.334900000001653
+  },
+  "timings": {
+    "requestMs": 4.334900000001653
+  },
+  "evidence": "lab13-step-20-evidence.json"
+}

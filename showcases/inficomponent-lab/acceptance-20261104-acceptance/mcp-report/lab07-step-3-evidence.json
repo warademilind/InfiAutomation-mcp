@@ -1,0 +1,21 @@
+{
+  "name": "View > Compact mode",
+  "action": "menu",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 132.2974000000031,
+  "screenshot": "privacy-withheld.svg#lab07-step-3.png",
+  "actual": {
+    "path": [
+      "View",
+      "Compact mode"
+    ],
+    "source": "electron-native-menu",
+    "invocation": "MenuItem.click"
+  },
+  "timings": {
+    "actionMs": 7.440600000001723
+  },
+  "evidence": "lab07-step-3-evidence.json"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Click Delete Acceptance Updated",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 168.54739999999583,
+  "screenshot": "lab05-step-29.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 40.28489999999874
+  },
+  "evidence": "lab05-step-29-evidence.json"
+}

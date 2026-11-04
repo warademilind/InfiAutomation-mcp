@@ -1,0 +1,16 @@
+{
+  "name": "Click Save note",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 133.71110000000044,
+  "screenshot": "privacy-withheld.svg#lab09-step-11.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 28.818399999996473
+  },
+  "evidence": "lab09-step-11-evidence.json"
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Workspace title",
+  "action": "assertTitle",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 106.761599999998,
+  "screenshot": "lab15-step-9.png",
+  "actual": {
+    "actual": "InfiComponent Lab - Workspace",
+    "expected": "InfiComponent Lab - Workspace"
+  },
+  "timings": {
+    "actionMs": 1.7788000000000466
+  },
+  "evidence": "lab15-step-9-evidence.json"
+}

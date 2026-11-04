@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-title = Validation & editor",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 103.63219999999274,
+  "screenshot": "sup04-step-5.png",
+  "actual": {
+    "actual": "Validation & editor",
+    "expected": "Validation & editor"
+  },
+  "timings": {
+    "actionMs": 10.480500000005122
+  },
+  "evidence": "sup04-step-5-evidence.json"
+}

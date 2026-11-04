@@ -1,0 +1,17 @@
+{
+  "name": "Expect Locale value",
+  "action": "assertValue",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 105.05800000000454,
+  "screenshot": "sup06-step-7.png",
+  "actual": {
+    "actual": "en-GB",
+    "expected": "en-GB"
+  },
+  "timings": {
+    "actionMs": 7.8967999999877065
+  },
+  "evidence": "sup06-step-7-evidence.json"
+}

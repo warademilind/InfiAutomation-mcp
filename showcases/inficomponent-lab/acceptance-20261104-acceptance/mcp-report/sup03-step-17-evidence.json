@@ -1,0 +1,17 @@
+{
+  "name": "Expect 1 elements: #demo-progress[value=\"50\"]",
+  "action": "assertCount",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 115.00190000000293,
+  "screenshot": "privacy-withheld.svg#sup03-step-17.png",
+  "actual": {
+    "actual": 1,
+    "expected": 1
+  },
+  "timings": {
+    "actionMs": 2.772500000006403
+  },
+  "evidence": "sup03-step-17-evidence.json"
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Expect order-review = Customer: Aarav Shah",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 133.73510000000533,
+  "screenshot": "lab13-step-15.png",
+  "actual": {
+    "actual": "Customer: Aarav Shah\nProduct: Test device kit\nAmount: ₹640\nNotes: None",
+    "expected": "Customer: Aarav Shah"
+  },
+  "timings": {
+    "actionMs": 18.12609999999404
+  },
+  "evidence": "lab13-step-15-evidence.json"
+}

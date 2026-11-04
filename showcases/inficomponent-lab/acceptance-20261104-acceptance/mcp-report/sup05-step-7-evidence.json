@@ -1,0 +1,16 @@
+{
+  "name": "Uncheck Workspace notifications",
+  "action": "uncheck",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 156.08259999999427,
+  "screenshot": "privacy-withheld.svg#sup05-step-7.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 40.05249999999069
+  },
+  "evidence": "sup05-step-7-evidence.json"
+}

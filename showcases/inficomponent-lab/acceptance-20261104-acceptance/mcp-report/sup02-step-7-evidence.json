@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-result = Task moved to Done",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 103.33170000000973,
+  "screenshot": "privacy-withheld.svg#sup02-step-7.png",
+  "actual": {
+    "actual": "Task moved to Done",
+    "expected": "Task moved to Done"
+  },
+  "timings": {
+    "actionMs": 11.976900000008754
+  },
+  "evidence": "sup02-step-7-evidence.json"
+}

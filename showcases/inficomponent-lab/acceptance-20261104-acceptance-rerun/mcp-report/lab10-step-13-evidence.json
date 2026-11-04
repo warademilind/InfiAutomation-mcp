@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-result = Tree selected: Reports",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 115.97260000000097,
+  "screenshot": "lab10-step-13.png",
+  "actual": {
+    "actual": "Tree selected: Reports",
+    "expected": "Tree selected: Reports"
+  },
+  "timings": {
+    "actionMs": 10.1762000000017
+  },
+  "evidence": "lab10-step-13-evidence.json"
+}

@@ -1,0 +1,116 @@
+{
+  "generatedAt": "2026-11-04T10:05:22.636Z",
+  "coreAcceptance": "passed",
+  "executed": 33,
+  "passed": 33,
+  "failed": 0,
+  "healed": 0,
+  "notRun": 4,
+  "corePassed": 16,
+  "coreTotal": 16,
+  "steps": 523,
+  "screenshots": 504,
+  "typedSuite": {
+    "total": 26,
+    "passed": 26,
+    "failed": 0,
+    "healed": 0,
+    "skipped": 0
+  },
+  "connectionChecks": [
+    {
+      "id": "CONN01",
+      "status": "passed"
+    },
+    {
+      "id": "CONN02",
+      "status": "passed"
+    },
+    {
+      "id": "CONN03",
+      "status": "passed"
+    },
+    {
+      "id": "NATIVE01",
+      "status": "passed"
+    },
+    {
+      "id": "NATIVE02",
+      "status": "passed"
+    },
+    {
+      "id": "SAFE03",
+      "status": "passed"
+    },
+    {
+      "id": "NATIVE03",
+      "status": "passed"
+    }
+  ],
+  "firstRun": {
+    "total": 26,
+    "passed": 24,
+    "failed": 2,
+    "healed": 0,
+    "skipped": 0
+  },
+  "report": "index.html",
+  "notRunCases": [
+    {
+      "id": "MAN01",
+      "name": "CSV download and selected-row CSV content",
+      "requirements": [
+        "Supplementary CSV selection exports"
+      ],
+      "steps": [
+        "Select five current-page rows in the advanced grid. Export selected and save inside a dedicated test output directory.",
+        "Parse selected-customers.csv and assert exactly five data records, the six expected columns, matching selected customer IDs and valid escaping.",
+        "Download all-customer CSV and verify its records against the current REST customer state."
+      ],
+      "expected": "Downloaded bytes parse correctly and correspond to the selected/all current records.",
+      "reason": "The MCP 0.5.0 typed actions do not expose a browser download-event capture/save-path action. Native JSON export bytes were independently verified."
+    },
+    {
+      "id": "MAN02",
+      "name": "Physical task drag-and-drop gesture",
+      "requirements": [
+        "Supplementary task drag and drop"
+      ],
+      "steps": [
+        "Create a synthetic task in To do.",
+        "Physically drag its card to Done using observed UI coordinates.",
+        "Read REST state and assert the same task ID now has lane Done.",
+        "Reload the board and confirm the card remains in Done."
+      ],
+      "expected": "The gesture updates persistent state. Keyboard alternative is already covered by SUP02.",
+      "reason": "The MCP 0.5.0 typed UI action schema has no drag action. The accessible keyboard alternative passed."
+    },
+    {
+      "id": "MAN03",
+      "name": "Audible playback and canvas pixel changes",
+      "requirements": [
+        "Supplementary canvas/audio"
+      ],
+      "steps": [
+        "Play, pause and seek the local audio sample and observe actual audible output/playback time.",
+        "Capture canvas pixels before and after Change canvas signal and inspect the signal rendering."
+      ],
+      "expected": "The local audio plays and controls work; the canvas visual changes consistently with its accessible signal level.",
+      "reason": "SUP03 verified the audio asset, canvas equivalent action, progress and meter. It did not assert audible output or compare pixels; no visual baseline was created."
+    },
+    {
+      "id": "MAN04",
+      "name": "Rich text bold and italic formatting",
+      "requirements": [
+        "Supplementary rich text"
+      ],
+      "steps": [
+        "Enter synthetic release notes. Select a text range and apply Bold selected text and Italic selected text.",
+        "Verify the selected characters visibly use the expected formatting and that other characters remain unchanged.",
+        "Submit a valid project and verify the resulting release-note text."
+      ],
+      "expected": "Formatting applies to the selected range and the textual result remains correct.",
+      "reason": "SUP04 verified contenteditable input and submitted text. Character-range formatting was not exercised by the typed MCP suite."
+    }
+  ]
+}

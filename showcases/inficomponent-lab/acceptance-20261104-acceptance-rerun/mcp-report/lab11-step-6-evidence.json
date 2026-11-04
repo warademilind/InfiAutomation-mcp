@@ -1,0 +1,16 @@
+{
+  "name": "Frame feedback",
+  "action": "fill",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 209.43159999999625,
+  "screenshot": "lab11-step-6.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 84.2071999999971
+  },
+  "evidence": "lab11-step-6-evidence.json"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Click Sign in",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 178.16159999999218,
+  "screenshot": "privacy-withheld.svg#lab12-step-6.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 52.93369999999413
+  },
+  "evidence": "lab12-step-6-evidence.json"
+}

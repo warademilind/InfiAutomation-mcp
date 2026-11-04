@@ -1,0 +1,17 @@
+{
+  "name": "Expected enabled=false: Reset test data",
+  "action": "assertEnabled",
+  "layer": "electron",
+  "target": "appOff",
+  "status": "passed",
+  "durationMs": 130.77659999999742,
+  "screenshot": "privacy-withheld.svg#safe02-step-4.png",
+  "actual": {
+    "actual": false,
+    "expected": false
+  },
+  "timings": {
+    "actionMs": 21.152700000006007
+  },
+  "evidence": "safe02-step-4-evidence.json"
+}

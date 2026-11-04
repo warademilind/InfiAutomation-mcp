@@ -1,0 +1,17 @@
+{
+  "name": "Select Inspector",
+  "action": "selectWindow",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 183.88289999999688,
+  "screenshot": "privacy-withheld.svg#lab15-step-2.png",
+  "actual": {
+    "windowId": "window-2",
+    "title": "InfiComponent Lab - Inspector"
+  },
+  "timings": {
+    "actionMs": 55.61860000000161
+  },
+  "evidence": "lab15-step-2-evidence.json"
+}

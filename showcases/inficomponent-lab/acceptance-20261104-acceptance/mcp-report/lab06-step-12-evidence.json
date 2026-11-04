@@ -1,0 +1,16 @@
+{
+  "name": "Click Next page",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 159.82299999999668,
+  "screenshot": "privacy-withheld.svg#lab06-step-12.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 50.193099999996775
+  },
+  "evidence": "lab06-step-12-evidence.json"
+}

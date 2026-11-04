@@ -1,0 +1,16 @@
+{
+  "name": "Click Cancel request",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 209.39390000001004,
+  "screenshot": "privacy-withheld.svg#sup08-step-6.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 76.02649999999267
+  },
+  "evidence": "sup08-step-6-evidence.json"
+}

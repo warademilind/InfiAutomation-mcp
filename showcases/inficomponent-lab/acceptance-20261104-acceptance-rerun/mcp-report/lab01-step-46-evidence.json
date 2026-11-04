@@ -1,0 +1,16 @@
+{
+  "name": "Open components/actions",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 161.9940999999999,
+  "screenshot": "lab01-step-46.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 52.6934999999994
+  },
+  "evidence": "lab01-step-46-evidence.json"
+}

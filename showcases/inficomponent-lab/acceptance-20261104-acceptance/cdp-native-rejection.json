@@ -1,0 +1,9 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "Native Electron Menu API requires an electron-launch session. CDP supplies renderer access only; use DOM menus or explicit Windows UIA."
+    }
+  ],
+  "isError": true
+}

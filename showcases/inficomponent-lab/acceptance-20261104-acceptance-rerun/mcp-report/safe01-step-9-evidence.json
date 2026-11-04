@@ -1,0 +1,16 @@
+{
+  "name": "Click Reset test data",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 168.91690000001108,
+  "screenshot": "privacy-withheld.svg#safe01-step-9.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 39.089099999997416
+  },
+  "evidence": "safe01-step-9-evidence.json"
+}

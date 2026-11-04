@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-result = Session is active",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 137.1713000000018,
+  "screenshot": "lab12-step-14.png",
+  "actual": {
+    "actual": "Session is active",
+    "expected": "Session is active"
+  },
+  "timings": {
+    "actionMs": 23.2190000000046
+  },
+  "evidence": "lab12-step-14-evidence.json"
+}

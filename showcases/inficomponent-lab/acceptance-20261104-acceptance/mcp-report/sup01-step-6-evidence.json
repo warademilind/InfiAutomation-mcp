@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-title = Upload center",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 117.66330000000016,
+  "screenshot": "privacy-withheld.svg#sup01-step-6.png",
+  "actual": {
+    "actual": "Upload center",
+    "expected": "Upload center"
+  },
+  "timings": {
+    "actionMs": 10.320900000006077
+  },
+  "evidence": "sup01-step-6-evidence.json"
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Expect #uploaded-files text",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 116.87770000001183,
+  "screenshot": "sup01-step-9.png",
+  "actual": {
+    "actual": "acceptance.txt\n24 bytes · text/plain\nDownload ↓",
+    "expected": "acceptance.txt"
+  },
+  "timings": {
+    "actionMs": 10.039600000003702
+  },
+  "evidence": "sup01-step-9-evidence.json"
+}

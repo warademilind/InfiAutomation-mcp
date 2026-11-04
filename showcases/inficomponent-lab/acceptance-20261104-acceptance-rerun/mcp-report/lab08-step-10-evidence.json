@@ -1,0 +1,17 @@
+{
+  "name": "Disabled remains disabled",
+  "action": "assertEnabled",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 93.41150000000198,
+  "screenshot": "lab08-step-10.png",
+  "actual": {
+    "actual": false,
+    "expected": false
+  },
+  "timings": {
+    "actionMs": 6.163200000002689
+  },
+  "evidence": "lab08-step-10-evidence.json"
+}

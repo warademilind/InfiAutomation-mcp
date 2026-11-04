@@ -1,0 +1,16 @@
+{
+  "name": "Uncheck I accept the demo terms (required)",
+  "action": "uncheck",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 183.26410000000033,
+  "screenshot": "privacy-withheld.svg#lab02-step-14.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 35.44310000000041
+  },
+  "evidence": "lab02-step-14-evidence.json"
+}

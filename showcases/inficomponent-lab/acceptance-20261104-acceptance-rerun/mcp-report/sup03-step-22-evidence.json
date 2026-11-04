@@ -1,0 +1,17 @@
+{
+  "name": "Expect 1 elements: meter[value=\"62\"]",
+  "action": "assertCount",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 68.61900000000605,
+  "screenshot": "sup03-step-22.png",
+  "actual": {
+    "actual": 1,
+    "expected": 1
+  },
+  "timings": {
+    "actionMs": 2.6591000000044005
+  },
+  "evidence": "sup03-step-22-evidence.json"
+}

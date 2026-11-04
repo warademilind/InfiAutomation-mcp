@@ -1,0 +1,16 @@
+{
+  "name": "Click Send request",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 161.35980000000563,
+  "screenshot": "privacy-withheld.svg#sup08-step-11.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 42.98219999999856
+  },
+  "evidence": "sup08-step-11-evidence.json"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Open forms/validation",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 135.03749999999854,
+  "screenshot": "lab04-step-4.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 27.973799999999756
+  },
+  "evidence": "lab04-step-4-evidence.json"
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Return Workspace",
+  "action": "selectWindow",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 75.46160000000964,
+  "screenshot": "privacy-withheld.svg#lab15-step-12.png",
+  "actual": {
+    "windowId": "window-1",
+    "title": "InfiComponent Lab - Workspace"
+  },
+  "timings": {
+    "actionMs": 3.6083999999973457
+  },
+  "evidence": "lab15-step-12-evidence.json"
+}

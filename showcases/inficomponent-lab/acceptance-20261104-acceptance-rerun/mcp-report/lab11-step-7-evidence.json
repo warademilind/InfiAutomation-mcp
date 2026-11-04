@@ -1,0 +1,16 @@
+{
+  "name": "Save frame",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 316.8404999999984,
+  "screenshot": "lab11-step-7.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 135.46949999999924
+  },
+  "evidence": "lab11-step-7-evidence.json"
+}

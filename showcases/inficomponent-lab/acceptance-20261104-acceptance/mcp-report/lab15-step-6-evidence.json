@@ -1,0 +1,17 @@
+{
+  "name": "Expect inspector-result = Inspector saved: Acceptance independent note",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 109.60599999999977,
+  "screenshot": "privacy-withheld.svg#lab15-step-6.png",
+  "actual": {
+    "actual": "Inspector saved: Acceptance independent note",
+    "expected": "Inspector saved: Acceptance independent note"
+  },
+  "timings": {
+    "actionMs": 11.204700000002049
+  },
+  "evidence": "lab15-step-6-evidence.json"
+}

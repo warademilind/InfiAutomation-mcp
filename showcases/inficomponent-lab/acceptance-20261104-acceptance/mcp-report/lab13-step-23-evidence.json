@@ -1,0 +1,17 @@
+{
+  "name": "Expect #order-table tbody tr:first-child text",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 96.81440000000293,
+  "screenshot": "privacy-withheld.svg#lab13-step-23.png",
+  "actual": {
+    "actual": "ORD-f2b9d2e5\tAarav Shah\tTest device kit\t₹640\tPending",
+    "expected": "Aarav Shah"
+  },
+  "timings": {
+    "actionMs": 9.099799999996321
+  },
+  "evidence": "lab13-step-23-evidence.json"
+}

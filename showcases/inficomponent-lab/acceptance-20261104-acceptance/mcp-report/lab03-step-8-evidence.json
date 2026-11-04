@@ -1,0 +1,16 @@
+{
+  "name": "Fill Reporting month",
+  "action": "fill",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 153.07340000000113,
+  "screenshot": "privacy-withheld.svg#lab03-step-8.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 19.76970000000074
+  },
+  "evidence": "lab03-step-8-evidence.json"
+}

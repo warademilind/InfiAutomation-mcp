@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-result = Preferences saved",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 142.175900000002,
+  "screenshot": "sup05-step-11.png",
+  "actual": {
+    "actual": "Preferences saved",
+    "expected": "Preferences saved"
+  },
+  "timings": {
+    "actionMs": 11.77270000000135
+  },
+  "evidence": "sup05-step-11-evidence.json"
+}

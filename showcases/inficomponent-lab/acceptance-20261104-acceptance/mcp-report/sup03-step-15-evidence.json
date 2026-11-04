@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-title = Tabs, tree & accordion",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 128.61299999999756,
+  "screenshot": "privacy-withheld.svg#sup03-step-15.png",
+  "actual": {
+    "actual": "Tabs, tree & accordion",
+    "expected": "Tabs, tree & accordion"
+  },
+  "timings": {
+    "actionMs": 10.873099999997066
+  },
+  "evidence": "sup03-step-15-evidence.json"
+}

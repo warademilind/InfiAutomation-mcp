@@ -1,0 +1,16 @@
+{
+  "name": "Fill Email address",
+  "action": "fill",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 205.3425000000061,
+  "screenshot": "lab05-step-8.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 35.9713000000047
+  },
+  "evidence": "lab05-step-8-evidence.json"
+}

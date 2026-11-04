@@ -1,0 +1,62 @@
+{
+  "createdAt": "2026-11-04T09:56:23.773Z",
+  "mcpRoot": "C:/InfiAutomation",
+  "executable": "C:/InfiComponentLab\\dist\\win-unpacked\\InfiComponentLab.exe",
+  "executableSha256": "32e357fc856feadd1e51531f47811d2621483e5a58815eb4999154d7c9baea3b",
+  "target": {
+    "kind": "electron",
+    "executable": "C:/InfiComponentLab\\dist\\win-unpacked\\InfiComponentLab.exe",
+    "args": [
+      "--test-mode",
+      "--api-port=49724",
+      "--data-dir=C:/InfiComponentLab\\.runtime\\acceptance-execution-20261104-acceptance-rerun-1793786183771"
+    ],
+    "windowTitle": "InfiComponent Lab - Workspace",
+    "windowUrlContains": "workspace.html",
+    "timeoutMs": 15000
+  },
+  "offTarget": {
+    "kind": "electron",
+    "executable": "C:/InfiComponentLab\\dist\\win-unpacked\\InfiComponentLab.exe",
+    "args": [
+      "--api-port=49725",
+      "--data-dir=C:/InfiComponentLab\\.runtime\\acceptance-execution-20261104-acceptance-rerun-1793786183771-no-test-mode"
+    ],
+    "windowTitle": "InfiComponent Lab - Workspace",
+    "windowUrlContains": "workspace.html",
+    "timeoutMs": 15000
+  },
+  "policy": {
+    "allowedOrigins": [
+      "http://127.0.0.1:49724",
+      "http://127.0.0.1:49725"
+    ],
+    "allowedMethods": [
+      "GET",
+      "POST",
+      "PUT",
+      "PATCH",
+      "DELETE"
+    ],
+    "captureScreenshots": true,
+    "redactKeys": [
+      "password",
+      "token",
+      "passphrase",
+      "confirm"
+    ],
+    "dos": [
+      "Use synthetic records only. Every execution starts a new owned data directory. Test-mode reset is restricted to that directory."
+    ],
+    "donts": [
+      "Do not reset the normal user profile. Healing must stay off. Do not create or approve visual baselines. Do not disable Electron context isolation, sandboxing or web security."
+    ]
+  },
+  "healing": "off",
+  "profile": "C:/InfiComponentLab\\.runtime\\acceptance-execution-20261104-acceptance-rerun-1793786183771",
+  "origins": [
+    "http://127.0.0.1:49724",
+    "http://127.0.0.1:49725"
+  ],
+  "testCount": 26
+}

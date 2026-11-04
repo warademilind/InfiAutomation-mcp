@@ -1,0 +1,17 @@
+{
+  "name": "Expect 1 elements: [role=\"treeitem\"][aria-selected=\"true\"][data-tree-leaf=\"Reports\"]",
+  "action": "assertCount",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 86.28110000000015,
+  "screenshot": "privacy-withheld.svg#lab10-step-12.png",
+  "actual": {
+    "actual": 1,
+    "expected": 1
+  },
+  "timings": {
+    "actionMs": 2.874500000005355
+  },
+  "evidence": "lab10-step-12-evidence.json"
+}

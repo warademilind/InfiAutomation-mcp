@@ -1,0 +1,17 @@
+{
+  "name": "Inspector unique title",
+  "action": "assertTitle",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 74.54249999999593,
+  "screenshot": "lab15-step-4.png",
+  "actual": {
+    "actual": "InfiComponent Lab - Inspector",
+    "expected": "InfiComponent Lab - Inspector"
+  },
+  "timings": {
+    "actionMs": 1.9913000000087777
+  },
+  "evidence": "lab15-step-4-evidence.json"
+}

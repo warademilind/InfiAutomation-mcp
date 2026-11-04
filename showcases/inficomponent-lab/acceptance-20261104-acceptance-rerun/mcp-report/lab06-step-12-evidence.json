@@ -1,0 +1,17 @@
+{
+  "name": "Expect #selection-count text",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 137.2597999999998,
+  "screenshot": "lab06-step-12.png",
+  "actual": {
+    "actual": "5 rows selected",
+    "expected": "5 rows selected"
+  },
+  "timings": {
+    "actionMs": 10.052499999997963
+  },
+  "evidence": "lab06-step-12-evidence.json"
+}

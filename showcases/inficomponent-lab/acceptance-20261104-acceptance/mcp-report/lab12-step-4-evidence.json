@@ -1,0 +1,16 @@
+{
+  "name": "Fill Account email",
+  "action": "fill",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 140.4076999999961,
+  "screenshot": "privacy-withheld.svg#lab12-step-4.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 24.8862999999983
+  },
+  "evidence": "lab12-step-4-evidence.json"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Click Edit Acceptance Customer",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 210.86099999999715,
+  "screenshot": "privacy-withheld.svg#lab05-step-19.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 56.965900000002875
+  },
+  "evidence": "lab05-step-19-evidence.json"
+}

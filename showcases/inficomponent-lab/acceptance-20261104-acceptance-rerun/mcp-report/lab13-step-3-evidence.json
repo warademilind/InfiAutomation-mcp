@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-title = Task board",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 121.25760000000446,
+  "screenshot": "lab13-step-3.png",
+  "actual": {
+    "actual": "Task board",
+    "expected": "Task board"
+  },
+  "timings": {
+    "actionMs": 12.1617999999944
+  },
+  "evidence": "lab13-step-3-evidence.json"
+}

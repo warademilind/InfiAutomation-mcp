@@ -1,0 +1,16 @@
+{
+  "name": "Select Skills (multiple selection) = Playwright",
+  "action": "select",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 147.46979999999894,
+  "screenshot": "lab03-step-16.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 24.954600000000937
+  },
+  "evidence": "lab03-step-16-evidence.json"
+}

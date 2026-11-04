@@ -1,0 +1,16 @@
+{
+  "name": "Double click",
+  "action": "doubleClick",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 179.08009999999922,
+  "screenshot": "lab08-step-8.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 56.38719999999739
+  },
+  "evidence": "lab08-step-8-evidence.json"
+}

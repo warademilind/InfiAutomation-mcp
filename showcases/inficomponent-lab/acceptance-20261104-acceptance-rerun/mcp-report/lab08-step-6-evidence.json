@@ -1,0 +1,20 @@
+{
+  "name": "Explicit DOM File > Save note",
+  "action": "menu",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 214.8156999999992,
+  "screenshot": "lab08-step-6.png",
+  "actual": {
+    "path": [
+      "File",
+      "Save note"
+    ],
+    "source": "renderer-dom"
+  },
+  "timings": {
+    "actionMs": 90.88160000000062
+  },
+  "evidence": "lab08-step-6-evidence.json"
+}

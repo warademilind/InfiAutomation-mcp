@@ -1,0 +1,17 @@
+{
+  "name": "Expect 5 elements: #grid-table tbody tr",
+  "action": "assertCount",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 112.35119999999733,
+  "screenshot": "lab06-step-7.png",
+  "actual": {
+    "actual": 5,
+    "expected": 5
+  },
+  "timings": {
+    "actionMs": 3.253599999996368
+  },
+  "evidence": "lab06-step-7-evidence.json"
+}

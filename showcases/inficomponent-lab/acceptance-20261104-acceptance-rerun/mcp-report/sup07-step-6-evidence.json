@@ -1,0 +1,21 @@
+{
+  "name": "Navigate > Workspace",
+  "action": "menu",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 132.29460000000836,
+  "screenshot": "sup07-step-6.png",
+  "actual": {
+    "path": [
+      "Navigate",
+      "Workspace"
+    ],
+    "source": "electron-native-menu",
+    "invocation": "MenuItem.click"
+  },
+  "timings": {
+    "actionMs": 6.787899999995716
+  },
+  "evidence": "sup07-step-6-evidence.json"
+}

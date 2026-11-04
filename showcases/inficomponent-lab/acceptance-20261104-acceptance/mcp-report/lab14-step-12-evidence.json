@@ -1,0 +1,17 @@
+{
+  "name": "Expect delayed-result = Delayed content is ready",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 937.5228999999963,
+  "screenshot": "privacy-withheld.svg#lab14-step-12.png",
+  "actual": {
+    "actual": "Delayed content is ready",
+    "expected": "Delayed content is ready"
+  },
+  "timings": {
+    "actionMs": 827.5510000000068
+  },
+  "evidence": "lab14-step-12-evidence.json"
+}

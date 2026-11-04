@@ -1,0 +1,16 @@
+{
+  "name": "Fill Workspace note",
+  "action": "fill",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 145.42549999999756,
+  "screenshot": "privacy-withheld.svg#lab09-step-15.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 19.614699999998265
+  },
+  "evidence": "lab09-step-15-evidence.json"
+}

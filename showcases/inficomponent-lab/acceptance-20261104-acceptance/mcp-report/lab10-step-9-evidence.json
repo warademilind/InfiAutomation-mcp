@@ -1,0 +1,16 @@
+{
+  "name": "Expand project",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 157.10459999999875,
+  "screenshot": "privacy-withheld.svg#lab10-step-9.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 37.897100000001956
+  },
+  "evidence": "lab10-step-9-evidence.json"
+}

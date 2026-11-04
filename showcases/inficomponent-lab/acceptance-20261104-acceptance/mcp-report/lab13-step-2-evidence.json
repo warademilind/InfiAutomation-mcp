@@ -1,0 +1,16 @@
+{
+  "name": "Open workflows/wizard",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 168.318299999999,
+  "screenshot": "privacy-withheld.svg#lab13-step-2.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 63.66790000000037
+  },
+  "evidence": "lab13-step-2-evidence.json"
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Return Inspector retains note",
+  "action": "selectWindow",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 97.25079999999434,
+  "screenshot": "lab15-step-11.png",
+  "actual": {
+    "windowId": "window-2",
+    "title": "InfiComponent Lab - Inspector"
+  },
+  "timings": {
+    "actionMs": 5.1336000000010245
+  },
+  "evidence": "lab15-step-11-evidence.json"
+}

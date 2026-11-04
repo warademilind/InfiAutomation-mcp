@@ -1,0 +1,16 @@
+{
+  "name": "Open files/uploads",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 133.92439999999988,
+  "screenshot": "lab01-step-59.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 38.152000000000044
+  },
+  "evidence": "lab01-step-59-evidence.json"
+}

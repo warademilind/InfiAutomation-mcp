@@ -1,0 +1,16 @@
+{
+  "name": "Click Send request",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 177.00100000000384,
+  "screenshot": "sup08-step-7.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 49.0396000000037
+  },
+  "evidence": "sup08-step-7-evidence.json"
+}

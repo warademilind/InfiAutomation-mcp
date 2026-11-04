@@ -1,0 +1,17 @@
+{
+  "name": "Expect #canvas-result text",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 148.2204999999958,
+  "screenshot": "privacy-withheld.svg#sup03-step-23.png",
+  "actual": {
+    "actual": "Signal level 2",
+    "expected": "Signal level 2"
+  },
+  "timings": {
+    "actionMs": 22.47609999999986
+  },
+  "evidence": "sup03-step-23-evidence.json"
+}

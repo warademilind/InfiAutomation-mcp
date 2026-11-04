@@ -1,0 +1,20 @@
+{
+  "checks": [
+    "requirements table",
+    "plan rendering",
+    "case search and expansion",
+    "26-case actual summary",
+    "23-step detail",
+    "coverage report",
+    "video metadata/seek",
+    "30-second normal-speed playback across chapter transitions",
+    "390px layout"
+  ],
+  "browserErrors": [],
+  "failedResponses": [],
+  "playback": {
+    "time": 130.1375,
+    "paused": false,
+    "error": null
+  }
+}

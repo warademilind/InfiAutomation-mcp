@@ -40,6 +40,7 @@ jobs:
       - run: npm run test:integration:web
       - run: node scripts/verify-report.mjs
       - run: node scripts/verify-electron-example.mjs
+      - run: node scripts/verify-component-lab-showcase.mjs
       - run: node scripts/verify-requirements-demo.mjs
       - run: node scripts/verify-unified-demo.mjs
       - run: xvfb-run -a npm run test:integration:electron

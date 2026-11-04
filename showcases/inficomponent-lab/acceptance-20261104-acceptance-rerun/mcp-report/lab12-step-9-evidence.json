@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-result = incorrect",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 118.8457999999955,
+  "screenshot": "lab12-step-9.png",
+  "actual": {
+    "actual": "Email or password is incorrect",
+    "expected": "incorrect"
+  },
+  "timings": {
+    "actionMs": 9.902699999998731
+  },
+  "evidence": "lab12-step-9-evidence.json"
+}

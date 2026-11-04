@@ -1,0 +1,16 @@
+{
+  "name": "Click Open modal",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 198.0538000000015,
+  "screenshot": "privacy-withheld.svg#lab09-step-4.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 62.01070000000618
+  },
+  "evidence": "lab09-step-4-evidence.json"
+}

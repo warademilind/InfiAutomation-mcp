@@ -1,0 +1,16 @@
+{
+  "name": "Fill Quantity",
+  "action": "fill",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 160.73909999999887,
+  "screenshot": "lab03-step-6.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 29.650900000000547
+  },
+  "evidence": "lab03-step-6-evidence.json"
+}

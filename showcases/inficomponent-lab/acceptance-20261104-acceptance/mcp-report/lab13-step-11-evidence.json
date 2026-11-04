@@ -1,0 +1,16 @@
+{
+  "name": "Fill Order amount",
+  "action": "fill",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 153.94250000000466,
+  "screenshot": "privacy-withheld.svg#lab13-step-11.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 26.28750000000582
+  },
+  "evidence": "lab13-step-11-evidence.json"
+}

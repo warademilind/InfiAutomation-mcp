@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-title = Windows & connections",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 90.09300000000076,
+  "screenshot": "lab01-step-90.png",
+  "actual": {
+    "actual": "Windows & connections",
+    "expected": "Windows & connections"
+  },
+  "timings": {
+    "actionMs": 8.091200000000754
+  },
+  "evidence": "lab01-step-90-evidence.json"
+}

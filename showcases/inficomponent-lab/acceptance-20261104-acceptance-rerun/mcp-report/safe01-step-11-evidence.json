@@ -1,0 +1,17 @@
+{
+  "name": "Reset modal closed",
+  "action": "assertCount",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 117.9539999999979,
+  "screenshot": "privacy-withheld.svg#safe01-step-11.png",
+  "actual": {
+    "actual": 0,
+    "expected": 0
+  },
+  "timings": {
+    "actionMs": 3.874100000000908
+  },
+  "evidence": "safe01-step-11-evidence.json"
+}

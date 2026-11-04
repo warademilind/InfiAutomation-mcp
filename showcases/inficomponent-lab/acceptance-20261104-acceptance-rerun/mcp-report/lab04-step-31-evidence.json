@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-result = Passphrases do not match.",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 115.53489999999874,
+  "screenshot": "lab04-step-31.png",
+  "actual": {
+    "actual": "Passphrases do not match.",
+    "expected": "Passphrases do not match."
+  },
+  "timings": {
+    "actionMs": 9.476000000002387
+  },
+  "evidence": "lab04-step-31-evidence.json"
+}

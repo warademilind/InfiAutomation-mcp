@@ -1,0 +1,16 @@
+{
+  "name": "Click Search pages",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 1233.622199999998,
+  "screenshot": "privacy-withheld.svg#sup07-step-1.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 200.11299999999756
+  },
+  "evidence": "sup07-step-1-evidence.json"
+}

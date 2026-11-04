@@ -1,0 +1,16 @@
+{
+  "name": "Check Select current page",
+  "action": "check",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 198.94870000000083,
+  "screenshot": "lab06-step-8.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 87.11829999999463
+  },
+  "evidence": "lab06-step-8-evidence.json"
+}

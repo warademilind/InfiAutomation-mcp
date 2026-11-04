@@ -1,0 +1,16 @@
+{
+  "name": "Open workspace/overview",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 146.74660000000586,
+  "screenshot": "lab05-step-15.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 30.730100000000675
+  },
+  "evidence": "lab05-step-15-evidence.json"
+}

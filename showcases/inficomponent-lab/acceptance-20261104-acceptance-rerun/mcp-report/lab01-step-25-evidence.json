@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-title = Input laboratory",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 138.8822,
+  "screenshot": "lab01-step-25.png",
+  "actual": {
+    "actual": "Input laboratory",
+    "expected": "Input laboratory"
+  },
+  "timings": {
+    "actionMs": 12.44589999999971
+  },
+  "evidence": "lab01-step-25-evidence.json"
+}

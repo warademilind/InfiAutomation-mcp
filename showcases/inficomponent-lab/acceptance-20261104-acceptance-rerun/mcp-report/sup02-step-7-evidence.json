@@ -1,0 +1,16 @@
+{
+  "name": "Click + Add task",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 178.70930000000226,
+  "screenshot": "sup02-step-7.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 56.00310000000172
+  },
+  "evidence": "sup02-step-7-evidence.json"
+}

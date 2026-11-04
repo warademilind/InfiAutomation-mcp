@@ -1,0 +1,17 @@
+{
+  "name": "Expect .pagination text",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 124.45309999999881,
+  "screenshot": "privacy-withheld.svg#lab06-step-4.png",
+  "actual": {
+    "actual": "18 records · Page 1 of 4\nPrevious page\nNext page",
+    "expected": "18 records"
+  },
+  "timings": {
+    "actionMs": 11.150199999996403
+  },
+  "evidence": "lab06-step-4-evidence.json"
+}

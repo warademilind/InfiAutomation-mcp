@@ -1,0 +1,16 @@
+{
+  "name": "Select Response scenario = Slow response",
+  "action": "select",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 121.19759999999951,
+  "screenshot": "privacy-withheld.svg#sup08-step-4.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 21.863100000002305
+  },
+  "evidence": "sup08-step-4-evidence.json"
+}

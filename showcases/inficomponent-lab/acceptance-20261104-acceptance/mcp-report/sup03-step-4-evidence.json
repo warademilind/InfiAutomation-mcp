@@ -1,0 +1,16 @@
+{
+  "name": "Hover observed tooltip trigger",
+  "action": "hover",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 207.55590000000666,
+  "screenshot": "privacy-withheld.svg#sup03-step-4.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 58.28740000000107
+  },
+  "evidence": "sup03-step-4-evidence.json"
+}

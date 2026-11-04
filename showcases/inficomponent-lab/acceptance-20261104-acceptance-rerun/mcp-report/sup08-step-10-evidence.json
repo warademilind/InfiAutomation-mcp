@@ -1,0 +1,17 @@
+{
+  "name": "Expected enabled=true: Send request",
+  "action": "assertEnabled",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 108.76919999999518,
+  "screenshot": "sup08-step-10.png",
+  "actual": {
+    "actual": true,
+    "expected": true
+  },
+  "timings": {
+    "actionMs": 13.95339999999851
+  },
+  "evidence": "sup08-step-10-evidence.json"
+}

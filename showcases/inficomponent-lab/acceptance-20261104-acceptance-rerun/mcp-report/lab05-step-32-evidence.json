@@ -1,0 +1,17 @@
+{
+  "name": "Expect empty-customers = No customers match your filters.",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 117.76259999999456,
+  "screenshot": "lab05-step-32.png",
+  "actual": {
+    "actual": "No customers match your filters.",
+    "expected": "No customers match your filters."
+  },
+  "timings": {
+    "actionMs": 18.219199999999546
+  },
+  "evidence": "lab05-step-32-evidence.json"
+}

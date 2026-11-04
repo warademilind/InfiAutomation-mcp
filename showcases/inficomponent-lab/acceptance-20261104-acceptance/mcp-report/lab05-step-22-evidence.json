@@ -1,0 +1,41 @@
+{
+  "name": "Edited customer persisted",
+  "action": "GET",
+  "layer": "api",
+  "target": "api",
+  "status": "passed",
+  "durationMs": 5.365300000004936,
+  "actual": {
+    "request": {
+      "method": "GET",
+      "url": "http://127.0.0.1:54972/api/customers/CUS-b4430047",
+      "headers": {}
+    },
+    "status": 200,
+    "headers": {
+      "x-content-type-options": "nosniff",
+      "referrer-policy": "no-referrer",
+      "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'",
+      "content-type": "application/json; charset=utf-8",
+      "cache-control": "no-store",
+      "date": "Wed, 04 Nov 2026 09:53:36 GMT",
+      "connection": "keep-alive",
+      "keep-alive": "timeout=5",
+      "transfer-encoding": "chunked"
+    },
+    "body": {
+      "id": "CUS-b4430047",
+      "name": "Acceptance Updated",
+      "email": "customer@example.test",
+      "department": "Engineering",
+      "status": "Active",
+      "budget": 0,
+      "joined": "2026-11-04"
+    },
+    "durationMs": 4.605500000005122
+  },
+  "timings": {
+    "requestMs": 4.605500000005122
+  },
+  "evidence": "lab05-step-22-evidence.json"
+}

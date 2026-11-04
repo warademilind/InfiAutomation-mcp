@@ -1,0 +1,17 @@
+{
+  "name": "Expected enabled=false: Cancel request",
+  "action": "assertEnabled",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 111.63990000000922,
+  "screenshot": "sup08-step-11.png",
+  "actual": {
+    "actual": false,
+    "expected": false
+  },
+  "timings": {
+    "actionMs": 15.18289999999979
+  },
+  "evidence": "sup08-step-11-evidence.json"
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Expect page-title = Order wizard",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 96.80290000000059,
+  "screenshot": "privacy-withheld.svg#lab01-step-59.png",
+  "actual": {
+    "actual": "Order wizard",
+    "expected": "Order wizard"
+  },
+  "timings": {
+    "actionMs": 12.630600000000413
+  },
+  "evidence": "lab01-step-59-evidence.json"
+}

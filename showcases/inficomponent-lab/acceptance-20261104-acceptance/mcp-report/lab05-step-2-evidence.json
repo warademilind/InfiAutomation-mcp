@@ -1,0 +1,16 @@
+{
+  "name": "Open records/customers",
+  "action": "click",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 193.66800000000148,
+  "screenshot": "privacy-withheld.svg#lab05-step-2.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 96.8311999999969
+  },
+  "evidence": "lab05-step-2-evidence.json"
+}

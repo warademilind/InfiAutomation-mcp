@@ -1,0 +1,17 @@
+{
+  "name": "Expect order-success = created for Aarav Shah",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 113.7051999999967,
+  "screenshot": "lab13-step-21.png",
+  "actual": {
+    "actual": "Order ORD-12f24e43 created for Aarav Shah.",
+    "expected": "created for Aarav Shah"
+  },
+  "timings": {
+    "actionMs": 15.516300000002957
+  },
+  "evidence": "lab13-step-21-evidence.json"
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Expect shadow-output = Shadow saved: Acceptance shadow",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 140.57700000000477,
+  "screenshot": "lab11-step-11.png",
+  "actual": {
+    "actual": "Shadow saved: Acceptance shadow",
+    "expected": "Shadow saved: Acceptance shadow"
+  },
+  "timings": {
+    "actionMs": 10.473500000000058
+  },
+  "evidence": "lab11-step-11-evidence.json"
+}
