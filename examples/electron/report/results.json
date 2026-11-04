@@ -1,0 +1,214 @@
+{
+  "schemaVersion": 2,
+  "id": "2026-11-04T07-06-08-287Z-c7411463",
+  "name": "Electron native menu and form example",
+  "target": "electron",
+  "startedAt": "2026-11-04T07:06:08.294Z",
+  "durationMs": 4693,
+  "status": "passed",
+  "summary": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0,
+    "healed": 0,
+    "skipped": 0
+  },
+  "tests": [
+    {
+      "id": "electron-native-menu",
+      "name": "Native export command updates renderer",
+      "tags": [],
+      "requirements": [],
+      "status": "passed",
+      "durationMs": 2202,
+      "steps": [
+        {
+          "name": "Invoke observed native export command",
+          "action": "menu",
+          "layer": "electron",
+          "target": "app",
+          "status": "passed",
+          "durationMs": 1569.4384000000002,
+          "screenshot": "electron-native-menu-step-1.png",
+          "actual": {
+            "path": [
+              "File",
+              "Export",
+              "Export JSON"
+            ],
+            "source": "electron-native-menu",
+            "invocation": "MenuItem.click"
+          },
+          "timings": {
+            "actionMs": 24.34810000000016
+          },
+          "evidence": "electron-native-menu-step-1-evidence.json"
+        },
+        {
+          "name": "Assert native command effect",
+          "action": "assertText",
+          "layer": "electron",
+          "target": "app",
+          "status": "passed",
+          "durationMs": 161.11919999999964,
+          "screenshot": "electron-native-menu-step-2.png",
+          "actual": {
+            "actual": "Export ready",
+            "expected": "Export ready"
+          },
+          "timings": {
+            "actionMs": 56.67049999999972
+          },
+          "evidence": "electron-native-menu-step-2-evidence.json"
+        }
+      ],
+      "sessions": [
+        {
+          "target": "app",
+          "info": {
+            "kind": "electron",
+            "transport": "electron-launch",
+            "ownership": "owned",
+            "runtime": {
+              "playwright": "1.64.1",
+              "electron": "45.2.1",
+              "chromium": "156.0.8078.75",
+              "node": "24.22.1"
+            },
+            "capabilities": {
+              "rendererDom": true,
+              "screenshots": true,
+              "windowSelection": true,
+              "nativeElectronMenus": true,
+              "mainProcess": true,
+              "osDialogs": false,
+              "version2Execution": true
+            },
+            "selectedWindowId": "window-1",
+            "notes": [
+              "Playwright Electron launch support is experimental. The app supplies its embedded Chromium; installed Chrome is not used."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "electron-save",
+      "name": "Save project shows entered value",
+      "tags": [],
+      "requirements": [],
+      "status": "passed",
+      "durationMs": 2477,
+      "steps": [
+        {
+          "name": "Enter project name",
+          "action": "fill",
+          "layer": "electron",
+          "target": "app",
+          "status": "passed",
+          "durationMs": 1746.3519999999999,
+          "screenshot": "electron-save-step-1.png",
+          "actual": {
+            "completed": true
+          },
+          "timings": {
+            "actionMs": 121.51520000000073
+          },
+          "evidence": "electron-save-step-1-evidence.json"
+        },
+        {
+          "name": "Save project",
+          "action": "click",
+          "layer": "electron",
+          "target": "app",
+          "status": "passed",
+          "durationMs": 214.16440000000057,
+          "screenshot": "electron-save-step-2.png",
+          "actual": {
+            "completed": true
+          },
+          "timings": {
+            "actionMs": 105.17590000000018
+          },
+          "evidence": "electron-save-step-2-evidence.json"
+        },
+        {
+          "name": "Assert saved value",
+          "action": "assertText",
+          "layer": "electron",
+          "target": "app",
+          "status": "passed",
+          "durationMs": 126.6208000000006,
+          "screenshot": "electron-save-step-3.png",
+          "actual": {
+            "actual": "Saved Electron example",
+            "expected": "Saved Electron example"
+          },
+          "timings": {
+            "actionMs": 21.81370000000061
+          },
+          "evidence": "electron-save-step-3-evidence.json"
+        }
+      ],
+      "sessions": [
+        {
+          "target": "app",
+          "info": {
+            "kind": "electron",
+            "transport": "electron-launch",
+            "ownership": "owned",
+            "runtime": {
+              "playwright": "1.64.1",
+              "electron": "45.2.1",
+              "chromium": "156.0.8078.75",
+              "node": "24.22.1"
+            },
+            "capabilities": {
+              "rendererDom": true,
+              "screenshots": true,
+              "windowSelection": true,
+              "nativeElectronMenus": true,
+              "mainProcess": true,
+              "osDialogs": false,
+              "version2Execution": true
+            },
+            "selectedWindowId": "window-1",
+            "notes": [
+              "Playwright Electron launch support is experimental. The app supplies its embedded Chromium; installed Chrome is not used."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "environment": {
+    "platform": "win32-x64",
+    "node": "v24.22.2",
+    "playwright": "1.64.1"
+  },
+  "policy": {
+    "dos": [],
+    "donts": [],
+    "allowedOrigins": [],
+    "allowedMethods": [
+      "GET",
+      "HEAD",
+      "OPTIONS"
+    ],
+    "deniedTargets": [],
+    "deniedUiActions": [],
+    "captureScreenshots": true,
+    "redactKeys": []
+  },
+  "layers": [
+    {
+      "layer": "electron",
+      "steps": 5,
+      "passed": 5,
+      "healed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "durationMs": 3817.694800000001
+    }
+  ]
+}

@@ -6,6 +6,9 @@ export interface Driver {
   act(step: Step): Promise<unknown>;
   screenshot(path: string): Promise<void>;
   menus(depth?: number): Promise<unknown>;
+  info?(): Promise<unknown>;
+  windows?(): Promise<unknown>;
+  selectWindow?(windowId: string): Promise<unknown>;
   traceStart(): Promise<void>;
   traceStop(path: string): Promise<void>;
   close(): Promise<void>;

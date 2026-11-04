@@ -1,0 +1,17 @@
+{
+  "name": "Assert native command effect",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 161.11919999999964,
+  "screenshot": "electron-native-menu-step-2.png",
+  "actual": {
+    "actual": "Export ready",
+    "expected": "Export ready"
+  },
+  "timings": {
+    "actionMs": 56.67049999999972
+  },
+  "evidence": "electron-native-menu-step-2-evidence.json"
+}

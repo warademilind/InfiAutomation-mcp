@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 2,
+  "name": "Electron native menu and form example",
+  "targets": {
+    "app": {
+      "kind": "electron",
+      "executable": "${env.ELECTRON_APP}",
+      "args": ["${env.ELECTRON_MAIN}", "--multi-window"],
+      "windowTitle": "InfiAutomation Lab",
+      "windowUrlContains": "web.html",
+      "timeoutMs": 30000
+    }
+  },
+  "healing": "off",
+  "tests": [
+    {
+      "id": "electron-native-menu",
+      "name": "Native export command updates renderer",
+      "steps": [
+        {"kind":"ui","target":"app","name":"Invoke observed native export command","step":{"name":"Export JSON","action":"menu","menuSource":"native","menuPath":["File","Export","Export JSON"]}},
+        {"kind":"ui","target":"app","name":"Assert native command effect","step":{"name":"Export result","action":"assertText","locator":{"testId":"status"},"value":"Export ready"}}
+      ]
+    },
+    {
+      "id": "electron-save",
+      "name": "Save project shows entered value",
+      "steps": [
+        {"kind":"ui","target":"app","name":"Enter project name","step":{"name":"Project name","action":"fill","locator":{"label":"Project name"},"value":"Electron example"}},
+        {"kind":"ui","target":"app","name":"Save project","step":{"name":"Save","action":"click","locator":{"role":"button","name":"Save project"}}},
+        {"kind":"ui","target":"app","name":"Assert saved value","step":{"name":"Saved result","action":"assertText","locator":{"testId":"status"},"value":"Saved Electron example"}}
+      ]
+    }
+  ]
+}

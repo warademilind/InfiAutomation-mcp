@@ -1,0 +1,17 @@
+{
+  "name": "Assert saved value",
+  "action": "assertText",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 126.6208000000006,
+  "screenshot": "electron-save-step-3.png",
+  "actual": {
+    "actual": "Saved Electron example",
+    "expected": "Saved Electron example"
+  },
+  "timings": {
+    "actionMs": 21.81370000000061
+  },
+  "evidence": "electron-save-step-3-evidence.json"
+}

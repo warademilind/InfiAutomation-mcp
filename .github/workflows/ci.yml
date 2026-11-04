@@ -39,9 +39,18 @@ jobs:
       - run: npm ci --prefix integration/fixtures/electron
       - run: npm run test:integration:web
       - run: node scripts/verify-report.mjs
+      - run: node scripts/verify-electron-example.mjs
       - run: node scripts/verify-requirements-demo.mjs
       - run: node scripts/verify-unified-demo.mjs
       - run: xvfb-run -a npm run test:integration:electron
+      - name: Install separate Electron 21 compatibility fixture
+        run: |
+          npm install --prefix .tools/electron-21 --no-save --no-audit --no-fund electron@21.4.4
+          node .tools/electron-21/node_modules/electron/install.js
+      - name: Verify Electron with an older embedded Chromium
+        env:
+          INFIAUTOMATION_TEST_ELECTRON: ./.tools/electron-21/node_modules/electron/dist/electron
+        run: xvfb-run -a npm run test:integration:electron
       - uses: actions/upload-artifact@v7.0.2
         if: always()
         with:

@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.5.0
+
+- Improve Electron launch and CDP attachment with title/URL window selection, startup waiting and explicit ambiguity errors; attachment never opens a replacement tab.
+- Attach through CDP using Playwright's supported `noDefaults` option to preserve application settings and avoid unsupported context-management overrides on older Electron runtimes.
+- Add `session_info`, `ui_windows` and `ui_window_select`, with real runtime versions, ownership and transport-specific capabilities.
+- Invoke observed native Electron menu commands through `MenuItem.click`, reject disabled/hidden/ambiguous paths, and allow explicit DOM menu selection.
+- Include actual application runtime/capability evidence in new version 1 and version 2 HTML/JSON reports.
+- Test multiwindow apps, native menu effects and checkboxes, MCP CDP attachment, retained app state after detach and older embedded Chromium compatibility.
+- Document Electron launch, CDP and explicit Windows UIA fallback without promising compatibility with every Electron version or weakening app security fuses. Existing releases and suite formats remain available.
+
 ## 0.4.0
 
 - Add version 2 named targets and cross-layer cases for web, Windows desktop, Electron, REST/SOAP, database reads and UX checks. Version 1 suites remain supported.

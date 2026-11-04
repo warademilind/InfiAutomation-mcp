@@ -1,6 +1,6 @@
 {
   "name": "@infiautomation/mcp",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Unified MCP for web, Electron, Windows desktop, REST/SOAP, database and UX testing with policy, traceability and offline timing reports.",
   "type": "module",
   "license": "MIT",
@@ -61,7 +61,7 @@
     "prepack": "npm run build",
     "prepare": "npm run build",
     "test:integration:web": "node --import tsx --test --test-name-pattern=\"real Chromium\" integration/adapters.test.ts",
-    "test:integration:electron": "node --import tsx --test --test-name-pattern=\"real Electron\" integration/adapters.test.ts",
+    "test:integration:electron": "node --import tsx --test --test-concurrency=1 --test-name-pattern=\"real Electron\" integration/adapters.test.ts integration/electron.test.ts",
     "test:integration:native": "node --import tsx --test --test-name-pattern=\"real Windows\" integration/adapters.test.ts",
     "test:unified": "node scripts/verify-unified-demo.mjs",
     "test:databases": "node scripts/verify-database-services.mjs"

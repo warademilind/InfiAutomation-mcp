@@ -7,6 +7,9 @@
 | `doctor` | Capability/platform/worker check; no installation |
 | `session_start` | `{target}` → `sessionId`, live snapshot |
 | `session_list` | Sessions owned by this MCP process |
+| `session_info` | `sessionId` → actual transport, ownership, runtime versions and supported capabilities |
+| `ui_windows` | `sessionId` → live web/Electron window IDs, titles, URLs and selected state |
+| `ui_window_select` | `sessionId`, observed `windowId` → select one live renderer; session-local IDs |
 | `session_close` | `sessionId`; closes owned app, preserves attached native app |
 | `ui_snapshot` | `sessionId`, `depth` (1–32), `maxNodes` (1–5000) |
 | `ui_action` | `sessionId`, `step` → actual action/assertion result |
@@ -34,6 +37,8 @@ Resource: `infiautomation://guide`. Prompts: `test-planner`, `test-generator`, `
 `browser`: chromium/firefox/webkit. Optional `channel` selects an installed Chromium channel such as chrome/msedge. Install the relevant browser first.
 
 Electron: `{"kind":"electron","executable":"/path/to/app","args":[]}`, or `{"kind":"electron","cdpUrl":"http://127.0.0.1:9222"}`. The app must allow debugging; InfiAutomation does not disable its security fuses. `cwd` controls launch working directory.
+
+Electron/CDP startup can use `windowTitle` and `windowUrlContains` (case-sensitive substrings, both must match). Waits for one match; ambiguity fails. `ui_action` → `menu` accepts `menuSource: "native" | "dom" | "auto"` (default auto). Native application menu commands require Electron launch; CDP provides renderer DOM access only. See [Electron connection modes, examples and limitations](ELECTRON.md).
 
 Desktop: `{"kind":"desktop","pid":1234}`, `{"kind":"desktop","windowTitle":"Unique title"}`, or `{"kind":"desktop","executable":"C:\\path\\App.exe"}`. A Calculator launcher may delegate to a separate process; use an observed actual PID/title if automatic resolution is ambiguous.
 

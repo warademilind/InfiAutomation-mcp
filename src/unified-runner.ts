@@ -61,6 +61,7 @@ export async function runUnifiedSuite(suite:UnifiedSuite,workspace:Workspace,fac
             active=factory(resolved.kind==='web'&&!resolved.cwd?{...resolved,cwd:workspace.root}:resolved);drivers.set(step.target,active);
             if(active instanceof WebDriver)active.executionPolicy=policy;
             await active.start();
+            if(active.info)(record.sessions ||= []).push({target:step.target,info:await active.info()});
           }
           if(step.kind==='ux')outcome=await executeUx(active,step,workspace,prefix);
           else if(step.kind==='ui'){

@@ -8,6 +8,7 @@ test('MCP stdio handshake, tool schemas, prompts, resource and validated generat
   try{
     await client.connect(transport);
     const tools=await client.listTools();assert.ok(tools.tools.length>=18);assert.ok(tools.tools.some(t=>t.name==='test_run'));
+    for(const name of ['session_info','ui_windows','ui_window_select'])assert.ok(tools.tools.some(t=>t.name===name));
     const prompts=await client.listPrompts();assert.equal(prompts.prompts.length,3);
     const resources=await client.listResources();assert.ok(resources.resources.some(r=>r.uri==='infiautomation://guide'));
     const doctor=await client.callTool({name:'doctor',arguments:{}});assert.ok(!doctor.isError);

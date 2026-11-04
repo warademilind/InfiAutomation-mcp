@@ -1,0 +1,16 @@
+{
+  "name": "Enter project name",
+  "action": "fill",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 1746.3519999999999,
+  "screenshot": "electron-save-step-1.png",
+  "actual": {
+    "completed": true
+  },
+  "timings": {
+    "actionMs": 121.51520000000073
+  },
+  "evidence": "electron-save-step-1-evidence.json"
+}

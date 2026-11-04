@@ -61,7 +61,7 @@ export function renderReport(run: RunResult, detailed = false): string {
       <section id="environment" class="view-panel" aria-labelledby="environment-title" aria-hidden="true" inert>
         <div class="section-head"><div><h2 id="environment-title">Environment & provenance</h2><p class="subtle">The runtime and source data behind this execution.</p></div></div>
         <div class="environment-grid">
-          <article class="card"><div class="card-head"><h2>Recorded environment</h2></div><div class="environment"><dl id="environment-values"></dl><details><summary>View raw environment JSON</summary><pre id="env-json"></pre></details></div></article>
+          <article class="card"><div class="card-head"><h2>Recorded environment</h2></div><div class="environment"><dl id="environment-values"></dl><details><summary>View raw environment JSON</summary><pre id="env-json"></pre></details><details><summary>Application runtimes and connection capabilities</summary><pre id="session-runtimes" style="max-height:440px;overflow:auto"></pre></details></div></article>
           <article class="card"><div class="card-head"><h2>Evidence and interpretation</h2></div><div class="environment"><p>Results reflect actual runner outcomes. Healed cases remain separately classified; setup and teardown failures fail the case.</p><p>Screenshots and trace files are relative to this report folder. Keep them together when sharing the offline report.</p><p>Native screenshots need a visible, unlocked desktop. Open web/Electron trace ZIPs with Playwright Trace Viewer.</p><p>Requirement mapping describes the linked cases. Review acceptance criteria and untested business rules before claiming product acceptance.</p></div></article>
         </div>
       </section>

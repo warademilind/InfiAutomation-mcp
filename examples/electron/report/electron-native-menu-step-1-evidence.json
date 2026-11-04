@@ -1,0 +1,22 @@
+{
+  "name": "Invoke observed native export command",
+  "action": "menu",
+  "layer": "electron",
+  "target": "app",
+  "status": "passed",
+  "durationMs": 1569.4384000000002,
+  "screenshot": "electron-native-menu-step-1.png",
+  "actual": {
+    "path": [
+      "File",
+      "Export",
+      "Export JSON"
+    ],
+    "source": "electron-native-menu",
+    "invocation": "MenuItem.click"
+  },
+  "timings": {
+    "actionMs": 24.34810000000016
+  },
+  "evidence": "electron-native-menu-step-1-evidence.json"
+}
