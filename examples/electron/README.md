@@ -4,7 +4,7 @@ This synthetic adapter example uses the repository's Electron fixture. It verifi
 
 [Open the recorded HTML report](report/index.html) · [Detailed steps and screenshots](report/detailed.html) · [Actual result JSON](report/results.json) · [Evidence provenance](report/provenance.json). The recorded Windows x64 run passed 2/2 cases with five screenshots using Electron 45.2.1 / Chromium 156.0.8078.75. View it online at [the live Electron report](https://warademilind.github.io/InfiAutomation-mcp/examples/electron/report/), or keep this folder together and open the report locally. It is a synthetic fixture run, not a recording of your application.
 
-Install the current GitHub release, or clone the repository and run `npm ci` (builds the CLI), then `npm ci --prefix integration/fixtures/electron`. The fixture pins Electron 45.2.1. Set these environment variables in PowerShell, using your checkout path:
+To execute this repository fixture, clone the repository, open its root and run `npm ci` (builds the CLI), then `npm ci --prefix integration/fixtures/electron`. The fixture pins Electron 45.2.1. Viewing the recorded report needs no installation. Testing your own installed Electron app does not require this fixture dependency. Set these environment variables in PowerShell, using your checkout path:
 
 ```powershell
 $env:ELECTRON_APP = 'C:/Projects/InfiAutomation-mcp/integration/fixtures/electron/node_modules/electron/dist/electron.exe'
