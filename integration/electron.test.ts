@@ -4,6 +4,7 @@ import { spawn } from 'node:child_process';
 import { createRequire } from 'node:module';
 import { resolve } from 'node:path';
 import { WebDriver } from '../dist/drivers/web.js';
+import { DesktopDriver } from '../dist/drivers/desktop.js';
 import { targetSchema, stepSchema } from '../dist/schema.js';
 import { runSuite } from '../dist/runner.js';
 import { Workspace } from '../dist/workspace.js';
@@ -89,4 +90,18 @@ test('real Electron: CDP attaches through MCP, switches windows and detaches wit
     try{await assert.rejects(missing.start(),/No matching renderer/);}finally{await missing.close();}
     assert.equal(child.exitCode,null,'Failed attachment must leave the app running');
   } finally {await client.close().catch(()=>{});child.kill();}
+});
+
+test('real Electron Windows UIA: exposed controls work with an inherited host Node-mode flag', {skip:process.platform!=='win32'||process.env.INFIAUTOMATION_NATIVE_TEST!=='1'}, async()=>{
+  const previous=process.env.ELECTRON_RUN_AS_NODE;
+  process.env.ELECTRON_RUN_AS_NODE='1';
+  const driver=new DesktopDriver(targetSchema.parse({kind:'desktop',executable,args:[fixture,'--force-renderer-accessibility'],windowTitle:'InfiAutomation Lab',timeoutMs:12000}));
+  try {
+    await driver.start();
+    await driver.act(act({name:'Enter through UIA',action:'fill',locator:{controlType:'Edit',name:'Project name'},value:'Windows accessibility'}));
+    await driver.act(act({name:'Invoke through UIA',action:'click',locator:{controlType:'Button',name:'Save project'}}));
+    await driver.act(act({name:'Assert actual UIA result',action:'assertVisible',locator:{name:'Saved Windows accessibility'}}));
+  } finally {
+    try{await driver.close();}finally{if(previous===undefined)delete process.env.ELECTRON_RUN_AS_NODE;else process.env.ELECTRON_RUN_AS_NODE=previous;}
+  }
 });

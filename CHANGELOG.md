@@ -7,6 +7,7 @@
 - Add `session_info`, `ui_windows` and `ui_window_select`, with real runtime versions, ownership and transport-specific capabilities.
 - Invoke observed native Electron menu commands through `MenuItem.click`, reject disabled/hidden/ambiguous paths, and allow explicit DOM menu selection.
 - Include actual application runtime/capability evidence in new version 1 and version 2 HTML/JSON reports.
+- Remove inherited `ELECTRON_RUN_AS_NODE` from the Windows worker environment so Electron GUIs can also be launched through the explicit UIA adapter from VS Code/Electron hosts.
 - Test multiwindow apps, native menu effects and checkboxes, MCP CDP attachment, retained app state after detach and older embedded Chromium compatibility.
 - Document Electron launch, CDP and explicit Windows UIA fallback without promising compatibility with every Electron version or weakening app security fuses. Existing releases and suite formats remain available.
 

@@ -62,6 +62,7 @@
     "prepare": "npm run build",
     "test:integration:web": "node --import tsx --test --test-name-pattern=\"real Chromium\" integration/adapters.test.ts",
     "test:integration:electron": "node --import tsx --test --test-concurrency=1 --test-name-pattern=\"real Electron\" integration/adapters.test.ts integration/electron.test.ts",
+    "test:integration:electron:native": "node --import tsx --test --test-name-pattern=\"real Electron Windows UIA\" integration/electron.test.ts",
     "test:integration:native": "node --import tsx --test --test-name-pattern=\"real Windows\" integration/adapters.test.ts",
     "test:unified": "node scripts/verify-unified-demo.mjs",
     "test:databases": "node scripts/verify-database-services.mjs"

@@ -115,6 +115,8 @@ If Electron launch/CDP is unavailable, inspect an app's accessible Windows contr
 
 An observed PID can narrow attachment. Use `session_start` and `ui_snapshot` to discover real automation IDs/names, then create Windows UIA locators. DOM CSS/test IDs do not automatically translate to UIA. If your test app supports it, its `--force-renderer-accessibility` option may expose more controls; inspect again rather than assuming it did. This alternative is explicit, never a silent selector substitution after a failed assertion.
 
+Both launch adapters remove inherited `ELECTRON_RUN_AS_NODE` from their child environment. This prevents VS Code/Electron hosts from accidentally starting an Electron GUI in Node mode. The Windows-specific integration check verifies this with an accessible Electron form: input, button invocation and the actual resulting text, without CDP or the Electron inspect API. Run `npm run test:integration:electron:native` with `INFIAUTOMATION_NATIVE_TEST=1` on a prepared unlocked Windows machine; the maintainer-only interactive workflow includes this check.
+
 ## 6. Create and run a test plan
 
 Prompt your MCP host:
