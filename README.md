@@ -22,6 +22,30 @@ InfiAutomation connects an MCP-compatible AI client to real application controls
 
 The verification fixture above deliberately includes one failing assertion and one healed selector to demonstrate truthful reporting.
 
+## Electron desktop example: requirements to reports
+
+**[Open the interactive InfiComponent Lab walkthrough](https://warademilind.github.io/InfiAutomation-mcp/showcases/inficomponent-lab/)** to explore a packaged Electron application from its supplied requirements through the generated plan, executable cases and actual execution evidence. The page includes working report navigation, screenshot drill-down and two embedded video players.
+
+The supplied acceptance rerun recorded **26/26 automated cases passed**, **523 steps**, **107.908 seconds**, and **healing off**. Seven connection/native checks passed separately. Four manual cases remain **not run**; their reasons and expected outcomes are retained in the case sheet.
+
+[![Actual InfiComponent Lab Electron acceptance summary; open the interactive report](showcases/inficomponent-lab/previews/execution-summary.png)](https://warademilind.github.io/InfiAutomation-mcp/showcases/inficomponent-lab/acceptance-20261104-acceptance-rerun/mcp-report/index.html)
+
+| Explore | Open the rendered HTML or video player |
+| --- | --- |
+| Requirements | [Requirement sheet and original source](https://warademilind.github.io/InfiAutomation-mcp/showcases/inficomponent-lab/requirements.html) |
+| Generated plan | [Scope, scenarios, risks and open questions](https://warademilind.github.io/InfiAutomation-mcp/showcases/inficomponent-lab/acceptance-20261104-acceptance-rerun/test-plan.html) |
+| Generated cases | [Search cases, actions, locators and expected results](https://warademilind.github.io/InfiAutomation-mcp/showcases/inficomponent-lab/acceptance-20261104-acceptance-rerun/test-cases.html) |
+| Actual execution | [Summary dashboard](https://warademilind.github.io/InfiAutomation-mcp/showcases/inficomponent-lab/acceptance-20261104-acceptance-rerun/mcp-report/index.html), [case and step drill-down](https://warademilind.github.io/InfiAutomation-mcp/showcases/inficomponent-lab/acceptance-20261104-acceptance-rerun/mcp-report/detailed.html) |
+| Requirement coverage | [Requirement-to-case outcomes](https://warademilind.github.io/InfiAutomation-mcp/showcases/inficomponent-lab/acceptance-20261104-acceptance-rerun/mcp-report/traceability.html) |
+| Execution video | [Watch 2:34 of real Electron execution, with case chapters](https://warademilind.github.io/InfiAutomation-mcp/showcases/inficomponent-lab/#video) |
+| HTML walkthrough video | [Watch the 33-second requirements-to-report tour](https://warademilind.github.io/InfiAutomation-mcp/showcases/inficomponent-lab/#report-tour) |
+
+The execution video covers **three passing cases (LAB01–LAB03)** from a separate recording attempt that was later interrupted by video startup timeouts. The complete 26-case result is documented in the supplied acceptance report. Both videos are silent real captures.
+
+Of 504 captured screenshots, **484 original application screenshots are published unchanged**; 20 images exposing machine paths are withheld with explicit placeholders. Earlier results, manual coverage gaps and publication hashes remain available in the [showcase documentation](showcases/inficomponent-lab/README.md). The application executable is not redistributed.
+
+Use the live links above to interact with HTML; GitHub's file viewer shows its source. For offline viewing, download or clone this repository and open `showcases/inficomponent-lab/index.html`, keeping the entire showcase folder together. The showcase is excluded from normal MCP package downloads.
+
 ## Start here
 
 Follow the guides in order. All Windows examples use the generic workspace **C:/InfiTests**; choose a writable folder and update the paths if yours differs.
